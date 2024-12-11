@@ -2,19 +2,19 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const HeaderContainer = styled.header`
-  position: fixed; /* Torna o cabeçalho fixo na tela */
+  position: sticky;
   top: 0;
-  left: 0;
-  width: 100%; /* Garante que o cabeçalho ocupe toda a largura */
+  padding: 10px 16px;
   background-color: #062400;
-  padding: 10px 20px;
+  color: #f1f1f1;
   color: #fff;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  z-index: 1000; /* Garante que ele ficará acima de outros elementos */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra para destacar o cabeçalho */
+  z-index: 1000;
 `;
+
 
 export const Title = styled.h1`
   margin: 0;

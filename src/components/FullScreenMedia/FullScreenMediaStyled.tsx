@@ -8,14 +8,12 @@ export interface FullScreenMediaProps {
 export const MediaContainer = styled.div`
     width: 100%;
     height: 100vh; 
-    position: relative;
-    overflow: hidden;
   `;
   
 export const TitleContainer = styled.div`
     color: #ffff;
     width: 100%;
-    height: 30%; 
+    height: 50vh; 
     display: flex;
     flex-direction: row;
     justify-content: space-between;

@@ -5,12 +5,14 @@ import SectionPicture from '../../components/SectionPicture/SectionPicture';
 import CustomCarousel from '../../components/Carousel/Carousel';
 import CardComponent from '../../components/CardComponent/CardComponent';
 import BigTextSection from '../../components/BigTextSection/BigTextSection';
+import Mosaico from '../../components/Mosaico/Mosaico';
 
 const boat = require('../../assets/images/products/boat.jpg');
 
 const HomePage: React.FC = () => {
   return (
     <Container>
+      <Mosaico/>
       <FullScreenMedia mediaSrc={boat} />
       <hr/>
       <SectionPicture/>
