@@ -7,7 +7,7 @@ import Header from './components/Header/Header';
 const App: React.FC = () => {
   return (
     <Router>
-      <Header />
+      {/* <Header /> */}
       
       <Routes>
         <Route path="/" element={<Home />} />
