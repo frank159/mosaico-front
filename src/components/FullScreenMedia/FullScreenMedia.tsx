@@ -1,5 +1,6 @@
 import React from 'react';
-import { MediaContainer, MediaWrapper, FullScreenVideo, FullScreenImage, FullScreenMediaProps, TitleContainer, Title, Text} from './FullScreenMediaStyled';
+import { MediaContainer, MediaWrapper, FullScreenVideo, FullScreenImage, FullScreenMediaProps} from './FullScreenMediaStyled';
+import TitlePage from '../TitlePage/TitlePage';
 
 
 const FullScreenMedia: React.FC<FullScreenMediaProps> = ({ mediaSrc, isVideo = false }) => {
@@ -15,14 +16,7 @@ const FullScreenMedia: React.FC<FullScreenMediaProps> = ({ mediaSrc, isVideo = f
           <FullScreenImage src={mediaSrc} alt="Full screen media" />
         )}
       </MediaWrapper>
-      <TitleContainer>
-        <Title>
-          Mosaico
-        </Title>
-        <Text>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.Nam sit amet ex eu eros pellentesque viverra. Sed vel semper nisi. Fusce a lacus vel purus faucibus laoreet ut sit amet orci. Integer vitae nisl vel sapien tristique malesuada. Etiam efficitur viverra ante a fermentum. Vestibulum ac odio non urna ultrices suscipit nec vel velit.
-        </Text>
-      </TitleContainer>
+      <TitlePage titleText="Mosaico" text="Mosaico" titleColor="#ffffff" textColor="#ffffff" backgroundColor="#000000"/>
     </MediaContainer>
   );
 };

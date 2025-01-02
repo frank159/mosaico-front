@@ -13,6 +13,9 @@ const Header: React.FC = () => {
           <NavItem>
             <StyledLink to="/about">About</StyledLink>
           </NavItem>
+          <NavItem>
+            <StyledLink to="/mosaico">Mosaico</StyledLink>
+          </NavItem>
         </NavList>
       </Nav>
     </HeaderContainer>
