@@ -1,9 +1,15 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-  height: 113vh;
-  color: white;
-  background-color: #062400;
+interface BigTextStyledProps {
+  backgroundColor?: string;
+  colorCont?: string;
+  heighCont?: string;
+}
+
+export const Container = styled.div<BigTextStyledProps>`
+  height: ${props => props.heighCont || '113vh'};
+  color: ${props => props.colorCont || 'white'};
+  background-color: ${props => props.backgroundColor || '#062400'};
   display: flex;
   flex-direction: column;
   justify-content: center;

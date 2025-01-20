@@ -19,3 +19,8 @@ declare module 'infinite-react-carousel' {
     export default Carousel;
   }
   
+declare module '*.png' {
+    const value: string;
+    export default value;
+  }
+  

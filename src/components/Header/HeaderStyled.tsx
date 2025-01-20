@@ -1,43 +1,53 @@
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import styled from "styled-components";
 
-export const HeaderContainer = styled.header`
-  position: sticky;
-  top: 0;
-  padding: 10px 16px;
-  background-color: #062400;
-  color: #f1f1f1;
-  color: #fff;
+export const Container = styled.div`
+  position: fixed; /* Fixa o header no topo */
+  top: 0; /* Define a posição no topo da tela */
+  left: 0; /* Alinha à esquerda */
+  width: 100%; /* Ocupa toda a largura */
+  height: 5vh;
+  background-color: #f0f0f0;
+  z-index: 1000; /* Garante que o header fique acima de outros elementos */
   display: flex;
+  justify-content: center;
   align-items: center;
-  justify-content: space-between;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra para destacar o cabeçalho */
-  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adiciona sombra para destaque */
 `;
 
-
-export const Title = styled.h1`
-  margin: 0;
-  font-size: 1.5rem;
-`;
-
-export const Nav = styled.nav``;
-
-export const NavList = styled.ul`
-  list-style: none;
+export const Element = styled.div<{ isActive: boolean }>`
+  position: absolute;
   display: flex;
-  gap: 10px;
-  margin: 0;
-  padding: 0;
-`;
-
-export const NavItem = styled.li``;
-
-export const StyledLink = styled(Link)`
-  color: #ffffff;
-  text-decoration: none;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 
   &:hover {
-    text-decoration: underline;
+    height: 4vh;
   }
+`;
+
+export const Img = styled.img`
+  height: 3.5vh;
+  transition: all 0.3s ease;
+`;
+
+export const ShadowDiv = styled.div`
+  position: fixed; /* Mantém a sombra fixa abaixo do Header */
+  top: 5vh; /* Posiciona logo abaixo do Header */
+  left: 0;
+  right: 0;
+  height: 10px; /* Altura da sombra */
+  background: linear-gradient(
+    to bottom, /* Gradiente para baixo */
+    rgba(0, 0, 0, 0.5) 10%, /* Parte mais escura no topo */
+    rgba(0, 0, 0, 0.048) 70%,
+    rgba(0, 0, 0, 0) 90% /* Parte transparente no final */
+  );
+  pointer-events: none; /* Impede que a sombra interfira na interação do usuário */
+  z-index: 999; /* Coloca a sombra acima de outros elementos, mas abaixo do header */
 `;

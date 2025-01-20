@@ -34,7 +34,12 @@ interface CardComponentProps {
     text: string;
   };
   longText: string;
-  imageSrc: string;
+  frameWidth?: string;
+  frameHeight?: string;
+  imageWidth?: string;
+  imageHeight?: string;
+  imageSrc?: string;
+  justify?: string;
 }
 
 const CardComponent: React.FC<CardComponentProps> = ({
@@ -47,7 +52,12 @@ const CardComponent: React.FC<CardComponentProps> = ({
   subheading1,
   subheading2,
   longText,
-  imageSrc
+  frameWidth,
+  frameHeight,
+  imageWidth,
+  imageHeight,
+  imageSrc,
+  justify
 }) => {
   return (
     <Container textColor={textColor}>
@@ -81,13 +91,25 @@ const CardComponent: React.FC<CardComponentProps> = ({
               </TopicsContainer>
             </LeftContent>
           </FlexContainerINTER1>
-          <FlexContainerINTER1>
-            <RightContent>
-              <ImageFrame borderColor={borderColor}>
-                <Image src={imageSrc} alt="Card media" />
-              </ImageFrame>
-            </RightContent>
-          </FlexContainerINTER1>
+          {imageSrc && (
+            <FlexContainerINTER1>
+              <RightContent>
+                <ImageFrame 
+                  frameWidth={frameWidth}
+                  frameHeight={frameHeight}    
+                  justify={justify}            
+                  borderColor={borderColor}
+                >
+                  <Image 
+                    imageWidth={imageWidth}
+                    imageHeight={imageHeight}                    
+                    src={imageSrc}
+                    alt="Card media" 
+                  />
+                </ImageFrame>
+              </RightContent>
+            </FlexContainerINTER1>
+          )}
         </FlexContainer1>
         <FlexContainer2>
           <LongTextContainer textColor={textColor}>

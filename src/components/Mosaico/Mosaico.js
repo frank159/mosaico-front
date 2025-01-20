@@ -106,7 +106,7 @@ const Scene = () => {
       alpha: true
     });
     renderer.setPixelRatio(window.devicePixelRatio);
-    renderer.setClearColor(0xffffff);
+    renderer.setClearColor(0x000000);
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     renderer.toneMapping = THREE.NoToneMapping;
 
@@ -157,32 +157,6 @@ const Scene = () => {
             z: hoverHeight,
             duration: 0.3
           });
-
-          // Anima a borda se for elemento interativo
-          if (newHoveredMesh.userData.border) {
-            const border = newHoveredMesh.userData.border;
-            border.visible = true;
-            border.position.z = hoverHeight + 0.1;
-            
-            // Anima a opacidade da borda
-            gsap.to(border.material, {
-              opacity: 1,
-              duration: 0.5,
-              ease: "power2.inOut"
-            });
-            
-            // Anima o progresso da borda ao redor do elemento
-            gsap.fromTo(border.material,
-              { 
-                dashOffset: border.userData.totalLength 
-              },
-              {
-                dashOffset: 0,
-                duration: 1,
-                ease: "power2.inOut"
-              }
-            );
-          }
         }
       } else {
         // Esconde a luz quando não há hover
@@ -215,7 +189,7 @@ const Scene = () => {
 
     // Materiais
     const fillMaterial = new THREE.MeshPhongMaterial({ 
-      color: "#F3FBFB",
+      color: "#cecece",
       side: THREE.DoubleSide,
       transparent: false,
       opacity: 1,
@@ -227,7 +201,7 @@ const Scene = () => {
 
     // Vamos criar materiais diferentes para os elementos em cinza
     const grayMaterial = new THREE.MeshPhongMaterial({ 
-      color: "#D3D3D3", // Cinza claro
+      color: "#cecece", // Cinza claro
       side: THREE.DoubleSide,
       transparent: false,
       opacity: 1,
@@ -235,7 +209,7 @@ const Scene = () => {
     });
 
     const darkGrayMaterial = new THREE.MeshPhongMaterial({ 
-      color: "#808080", // Cinza médio
+      color: "#bbbbbb", // Cinza médio
       side: THREE.DoubleSide,
       transparent: false,
       opacity: 1,
@@ -243,7 +217,7 @@ const Scene = () => {
     });
 
     const lightGrayMaterial = new THREE.MeshPhongMaterial({ 
-      color: "#F5F5F5", // Cinza muito claro
+      color: "#dfdfdf", // Cinza muito claro
       side: THREE.DoubleSide,
       transparent: false,
       opacity: 1,
