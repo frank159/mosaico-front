@@ -7,6 +7,15 @@ interface ColorProps {
   borderColor?: string;
 }
 
+interface ImageProps {
+  borderColor?: string;
+  frameWidth?: string;
+  frameHeight?: string;
+  imageWidth?: string;
+  imageHeight?: string;
+  justify?: string;
+}
+
 export const Container = styled.div<ColorProps>`
   height: 95vh;
   color: ${props => props.textColor || '#0e0a0a'};
@@ -108,22 +117,21 @@ export const Topics = styled.div`
   width: 50%;
 `;
 
-export const ImageFrame = styled.div<ColorProps>`
-  height: 70%;
-  width: 80%;
+export const ImageFrame = styled.div<ImageProps>`
+  height: ${props => props.frameHeight || '70%'};
+  width: ${props => props.frameWidth || '80%'};
   background-color: transparent;
   border: 1px solid ${props => props.borderColor || 'black'};
   display: flex;
   align-items: center;
-  justify-content: center;
-
+  justify-content: ${props => props.justify || 'center'};
   padding: 10px;
   box-sizing: border-box; 
 `;
 
-export const Image = styled.img`
-  width: 100%;
-  height: 100%;
+export const Image = styled.img<ImageProps>`
+  width: ${props => props.imageWidth || '100%'};
+  height: ${props => props.imageHeight || '100%'};
   object-fit: cover;
   object-position: center;
   box-sizing: border-box;

@@ -7,7 +7,7 @@ export interface FullScreenMediaProps {
   
 export const MediaContainer = styled.div`
     width: 100%;
-    height: 100vh; 
+    height: 70vh; 
   `;
   
 export const TitleContainer = styled.div`
@@ -17,7 +17,6 @@ export const TitleContainer = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-top: 5vh;
 `;
 
 export const Title = styled.h1`
@@ -31,7 +30,7 @@ export const Text = styled.text`
 
 export const MediaWrapper = styled.div`
     width: 100%;
-    height: 70%; 
+    height: 100%; 
     display: flex;
     justify-content: center;
     align-items: center; 

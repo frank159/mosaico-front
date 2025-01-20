@@ -8,10 +8,10 @@ import Header from './components/Header/Header';
 const App: React.FC = () => {
   return (
     <Router>
-        <Header />
+      <Header />
       
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/Home" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/mosaico" element={<Mosaico />} />
       </Routes>

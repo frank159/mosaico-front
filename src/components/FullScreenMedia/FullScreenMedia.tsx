@@ -1,6 +1,5 @@
 import React from 'react';
 import { MediaContainer, MediaWrapper, FullScreenVideo, FullScreenImage, FullScreenMediaProps} from './FullScreenMediaStyled';
-import TitlePage from '../TitlePage/TitlePage';
 
 
 const FullScreenMedia: React.FC<FullScreenMediaProps> = ({ mediaSrc, isVideo = false }) => {
@@ -16,7 +15,6 @@ const FullScreenMedia: React.FC<FullScreenMediaProps> = ({ mediaSrc, isVideo = f
           <FullScreenImage src={mediaSrc} alt="Full screen media" />
         )}
       </MediaWrapper>
-      <TitlePage titleText="Mosaico" text="Mosaico" titleColor="#ffffff" textColor="#ffffff" backgroundColor="#000000"/>
     </MediaContainer>
   );
 };
