@@ -90,7 +90,7 @@ const Header: React.FC = () => {
           </Element>
         ))}
       </Container>
-      <ShadowDiv /> {/* Sombra fixa abaixo do Header */}
+      <ShadowDiv />
     </>
   );
 };

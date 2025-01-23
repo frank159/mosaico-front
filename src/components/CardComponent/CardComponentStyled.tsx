@@ -1,10 +1,19 @@
 import styled from "styled-components";
 
-interface ColorProps {
+interface CardProps {
   backgroundColor?: string;
   textColor?: string;
   titleColor?: string;
   borderColor?: string;
+  expandedMax?: string; 
+  expandedMin?: string; 
+  width?: string; 
+  widthLongText?: string; 
+  isExpanded?: boolean; 
+  isVisible?: boolean; 
+  isRotated?: boolean;
+  click?: boolean;
+  justifyText?: boolean;
 }
 
 interface ImageProps {
@@ -13,32 +22,56 @@ interface ImageProps {
   frameHeight?: string;
   imageWidth?: string;
   imageHeight?: string;
+  opacity?: string;
   justify?: string;
+  imgMargin?: string;
 }
 
-export const Container = styled.div<ColorProps>`
-  height: 95vh;
-  color: ${props => props.textColor || '#0e0a0a'};
+export const ImgIcon = styled.img<CardProps & { isRotated?: boolean }>`
+  filter: invert(100%);
+  height: 4vh;
+  transform: rotate(${(props) => (props.isRotated ? "270deg" : "90deg")});
+  margin-right: 2vw;
+  transition: transform 0.3s ease-in-out, transform 0.2s ease-in-out; // Adiciona animação de escala suave
+`;
+
+export const ArrowButton = styled.div`
+  position: absolute; // Fixa o botão na posição desejada
+  bottom: 10px; // Distância da parte inferior
+  width: 100%; // Centraliza o botão horizontalmente
   display: flex;
-  justify-content: center;
+  justify-content: end;
   align-items: center;
 `;
 
-export const CardContainer = styled.div<ColorProps>`
-  width: 85%;
-  height: 95%;
-  background-color: ${props => props.backgroundColor || '#F8F6E6'};
+
+export const Container = styled.div<CardProps>`
+  color: ${(props) => props.textColor || "#0e0a0a"};
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin-top: 7vh;
+  margin-bottom: 4vh;
+`;
+
+export const CardContainer = styled.div<CardProps>`
+  width: ${(props) => props.width || "85%"} ;
+  height: ${(props) => (props.isExpanded ? props.expandedMax : props.expandedMin)};
+  background-color: ${(props) => props.backgroundColor || "#F8F6E6"};
   border-radius: 2cap;
   display: flex;
   flex-direction: column;
-`;
+  cursor: ${(props) => (props.click ? "pointer" : "default")};
+  transition: height 0.5s ease-in-out;
+  overflow: hidden;
+  align-items: flex-start;
+  margin-bottom: ${(props) => (props.isExpanded ? "50px" : "20px")};
+  position: relative;
 
-export const FlexContainer1 = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
-  height: 50%;
+  &:hover ${ImgIcon} {
+    transform: scale(1.2) rotate(${(props) => (props.isRotated ? "270deg" : "90deg")});
+    transition: transform 0.3s ease-in-out;
+  }
 `;
 
 export const FlexContainerINTER1 = styled.div`
@@ -47,22 +80,65 @@ export const FlexContainerINTER1 = styled.div`
   justify-content: center;
   align-items: center;
   height: 100%;
+  width: 100%;
+  text-align: justify;
+
+`;
+
+export const FlexContainerINTER = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
   width: 50%;
 `;
 
-export const FlexContainer2 = styled.div`
-  height: 50%;
+export const FlexContainer1 = styled.div`
   display: flex;
-  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  flex-grow: 0; // Parte superior não cresce
 `;
 
-export const LongTextContainer = styled.text<ColorProps>`
+export const FlexContainer2 = styled.div<CardProps>`
   display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  transition: height 0.3s ease-in-out;
+`;
+
+export const LongTextContainer = styled.text<CardProps>`
+  display: flex;
+  text-align: justify;
   justify-content: flex-start;
-  width: 70%;
+  width: ${(props) => props.widthLongText || "70%"} ;
   font-size: 24px;
   margin-left: 1.3vw;
-  color: ${props => props.textColor || 'black'};
+  color: ${(props) => props.textColor || "black"};
+`;
+
+export const HiddenText = styled.div<CardProps>`
+  padding: 1vh 5vh 5vh 5vh;
+  font-size: 16px;
+  color: ${(props) => props.textColor || "black"};
+  background-color: ${(props) => props.backgroundColor || "black"};
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: start;
+  transition: opacity 0.5s ease-in-out 0.5s; // Adiciona um atraso de 0.5s para a transição da opacidade
+`;
+
+export const HrComp = styled.hr<CardProps>`
+  margin-top: 3vh;
+  width: 97%;
+  border: 1px solid #383838
+`;
+
+export const VisibleComponent = styled.div<CardProps>`
+
 `;
 
 export const LeftContent = styled.div`
@@ -70,38 +146,23 @@ export const LeftContent = styled.div`
   flex-direction: column;
   height: 100%;
   width: 100%;
-  justify-content: center;
+  justify-content: flex-start;
 `;
 
-export const RightContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  width: 100%;
-  justify-content: center;
-`;
-
-export const Title = styled.text<ColorProps>`
+export const Title = styled.text<CardProps>`
   width: 95%;
+  margin-top: 3vh;
   font-size: 40px;
   font-weight: bold;
   padding: 30px 30px 0 30px;
-  color: ${props => props.titleColor || 'black'};
+  color: ${(props) => props.titleColor || "black"};
 `;
 
-export const Text = styled.text<ColorProps>`
+export const Text = styled.text<CardProps>`
   width: 95%;
   padding: 0 30px 30px 30px;
-  color: ${props => props.textColor || 'black'};
+  color: ${(props) => props.textColor || "black"};
   font-size: 18px;
-`;
-
-export const TitleSmall = styled.h3<ColorProps>`
-  width: 70%;
-  padding: 30px 30px 0 30px;
-  color: ${props => props.titleColor || 'black'};
 `;
 
 export const TopicsContainer = styled.div`
@@ -117,22 +178,44 @@ export const Topics = styled.div`
   width: 50%;
 `;
 
-export const ImageFrame = styled.div<ImageProps>`
-  height: ${props => props.frameHeight || '70%'};
-  width: ${props => props.frameWidth || '80%'};
-  background-color: transparent;
-  border: 1px solid ${props => props.borderColor || 'black'};
+export const TitleSmall = styled.h3<CardProps>`
+  width: 70%;
+  padding: 30px 30px 0 30px;
+  color: ${(props) => props.titleColor || "black"};
+`;
+
+export const RightContent = styled.div`
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  justify-content: ${props => props.justify || 'center'};
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+`;
+
+export const ImageFrame = styled.div<ImageProps>`
+  height: auto;
+  width: auto;
+  padding: 3rem;
+  background-color: transparent;
+  border: 1px solid ${(props) => props.borderColor || "black"};
+  display: flex;
+  align-items: start;
+  align-self: flex-end;
+  justify-content: ${(props) => props.justify || "center"};
   padding: 10px;
-  box-sizing: border-box; 
+  box-sizing: border-box;
+  margin: ${(props) => props.imgMargin || "none"};
 `;
 
 export const Image = styled.img<ImageProps>`
-  width: ${props => props.imageWidth || '100%'};
-  height: ${props => props.imageHeight || '100%'};
+  width: ${(props) => props.imageWidth || "5vw"};
+  height: ${(props) => props.imageHeight || "5vh"};
+  opacity: ${(props) => props.opacity || 'none'};
   object-fit: cover;
   object-position: center;
   box-sizing: border-box;
 `;
+
+

@@ -6,20 +6,21 @@ import {
   RightContent, 
   Image, 
   Title, 
-  Text, 
-  Topics, 
-  TopicsContainer, 
-  TitleSmall, 
+  Text,
   ImageFrame
 } from './SectionPictureStyled';
 
 interface SectionPictureProps {
+  backgroundColorHover?: string;
   backgroundColor?: string;
   textColor?: string;
   titleColor?: string;
   borderColor?: string;
   mainTitle?: string;
   mainText?: string;
+  height?: string;
+  width?: string;
+  scale?: string;
   subheading1?: {
     title: string;
     text: string;
@@ -32,50 +33,35 @@ interface SectionPictureProps {
 }
 
 const SectionPicture: React.FC<SectionPictureProps> = ({
-  backgroundColor = '#000000',
-  textColor = '#F8F6E6',
-  titleColor = '#F8F6E6',
-  borderColor = '#FFFFFF',
+  backgroundColor = 'none',
+  textColor = 'none',
+  titleColor = 'none',
+  borderColor = 'none',
+  backgroundColorHover = 'none',
+  height = 'none',
+  width = 'none',
+  scale = 'none',
   mainTitle = 'Long heading is what you see here in this feature section',
   mainText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.',
-  subheading1 = {
-    title: 'Subheading one',
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.'
-  },
-  subheading2 = {
-    title: 'Subheading two',
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.'
-  },
-  imageSrc = require('../../assets/images/products/boat2.jpg')
+  imageSrc
 }) => {
+  
   return (
-    <Container backgroundColor={backgroundColor}>
-      <ContentContainer>
+    <Container 
+      height={height}
+      width={width}
+    >
+      <ContentContainer
+        scale={scale}
+        backgroundColor={backgroundColor}
+        backgroundColorHover={backgroundColorHover}
+      >
         <LeftContent>
           <Title color={titleColor}>
             {mainTitle}
           </Title>
-          <Text color={textColor}>
-            {mainText}
+          <Text textColor={textColor} dangerouslySetInnerHTML={{ __html: mainText }}>
           </Text>
-          <TopicsContainer>
-            <Topics>
-              <TitleSmall color={titleColor}>
-                {subheading1.title}
-              </TitleSmall>
-              <Text color={textColor}>
-                {subheading1.text}
-              </Text>
-            </Topics>
-            <Topics>
-              <TitleSmall color={titleColor}>
-                {subheading2.title}
-              </TitleSmall>
-              <Text color={textColor}>
-                {subheading2.text}
-              </Text>
-            </Topics>
-          </TopicsContainer>
         </LeftContent>
         <RightContent>
           <ImageFrame borderColor={borderColor}>
