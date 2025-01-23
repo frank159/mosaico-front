@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home/Home';
-import About from './pages/About/About';
+import School from './pages/School/School';
 import Mosaico from './pages/Mosaico/Mosaico';
 import Header from './components/Header/Header';
 
@@ -12,7 +12,7 @@ const App: React.FC = () => {
       
       <Routes>
         <Route path="/Home" element={<Home />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/about" element={<School />} />
         <Route path="/mosaico" element={<Mosaico />} />
       </Routes>
     </Router>

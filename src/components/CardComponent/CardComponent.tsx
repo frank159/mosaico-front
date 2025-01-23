@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import "keen-slider/keen-slider.min.css";
 
 import {
@@ -15,8 +16,16 @@ import {
   RightContent,
   ImageFrame,
   Image,
-  LongTextContainer
-} from "./CardComponentStyled"
+  LongTextContainer,
+  HiddenText,
+  FlexContainerINTER,
+  HrComp,
+  VisibleComponent,
+  ArrowButton,
+  ImgIcon,
+} from "./CardComponentStyled";
+
+const rightArrow = require('../../assets/images/icons/rightArrow.png');
 
 interface CardComponentProps {
   backgroundColor?: string;
@@ -37,16 +46,27 @@ interface CardComponentProps {
   frameWidth?: string;
   frameHeight?: string;
   imageWidth?: string;
+  click?: boolean;
   imageHeight?: string;
   imageSrc?: string;
   justify?: string;
+  opacity?: string;
+  hiddenText: string;
+  expandedMin: string;
+  expandedMax: string;
+  width?: string;
+  widthLongText?: string;
+  imgMargin?: string;
 }
 
 const CardComponent: React.FC<CardComponentProps> = ({
-  backgroundColor = '#ffffff',
-  textColor = '#000000',
-  titleColor = '#000000',
-  borderColor = '#000000',
+  backgroundColor = "#ffffff",
+  textColor = "#000000",
+  titleColor = "#000000",
+  borderColor = "#000000",
+  click = true,
+  opacity,
+  width = '',
   mainTitle,
   mainText,
   subheading1,
@@ -57,68 +77,100 @@ const CardComponent: React.FC<CardComponentProps> = ({
   imageWidth,
   imageHeight,
   imageSrc,
-  justify
+  justify,
+  hiddenText,
+  expandedMin,
+  expandedMax,
+  imgMargin,
+  widthLongText
 }) => {
+  const [isExpanded, setIsExpanded] = useState(false); // Estado para controlar expansão
+  const [isVisible, setIsVisible] = useState(false); // Estado para controlar visibilidade do texto escondido
+  const [isRotated, setIsRotated] = useState(false);
+
+  const handleToggle = () => {
+    if(click){
+      setIsExpanded((prev) => !prev); // Alterna expansão
+      setIsRotated((prev) => !prev); // Alterna rotação da seta
+    }
+  };
+
+  // Adiciona um efeito para mostrar o texto escondido após a animação de expansão
+  React.useEffect(() => {
+    if (isExpanded) {
+      setIsVisible(true); // Torna o texto visível após a expansão
+    } else {
+      setTimeout(() => {
+        setIsVisible(false); // Torna o texto visível após a expansão
+      }, 500); // Atraso de 500ms para garantir que a expansão tenha terminado
+
+    }
+  }, [isExpanded]);
+
   return (
     <Container textColor={textColor}>
-      <CardContainer backgroundColor={backgroundColor}>
+      <CardContainer
+        click={click}
+        width={width}
+        backgroundColor={backgroundColor}
+        onClick={handleToggle}
+        isRotated={isRotated}
+        isExpanded={isExpanded}
+        expandedMin={expandedMin}
+        expandedMax={expandedMax}
+      >
         <FlexContainer1>
           <FlexContainerINTER1>
             <LeftContent>
-              <Title titleColor={titleColor}>
-                {mainTitle}
-              </Title>
-              <Text textColor={textColor}>
-                {mainText}
-              </Text>
-              <TopicsContainer>
-                <Topics>
-                  <TitleSmall titleColor={titleColor}>
-                    {subheading1.title}
-                  </TitleSmall>
-                  <Text textColor={textColor}>
-                    {subheading1.text}
-                  </Text>
-                </Topics>
-                <Topics>
-                  <TitleSmall titleColor={titleColor}>
-                    {subheading2.title}
-                  </TitleSmall>
-                  <Text textColor={textColor}>
-                    {subheading2.text}
-                  </Text>
-                </Topics>
-              </TopicsContainer>
+              <Title titleColor={titleColor} dangerouslySetInnerHTML={{ __html: mainTitle }} ></Title>
+              <Text textColor={textColor} dangerouslySetInnerHTML={{ __html: mainText }}></Text>
+
             </LeftContent>
           </FlexContainerINTER1>
           {imageSrc && (
-            <FlexContainerINTER1>
+            <FlexContainerINTER>
               <RightContent>
-                <ImageFrame 
+                <ImageFrame
                   frameWidth={frameWidth}
-                  frameHeight={frameHeight}    
-                  justify={justify}            
+                  frameHeight={frameHeight}
+                  justify={justify}
                   borderColor={borderColor}
+                  imgMargin={imgMargin}
                 >
-                  <Image 
+                  <Image
                     imageWidth={imageWidth}
-                    imageHeight={imageHeight}                    
+                    imageHeight={imageHeight}
                     src={imageSrc}
-                    alt="Card media" 
+                    opacity={opacity}
+                    alt="Card media"
                   />
                 </ImageFrame>
               </RightContent>
-            </FlexContainerINTER1>
+            </FlexContainerINTER>
           )}
         </FlexContainer1>
-        <FlexContainer2>
-          <LongTextContainer textColor={textColor}>
-            {longText}
-          </LongTextContainer>
+        <FlexContainer2 isExpanded={isExpanded}>
+          <LongTextContainer widthLongText={widthLongText} textColor={textColor} dangerouslySetInnerHTML={{ __html: longText }}></LongTextContainer>
         </FlexContainer2>
+        {isVisible && (
+          <VisibleComponent>
+            <HrComp />
+            <HiddenText backgroundColor={backgroundColor} textColor={textColor} dangerouslySetInnerHTML={{ __html: hiddenText }} />
+          </VisibleComponent>
+        )}
+        {hiddenText && (
+          <ArrowButton>
+            <ImgIcon
+              src={rightArrow}
+              alt="Expand"
+              isRotated={isRotated}
+            />
+          </ArrowButton>
+        )}
       </CardContainer>
     </Container>
   );
 };
+
 
 export default CardComponent;

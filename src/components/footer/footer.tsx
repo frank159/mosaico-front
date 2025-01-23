@@ -6,10 +6,15 @@ const instagram = require('../../assets/images/icons/instagram.png');
 const youtube = require('../../assets/images/icons/youtube.png');
 const mosaico = require('../../assets/images/icons/mosaico.png');
 
+interface FooterProps {
+    marginTop?: string;
+  }
 
-const Footer: React.FC = () => {
+const Footer: React.FC<FooterProps> = ({
+    marginTop
+}) => {
   return (
-    <FooterContainer>
+    <FooterContainer marginTop={marginTop}>
         <FooterDiv>
             <MainDiv>
                 <MainIcon>

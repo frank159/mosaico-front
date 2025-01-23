@@ -1,8 +1,14 @@
 import styled from 'styled-components';
   
 export const Container = styled.div`
-    background: #062400;
+    background: #F8F6E6;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+
 `;
 
 export const TESTE = styled.div`
@@ -28,3 +34,9 @@ export const MosaicoWrapper = styled.div`
     z-index: 1;
   }
 `; 
+
+export const Hr = styled.hr`
+  margin-top: 7vh;
+  width: 97%;
+  border: 1px solid #1a3f136c
+`;

@@ -6,17 +6,19 @@ interface ColorProps {
   iconHeight?: string;
   textSize?: string;
   paddingTop?: string;
+  marginTop?: string;
 }
 
 
-export const FooterContainer = styled.div`
+export const FooterContainer = styled.div<ColorProps>`
   height: 50vh;
   background-color: #000000;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
+  width: 100%;
+  margin-top: ${props => props.marginTop || 'none'};
 `;
 
 export const FooterDiv = styled.div`
