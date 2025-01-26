@@ -5,15 +5,19 @@ interface CardProps {
   textColor?: string;
   titleColor?: string;
   borderColor?: string;
-  expandedMax?: string; 
-  expandedMin?: string; 
-  width?: string; 
-  widthLongText?: string; 
-  isExpanded?: boolean; 
-  isVisible?: boolean; 
+  expandedMax?: string;
+  expandedMin?: string;
+  width?: string;
+  widthLongText?: string;
+  isExpanded?: boolean;
+  isVisible?: boolean;
   isRotated?: boolean;
   click?: boolean;
   justifyText?: boolean;
+  isMobile?: boolean;
+  MobileHMax?: string;
+  MobileHMin?: string;
+  MobilePadding?: string;
 }
 
 interface ImageProps {
@@ -25,6 +29,7 @@ interface ImageProps {
   opacity?: string;
   justify?: string;
   imgMargin?: string;
+  isMobile?: string;
 }
 
 export const ImgIcon = styled.img<CardProps & { isRotated?: boolean }>`
@@ -56,7 +61,15 @@ export const Container = styled.div<CardProps>`
 
 export const CardContainer = styled.div<CardProps>`
   width: ${(props) => props.width || "85%"} ;
-  height: ${(props) => (props.isExpanded ? props.expandedMax : props.expandedMin)};
+  height: ${(props) => {
+    if (props.isMobile) {
+      return `${props.isExpanded ? props.MobileHMax : props.MobileHMin}px`; 
+    }
+
+    return props.isExpanded ? props.expandedMax : props.expandedMin;
+  }};
+
+
   background-color: ${(props) => props.backgroundColor || "#F8F6E6"};
   border-radius: 2cap;
   display: flex;
@@ -111,12 +124,16 @@ export const FlexContainer2 = styled.div<CardProps>`
 
 export const LongTextContainer = styled.text<CardProps>`
   display: flex;
-  text-align: justify;
+  text-align: ${(props) => (props.isMobile ? 'left' : 'justify')};
   justify-content: flex-start;
-  width: ${(props) => props.widthLongText || "70%"} ;
-  font-size: 24px;
-  margin-left: 1.3vw;
+  width: ${(props) => (props.isMobile ? '90%' : 'props.widthLongText')};
+  font-size: ${(props) => (props.isMobile ? '20px' : '24px')};
+  margin-left: ${(props) => (props.isMobile ? '8%' : '1%')};
+  padding: ${(props) => props.MobilePadding};
   color: ${(props) => props.textColor || "black"};
+
+  word-wrap: ${(props) => (props.isMobile ? 'break-word' : 'normal')};
+  word-break: ${(props) => (props.isMobile ? 'break-word' : 'normal')};
 `;
 
 export const HiddenText = styled.div<CardProps>`
@@ -154,13 +171,16 @@ export const Title = styled.text<CardProps>`
   margin-top: 3vh;
   font-size: 40px;
   font-weight: bold;
-  padding: 30px 30px 0 30px;
+  text-align: left;
+  padding: ${(props) => (props.isMobile ? '30px 30px 0 30px' : '10px 20px 0 20px')};
   color: ${(props) => props.titleColor || "black"};
+  font-size: ${(props) => (props.isMobile ? '40px' : '25px')};
 `;
 
 export const Text = styled.text<CardProps>`
-  width: 95%;
-  padding: 0 30px 30px 30px;
+  width: ${(props) => (props.isMobile ? '95%' : '90%')};
+  padding: ${(props) => (props.isMobile ? '0 30px 30px 30px' : '10px 10px 10px 20px')};
+
   color: ${(props) => props.textColor || "black"};
   font-size: 18px;
 `;

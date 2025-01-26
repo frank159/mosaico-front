@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {Container, Hr} from "./HomeStyled";
 import FullScreenMedia from '../../components/FullScreenMedia/FullScreenMedia';
 import SectionPicture from '../../components/SectionPicture/SectionPicture';
@@ -26,6 +26,13 @@ const text = `
 `
 
 const HomePage: React.FC = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(()=> {
+    console.log("window.innerWidth <= 768", window.innerWidth <= 768)
+    setIsMobile(window.innerWidth <= 768);
+  },[])
+
   return (
     <Container>
       <FullScreenMedia mediaSrc={boat} />
@@ -47,8 +54,12 @@ const HomePage: React.FC = () => {
       {/* <CustomCarousel/> */}
       <Hr/>
       <CardComponent
-        expandedMax='65vh'
-        expandedMin='65vh'
+        isMobile={isMobile}
+        expandedMax='0'
+        expandedMin='0'
+        MobileHMax='0'
+        MobilePadding='0 0 2rem 0'
+        MobileHMin='auto'
         widthLongText='97%'
         // justify={true}
         imgMargin=' 5rem 5rem 2rem 0'
@@ -88,7 +99,7 @@ const HomePage: React.FC = () => {
         A principal meta das conferências é manter o aumento da temperatura global abaixo de 1,5°C até o final do século XXI. Para atingir esse objetivo, os países devem se comprometer a reduzir suas emissões de gases de efeito estufa e promover fontes de energia renováveis. O progresso das negociações nas COPs é essencial para o sucesso de qualquer plano climático global.
         Além de estabelecer metas climáticas, a COP também enfatiza a importância da adaptação às mudanças climáticas já em curso. O apoio aos países mais vulneráveis, como os pequenos estados insulares, é uma das questões centrais discutidas. Esses países enfrentam os maiores impactos e necessitam de recursos financeiros e tecnológicos para lidar com as mudanças.
         Por fim, a COP 30 terá um papel fundamental no fortalecimento da colaboração internacional. A crise climática é um desafio global, e somente com a cooperação entre os países será possível alcançar resultados eficazes. O Brasil, ao sediar a conferência, terá a oportunidade de influenciar as políticas climáticas internacionais e impulsionar iniciativas que beneficiem tanto o país quanto o mundo.'/>
-      <Footer/>  
+      {/* <Footer/>   */}
     </Container>
   );
 };

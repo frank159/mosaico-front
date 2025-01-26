@@ -40,8 +40,22 @@ const Header: React.FC = () => {
     const container = document.querySelector(".container") as HTMLElement;
     const elements = document.querySelectorAll(".element");
     const containerWidth = container.offsetWidth;
-
-    let positions = {
+  
+    const isMobile = window.innerWidth <= 768;
+  
+    if (isMobile) {
+      const mobilePositions = [-80, 0, 80];
+  
+      elements.forEach((el, index) => {
+        gsap.to(el, {
+          x: mobilePositions[index],
+          duration: 0, 
+        });
+      });
+      return; 
+    }
+  
+    let positions: { A: number; B?: number; C: number; D?: number; F: number } = {
       A: -containerWidth / 2 + 60,
       B: -containerWidth / 2.35 + 1,
       C: 0,
@@ -63,9 +77,9 @@ const Header: React.FC = () => {
       if (index === centerIndex) {
         targetPosition = positions.C;
       } else if (index < centerIndex) {
-        targetPosition = index === centerIndex - 1 ? positions.B : positions.A;
+        targetPosition = positions.A;
       } else {
-        targetPosition = index === centerIndex + 1 ? positions.D : positions.F;
+        targetPosition = positions.F;
       }
 
       gsap.to(el, {
