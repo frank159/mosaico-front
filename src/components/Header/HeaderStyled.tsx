@@ -5,13 +5,17 @@ export const Container = styled.div`
   top: 0; /* Define a posição no topo da tela */
   left: 0; /* Alinha à esquerda */
   width: 100%; /* Ocupa toda a largura */
-  height: 5vh;
+  height: 5vh; /* Ajusta a altura */
   background-color: #f0f0f0;
   z-index: 1000; /* Garante que o header fique acima de outros elementos */
   display: flex;
   justify-content: center;
   align-items: center;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adiciona sombra para destaque */
+  
+  @media (max-width: 768px) {
+    height: 8vh; /* Aumenta a altura em telas pequenas */
+  }
 `;
 
 export const Element = styled.div<{ isActive: boolean }>`
@@ -25,6 +29,12 @@ export const Element = styled.div<{ isActive: boolean }>`
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
+  
+  /* Ajuste da altura e tamanho da fonte em telas pequenas */
+  @media (max-width: 768px) {
+    font-size: 16px;
+    height: 6vh;
+  }
 
   &:hover {
     height: 4vh;
@@ -34,6 +44,10 @@ export const Element = styled.div<{ isActive: boolean }>`
 export const Img = styled.img`
   height: 3.5vh;
   transition: all 0.3s ease;
+
+  @media (max-width: 768px) {
+    height: 5vh; /* Ajusta o tamanho da imagem em telas pequenas */
+  }
 `;
 
 export const ShadowDiv = styled.div`

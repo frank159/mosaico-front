@@ -128,7 +128,7 @@ const School: React.FC = () => {
         mainTitle = 'Resumindo'
         mainText = {'O projeto Centro de Excelência em Educação e Produção Audiovisual, desenvolvido pela Cooperativa Cinema & Mídias Digitais (CCMD), é uma iniciativa sociocultural que utiliza audiovisual e comunicação como ferramentas para promover cidadania e desenvolvimento socioeconômico em comunidades carentes. Realizado em Tibagi (PR), o projeto selecionou 30 adolescentes entre 600 inscritos e beneficiou mais de 150 pessoas, com resultados apresentados em uma mostra de cinema que reuniu 4 mil espectadores. A proposta inclui dois núcleos principais (Audiovisual e Comunicação), oferecendo formação teórica e prática em jornalismo, web TV/rádio e produção de documentários, com foco na preservação cultural e no desenvolvimento comunitário sustentável.'}
       />
-      <Footer marginTop={'5vh'}/>
+      {/* <Footer marginTop={'5vh'}/> */}
     </Container>
   );
 };

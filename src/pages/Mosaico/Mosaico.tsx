@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import CardComponent from '../../components/CardComponent/CardComponent';
 import VoronoiCanvas from '../../components/Mosaico/Mosaico';
 import Footer from '../../components/footer/footer';
@@ -128,6 +128,13 @@ const slidesData = [
 ];
 
 const MosaicoPage: React.FC = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(()=> {
+    console.log("window.innerWidth <= 768", window.innerWidth <= 768)
+    setIsMobile(window.innerWidth <= 768);
+  },[])
+  
   return (
     <S.Container>
       <S.MosaicoWrapper>
@@ -142,13 +149,16 @@ const MosaicoPage: React.FC = () => {
         <VoronoiCanvas />
       </S.MosaicoWrapper>
       <CardComponent
-        expandedMax='102vh'
+        isMobile={isMobile}
+        expandedMax='85vh'
         expandedMin='33vh'
+        MobileHMax='85vh'
+        MobileHMin='33vh'
         opacity='20%'
         backgroundColor="#000000"
         textColor="#ffffff"
         titleColor="#ffffff"
-        borderColor="#000000"
+        borderColor="#0000000"
         mainTitle="O que é o Mosaico"
         mainText=""
         subheading1={{
@@ -193,7 +203,6 @@ const MosaicoPage: React.FC = () => {
         </S.PageButton>
       </S.PageButtonSection>
 
-    <Footer/>
     </S.Container>
   );
 };

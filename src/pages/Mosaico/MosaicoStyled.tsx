@@ -1,21 +1,19 @@
 import styled from 'styled-components';
-  
+
 export const Container = styled.div`
-    position: relative;
-    width: auto;
+  position: relative;
+  width: auto;
 `;
 
-export const TESTE = styled.div`
-
-`;
+export const TESTE = styled.div``;
 
 export const PageButtonSection = styled.div`
   width: 100%;
   height: 100vh;
-  position: relative; /* Necessário para posicionar o botão em relação à imagem */
+  position: relative;
   display: flex;
-  align-items: center; /* Centraliza verticalmente */
-  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center;
+  justify-content: center;
 `;
 
 export const FullImage = styled.img`
@@ -26,10 +24,10 @@ export const FullImage = styled.img`
 `;
 
 export const PageButton = styled.button`
-  position: absolute; /* Coloca o botão sobre a imagem */
-  z-index: 1; /* Garante que o botão fique acima da imagem */
-  background-color: rgb(0, 0, 0); /* Fundo preto inicial */
-  color: white; /* Cor do texto */
+  position: absolute;
+  z-index: 1;
+  background-color: rgb(0, 0, 0);
+  color: white;
   border: 1px solid #ffffff;
   border-radius: 16px;
   padding: 12px 24px;
@@ -37,25 +35,23 @@ export const PageButton = styled.button`
   cursor: pointer;
   transition: all 0.3s ease;
   height: 7vh;
-
-  /* Adiciona a animação de pulsação */
   animation: pulse 1.8s infinite ease-in-out;
 
   &:hover {
-    background-color: rgb(24, 24, 24); /* Fundo mais escuro ao passar o mouse */
+    background-color: rgb(24, 24, 24);
     font-size: 2.2rem;
-    animation: none; /* Pausa a animação ao passar o mouse */
+    animation: none;
   }
 
   @keyframes pulse {
     0% {
-      background-color: rgb(0, 0, 0); /* Preto inicial */
+      background-color: rgb(0, 0, 0);
     }
     50% {
-      background-color: rgb(85, 85, 85); /* Um cinza mais claro */
+      background-color: rgb(85, 85, 85);
     }
     100% {
-      background-color: rgb(0, 0, 0); /* Volta ao preto */
+      background-color: rgb(0, 0, 0);
     }
   }
 `;
@@ -70,7 +66,8 @@ export const MosaicoWrapper = styled.div`
     left: 0;
     right: 0;
     height: 150px;
-    background: linear-gradient(to top,
+    background: linear-gradient(
+      to top,
       rgba(0, 0, 0, 0.5) 0%,
       rgba(0, 0, 0, 0.3) 50%,
       rgba(0, 0, 0, 0) 100%
@@ -78,38 +75,38 @@ export const MosaicoWrapper = styled.div`
     pointer-events: none;
     z-index: 1;
   }
-`; 
+`;
 
 export const TitleOverlayContainer = styled.div`
   position: absolute;
-  top: 45%; /* Centraliza verticalmente */
-  left: 50%; /* Centraliza horizontalmente */
-  transform: translate(-50%, -50%); /* Ajusta para que o centro do texto fique exatamente no meio */
-  margin: 0; /* Remove margens */
-  z-index: 2; 
-  font-family: 'Montserrat'; /* Define a fonte Montserrat */
+  top: 45%;
+  left: 50%;
+  width: auto;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  font-family: 'Montserrat';
   color: white;
   pointer-events: none;
-  white-space: nowrap; /* Impede que o texto quebre */
+  white-space: nowrap;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  
 `;
+
 export const TitleOverlay = styled.div`
-  display: inline-block; /* Faz com que o texto se comporte como bloco inline */
+  display: inline-block;
   font-size: 3rem;
   font-weight: 900;
   color: #000000;
-  letter-spacing: 50px; /* Adiciona mais espaço entre as letras */
-  white-space: nowrap; /* Impede quebra de linha */
-  text-align: center; /* Alinha o texto ao centro */
+  letter-spacing: 50px;
+  white-space: nowrap;
+  text-align: center;
   animation: pulse 2s infinite ease-in-out;
 
   @keyframes pulse {
     0% {
-      text-shadow:none;
+      text-shadow: none;
     }
     50% {
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.747);
@@ -118,17 +115,37 @@ export const TitleOverlay = styled.div`
       text-shadow: none;
     }
   }
+
+  /* Alterar cor da fonte em telas menores */
+  @media (max-width: 768px) { /* Define o tamanho máximo da tela (por exemplo, 768px) */
+    font-size: 3rem;
+    font-weight: 900;
+    color: #000000;
+    letter-spacing: 5px;
+    white-space: nowrap;
+    text-align: center;
+    animation: pulse 2s infinite ease-in-out;  
+  }
 `;
 
+
 export const TextOverlay = styled.div`
-  display: inline-block; /* Faz com que o texto se comporte como bloco inline */
+  display: inline-block;
   font-size: 1rem;
   font-weight: 900;
   color: #000000;
-  letter-spacing: 0.6em; /* Adiciona mais espaço entre as letras */
-  white-space: nowrap; /* Impede quebra de linha */
-  text-align: center; /* Alinha o texto ao centro */
-  padding-right: 2.5em; /* Ajuste sutil para alinhar corretamente após o letter-spacing */
+  letter-spacing: 0.6em;
+  white-space: nowrap;
+  text-align: center;
+  padding-right: 2.5em;
+  @media (max-width: 768px) { /* Define o tamanho máximo da tela (por exemplo, 768px) */
+    font-size: 1rem;
+    font-weight: 900;
+    color: #000000;
+    margin-left: 10%;
+    letter-spacing: 0.05rem;
+    white-space: nowrap;
+    text-align: center;
+    padding-right: 2.5em;
+  }
 `;
-
-

@@ -47,6 +47,7 @@ interface CardComponentProps {
   frameHeight?: string;
   imageWidth?: string;
   click?: boolean;
+  isMobile?: boolean;
   imageHeight?: string;
   imageSrc?: string;
   justify?: string;
@@ -57,6 +58,9 @@ interface CardComponentProps {
   width?: string;
   widthLongText?: string;
   imgMargin?: string;
+  MobilePadding?: string;
+  MobileHMax?: string;
+  MobileHMin?: string;
 }
 
 const CardComponent: React.FC<CardComponentProps> = ({
@@ -82,7 +86,11 @@ const CardComponent: React.FC<CardComponentProps> = ({
   expandedMin,
   expandedMax,
   imgMargin,
-  widthLongText
+  widthLongText,
+  MobileHMax,
+  MobileHMin,
+  MobilePadding,
+  isMobile
 }) => {
   const [isExpanded, setIsExpanded] = useState(false); // Estado para controlar expansão
   const [isVisible, setIsVisible] = useState(false); // Estado para controlar visibilidade do texto escondido
@@ -112,6 +120,9 @@ const CardComponent: React.FC<CardComponentProps> = ({
       <CardContainer
         click={click}
         width={width}
+        MobileHMax={MobileHMax}
+        MobileHMin={MobileHMin}
+        isMobile={isMobile}
         backgroundColor={backgroundColor}
         onClick={handleToggle}
         isRotated={isRotated}
@@ -127,7 +138,7 @@ const CardComponent: React.FC<CardComponentProps> = ({
 
             </LeftContent>
           </FlexContainerINTER1>
-          {imageSrc && (
+          {imageSrc && !isMobile && (
             <FlexContainerINTER>
               <RightContent>
                 <ImageFrame
@@ -149,8 +160,8 @@ const CardComponent: React.FC<CardComponentProps> = ({
             </FlexContainerINTER>
           )}
         </FlexContainer1>
-        <FlexContainer2 isExpanded={isExpanded}>
-          <LongTextContainer widthLongText={widthLongText} textColor={textColor} dangerouslySetInnerHTML={{ __html: longText }}></LongTextContainer>
+        <FlexContainer2  isExpanded={isExpanded}>
+          <LongTextContainer MobilePadding={MobilePadding} widthLongText={widthLongText} isMobile={isMobile} textColor={textColor} dangerouslySetInnerHTML={{ __html: longText }}></LongTextContainer>
         </FlexContainer2>
         {isVisible && (
           <VisibleComponent>
