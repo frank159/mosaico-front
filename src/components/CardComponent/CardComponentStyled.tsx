@@ -63,10 +63,10 @@ export const CardContainer = styled.div<CardProps>`
   width: ${(props) => props.width || "85%"} ;
   height: ${(props) => {
     if (props.isMobile) {
-      return `${props.isExpanded ? props.MobileHMax : props.MobileHMin}px`; 
+      return props.isExpanded ? props.MobileHMax : props.MobileHMin; 
+    } else {
+      return props.isExpanded ? props.expandedMax : props.expandedMin;
     }
-
-    return props.isExpanded ? props.expandedMax : props.expandedMin;
   }};
 
 
@@ -129,7 +129,7 @@ export const LongTextContainer = styled.text<CardProps>`
   width: ${(props) => (props.isMobile ? '90%' : 'props.widthLongText')};
   font-size: ${(props) => (props.isMobile ? '20px' : '24px')};
   margin-left: ${(props) => (props.isMobile ? '8%' : '1%')};
-  padding: ${(props) => props.MobilePadding};
+  padding-right: 10px;
   color: ${(props) => props.textColor || "black"};
 
   word-wrap: ${(props) => (props.isMobile ? 'break-word' : 'normal')};

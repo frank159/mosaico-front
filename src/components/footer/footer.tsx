@@ -20,76 +20,14 @@ const Footer: React.FC<FooterProps> = ({
                 <MainIcon>
                     <Img iconWidth="80px" iconHeight="80px" iconInvert={true} src={mosaico} alt="logo" />
                 </MainIcon>
-                <MainLinks>
-                    <LinkColumn>
-                        <ColumnHeader>
-                            Column One
-                        </ColumnHeader>
-                        <ColumnLinks>
-                            Link One
-                        </ColumnLinks>
-                        <ColumnLinks>
-                            Link Two
-                        </ColumnLinks>
-                        <ColumnLinks>
-                            Link Three
-                        </ColumnLinks>
-                        <ColumnLinks>
-                            Link Four
-                        </ColumnLinks>
-                        <ColumnLinks>
-                            Link Five
-                        </ColumnLinks>
-                    </LinkColumn>
-                    <LinkColumn>
-                        <ColumnHeader>
-                            Column Two
-                        </ColumnHeader>
-                        <ColumnLinks>
-                            Link One
-                        </ColumnLinks>
-                        <ColumnLinks>
-                            Link Two
-                        </ColumnLinks>
-                        <ColumnLinks>
-                            Link Three
-                        </ColumnLinks>
-                        <ColumnLinks>
-                            Link Four
-                        </ColumnLinks>
-                        <ColumnLinks>
-                            Link Five
-                        </ColumnLinks>
-                    </LinkColumn>
-                    <LinkColumn>
-                        <ColumnHeader>
-                            Column Three
-                        </ColumnHeader>
-                        <ColumnLinks>
-                            Link One
-                        </ColumnLinks>
-                        <ColumnLinks>
-                            Link Two
-                        </ColumnLinks>
-                        <ColumnLinks>
-                            Link Three
-                        </ColumnLinks>
-                        <ColumnLinks>
-                            Link Four
-                        </ColumnLinks>
-                        <ColumnLinks>
-                            Link Five
-                        </ColumnLinks>
-                    </LinkColumn>
-                </MainLinks>
                 <Subscribe>
                     <SubscribeHeader>
-                        Subscribe
+                        Logo mais conteudo
                     </SubscribeHeader>
                     <SubscribeText textSize="14px">
-                        Join our newsletter to stay up to date on features and releases.
+                    Continue acompanhando nosso desenvolvimento, pois estamos em constante evolução.
                     </SubscribeText>
-                    <SubscribeInputContainer>
+                    {/* <SubscribeInputContainer>
                         <SubscribeInput placeholder="Email Address" />
                         <SubscribeInputButton>
                             Subscribe
@@ -97,7 +35,7 @@ const Footer: React.FC<FooterProps> = ({
                     </SubscribeInputContainer>
                     <SubscribeText textSize="12px" paddingTop="15px">
                         By subscribing you agree to with our Privacy Policy and provide consent to receive updates from our company.
-                    </SubscribeText>
+                    </SubscribeText> */}
                 </Subscribe>
             </MainDiv>
             <SubDiv>

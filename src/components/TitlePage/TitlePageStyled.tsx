@@ -17,9 +17,10 @@ export const TitleContainer = styled.div`
     justify-content: space-between;
 `;
 
-export const Title = styled.p<{ titleColor?: string }>`
+export const Title = styled.p<{ titleColor?: string, isMobile?: boolean }>`
   margin-left: 2vw;
-  font-size: 2.5vw;
+  font-size: ${(props) => (props.isMobile ? '10vw' : '2.5vw')};
+
   font-weight: bold;
   color: ${props => props.titleColor || '#000000'};
 `;

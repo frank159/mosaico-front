@@ -7,13 +7,14 @@ interface TitlePageProps {
   titleColor?: string;
   textColor?: string;
   backgroundColor?: string;
+  isMobile?: boolean;
 }
 
-const TitlePage: React.FC<TitlePageProps> = ({ titleText, text, titleColor, textColor, backgroundColor }) => {
+const TitlePage: React.FC<TitlePageProps> = ({ titleText, text, titleColor, textColor, backgroundColor, isMobile }) => {
   return (
     <MediaContainer backgroundColor={backgroundColor}>
       <TitleContainer>
-        <Title titleColor={titleColor}>
+        <Title isMobile={isMobile} titleColor={titleColor}>
           {titleText}
         </Title>
         <Text textColor={textColor}>

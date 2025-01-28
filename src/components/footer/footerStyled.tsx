@@ -9,16 +9,23 @@ interface ColorProps {
   marginTop?: string;
 }
 
-
 export const FooterContainer = styled.div<ColorProps>`
-  height: 50vh;
+  height: 30vh;
   background-color: #000000;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  margin-top: ${props => props.marginTop || 'none'};
+  margin-top: ${props => props.marginTop || "none"};
+  z-index: 1000;
+  @media (max-width: 768px) {
+    width: none;
+    height: auto;
+    padding: 20px 10px;
+  }
+  @media (min-width: 768px) {
+    width: 100%;
+  }
 `;
 
 export const FooterDiv = styled.div`
@@ -29,6 +36,10 @@ export const FooterDiv = styled.div`
   justify-content: center;
   align-items: center;
 
+  @media (max-width: 768px) {
+    width: 100%;
+    height: auto;
+  }
 `;
 
 export const MainDiv = styled.div`
@@ -37,6 +48,11 @@ export const MainDiv = styled.div`
   height: 70%;
   display: flex;
   flex-direction: row;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    height: auto;
+  }
 `;
 
 export const SubDiv = styled.div`
@@ -47,26 +63,45 @@ export const SubDiv = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: end;
+  align-items: flex-end;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: auto;
+    gap: 10px;
+  }
 `;
 
 export const Text = styled.p`
-
+  @media (max-width: 768px) {
+    font-size: 10px;
+  }
 `;
 
 export const IconsDiv = styled.div`
+  display: flex;
+  gap: 10px;
 
+  @media (max-width: 768px) {
+    justify-content: center;
+  }
 `;
 
 export const Img = styled.img<ColorProps>`
-  width: ${props => props.iconWidth || '24px'};
-  height: ${props => props.iconWidth || '24px'};
+  width: ${props => props.iconWidth || "24px"};
+  height: ${props => props.iconWidth || "24px"};
   margin-left: 15px;
-  filter: ${props => props.iconInvert ? 'invert(1)' : 'none'}; // Adiciona inversão de cor para tornar os ícones brancos
+  filter: ${props => (props.iconInvert ? "invert(1)" : "none")};
   transition: opacity 0.2s;
-  
+
   &:hover {
     opacity: 0.8;
+  }
+
+  @media (max-width: 768px) {
+    margin-left: 0;
   }
 `;
 
@@ -77,6 +112,11 @@ export const MainIcon = styled.div`
 
   display: flex;
   justify-content: center;
+
+  @media (max-width: 768px) {
+    margin-top: 20px;
+    width: 100%;
+  }
 `;
 
 export const MainLinks = styled.div`
@@ -88,6 +128,14 @@ export const MainLinks = styled.div`
   flex-direction: row;
   align-items: start;
   justify-content: space-between;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 20px;
+  }
 `;
 
 export const LinkColumn = styled.div`
@@ -95,11 +143,19 @@ export const LinkColumn = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 768px) {
+    align-items: center;
+  }
 `;
 
 export const ColumnHeader = styled.div`
   font-size: 16px;
   font-weight: bold;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
 `;
 
 export const ColumnLinks = styled.div`
@@ -109,6 +165,11 @@ export const ColumnLinks = styled.div`
   display: flex;
   justify-content: start;
   align-items: start;
+
+  @media (max-width: 768px) {
+    justify-content: center;
+    text-align: center;
+  }
 `;
 
 export const Subscribe = styled.div`
@@ -122,26 +183,47 @@ export const Subscribe = styled.div`
   color: white;
   margin-right: 10px;
 
+  @media (max-width: 768px) {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 20px;
+    align-items: center;
+  }
 `;
 
 export const SubscribeHeader = styled.div<ColorProps>`
-  font-size: ${props => props.textSize || '16px'};  
+  font-size: ${props => props.textSize || "16px"};
   font-weight: bold;
-  padding-bottom: 15px;  
-  `;
+  padding-bottom: 15px;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
+`;
 
 export const SubscribeInputContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
+
 export const SubscribeInput = styled.input`
   background-color: rgba(255, 255, 255, 0);
   width: 70%;
   height: 5vh;
   border: 1px solid white;
   margin-right: 10px;
+
+  @media (max-width: 768px) {
+    width: 90%;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
 `;
 
 export const SubscribeInputButton = styled.button`
@@ -150,16 +232,25 @@ export const SubscribeInputButton = styled.button`
   color: white;
   width: 30%;
   height: 5.4vh;
-  
-  &:hover{
+
+  &:hover {
     transition: 0.8s;
     background-color: white;
     color: black;
   }
+
+  @media (max-width: 768px) {
+    width: 90%;
+  }
 `;
 
 export const SubscribeText = styled.div<ColorProps>`
-  font-size: ${props => props.textSize || '16px'};  
-  padding-bottom: 15px;  
-  padding-top: ${props => props.paddingTop || 'none'};  
+  font-size: ${props => props.textSize || "16px"};
+  padding-bottom: 15px;
+  padding-top: ${props => props.paddingTop || "none"};
+
+  @media (max-width: 768px) {
+    text-align: center;
+    font-size: 12px;
+  }
 `;

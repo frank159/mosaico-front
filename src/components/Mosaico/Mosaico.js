@@ -1,10 +1,9 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { SVGLoader } from 'three/examples/jsm/loaders/SVGLoader';
 import { gsap } from 'gsap';
-import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils';
 
 const MosaicoContainer = styled.div`
   width: 100%;
@@ -18,6 +17,16 @@ const CanvasWrapper = styled.canvas`
   height: 100% !important;
   display: block;
   max-width: 100%;
+`;
+
+const Overlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: '#ffffff0'; /* Cor semi-transparente */
+  z-index: 10; /* Garante que o overlay fica por cima */
 `;
 
 const interactiveIds = [13, 23];
@@ -87,7 +96,18 @@ const createBorderMaterial = () => {
 };
 
 const Scene = () => {
+  const [blockInteraction, setBlockInteraction] = useState(false);
   const canvasRef = useRef(null);
+
+  useEffect(() => {
+    const isMobile = window.innerWidth <= 768; // Ajuste o tamanho conforme sua necessidade
+    if (isMobile) {
+      setBlockInteraction(true); // Bloqueia a interação se for mobile
+    } else {
+      setBlockInteraction(false); // Caso contrário, interação permitida
+    }
+
+  }, []);
 
   useEffect(() => {
     if (!canvasRef.current) return;
@@ -364,6 +384,9 @@ const Scene = () => {
 
   return (
     <MosaicoContainer>
+      {blockInteraction && (
+        <Overlay blockInteraction={blockInteraction} />
+      )}
       <CanvasWrapper ref={canvasRef} />
     </MosaicoContainer>
   );

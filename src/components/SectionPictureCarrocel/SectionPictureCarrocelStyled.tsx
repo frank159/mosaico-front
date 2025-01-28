@@ -38,7 +38,7 @@ export const CarouselWrapper = styled.div`
     font-size: 50px;
     color: #fff;
     font-weight: 500;
-    max-height: 100vh;
+    height: 100vh;
   }
 `;
 

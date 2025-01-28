@@ -8,12 +8,14 @@ interface ColorProps {
 interface SlideProps {
   gradient?: string;
   backgroundColor?: string;
+  backgroundColor2?: string;
   hoverBackgroundColor?: string;
 }
 
 export const Container = styled.div<ColorProps>`
   padding: 40px 0;
-  height: 100vh;
+  height: 60vh;
+  width: 100%;
   align-content: center;
   text-align: center;
   color: ${props => props.textColor || 'white'};
@@ -21,6 +23,12 @@ export const Container = styled.div<ColorProps>`
   overflow: hidden;
   max-width: 100%;
   position: relative;
+
+  /* Responsividade */
+  @media (max-width: 768px) {
+    width: 100%;  /* Garantir que o container ocupe toda a largura no mobile */
+    padding: 20px 0;  /* Ajuste de padding para mobile */
+  }
 `;
 
 export const Title = styled.h2<ColorProps>`
@@ -51,11 +59,13 @@ export const SlidComtainer = styled.div<SlideProps>`
   }
 `;
 
-export const CarouselWrapper = styled.div`
+export const CarouselWrapper = styled.div<SlideProps>`
   .keen-slider {
     overflow: hidden;
   }
-
+  background-color: ${props => props.backgroundColor2 || '#0000007a'};
+  padding-top: 3vh;
+  padding-bottom: 3vh;
   .keen-slider__slide {
     display: flex;
     align-items: center;
@@ -64,10 +74,46 @@ export const CarouselWrapper = styled.div`
     color: #fff;
     font-weight: 500;
     height: 300px;
-    max-height: 100vh;
+    width: 100vw; /* Largura padrão para desktop */
+  }
+
+  /* Adicionando responsividade */
+  @media (max-width: 768px) {
+    .keen-slider__slide {
+      width: 80vw;  /* Ajuste a largura dos slides no mobile */
+      height: 200px;  /* Ajuste a altura também se necessário */
+    }
   }
 `;
 
+
 export const Slide = styled.div<SlideProps>`
   background: ${props => props.gradient};
+  border-radius: 10px;
+  width: 100vw;
+  &:hover {
+    background-color: ${props => props.hoverBackgroundColor || '#68cc797b'};
+  }
+`;
+
+export const Img = styled.img<{ isMobile?: boolean }>`
+  transform: scale(1.1);
+  transition: transform 0.7s ease-in-out;
+  width: 100%;  /* Garantindo que a imagem ocupe toda a largura do slide */
+  object-fit: cover;  /* A imagem ocupará toda a área do slide sem distorcer */
+  height: 100%;  /* Garantindo que a imagem ocupe toda a altura do slide */
+
+  &:hover {
+    transition: transform 0.7s ease-in-out;
+    transform: scale(1.2);
+  }
+
+  ${({ isMobile }) =>
+    isMobile &&
+    `
+      transform: scale(1.1);  /* Aumenta o tamanho da imagem */
+      transition: transform 0.7s ease-in-out; /* Transição suave */
+      width: 100%;  /* Imagem ocupará toda a largura do slide */
+      object-fit: cover; /* A imagem ocupará toda a área no mobile também */
+  `};
 `;

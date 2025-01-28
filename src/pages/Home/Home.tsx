@@ -2,14 +2,21 @@ import React, { useEffect, useState } from 'react';
 import {Container, Hr} from "./HomeStyled";
 import FullScreenMedia from '../../components/FullScreenMedia/FullScreenMedia';
 import SectionPicture from '../../components/SectionPicture/SectionPicture';
-import CustomCarousel from '../../components/Carousel/Carousel';
 import CardComponent from '../../components/CardComponent/CardComponent';
 import BigTextSection from '../../components/BigTextSection/BigTextSection';
 import TitlePage from '../../components/TitlePage/TitlePage';
+import CustomCarousel from '../../components/Carousel/Carousel';
+import ScrollToTop from '../../components/ScrollToTop/ScrollToTop';
 import Footer from '../../components/footer/footer';
 
 const boat = require('../../assets/images/barco.jpg')
 const luz = require("../../assets/images/luz.png")
+
+const teste1 = require('../../assets/images/1.webp');
+const teste2 = require('../../assets/images/2.webp');
+const teste3 = require('../../assets/images/3.jpg');
+const teste4 = require('../../assets/images/4.webp');
+const teste5 = require('../../assets/images/5.jpg');
 
 const text = `
 <section>
@@ -25,6 +32,49 @@ const text = `
 </section>
 `
 
+interface SlideItem {
+  gradient: string;
+  backgroundColor: string;
+  hoverBackgroundColor: string;
+  content?: React.ReactNode;
+  backgroundColor2?: string;
+
+  imageSrc: string; // Adicionado campo para a imagem
+}
+
+const defaultSlides: SlideItem[] = [
+  {
+    gradient: 'linear-gradient(128deg, #40afff 0%, #3f62ff 100%)',
+    backgroundColor: '#4287f50',
+    hoverBackgroundColor: '#000000',
+    imageSrc: teste1 // Usando a imagem local
+  },
+  {
+    gradient: 'linear-gradient(128deg, #ff993f 0%, #ff4a40 100%)',
+    backgroundColor: '#ff6b6b',
+    hoverBackgroundColor: '#000000',
+    imageSrc: teste2 // Usando a mesma imagem
+  },
+  {
+    gradient: 'linear-gradient(128deg, #bdff53 0%, #2bfa51 100%)',
+    backgroundColor: '#4ade80',
+    hoverBackgroundColor: '#000000',
+    imageSrc: teste3
+  },
+  {
+    gradient: 'linear-gradient(128deg, #40fff2 0%, #3fbcff 100%)',
+    backgroundColor: '#38bdf8',
+    hoverBackgroundColor: '#000000',
+    imageSrc: teste4
+  },
+  {
+    gradient: 'linear-gradient(128deg, #ff409c 0%, #ff3f3f 100%)',
+    backgroundColor: '#f43f5e',
+    hoverBackgroundColor: '#000000',
+    imageSrc: teste5
+  },
+];
+
 const HomePage: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
 
@@ -33,10 +83,12 @@ const HomePage: React.FC = () => {
     setIsMobile(window.innerWidth <= 768);
   },[])
 
+
   return (
     <Container>
+      <ScrollToTop /> 
       <FullScreenMedia mediaSrc={boat} />
-      <TitlePage titleText="Luz, Câmera, EcoAção!" titleColor="#000000" textColor="#000000" backgroundColor="#0000000"/>
+      <TitlePage isMobile={isMobile} titleText="Luz, Câmera, EcoAção!" titleColor="#000000" textColor="#000000" backgroundColor="#0000000"/>
       <hr/>
       <SectionPicture
         imageSrc={luz}
@@ -45,25 +97,27 @@ const HomePage: React.FC = () => {
         titleColor = '#1A3F13'
         borderColor = '#1A3F13'
         backgroundColorHover = '#e9e6d0'
+        heightMobile = '130vh'
         height = '80vh'
         width = '90vw'
         scale = '1.01'
         mainTitle = 'Projeto Luz, Câmera, EcoAção! - Arte e Sustentabilidade'
         mainText = {text}
+        isMobile={isMobile}
       />
       {/* <CustomCarousel/> */}
       <Hr/>
       <CardComponent
         isMobile={isMobile}
-        expandedMax='0'
-        expandedMin='0'
-        MobileHMax='0'
-        MobilePadding='0 0 2rem 0'
-        MobileHMin='auto'
+        expandedMax='58vh'
+        expandedMin='58vh'
+        MobileHMax='200vh'
+        MobileHMin='40vh'
+        MobilePadding='0 1rem 2rem 0'
         widthLongText='97%'
         // justify={true}
         imgMargin=' 5rem 5rem 2rem 0'
-        click={false}
+        click={true}
         width='90vw'
         backgroundColor="#e9e6d0"
         textColor="#1A3F13"
@@ -89,7 +143,17 @@ const HomePage: React.FC = () => {
         imageHeight={'20vh'}
         hiddenText=''
       />
+      <CustomCarousel
+        isMobile={isMobile}
+        backgroundColor = {'#ffffff0'}
+        backgroundColor2 = {'#ffffff0'}
+        textColor = {'#000000'}
+        title = {''}
+        subtitle = {''}    
+        slides={defaultSlides}  
+      />
       <BigTextSection
+        zIndex='1'
         textAlign={'center'}
         portfo={false}
         titleText='Um pouco mais sobre COP30'
@@ -99,7 +163,7 @@ const HomePage: React.FC = () => {
         A principal meta das conferências é manter o aumento da temperatura global abaixo de 1,5°C até o final do século XXI. Para atingir esse objetivo, os países devem se comprometer a reduzir suas emissões de gases de efeito estufa e promover fontes de energia renováveis. O progresso das negociações nas COPs é essencial para o sucesso de qualquer plano climático global.
         Além de estabelecer metas climáticas, a COP também enfatiza a importância da adaptação às mudanças climáticas já em curso. O apoio aos países mais vulneráveis, como os pequenos estados insulares, é uma das questões centrais discutidas. Esses países enfrentam os maiores impactos e necessitam de recursos financeiros e tecnológicos para lidar com as mudanças.
         Por fim, a COP 30 terá um papel fundamental no fortalecimento da colaboração internacional. A crise climática é um desafio global, e somente com a cooperação entre os países será possível alcançar resultados eficazes. O Brasil, ao sediar a conferência, terá a oportunidade de influenciar as políticas climáticas internacionais e impulsionar iniciativas que beneficiem tanto o país quanto o mundo.'/>
-      {/* <Footer/>   */}
+      <Footer marginTop={'5vh'}/>
     </Container>
   );
 };

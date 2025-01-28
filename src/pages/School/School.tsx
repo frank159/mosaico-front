@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {Container, Hr} from "./SchoolStyled";
 import FullScreenMedia from '../../components/FullScreenMedia/FullScreenMedia';
 import SectionPicture from '../../components/SectionPicture/SectionPicture';
@@ -6,6 +6,8 @@ import CardComponent from '../../components/CardComponent/CardComponent';
 import BigTextSection from '../../components/BigTextSection/BigTextSection';
 import TitlePage from '../../components/TitlePage/TitlePage';
 import Footer from '../../components/footer/footer';
+import CustomCarousel from '../../components/Carousel/Carousel';
+import ScrollToTop from '../../components/ScrollToTop/ScrollToTop';
 
 const boat = require('../../assets/images/school.jpg')
 const luz = require("../../assets/images/camera.jpg")
@@ -83,16 +85,68 @@ const text = `
 
 `
 
+  const teste6 = require('../../assets/images/6.jpeg');
+  const teste7 = require('../../assets/images/7.jpeg');
+  const teste8 = require('../../assets/images/8.jpeg');
+  const teste9 = require('../../assets/images/9.jpeg');
+
+  interface SlideItem {
+    gradient: string;
+    backgroundColor: string;
+    hoverBackgroundColor: string;
+    content?: React.ReactNode;
+    backgroundColor2?: string;
+
+    imageSrc: string; // Adicionado campo para a imagem
+  }
+
+  const defaultSlides: SlideItem[] = [
+    {
+      gradient: 'linear-gradient(128deg, #40afff 0%, #3f62ff 100%)',
+      backgroundColor: '#4287f50',
+      hoverBackgroundColor: '#000000',
+      imageSrc: teste6 // Usando a imagem local
+    },
+    {
+      gradient: 'linear-gradient(128deg, #ff993f 0%, #ff4a40 100%)',
+      backgroundColor: '#ff6b6b',
+      hoverBackgroundColor: '#000000',
+      imageSrc: teste7 // Usando a mesma imagem
+    },
+    {
+      gradient: 'linear-gradient(128deg, #bdff53 0%, #2bfa51 100%)',
+      backgroundColor: '#4ade80',
+      hoverBackgroundColor: '#000000',
+      imageSrc: teste8
+    },
+    {
+      gradient: 'linear-gradient(128deg, #40fff2 0%, #3fbcff 100%)',
+      backgroundColor: '#38bdf8',
+      hoverBackgroundColor: '#000000',
+      imageSrc: teste9
+    }
+  ];
+
 const School: React.FC = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(()=> {
+    console.log("window.innerWidth <= 768", window.innerWidth <= 768)
+    setIsMobile(window.innerWidth <= 768);
+  },[])
+
   return (
     <Container>
+      <ScrollToTop /> 
       <FullScreenMedia mediaSrc={boat} />
-      <TitlePage titleText="C E E P A" titleColor="#000000" textColor="#000000" backgroundColor="#0000000"/>
+      <TitlePage titleText="C E E P A" isMobile={isMobile} titleColor="#000000" textColor="#000000" backgroundColor="#0000000"/>
       <hr/>
       <CardComponent
+        isMobile={isMobile}
         expandedMax='122vh'
-        expandedMin='33vh'
+        expandedMin='25vh'
         opacity='20%'
+        MobilePadding='0 1rem 0 0'
         backgroundColor="#e9e6d0"
         textColor="#1A3F13"
         titleColor="#1A3F13"
@@ -116,6 +170,7 @@ const School: React.FC = () => {
         hiddenText={text}
         />
         <SectionPicture
+        isMobile={isMobile}
         imageSrc={luz}
         backgroundColor = '#ecebdc'
         textColor = '#1A3F13'
@@ -123,12 +178,22 @@ const School: React.FC = () => {
         borderColor = '#1A3F13'
         backgroundColorHover = '#e9e6d0'
         height = '60vh'
+        heightMobile = '70vh'
         width = '90vw'
         scale = '1.01'
         mainTitle = 'Resumindo'
         mainText = {'O projeto Centro de Excelência em Educação e Produção Audiovisual, desenvolvido pela Cooperativa Cinema & Mídias Digitais (CCMD), é uma iniciativa sociocultural que utiliza audiovisual e comunicação como ferramentas para promover cidadania e desenvolvimento socioeconômico em comunidades carentes. Realizado em Tibagi (PR), o projeto selecionou 30 adolescentes entre 600 inscritos e beneficiou mais de 150 pessoas, com resultados apresentados em uma mostra de cinema que reuniu 4 mil espectadores. A proposta inclui dois núcleos principais (Audiovisual e Comunicação), oferecendo formação teórica e prática em jornalismo, web TV/rádio e produção de documentários, com foco na preservação cultural e no desenvolvimento comunitário sustentável.'}
       />
-      {/* <Footer marginTop={'5vh'}/> */}
+      <CustomCarousel
+        isMobile={isMobile}
+        backgroundColor = {'#ffffff0'}
+        backgroundColor2 = {'#ffffff0'}
+        textColor = {'#000000'}
+        title = {''}
+        subtitle = {''}    
+        slides={defaultSlides}  
+      />
+      <Footer marginTop={'5vh'}/>
     </Container>
   );
 };

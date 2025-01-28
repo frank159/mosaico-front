@@ -9,10 +9,13 @@ interface ColorProps {
   backgroundColorHover?: string;
   height?: string;
   width?: string;
+  heightMobile?: string;
+  isMobile?: boolean;
 }
 
 export const Container = styled.div<ColorProps>`
-  height: ${(props) => props.height || '60vh'};
+  height: ${(props) => (props.isMobile ? (props.heightMobile || '80vh') : (props.height || '60vh') )};
+
   width: ${(props) => props.width || '85vw'};
   display: flex;
 `;
@@ -22,12 +25,13 @@ export const ContentContainer = styled.div<ColorProps>`
   height: 99%;
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: ${(props) => (props.isMobile ? 'start' : 'center')};
+  
   align-items: center;
   border-radius: 10px;
   background-color: ${(props) => props.backgroundColor || '#dfdfdf6f'};
   transition: transform 0.7s ease-in-out, transform 0.2s ease-in-out; // Adiciona animação de escala suave
-  
+  flex-direction: ${(props) => (props.isMobile ? 'column' : 'row')};
   &:hover {
     transition: transform 0.7s ease-in-out, transform 0.2s ease-in-out; // Adiciona animação de escala suave
     transform: scale(${(props) => props.scale || 1.2});
@@ -35,12 +39,13 @@ export const ContentContainer = styled.div<ColorProps>`
   }
 `;
 
-export const LeftContent = styled.div`
+export const LeftContent = styled.div<ColorProps>`
   display: flex;
   flex-direction: column;
   height: 100%;
-  width: 40vw;
-  margin-top: 25vh;
+  width: ${(props) => (props.isMobile ? '60vw' : '40vw')};
+  margin-top: ${(props) => (props.isMobile ? '3vh' : '25vh')};
+
   justify-content: flex-start;
 `;
 
@@ -75,7 +80,7 @@ export const ImageFrame = styled.div<ColorProps>`
 
 export const Title = styled.text<ColorProps>`
   width: auto;
-  font-size: 40px;
+  font-size: ${(props) => (props.isMobile ? '30px' : '40px')};
   font-weight: bold;
   color: ${props => props.titleColor || 'black'};
   text-align: left;
@@ -92,9 +97,9 @@ export const TitleSmall = styled.h3<ColorProps>`
 export const Text = styled.text<ColorProps>`
   width: 100%;
   color: ${props => props.textColor};
-  font-size: 18px;
   text-align: left;
   padding-left: 1rem;
+  font-size: ${(props) => (props.isMobile ? '14px' : '18px')};
 `;
 
 export const TopicsContainer = styled.div`
