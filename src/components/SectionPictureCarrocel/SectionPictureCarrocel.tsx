@@ -7,6 +7,7 @@ import { Container, CarouselWrapper, Slide, VectorImage, ProgressCircle } from "
 const vetorFolha1 = require('../../assets/images/products/vetorFolha2.png');
 
 interface CarouselProps {
+  isMobile: boolean;
   slides: Array<{
     mainTitle: string;
     mainText: string;
@@ -17,7 +18,7 @@ interface CarouselProps {
   }>;
 }
 
-const SectionPictureCarrocel: React.FC<CarouselProps> = ({ slides }) => {
+const SectionPictureCarrocel: React.FC<CarouselProps> = ({ slides, isMobile }) => {
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
     loop: true,
     mode: "free",
@@ -35,7 +36,7 @@ const SectionPictureCarrocel: React.FC<CarouselProps> = ({ slides }) => {
 
     const startProgress = () => {
       let elapsedTime = 0;
-      const duration = 2000; // 5 segundos
+      const duration = 12000; // 5 segundos
       const step = 100; // Atualiza a cada 100ms
 
       interval = setInterval(() => {
@@ -78,6 +79,7 @@ const SectionPictureCarrocel: React.FC<CarouselProps> = ({ slides }) => {
           {slides.map((slide, index) => (
             <Slide key={index} className="keen-slider__slide">
               <SectionPicture
+                isMobile={isMobile}
                 backgroundColor={'#dfdfdf6f'}
                 textColor={'#000000'}
                 titleColor={'#000000'}

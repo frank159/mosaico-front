@@ -8,8 +8,12 @@ interface BigTextStyledProps {
   height?: string;
   expandedMin?: string;
   textAlign?: string;
+  zIndex?: string;
+  MobileHMax?: string;
+  MobileHMin?: string;
   isRotated?: boolean;
   portfo?: boolean;
+  isMobile?: boolean;
 }
 
 export const ImgIcon = styled.img<BigTextStyledProps & { isRotated?: boolean }>`
@@ -53,18 +57,31 @@ export const AuthorSection = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  align-items: flex-start;
   width: 100%;
   margin-top: 7vh;
   margin-bottom: 3vh;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
+  @media (min-width: 768px) {
+    flex-direction: row;
+    align-items: flex-start;
+  }
 `;
 
 export const AuthorCard = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 45%;
   text-align: center;
+
+  @media (max-width: 768px) {
+    width: 90%;
+  }
+  @media (min-width: 768px) {
+    width: 45%;
+  }
 `;
 
 export const AuthorImage = styled.img`
@@ -77,8 +94,13 @@ export const AuthorImage = styled.img`
 
 export const AuthorDescription = styled.div`
   color: #ffffff;
-  width: 50%;
-  h3 {
+  @media (max-width: 768px) {
+    width: 90%;
+    margin-bottom: 3vh;
+  }
+  @media (min-width: 768px) {
+    width: 50%;
+  }  h3 {
     margin: 0;
     font-size: 20px;
   }
@@ -92,7 +114,15 @@ export const AuthorDescription = styled.div`
 
 export const Container = styled.div<BigTextStyledProps>`
   position: relative; /* Necessário para que a sombra seja posicionada dentro do Container */
-  height: ${(props) => (props.isExpanded ? props.expandedMax : props.expandedMin)};
+  /* height: ${(props) => (props.isExpanded ? props.expandedMax : props.expandedMin)}; */
+  height: ${(props) => {
+    if (props.isMobile) {
+      return props.isExpanded ? props.MobileHMax : props.MobileHMin; 
+    } else {
+      return props.isExpanded ? props.expandedMax : props.expandedMin;
+    }
+  }};
+
   color: ${props => props.colorCont || "white"};
   background-color: ${props => props.backgroundColor || "#062400"};
   cursor: ${props => props.portfo ? 'pointer' : 'default' };

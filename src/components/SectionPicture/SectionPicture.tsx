@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { 
   Container, 
   ContentContainer, 
@@ -30,10 +30,14 @@ interface SectionPictureProps {
     text: string;
   };
   imageSrc?: string;
+  heightMobile?: string;
+  isMobile?: boolean;
 }
 
 const SectionPicture: React.FC<SectionPictureProps> = ({
   backgroundColor = 'none',
+  isMobile = false,
+  heightMobile = '',
   textColor = 'none',
   titleColor = 'none',
   borderColor = 'none',
@@ -46,28 +50,44 @@ const SectionPicture: React.FC<SectionPictureProps> = ({
   imageSrc
 }) => {
   
+  useEffect(()=> {
+    console.log('isMobile', isMobile)
+  }, [isMobile])
+
   return (
     <Container 
       height={height}
+      heightMobile={heightMobile}
       width={width}
+      isMobile={isMobile}
+
     >
       <ContentContainer
         scale={scale}
+        isMobile={isMobile}
         backgroundColor={backgroundColor}
         backgroundColorHover={backgroundColorHover}
       >
-        <LeftContent>
-          <Title color={titleColor}>
+        <LeftContent
+          isMobile={isMobile}
+        >
+          <Title
+            isMobile={isMobile}
+            color={titleColor}
+          >
             {mainTitle}
           </Title>
-          <Text textColor={textColor} dangerouslySetInnerHTML={{ __html: mainText }}>
+          <Text isMobile={isMobile} textColor={textColor} dangerouslySetInnerHTML={{ __html: mainText }}>
           </Text>
         </LeftContent>
-        <RightContent>
-          <ImageFrame borderColor={borderColor}>
-            <Image src={imageSrc} alt="Feature section image" />
-          </ImageFrame>
-        </RightContent>
+        {/* Renderiza a imagem somente se isMobile for false */}
+        {!isMobile && (
+          <RightContent>
+            <ImageFrame borderColor={borderColor}>
+              <Image src={imageSrc} alt="Feature section image" />
+            </ImageFrame>
+          </RightContent>
+        )}
       </ContentContainer>
     </Container>
   );

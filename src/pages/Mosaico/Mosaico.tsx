@@ -7,6 +7,8 @@ import CustomCarousel from '../../components/Carousel/Carousel';
 
 import * as S from "./MosaicoStyled";
 import SectionPictureCarrocel from '../../components/SectionPictureCarrocel/SectionPictureCarrocel';
+import { useNavigate } from 'react-router-dom';
+import ScrollToTop from '../../components/ScrollToTop/ScrollToTop';
 
 const finalSvg = require('../../assets/images/products/cora.png');
 const fundoPadrao = require('../../assets/images/products/fundoPadrão.png');
@@ -126,9 +128,19 @@ const slidesData = [
     imageSrc: require("../../assets/images/comuni.png"),
   }
 ];
+interface SlideItem {
+  gradient: string;
+  backgroundColor: string;
+  hoverBackgroundColor: string;
+  content?: React.ReactNode;
+  backgroundColor2?: string;
 
+  imageSrc: string; // Adicionado campo para a imagem
+}
 const MosaicoPage: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
+  const navigate = useNavigate()
+
 
   useEffect(()=> {
     console.log("window.innerWidth <= 768", window.innerWidth <= 768)
@@ -137,6 +149,7 @@ const MosaicoPage: React.FC = () => {
   
   return (
     <S.Container>
+      <ScrollToTop />
       <S.MosaicoWrapper>
         <S.TitleOverlayContainer>
           <S.TitleOverlay>
@@ -152,7 +165,7 @@ const MosaicoPage: React.FC = () => {
         isMobile={isMobile}
         expandedMax='85vh'
         expandedMin='33vh'
-        MobileHMax='85vh'
+        MobileHMax='250vh'
         MobileHMin='33vh'
         opacity='20%'
         backgroundColor="#000000"
@@ -180,29 +193,38 @@ const MosaicoPage: React.FC = () => {
         />
       <SectionPictureCarrocel
         slides={slidesData}
+        isMobile={isMobile}
       />
       <BigTextSection
         backgroundColor={"#000000"}
         colorCont={'white'}
         bigText={bigText}
+        isMobile={isMobile}
         titleText={''}      
         expandedMax='205vh'
         expandedMin='60vh'
+        MobileHMax='470vh'
+        MobileHMin='33vh'
         portfo={true}
+        Expanded={true}
       />
-      {/* <CustomCarousel
+      <CustomCarousel
+        isMobile={isMobile}
         backgroundColor = {'#ffffff'}
+        backgroundColor2={'#000000'}
         textColor = {'#000000'}
-        title = {'Carrossel Keen Slider'}
-        subtitle = {'Experimente deslizar livremente as imagens!'}      
-      /> */}
+        title = {''}
+        subtitle = {''}      
+      />
       <S.PageButtonSection>
         <S.FullImage src={fundoPadrao}/>
-        <S.PageButton>
+        <S.PageButton
+          onClick={()=>{navigate("/Home")}}
+        >
           Oque vem por ai!
         </S.PageButton>
       </S.PageButtonSection>
-
+      <Footer/>
     </S.Container>
   );
 };

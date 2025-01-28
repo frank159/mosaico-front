@@ -1,40 +1,37 @@
 import React, { useState, useEffect } from "react";
 import { Container, Element, Img, ShadowDiv } from "./HeaderStyled";
-import img1 from "../../assets/images/logo/1.png";
-import img2 from "../../assets/images/logo/2.png";
+import img2 from "../../assets/images/logo/1.png";
+import img1 from "../../assets/images/logo/2.png";
 import img3 from "../../assets/images/logo/3.png";
 
 import { gsap } from "gsap";
-import { useNavigate } from "react-router-dom"; // Para navegação interna com React Router
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Header: React.FC = () => {
-  const [activeIndex, setActiveIndex] = useState<number>(1);
-  const navigate = useNavigate(); // Hook para navegação interna
+  const location = useLocation(); // Hook para obter a URL atual
+  const navigate = useNavigate();
 
+  // Imagens e links
   const images = [img1, img2, img3];
+  const routes = ["/Home", "/mosaico", "/about"];
+
+  // Determinar o índice ativo com base na URL atual
+  const getActiveIndex = (currentLocation: string): number => {
+    const index = routes.indexOf(currentLocation);
+    return index !== -1 ? index : 1; // Se não encontrar, define o índice 1 (padrão)
+  };
+
+  const [activeIndex, setActiveIndex] = useState<number>(getActiveIndex(location.pathname));
 
   const handleClick = (index: number) => {
     setActiveIndex(index);
-
-    // Redirecionamento baseado no índice do elemento clicado
-    switch (index) {
-      case 0:
-        navigate("/mosaico"); // Redireciona para "page1"
-        break;
-      case 1:
-        navigate("/Home"); // Redireciona para "page2"
-        break;
-      case 2:
-        navigate("/about"); // Redireciona para "page3"
-        break;
-      default:
-        console.error("Índice não reconhecido!");
-    }
+    navigate(routes[index]); // Redireciona para a rota correspondente
   };
 
   useEffect(() => {
+    setActiveIndex(getActiveIndex(location.pathname)); // Atualiza o índice ativo ao mudar de rota
     organizeElements(activeIndex);
-  }, [activeIndex]);
+  }, [location, activeIndex]); // Atualiza quando a rota ou o índice mudar
 
   const organizeElements = (centerIndex: number) => {
     const container = document.querySelector(".container") as HTMLElement;
@@ -44,44 +41,38 @@ const Header: React.FC = () => {
     const isMobile = window.innerWidth <= 768;
   
     if (isMobile) {
+      // Para mobile, manter posições fixas simples
       const mobilePositions = [-80, 0, 80];
   
       elements.forEach((el, index) => {
         gsap.to(el, {
           x: mobilePositions[index],
-          duration: 0, 
+          duration: 0,
         });
       });
-      return; 
+      return;
     }
   
-    let positions: { A: number; B?: number; C: number; D?: number; F: number } = {
-      A: -containerWidth / 2 + 60,
-      B: -containerWidth / 2.35 + 1,
-      C: 0,
-      D: containerWidth / 2.35 - 1,
-      F: containerWidth / 2 - 60,
-    };
-
-    if (centerIndex === 1) {
-      positions = {
-        ...positions,
-        B: -containerWidth / 2 + 60,
-        D: containerWidth / 2 - 60,
-      };
-    }
-
+    // Configuração para margens
+    const margin = 60; // Distância entre os elementos
+    const leftExtreme = -containerWidth / 2 + margin; // Extrema esquerda
+    const rightExtreme = containerWidth / 2 - margin; // Extrema direita
+  
     elements.forEach((el, index) => {
       let targetPosition;
-
+  
       if (index === centerIndex) {
-        targetPosition = positions.C;
+        // Elemento centralizado
+        targetPosition = 0;
       } else if (index < centerIndex) {
-        targetPosition = positions.A;
+        // Elementos à esquerda
+        targetPosition = leftExtreme + (index * margin); // Adiciona margem acumulada
       } else {
-        targetPosition = positions.F;
+        // Elementos à direita
+        targetPosition = rightExtreme - ((elements.length - index - 1) * margin); // Subtrai margem acumulada
       }
-
+  
+      // Animação para posição alvo
       gsap.to(el, {
         x: targetPosition,
         duration: 0.5,
