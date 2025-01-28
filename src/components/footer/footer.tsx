@@ -1,10 +1,11 @@
 import React from 'react';
-import { ColumnLinks, ColumnHeader, FooterContainer, FooterDiv, IconsDiv, Img, LinkColumn, MainDiv, MainIcon, MainLinks, SubDiv, Subscribe, Text, SubscribeInputButton, SubscribeInput, SubscribeHeader, SubscribeInputContainer, SubscribeText } from './footerStyled';
+import { ColumnLinks, ColumnHeader, FooterContainer, FooterDiv, IconsDiv, Img, LinkColumn, MainDiv, MainIcon, MainLinks, SubDiv, Subscribe, Text, SubscribeInputButton, SubscribeInput, SubscribeHeader, SubscribeInputContainer, SubscribeText, Logo } from './footerStyled';
 
 const facebook = require('../../assets/images/icons/facebook.png');
 const instagram = require('../../assets/images/icons/instagram.png');
 const youtube = require('../../assets/images/icons/youtube.png');
 const mosaico = require('../../assets/images/icons/mosaico.png');
+  const graciosa = require("../../assets/images/logo/graciosa.png");
 
 interface FooterProps {
     marginTop?: string;
@@ -17,9 +18,6 @@ const Footer: React.FC<FooterProps> = ({
     <FooterContainer marginTop={marginTop}>
         <FooterDiv>
             <MainDiv>
-                <MainIcon>
-                    <Img iconWidth="80px" iconHeight="80px" iconInvert={true} src={mosaico} alt="logo" />
-                </MainIcon>
                 <Subscribe>
                     <SubscribeHeader>
                         Logo mais conteudo
@@ -36,6 +34,13 @@ const Footer: React.FC<FooterProps> = ({
                     <SubscribeText textSize="12px" paddingTop="15px">
                         By subscribing you agree to with our Privacy Policy and provide consent to receive updates from our company.
                     </SubscribeText> */}
+                </Subscribe>
+                <MainIcon>
+                    <Img iconWidth="80px" iconHeight="80px" iconInvert={true} src={mosaico} alt="logo" />
+                </MainIcon>
+                  <Subscribe>
+                <Logo onClick={() => window.open("https://www.graciosapictures.com", "_blank")} height={"7vh"} src={graciosa} />
+
                 </Subscribe>
             </MainDiv>
             <SubDiv>
