@@ -6,6 +6,7 @@ interface ColorProps {
   iconHeight?: string;
   textSize?: string;
   paddingTop?: string;
+  height?: string;
   marginTop?: string;
 }
 
@@ -108,11 +109,10 @@ export const Img = styled.img<ColorProps>`
 export const MainIcon = styled.div`
   width: 15%;
   height: 100%;
-  margin-top: 5vh;
 
   display: flex;
   justify-content: center;
-
+  align-items: center;
   @media (max-width: 768px) {
     margin-top: 20px;
     width: 100%;
@@ -173,7 +173,6 @@ export const ColumnLinks = styled.div`
 `;
 
 export const Subscribe = styled.div`
-  width: 25%;
   height: 100%;
   margin-left: 10vh;
   display: flex;
@@ -253,4 +252,9 @@ export const SubscribeText = styled.div<ColorProps>`
     text-align: center;
     font-size: 12px;
   }
+`;
+
+export const Logo = styled.img<ColorProps>`
+  height: ${(props) => (props.height || "5vh")};
+  cursor: pointer;
 `;
