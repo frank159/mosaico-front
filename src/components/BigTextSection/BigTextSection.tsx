@@ -137,7 +137,7 @@ const BigTextSection: React.FC<BigTextProps> = ({
           <Hr />
           <LogosContainer>
             <Logo src={cap} />
-            <Logo height={"7vh"} src={graciosa} />
+            <Logo onClick={() => window.open("https://www.graciosapictures.com", "_blank")} height={"7vh"} src={graciosa} />
           </LogosContainer>
         </>
       )}
