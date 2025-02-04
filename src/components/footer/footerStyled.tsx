@@ -18,7 +18,7 @@ export const FooterContainer = styled.div<ColorProps>`
   justify-content: center;
   align-items: center;
   margin-top: ${props => props.marginTop || "none"};
-  z-index: 1000;
+  z-index: 11000;
   @media (max-width: 768px) {
     width: none;
     height: auto;

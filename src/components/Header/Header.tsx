@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Container, Element, Img, ShadowDiv } from "./HeaderStyled";
-import img2 from "../../assets/images/logo/1.png";
-import img1 from "../../assets/images/logo/2.png";
+import img2 from "../../assets/images/icons/mosaicoIconeMonoW.png";
+import img1 from "../../assets/images/logo/sobrenos.png";
 import img3 from "../../assets/images/logo/3.png";
 
 import { gsap } from "gsap";
@@ -13,7 +13,7 @@ const Header: React.FC = () => {
 
   // Imagens e links
   const images = [img1, img2, img3];
-  const routes = ["/Home", "/mosaico", "/about"];
+  const routes = ["/AboutUs", "/mosaico", "/Projetos"];
 
   // Determinar o índice ativo com base na URL atual
   const getActiveIndex = (currentLocation: string): number => {
@@ -22,6 +22,7 @@ const Header: React.FC = () => {
   };
 
   const [activeIndex, setActiveIndex] = useState<number>(getActiveIndex(location.pathname));
+  const [isHeaderVisible, setIsHeaderVisible] = useState(true); // Estado para controlar visibilidade do header
 
   const handleClick = (index: number) => {
     setActiveIndex(index);
@@ -33,17 +34,37 @@ const Header: React.FC = () => {
     organizeElements(activeIndex);
   }, [location, activeIndex]); // Atualiza quando a rota ou o índice mudar
 
+  // Lógica para esconder ou mostrar o header
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+    const handleScroll = () => {
+      if (window.scrollY > lastScrollY) {
+        // Rolou para baixo
+        setIsHeaderVisible(false);
+      } else {
+        // Rolou para cima
+        setIsHeaderVisible(true);
+      }
+      lastScrollY = window.scrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   const organizeElements = (centerIndex: number) => {
     const container = document.querySelector(".container") as HTMLElement;
     const elements = document.querySelectorAll(".element");
     const containerWidth = container.offsetWidth;
-  
+
     const isMobile = window.innerWidth <= 768;
-  
+
     if (isMobile) {
       // Para mobile, manter posições fixas simples
       const mobilePositions = [-80, 0, 80];
-  
+
       elements.forEach((el, index) => {
         gsap.to(el, {
           x: mobilePositions[index],
@@ -52,15 +73,15 @@ const Header: React.FC = () => {
       });
       return;
     }
-  
+
     // Configuração para margens
     const margin = 60; // Distância entre os elementos
     const leftExtreme = -containerWidth / 2 + margin; // Extrema esquerda
     const rightExtreme = containerWidth / 2 - margin; // Extrema direita
-  
+
     elements.forEach((el, index) => {
       let targetPosition;
-  
+
       if (index === centerIndex) {
         // Elemento centralizado
         targetPosition = 0;
@@ -71,7 +92,7 @@ const Header: React.FC = () => {
         // Elementos à direita
         targetPosition = rightExtreme - ((elements.length - index - 1) * margin); // Subtrai margem acumulada
       }
-  
+
       // Animação para posição alvo
       gsap.to(el, {
         x: targetPosition,
@@ -83,7 +104,10 @@ const Header: React.FC = () => {
 
   return (
     <>
-      <Container className="container">
+      <Container
+        className={`container ${isHeaderVisible ? "visible" : "hidden"}`}
+        isVisible={isHeaderVisible} // Passando a propriedade 'isVisible'
+      >
         {[1, 2, 3].map((item, index) => (
           <Element
             key={index}
@@ -95,9 +119,9 @@ const Header: React.FC = () => {
           </Element>
         ))}
       </Container>
-      <ShadowDiv />
     </>
   );
+  
 };
 
 export default Header;
