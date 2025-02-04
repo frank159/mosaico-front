@@ -4,6 +4,8 @@ import Home from './pages/Home/Home';
 import School from './pages/School/School';
 import Mosaico from './pages/Mosaico/Mosaico';
 import Header from './components/Header/Header';
+import AboutUs from './pages/AboutUs/AboutUs';
+import Projetos from './pages/Projetos/projetos';
 
 const App: React.FC = () => {
   return (
@@ -11,9 +13,11 @@ const App: React.FC = () => {
       <Header />
       
       <Routes>
-        <Route path="/Home" element={<Home />} />
-        <Route path="/about" element={<School />} />
+        <Route path="/EcoAcao" element={<Home />} />
+        <Route path="/Ceepa" element={<School />} />
         <Route path="/mosaico" element={<Mosaico />} />
+        <Route path="/AboutUs" element={<AboutUs />} />
+        <Route path="/Projetos" element={<Projetos />} />
       </Routes>
     </Router>
   );

@@ -3,6 +3,20 @@
 @import '~slick-carousel/slick/slick-theme.css';
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
+@font-face {
+  font-family: 'Chocolates';
+  src: url('./assets/fonts/ChocolatesExtraBold.otf') format('otf');
+  font-weight: bolder;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Voga';
+  src: url('./assets/fonts/Voga.woff') format('otf');
+  font-weight: bolder;
+  font-style: normal;
+}
+
 body {
   margin: 0;
   font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,6 +24,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #030504;
 }
 
 code {
