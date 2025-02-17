@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Container, Element, Img, ShadowDiv } from "./HeaderStyled";
 import img2 from "../../assets/images/icons/mosaicoIconeMonoW.png";
-import img1 from "../../assets/images/logo/sobrenos.png";
-import img3 from "../../assets/images/logo/3.png";
+import img1 from "../../assets/images/logo/cooperativa.png";
+import img3 from "../../assets/images/icons/estrutura.png";
 
 import { gsap } from "gsap";
 import { useNavigate, useLocation } from "react-router-dom";
@@ -13,7 +13,7 @@ const Header: React.FC = () => {
 
   // Imagens e links
   const images = [img1, img2, img3];
-  const routes = ["/AboutUs", "/mosaico", "/Projetos"];
+  const routes = ["/Cooperativa", "", "/Projetos"];
 
   // Determinar o índice ativo com base na URL atual
   const getActiveIndex = (currentLocation: string): number => {

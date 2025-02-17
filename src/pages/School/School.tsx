@@ -1,200 +1,266 @@
 import React, { useEffect, useState } from 'react';
-import {Container, Hr} from "./SchoolStyled";
-import FullScreenMedia from '../../components/FullScreenMedia/FullScreenMedia';
-import SectionPicture from '../../components/SectionPicture/SectionPicture';
-import CardComponent from '../../components/CardComponent/CardComponent';
-import BigTextSection from '../../components/BigTextSection/BigTextSection';
-import TitlePage from '../../components/TitlePage/TitlePage';
+import * as S from "./SchoolStyled"
 import Footer from '../../components/footer/footer';
-import CustomCarousel from '../../components/Carousel/Carousel';
-import ScrollToTop from '../../components/ScrollToTop/ScrollToTop';
+import ReactPlayer from 'react-player';
 
-const boat = require('../../assets/images/school.jpg')
-const luz = require("../../assets/images/camera.jpg")
+const boat = require('../../assets/images/img/school.jpg')
+const camerim = require("../../assets/images/img/camerim.png")
+const ceepa = require("../../assets/images/logo/logo ceepa.png")
+const impactoM = require("../../assets/images/icons/impacto na midia.png")
+const impactoS = require("../../assets/images/icons/impacto social.png")
+const producao = require("../../assets/images/icons/producao e resultados.png")
+const reconhecimento = require("../../assets/images/icons/reconhecimento.png")
+const esclamacao = require('../../assets/images/icons/esclamacao.png');
+const estrutura = require("../../assets/images/icons/estrutura.png")
+const localizacao = require("../../assets/images/icons/localizacao.png")
+const clacket = require("../../assets/images/img/clacket.png")
+const ft1 = require("../../assets/images/img/ft1.jpg")
+const ft2 = require("../../assets/images/img/ft2.jpg")
+const ft3 = require("../../assets/images/img/ft3.jpg")
+const ft4 = require("../../assets/images/img/ft4.jpg")
+const ft5 = require("../../assets/images/img/ft5.jpg")
+const ft6 = require("../../assets/images/img/ft6.jpg")
+const ft7 = require("../../assets/images/img/ft7.jpg")
+const ft8 = require("../../assets/images/img/ft8.jpg")
+const ft9 = require("../../assets/images/img/ft9.jpg")
+const ft10 = require("../../assets/images/img/ft10.jpg")
+const ft11 = require("../../assets/images/img/ft11.jpg")
+const img2 = require('../../assets/images/img/boat2.jpg');
 
-const text = `
-<section>
-  <h3>Impacto Social</h3>
-  <p>
-    A iniciativa envolveu diretamente a comunidade local, alcançando resultados significativos:
-  </p>
-  <ul>
-    <li>
-      <strong>Participação da Comunidade:</strong> Entre <strong>600 inscritos</strong>, <strong>30 adolescentes</strong> foram selecionados para participar do projeto. Mais de <strong>150 pessoas</strong>, direta e indiretamente, foram beneficiadas. A comunidade esteve envolvida em todas as etapas, fortalecendo o <strong>senso de pertencimento e cidadania</strong>.
-    </li>
-  </ul>
-
-  <h3>Produção e Resultados</h3>
-  <p>
-    Os participantes se engajaram em todas as etapas do processo audiovisual, desde a criação até a finalização:
-  </p>
-  <ul>
-    <li>
-      O projeto culminou na <strong>Mostra Criação de Cinema</strong>, organizada pelos próprios participantes, que contou com um público de <strong>aproximadamente 4 mil pessoas</strong>.
-    </li>
-  </ul>
-
-  <h3>Reconhecimento</h3>
-  <p>
-    A iniciativa recebeu <strong>reconhecimento nacional e internacional</strong>:
-  </p>
-  <ul>
-    <li>
-      Nacionalmente, foi destaque em veículos como o <strong>Globo Repórter</strong>.
-    </li>
-    <li>
-      Internacionalmente, foi apresentado como um <strong>case de sucesso</strong> na <strong>3ª Conferência Internacional BAWB Brasil (Business as an Agent of World Benefit)</strong>, em 2005.
-    </li>
-  </ul>
-
-  <h3>Impacto na Mídia</h3>
-  <p>
-    O projeto gerou visibilidade significativa:
-  </p>
-  <ul>
-    <li>
-      <strong>Reportagens e divulgações</strong> destacaram sua inovação e o impacto positivo na formação dos jovens.
-    </li>
-    <li>
-      Promoveu discussões sobre o <strong>audiovisual como ferramenta de inclusão e transformação social</strong>.
-    </li>
-  </ul>
-
-  <h3>Estrutura</h3>
-  <p>
-    O CEEPA operou por meio de dois grandes núcleos:
-  </p>
-  <ol>
-    <li>
-      <strong>Audiovisual e Comunicação</strong>, com três laboratórios principais:
-      <ul>
-        <li><strong>Produção e Criação</strong></li>
-        <li><strong>Imagem</strong></li>
-        <li><strong>Áudio</strong></li>
-      </ul>
-    </li>
-    <li>
-      <strong>Escola itinerante</strong>, estruturada em uma carreta adaptada, que levou ensino a comunidades remotas, promovendo <strong>integração cultural e inclusão social</strong>.
-    </li>
-  </ol>
-
-  <p>
-    Com essa abordagem, o projeto se consolidou como um <strong>marco de transformação social</strong>, utilizando o audiovisual para <strong>oferecer oportunidades, resgatar histórias locais</strong> e fortalecer a <strong>identidade cultural e a cidadania</strong>.
-  </p>
-</section>
-
-`
-
-  const teste6 = require('../../assets/images/6.jpeg');
-  const teste7 = require('../../assets/images/7.jpeg');
-  const teste8 = require('../../assets/images/8.jpeg');
-  const teste9 = require('../../assets/images/9.jpeg');
-
-  interface SlideItem {
-    gradient: string;
-    backgroundColor: string;
-    hoverBackgroundColor: string;
-    content?: React.ReactNode;
-    backgroundColor2?: string;
-
-    imageSrc: string; // Adicionado campo para a imagem
-  }
-
-  const defaultSlides: SlideItem[] = [
-    {
-      gradient: 'linear-gradient(128deg, #40afff 0%, #3f62ff 100%)',
-      backgroundColor: '#4287f50',
-      hoverBackgroundColor: '#000000',
-      imageSrc: teste6 // Usando a imagem local
-    },
-    {
-      gradient: 'linear-gradient(128deg, #ff993f 0%, #ff4a40 100%)',
-      backgroundColor: '#ff6b6b',
-      hoverBackgroundColor: '#000000',
-      imageSrc: teste7 // Usando a mesma imagem
-    },
-    {
-      gradient: 'linear-gradient(128deg, #bdff53 0%, #2bfa51 100%)',
-      backgroundColor: '#4ade80',
-      hoverBackgroundColor: '#000000',
-      imageSrc: teste8
-    },
-    {
-      gradient: 'linear-gradient(128deg, #40fff2 0%, #3fbcff 100%)',
-      backgroundColor: '#38bdf8',
-      hoverBackgroundColor: '#000000',
-      imageSrc: teste9
-    }
-  ];
 
 const School: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
 
-  useEffect(()=> {
+  useEffect(() => {
     console.log("window.innerWidth <= 768", window.innerWidth <= 768)
     setIsMobile(window.innerWidth <= 768);
-  },[])
+  }, [])
+
+  const handleProjetoClick = (route: string) => {
+    window.open(route, '_blank'); // Abre a rota em uma nova aba
+  };
+
 
   return (
-    <Container>
-      <ScrollToTop /> 
-      <FullScreenMedia mediaSrc={boat} />
-      <TitlePage titleText="C E E P A" isMobile={isMobile} titleColor="#000000" textColor="#000000" backgroundColor="#0000000"/>
-      <hr/>
-      <CardComponent
-        isMobile={isMobile}
-        expandedMax='122vh'
-        expandedMin='25vh'
-        opacity='20%'
-        MobilePadding='0 1rem 0 0'
-        backgroundColor="#e9e6d0"
-        textColor="#1A3F13"
-        titleColor="#1A3F13"
-        borderColor="#000000"
-        mainTitle="Centro de Excelência em Educação e Produção Audiovisual"
-        mainText=""
-        subheading1={{
-          title: "Primeiro Subtítulo",
-          text: "Descrição do primeiro subtítulo"
-        }}
-        subheading2={{
-          title: "Segundo Subtítulo",
-          text: "Descrição do segundo subtítulo"
-        }}
-        longText="O Centro de Excelência em Educação e Produção Audiovisual (CEEPA) foi um projeto piloto realizado em Tibagi, Paraná, que utilizou o cinema e a comunicação jornalística como ferramentas de transformação social. A iniciativa teve como foco adolescentes de 12 a 16 anos da rede pública de ensino, promovendo uma formação cultural, técnica e cidadão."
-        frameWidth="25vw"
-        frameHeight="25vh"
-        imageWidth="20%"
-        imageHeight="auto"      
-        justify='end'
-        hiddenText={text}
-        />
-        <SectionPicture
-        isMobile={isMobile}
-        imageSrc={luz}
-        backgroundColor = '#ecebdc'
-        textColor = '#1A3F13'
-        titleColor = '#1A3F13'
-        borderColor = '#1A3F13'
-        backgroundColorHover = '#e9e6d0'
-        height = '60vh'
-        heightMobile = '70vh'
-        width = '90vw'
-        scale = '1.01'
-        mainTitle = 'Resumindo'
-        mainText = {'O projeto Centro de Excelência em Educação e Produção Audiovisual, desenvolvido pela Cooperativa Cinema & Mídias Digitais (CCMD), é uma iniciativa sociocultural que utiliza audiovisual e comunicação como ferramentas para promover cidadania e desenvolvimento socioeconômico em comunidades carentes. Realizado em Tibagi (PR), o projeto selecionou 30 adolescentes entre 600 inscritos e beneficiou mais de 150 pessoas, com resultados apresentados em uma mostra de cinema que reuniu 4 mil espectadores. A proposta inclui dois núcleos principais (Audiovisual e Comunicação), oferecendo formação teórica e prática em jornalismo, web TV/rádio e produção de documentários, com foco na preservação cultural e no desenvolvimento comunitário sustentável.'}
-      />
-      <CustomCarousel
-        isMobile={isMobile}
-        backgroundColor = {'#ffffff0'}
-        backgroundColor2 = {'#ffffff0'}
-        textColor = {'#000000'}
-        title = {''}
-        subtitle = {''}    
-        slides={defaultSlides}  
-      />
-      <Footer marginTop={'5vh'}/>
-    </Container>
+    <S.Container>
+      <S.ImgContainer>
+        <S.ImgBuner src={camerim} />
+      </S.ImgContainer>
+      <S.Body>
+        <S.Title>
+          <strong>CEEPA</strong> - Centro de Educação e Produção Audiovisual do Paraná
+        </S.Title>
+        <S.SubTitle>
+          <S.LocalIcon src={localizacao} />
+          Projeto piloto realizado em Tibagi, Paraná
+        </S.SubTitle>
+        <S.BodyText>
+          O Centro de Excelência em Educação e Produção Audiovisual (CEEPA) foi um projeto piloto realizado em Tibagi, Paraná, que utilizou o
+          cinema e a comunicação jornalística como ferramentas de transformação social.
+          A iniciativa <strong>teve como foco adolescentes de 12 a 16 anos da rede pública de ensino</strong>, promovendo uma formação cultural,
+          técnica e cidadão.
+        </S.BodyText>
+        <S.BodyListCardContainer>
+          <S.Line />
+          <S.BodyListCard>
+            <S.Card>
+              <S.CardTitleContainer>
+                <S.TitleCard>
+                  IMPACTO SOCIAL
+                </S.TitleCard>
+                <S.SUbText>
+                  A iniciativa envolveu diretamente a comunidade local, alcançando resultados significativos:
+                </S.SUbText>
+              </S.CardTitleContainer>
+              <S.CardContent>
+                <S.CardIcon>
+                  <S.CardIconImg src={impactoS} />
+                </S.CardIcon>
+                <S.CardText>
+                  <li>
+                    Entre 600 inscritos, 30 adolescentes foram selecionados para participar do projeto.<br />
+                  </li>
+                  <li>
+                    Mais de 150 pessoas, direta e indiretamente, foram beneficiadas. A comunidade esteve envolvida em todas as<br />
+                  </li>
+                  etapas, fortalecendo o senso de pertencimento e cidadania.
+                </S.CardText>
+              </S.CardContent>
+            </S.Card>
+            <S.Card>
+              <S.CardTitleContainer>
+                <S.TitleCard>
+                  PRODUÇÃO E RESULTADOS
+                </S.TitleCard>
+                <S.SUbText>
+                  Os participantes se engajaram em todas as etapas do processo audiovisual, desde a criação até a finalização:
+                </S.SUbText>
+              </S.CardTitleContainer>
+              <S.CardContent>
+                <S.CardIcon>
+                  <S.CardIconImg src={producao} />
+                </S.CardIcon>
+                <S.CardText>
+                  <li>
+                    O projeto culminou na Mostra Criação de Cinema, organizada pelos próprios participantes, que contou com um<br />
+                    público de aproximadamente 4 mil pessoas.
+                  </li>
+                </S.CardText>
+              </S.CardContent>
+            </S.Card>
+            <S.Card>
+              <S.CardTitleContainer>
+                <S.TitleCard>
+                  RECONHECIMENTO
+                </S.TitleCard>
+                <S.SUbText>
+                  A iniciativa recebeu reconhecimento nacional e internacional:
+                </S.SUbText>
+              </S.CardTitleContainer>
+              <S.CardContent>
+                <S.CardIcon>
+                  <S.CardIconImg src={reconhecimento} />
+                </S.CardIcon>
+                <S.CardText>
+                  <li>
+                    Nacionalmente, foi destaque em veículos como o Globo Repórter.
+                  </li>
+                  <li>
+                    Internacionalmente, foi apresentado como um case de sucesso na 3ª Conferência Internacional BAWB Brasil (Business as
+                    an Agent of World Benefit), em 2005.
+                  </li>
+                </S.CardText>
+              </S.CardContent>
+            </S.Card>
+            <S.Card>
+              <S.CardTitleContainer>
+                <S.TitleCard>
+                  IMPACTO NO MÍDIA
+                </S.TitleCard>
+                <S.SUbText>
+                  O projeto gerou visibilidade significativa:
+                </S.SUbText>
+              </S.CardTitleContainer>
+              <S.CardContent>
+                <S.CardIcon>
+                  <S.CardIconImg src={impactoM} />
+                </S.CardIcon>
+                <S.CardText>
+                  <li>
+                    Reportagens e divulgações destacaram sua inovação e o impacto positivo na formação dos jovens.<br />
+                  </li>
+                  <li>
+                    Promoveu discussões sobre o audiovisual como ferramenta de inclusão e transformação social.<br />
+                  </li>
+                </S.CardText>
+              </S.CardContent>
+            </S.Card>
+            <S.Card>
+              <S.CardTitleContainer>
+                <S.TitleCard>
+                  ESTRUTURA
+                </S.TitleCard>
+                <S.SUbText>
+                  O CEEPA operou por meio de dois grandes núcleos:
+                </S.SUbText>
+              </S.CardTitleContainer>
+              <S.CardContent>
+                <S.CardIcon>
+                  <S.CardIconImg src={estrutura} />
+                </S.CardIcon>
+                <S.CardText>
+                  <li>
+                    Audiovisual e Comunicação, com três laboratórios principais:<br />
+                  </li>
+                  Produção e Criação, Imagem, Áudio
+                </S.CardText>
+              </S.CardContent>
+            </S.Card>
+          </S.BodyListCard>
+        </S.BodyListCardContainer>
+        <S.Faixa>
+          <S.Esclamacao src={esclamacao} />
+          <S.FaixaText>
+            Escola itinerante, estruturada em uma carreta adaptada, que levou ensino a comunidades remotas, promovendo integração
+            cultural e inclusão social.
+            com essa abordagem, o projeto se consolidou como um marco de transformação social, utilizando o audiovisual para
+            oferecer oportunidades, resgatar histórias locais e fortalecer a identidade cultural e a cidadania.
+          </S.FaixaText>
+        </S.Faixa>
+      </S.Body>
+      <S.Galeria>
+        <S.Img src={ft1} width='25vw' />
+        <S.Img src={ft2} width='25vw' />
+        <S.Img src={ft3} width='25vw' />
+        <S.Img src={ft4} width='25vw' />
+        <S.Img src={ft5} width='25vw' />
+        <S.Img src={ft6} width='25vw' />
+        <S.Img src={ft7} width='25vw' />
+        <S.Img src={ft8} width='25vw' />
+        <S.Img src={ft9} width='25vw' />
+        <S.Img src={ft10} width='25vw' />
+        <S.Img src={ft11} width='25vw' />
+      </S.Galeria>
+      <S.ImgContainer2 src={clacket}>
+        <S.FinalContainer>
+          <S.LineFinal />
+          <S.FinalTextContainer>
+            <S.TitleFinalContainer>
+              RESUMINDO:
+            </S.TitleFinalContainer>
+            <S.TextFinalContainer>
+              O projeto Centro de Excelência em Educação e Produção Audiovisual, desenvolvido pela Cooperativa Cinema & Mídias Digitais (CCMD),<br />
+              é uma iniciativa sociocultural que utiliza audiovisual e comunicação como ferramentas para promover cidadania e desenvolvimento<br />
+              socioeconômico em comunidades carentes.<br />
+              Realizado em Tibagi (PR), o projeto selecionou 30 adolescentes entre 600 inscritos e<br />
+              beneficiou mais de 150 pessoas, com resultados apresentados em uma mostra de cinema que reuniu 4 mil espectadores. A proposta<br />
+              inclui dois núcleos principais (Audiovisual e Comunicação), oferecendo formação teórica e prática em jornalismo, web TV/rádio e<br />
+              produção de documentários, com foco na preservação cultural e no desenvolvimento comunitário sustentável.
+            </S.TextFinalContainer>
+          </S.FinalTextContainer>
+        </S.FinalContainer>
+      </S.ImgContainer2>
+      <S.VideoContainer>
+        <S.VideoTitle>
+          • Centro de Excelência em Educação e Produção Audiovisual
+        </S.VideoTitle>
+        <S.VideoWrapper>
+          <S.ReactPlayerDiv
+            url="https://www.facebook.com/watch/?v=711353312672199"
+            width="70%"      // Pode ser em %, px ou outras unidades
+            controls
+          />
+        </S.VideoWrapper>
+      </S.VideoContainer>
+      <S.ProjectoSectionContainer>
+        <S.ProjectoSection>
+          <S.TitleSection1>
+            Levaremos esse projeto para a COP30, confira:
+          </S.TitleSection1>
+          <S.CardProjeto onClick={() => handleProjetoClick('/Escola-Digital')}>
+            <S.CardMainContainer>
+              <S.CardImgFremeProjeto>
+                <S.CardImgProjeto src={img2} />
+              </S.CardImgFremeProjeto>
+              <S.CardTextContainerProjeto>
+                <S.CardTitleProjeto>
+                  <strong>Escola Digital</strong> - Educação e Produção Audiovisual para a Sustentabilidade
+                </S.CardTitleProjeto>
+                <S.CardTextProjeto>
+                  O curso de audiovisual proposto tem como objetivo principal capacitar crianças e jovens a<br />
+                  se expressarem por meio de produções audiovisuais que abordem temas relacionados às<br />
+                  mudanças climáticas, à defesa da biodiversidade e à promoção da sustentabilidade.<br />
+                  Além disso, busca engajar esse público em uma discussão profunda sobre o papel de<br />
+                  cada um na preservação do planeta, tornando-o ciente de sua responsabilidade enquanto<br />
+                  cidadãos.
+                </S.CardTextProjeto>
+              </S.CardTextContainerProjeto>
+            </S.CardMainContainer>
+          </S.CardProjeto>
+        </S.ProjectoSection>
+      </S.ProjectoSectionContainer>
+      <Footer />
+    </S.Container>
   );
 };
 

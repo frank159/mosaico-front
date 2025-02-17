@@ -1,3 +1,4 @@
+import { Button } from '@mui/material';
 import styled, {keyframes} from 'styled-components';
 
 interface Props {
@@ -8,9 +9,12 @@ export const MainContainer = styled.div`
     background: #030504;
     display: flex;
     flex-direction: column;
-    height: 100vh;
-    margin-top: 5vh;
+`;
 
+export const TopContainer = styled.div`
+  width: 100%;
+  margin-bottom: 10vh;
+  position: relative;
 `;
 
 const slideLeft = keyframes`
@@ -22,77 +26,125 @@ const slideLeft = keyframes`
   }
 `;
 
-// Container principal que ficará responsável por ocultar as partes que ultrapassarem a área visível.
 export const MosaicoWrapper = styled.div`
-  position: relative;
   z-index: 1; /* Menor que o do TitlePage */
   overflow: hidden;
   width: 100%;
-  height: 25%;
+  height: 100%;
 `;  
 
-// Container que contém as duas imagens e é animado.
 export const MosaicoImgContainer = styled.div`
   display: flex;
-  width: 200%; /* Duas imagens lado a lado, cada uma com 100% da largura visível */
-  height: 10    0%;
+  width: 200%; 
+  height: 100%;
   animation: ${slideLeft} 40s linear infinite;
 `;
 
-// Cada imagem ocupa 50% do container, ou seja, a largura total do elemento visível.
 export const MosaicoImg = styled.img`
   width: 50%;
-  object-fit: cover; /* Ajusta a imagem para preencher seu espaço sem distorcer */
+  object-fit: cover;
   pointer-events: none;
 `;
 
 export const TitlePage = styled.div`
-    position: fixed;
-    top: 4;
-    left: 0;
     z-index: 11;
+    top: 4rem;
+    left: 7rem;
+    position: absolute;
     font-family: 'Voga', sans-serif;
     font-size: 8rem;
     color: #C2CFB4;
-    margin-top: 3vh;
-    margin-left: 8vw;
 `;
 
 export const Line = styled.div`
-  width: 0.7rem; /* Define a largura da linha */
-  height: 65vh; /* Altura total ou personalizada */
-  background-color: #253529; /* Cor da linha */
+  position: relative;
+  left: 6rem;
+  top: -1rem;
+  width: 0.5rem;
+  height: 153vh;
+  border-radius: 10px;
+  background-color: #253529;
 `;
 
 export const ProjetosContainer = styled.div`
-    margin-left: 3rem;
+    position: relative;
     display: flex;
     flex-direction: row;
 `;
 
+export const ButtonCard = styled(Button)`
+  background-color: #253529 !important;
+  border-radius: 60px !important;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+  width: 15vw;
+  color: white !important;
+
+  
+  &:hover  {
+    transition: 0.6s !important;
+        transform: scale(1.150) !important;
+    }
+`
+
+
 export const CardProjeto = styled.div`
-    background-color: #141C16;
+    background-color: #4E5C2C;
     display: flex;
     justify-content: start;
-    align-items: center;
+    align-items: start;
     margin-right: 1vw;
-    flex-direction: row;
-    height: 22vh;
-    width: 45vw;
+    flex-direction: column;
+    height: auto;
+    width: 100%;
+    padding-bottom: 2rem;
     transition: 0.3s;
-
-    &:hover {
+    border-radius: 10px;
+    
+    &:hover ${ButtonCard} {
+      border: 1px solid #C2CFB4;
         cursor: pointer;
         transition: 0.3s;
-        border-radius: 10px;
-        border: 1px solid #C2CFB4;
+        transform: scale(1.05);
+    }
+
+    &:hover  {
+      border: 1px solid #C2CFB4;
+        cursor: pointer;
+        transition: 0.6s;
         transform: scale(1.05);
     }
 `;
 
+export const ContainerButton = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
+`
+
+
+export const CardMainContainer = styled.div`
+    background-color: #4E5C2C;
+    display: flex;
+    border-radius: 10px;
+
+    justify-content: start;
+    align-items: start;
+    margin-right: 1vw;
+    flex-direction: row;
+    height: auto;
+    width: 100%;
+`;
+
 export const CardImgFremeProjeto = styled.div<Props>`
-    height: 17vh;
-    width: 13vw;
+    background-color: #d9d9d967;
+    height: 26vh;
+    width: 20vw;
+    margin-top: 2rem;
     margin-left: 1rem;
     overflow: hidden; /* Corta o conteúdo que exceder os limites do contêiner */
     position: relative; /* Garante que o posicionamento seja relativo ao contêiner */
@@ -107,31 +159,35 @@ export const CardImgProjeto = styled.img<Props>`
 
 export const ProjetosListContainer = styled.div`
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: column;
     padding: 2rem;
-    height: 50vh;
+    width: 100%;
+    height: auto;
+    gap: 30px;
+    padding: 0rem 7rem 7rem 7rem;
+
 `;
 
 
 export const CardTextContainerProjeto = styled.div`
-    height: 17vh;
-    margin-left: 5px;
+    height: 100%;
+    margin-left: 1rem;
     width: auto;
     display: flex;
     flex-direction: column;
+    padding-top: 2rem;
 `;
 
 export const CardTitleProjeto = styled.div`
     font-size: 1.3rem;
+    margin-top: 0.5rem;
     color: #C2CFB4;
-    font-family: 'Chocolates', sans-serif;
-    font-weight: bolder;
-
-
+    font-family: 'Montserrat', sans-serif;
 `;
 
 export const CardTextProjeto = styled.div`
-    color: #C2CFB4;
-    font-size: 0.8rem;
+    color: #ffffff;
+    margin-top: 0.5rem;
+    font-size: 1.3rem;
+    word-spacing: 10px;
 `;

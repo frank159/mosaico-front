@@ -1,4 +1,7 @@
 import styled from 'styled-components';
+import ClearIcon from '@mui/icons-material/Clear';
+import CheckIcon from '@mui/icons-material/Check';
+import { Button } from '@mui/material';
 
 interface Props {
     width?: string;
@@ -10,19 +13,19 @@ export const MainContainer = styled.div`
     flex-direction: column;
     height: auto;
     margin-top: 5vh;
+    padding: 80px;
 
 `;
 
 export const TitleContainer = styled.div`
+    position: relative;
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-top: 10vh;
+    margin-top: 8vh;
 `;
 
 export const TexteContainer = styled.div`
-    margin-left: 8rem;
-    margin-top: 3vh;
     z-index: 111;
 `;
 
@@ -31,16 +34,22 @@ export const TitleLogo = styled.div`
 `;
 
 export const LogoImg = styled.img`
-    height: 60px;
+    height: 45px;
 `;
 
-export const TitleText = styled.p`
-    color: #C2CFB4;
+export const IconEsclamacaoCard = styled.div`
+    position: absolute;
+    z-index: 1111;
+    left: 20.5vw;
+    top: 0px;
+`;
+
+export const TitleText = styled.div`
+    color: #253529;
     padding: none;
-    margin-right: 10px;
-    font-size: 4rem;
+    margin-right: 13px;
+    font-size: 2.9rem;
     font-weight: bolder;
-    font-family: 'Chocolates', sans-serif;
 `;
 
 export const SubTextContainer = styled.div`
@@ -62,11 +71,10 @@ export const SubTitleContainer = styled.div`
 `;
 
 export const SubTitleText = styled.div`
-margin-top: 5vh;
+    margin-top: 5vh;
     font-size: 2rem;
     font-weight: bolder;
     color: #C2CFB4;
-    font-family: 'Chocolates', sans-serif;
     font-style: italic;
 `;
 
@@ -117,7 +125,6 @@ export const PilaresListContainer = styled.div`
     z-index: 111;
     flex-direction: row;
     align-items: start;
-    margin-left: 6rem;
     justify-content: start;
     height: auto;
     margin-top: 8vh;
@@ -135,7 +142,7 @@ export const PilaresListItensContainer = styled.div`
 
 export const PilaresListLine = styled.div`
   width: 0.7rem; /* Define a largura da linha */
-  height: 75vh; /* Altura total ou personalizada */
+  height: 72vh; /* Altura total ou personalizada */
   background-color: #253529; /* Cor da linha */
 `;
 
@@ -183,10 +190,16 @@ export const SubItenList = styled.li`
 
 
 export const BigIconCardContainer = styled.div`
-    margin-left: 8rem;
     margin-top: 6vh;
-    margin-bottom: 10vh;
     z-index: 111;
+`;
+
+export const FinalContainer = styled.div`
+    position: relative; /* Adicionado para criar um novo contexto de empilhamento */
+    margin-top: 6vh;
+    background-color: #C2CFB4;
+    z-index: 1111111111111;
+    padding: 80px;
 `;
 
 export const BigIconCard = styled.div`
@@ -194,7 +207,7 @@ export const BigIconCard = styled.div`
     align-items: start;
     flex-direction: column;
     background-color: #141C16;
-    height: auto;
+    height: 35vh;
     padding: 1rem;
     position: relative;
     border-radius: 0.2rem;
@@ -204,13 +217,13 @@ export const BigIconCard = styled.div`
 export const BigIconCardTitleContainer = styled.div`
     display: flex;
     flex-wrap: row;
+    justify-content: space-between;
+    width: 100%;
 `;
 
 export const BigIconCardTitle = styled.div`
     color: #C2CFB4;
     font-size: 2rem;
-    padding: 25px 0px 0px 0px;
-    margin-left: 15px;
     font-weight: bolder;
 `;
 
@@ -218,10 +231,10 @@ export const BigIconCardTitle = styled.div`
 export const BigIconImgCard = styled.img<Props>`
     width: ${props => props.width};
     position: relative;
-    top: -70px; /* Ajuste a altura desejada */
+    top: -40px; /* Ajuste a altura desejada */
 `;
 
-export const BigIconItenList = styled.li`
+export const BigIconItenList = styled.div`
     font-family: 'Chocolates', sans-serif;
     font-weight: bolder;
     color: #C2CFB4;
@@ -236,17 +249,112 @@ export const BigIconText = styled.div`
 `;
 
 export const BigIconCardTextContainer = styled.div`
-
+    position: relative;
+    top: -80px;
 `;
 
-export const ColaboradoresContainer = styled.div`
+export const CheckCardsContainer = styled.div`
     width: 100%;
     z-index: 111;
-    height: 57.3vh;
+    height: auto;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    padding-top: 1vh;
+`;
+
+export const ButtonContainer = styled.div`
+    width: 100%;
+    height: 20vh;
+    margin-bottom: 2vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+`;
+
+export const FinalButton = styled(Button)`
+    font-size: 1rem !important;
+    background-color: #141C16 !important;
+    border-radius: 70px !important;
+    padding: 1.3rem !important;
+    color: white !important;
+`
+
+export const CheckCardsContainerTitle = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    font-size: 38px;
+    color: #141C16;
+    font-weight: bolder;
+    font-style: italic;
+    z-index: 111;
+    padding-top: 8vh;
+    padding-bottom: 5vh;
+
+    `;
+
+export const CheckCardsContainerSubTitle = styled.div`
+    color: #000000;
+    font-weight: lighter;
+    font-style: normal;
+    font-size: 23px;
+    padding-top: 8px;
+`;
+
+export const CheckCard1 = styled.div`
+    position: relative;
+    background-color: #4D1408;
+    border-radius: 7px;
+    height: 20vh;
+    padding: 20px;
+    width: 19vw;
+`;
+
+export const CheckCardIcon = styled(ClearIcon)`
+  font-size: 30px !important;
+  position: absolute;
+  top: 17px;
+  color: red;
+`;
+
+export const CheckCardIcon2 = styled(CheckIcon)`
+  font-size: 30px !important;
+  position: absolute;
+  top: 17px;
+  color: yellow;
+`;
+
+export const CheckCardTitleContainer = styled.div`
+    font-size: 18px;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    margin-bottom: 10px;
+`;
+
+export const CheckCardTextTitle = styled.div`
+    font-size: 18px;
+    align-items: start;
+    color: white;
+    font-weight: bolder;
+    margin-left: 1.6vw;
+`;
+
+export const CheckCardText = styled.div`
+    font-size: 18px;
+    color: white;
+`;
+
+export const CheckCard2 = styled.div`
+    position: relative;
+    background-color: #4E5C2C;
+    border-radius: 7px;
+    height: 20vh;
+    padding: 20px;
+    width: 19vw;
 `;
 
 export const ColaboradoresCard = styled.div`
@@ -291,4 +399,75 @@ export const VectorImage = styled.img`
   height: auto;
   z-index: 1; /* Coloca a imagem por trás do carrossel */
   pointer-events: none; /* Evita que a imagem interfira em interações do usuário */
+`;
+
+export const SecaoInicialContainer = styled.div`
+width: 100%;
+margin-top: 1rem;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+`;
+
+export const SecaoInicialIcon = styled.img`
+  width: 3%; /* 30% da largura do carrossel */
+  height: auto;
+  margin-bottom: 15px;
+
+`;
+
+export const SecaoInicialText = styled.div`
+    color: #C2CFB4;
+    font-size: 28px;
+    text-align: center;
+    font-style: italic;
+`;
+
+export const InitialText = styled.div`
+    color: #C2CFB4;
+    font-size: 26px;
+    margin: 20px;
+`;
+
+export const InitialTextContainer = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 56px;
+`;
+
+export const Line = styled.div`
+    height: 90px;
+    width: 3px;
+    background-color: #C2CFB4;
+    border-radius: 10px;
+`;
+
+export const CardTextContainer = styled.div`
+    width: 100%;
+    margin-top: 4vh;
+`;
+
+export const CardText = styled.div`
+    width: 100%;
+    font-size: 1.8rem;
+    color: #C2CFB4;
+`;
+
+export const Card = styled.div`
+    background-color: #4E5C2C;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    height: 10vh;
+    width: 50vw;
+`;
+
+export const IconInicialCard = styled.img`
+    width: 48px;
+    height: 45px;
+    margin-left: 1.5vw;
+    margin-right: 1.5vw;
 `;
