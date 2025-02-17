@@ -20,7 +20,7 @@ export const VideoWrapper = styled.div`
 
 export const Seta = styled.div`
   position: absolute;
-  top: 30%;
+  top: 33%;
   left: 50%;
   transform: translateX(-50%); /* Isso vai garantir que a seta fique centralizada horizontalmente */
   z-index: 1111; /* Define a camada acima do vídeo */
@@ -46,7 +46,7 @@ export const ColorOverlay = styled.div`
 `;
 
 export const LogoImg = styled.img`
-  height: 100px;
+  height: 10rem;
 `;
 
 export const BackImg = styled.img`
@@ -93,10 +93,10 @@ export const TitleOverlayContainer = styled.div`
 `;
 
 export const TextOverlay = styled.div`
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 900;
   color: #000000;
-  letter-spacing: 0.4em;
+  letter-spacing: 0.6em;
   text-align: center;
   @media (max-width: 768px) { /* Define o tamanho máximo da tela (por exemplo, 768px) */
     font-size: 1rem;
@@ -112,12 +112,7 @@ export const TextOverlay = styled.div`
 
 export const SectionBelowVideo = styled.div`
   height: 170vh; /* Ocupa a altura da tela */
-  display: flex;
-  justify-content: start;
-  align-items: start;
-  flex-direction: column;
   background-color: #141c16; /* Cor de fundo (pode ser alterada) */
-  position: relative; /* Necessário para a imagem de fundo ficar posicionada corretamente */
 `;
 
 export const BackgroundImage = styled.div<Props>`
@@ -137,7 +132,7 @@ export const BackgroundImage = styled.div<Props>`
 
 export const SectionTextCard = styled.div`
   color: #C2CFB4;
-  font-family: 'Chocolates', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   z-index: 110;
 
   margin-bottom: 4rem;
@@ -152,7 +147,7 @@ export const IconContainer = styled.div`
   justify-content: center;
   align-items: center;
   background-color: #141c16;
-  font-family: 'Chocolates', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   margin: 8rem 2rem 2rem 5rem;
   height: 10vh;
 `;
@@ -384,6 +379,7 @@ export const EsclamacaoFaixa = styled.div`
 `;
 
 export const Escaclamacao = styled.img`
-  height: 10rem;
+  height: 6rem;
+  filter: invert(1);
 `;
 

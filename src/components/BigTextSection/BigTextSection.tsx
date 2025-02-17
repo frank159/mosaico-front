@@ -50,8 +50,8 @@ const BigTextSection: React.FC<BigTextProps> = ({
   Expanded = false,
   portfo,
 }) => {
-  const homeroPic = require("../../assets/images/HomeroFoto.jpg");
-  const palomaPic = require("../../assets/images/PalomaFoto.jpg");
+  const homeroPic = require("../../assets/images/img/HomeroFoto.jpg");
+  const palomaPic = require("../../assets/images/img/PalomaFoto.jpg");
   const cap = require("../../assets/images/logo/cap.png");
   const graciosa = require("../../assets/images/logo/graciosa.png");
 
