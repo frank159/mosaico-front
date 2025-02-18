@@ -122,7 +122,7 @@ export const IconImgCard = styled.img<Props>`
 
 export const PilaresListContainer = styled.div`
     display: flex;
-    z-index: 111;
+    z-index: 1111111;
     flex-direction: row;
     align-items: start;
     justify-content: start;
@@ -397,7 +397,7 @@ export const VectorImage = styled.img`
   top: 2;
   width: 35%; /* 30% da largura do carrossel */
   height: auto;
-  z-index: 1; /* Coloca a imagem por trás do carrossel */
+  z-index: 0; /* Coloca a imagem por trás do carrossel */
   pointer-events: none; /* Evita que a imagem interfira em interações do usuário */
 `;
 
@@ -408,6 +408,7 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
+z-index: 111110;
 `;
 
 export const SecaoInicialIcon = styled.img`
@@ -436,6 +437,7 @@ export const InitialTextContainer = styled.div`
     flex-direction: row;
     align-items: center;
     margin-top: 56px;
+    z-index: 1111111;
 `;
 
 export const Line = styled.div`
@@ -448,6 +450,7 @@ export const Line = styled.div`
 export const CardTextContainer = styled.div`
     width: 100%;
     margin-top: 4vh;
+    z-index: 1111111;
 `;
 
 export const CardText = styled.div`

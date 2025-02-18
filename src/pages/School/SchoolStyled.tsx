@@ -13,7 +13,7 @@ export const Container = styled.div`
     justify-content: center;
     align-items: center;
     width: auto;
-
+    overflow-x: hidden
 `;
 
 export const TESTE = styled.div`
@@ -134,7 +134,7 @@ export const ImgLogo = styled.img`
 `;
 
 export const BodyText = styled.div`
-  margin-top: 20vh;
+  margin-top: 6vh;
   margin-left: 4vw;
   margin-right: 4vw;
 
@@ -286,26 +286,22 @@ export const Img = styled.img<QuinSecaoProps>`
 `;
 
 export const VideoContainer = styled.div`
+  position: relative;
   height: 120vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   margin-bottom: 6vh;
-  `;
+`;
 
 export const VideoWrapper = styled.div`
-  width: 80vw;
-  height: 80%;
+  width: 70vw;
   margin-top: 2rem;
   display: flex;
   justify-content: center;
-  iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-  }
 `;
+
 export const VideoTitle = styled.div`
   width: 100%;
   display: flex;
@@ -316,7 +312,50 @@ export const VideoTitle = styled.div`
   align-items: start;
 `;
 
-export const ReactPlayerDiv = styled(ReactPlayer)`
+export const ButtonContainer = styled.div`
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none; /* Permite que o player receba cliques */
+`;
+
+export const NavButton = styled.button`
+  pointer-events: all; /* Habilita cliques nos botões */
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+`;
+
+export const ArrowLeft = styled.span`
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 5px;
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+`;
+
+export const ArrowRight = styled.span`
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 5px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
 `;
 
 export const TitleSection1 = styled.div`
