@@ -419,7 +419,7 @@ export const SecaoInicialIcon = styled.img`
 
 export const SecaoInicialText = styled.div`
     color: #C2CFB4;
-    font-size: 28px;
+    font-size: 1.6rem;
     text-align: center;
     font-style: italic;
 `;
