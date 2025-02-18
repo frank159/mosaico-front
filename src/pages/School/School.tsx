@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import * as S from "./SchoolStyled"
 import Footer from '../../components/footer/footer';
 import ReactPlayer from 'react-player';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const boat = require('../../assets/images/img/school.jpg')
 const camerim = require("../../assets/images/img/camerim.png")
@@ -26,10 +27,26 @@ const ft9 = require("../../assets/images/img/ft9.jpg")
 const ft10 = require("../../assets/images/img/ft10.jpg")
 const ft11 = require("../../assets/images/img/ft11.jpg")
 const img2 = require('../../assets/images/img/boat2.jpg');
+const video1 = require('../../assets/videos/video1.mp4');
+const video2 = require('../../assets/videos/video2.mp4');
 
 
 const School: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
+  const [current, setCurrent] = useState(0);
+
+  const videos = [
+    { id: 1, title: "Filme - Terror Songo Ou Realidade", src: video1 },
+    { id: 2, title: "Filme - Tropas e Boiadas", src: video2 },
+  ];
+
+  const nextVideo = () => {
+    setCurrent((prev) => (prev === videos.length - 1 ? 0 : prev + 1));
+  };
+
+  const prevVideo = () => {
+    setCurrent((prev) => (prev === 0 ? videos.length - 1 : prev - 1));
+  };
 
   useEffect(() => {
     console.log("window.innerWidth <= 768", window.innerWidth <= 768)
@@ -135,7 +152,7 @@ const School: React.FC = () => {
             <S.Card>
               <S.CardTitleContainer>
                 <S.TitleCard>
-                  IMPACTO NO MÍDIA
+                  IMPACTO NA MÍDIA
                 </S.TitleCard>
                 <S.SUbText>
                   O projeto gerou visibilidade significativa:
@@ -221,16 +238,48 @@ const School: React.FC = () => {
         </S.FinalContainer>
       </S.ImgContainer2>
       <S.VideoContainer>
-        <S.VideoTitle>
-          • Centro de Excelência em Educação e Produção Audiovisual
-        </S.VideoTitle>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={videos[current].id}
+            layout
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -100 }}
+            transition={{ duration: 0.5 }}
+            style={{ display: 'flex', justifyContent: 'start', width: '100%' }}
+          >
+            <S.VideoTitle>• {videos[current].title}</S.VideoTitle>
+          </motion.div>
+        </AnimatePresence>
+
         <S.VideoWrapper>
-          <S.ReactPlayerDiv
-            url="https://www.facebook.com/watch/?v=711353312672199"
-            width="70%"      // Pode ser em %, px ou outras unidades
-            controls
-          />
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={videos[current].id}
+              layout
+              initial={{ opacity: 0, x: 100 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -100 }}
+              transition={{ duration: 0.5 }}
+              style={{ width: '100%', height: '100%' }}
+            >
+              <ReactPlayer
+                url={videos[current].src}
+                width="100%"
+                height="100%"
+                controls
+              />
+            </motion.div>
+          </AnimatePresence>
         </S.VideoWrapper>
+        <S.ButtonContainer>
+          <S.NavButton onClick={prevVideo} style={{ left: '10px' }}>
+            <S.ArrowLeft />
+          </S.NavButton>
+          <S.NavButton onClick={nextVideo} style={{ right: '10px' }}>
+            <S.ArrowRight />
+          </S.NavButton>
+        </S.ButtonContainer>
       </S.VideoContainer>
       <S.ProjectoSectionContainer>
         <S.ProjectoSection>
