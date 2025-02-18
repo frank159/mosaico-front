@@ -12,15 +12,15 @@
   } from "./CarouselStyled";
 
   // Importando a imagem local
-  const teste1 = require('../../assets/images/1.webp');
-  const teste2 = require('../../assets/images/2.webp');
-  const teste3 = require('../../assets/images/3.jpg');
-  const teste4 = require('../../assets/images/4.webp');
-  const teste5 = require('../../assets/images/5.jpg');
-  const teste6 = require('../../assets/images/6.jpeg');
-  const teste7 = require('../../assets/images/7.jpeg');
-  const teste8 = require('../../assets/images/8.jpeg');
-  const teste9 = require('../../assets/images/9.jpeg');
+  const teste1 = require('../../assets/images/img/1.webp');
+  const teste2 = require('../../assets/images/img/2.webp');
+  const teste3 = require('../../assets/images/img/3.jpg');
+  const teste4 = require('../../assets/images/img/4.webp');
+  const teste5 = require('../../assets/images/img/5.jpg');
+  const teste6 = require('../../assets/images/img/6.jpeg');
+  const teste7 = require('../../assets/images/img/7.jpeg');
+  const teste8 = require('../../assets/images/img/8.jpeg');
+  const teste9 = require('../../assets/images/img/9.jpeg');
 
   interface SlideItem {
     gradient: string;

@@ -1,22 +1,28 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-  position: fixed; /* Fixa o header no topo */
-  top: 0; /* Define a posição no topo da tela */
-  left: 0; /* Alinha à esquerda */
-  width: 100%; /* Ocupa toda a largura */
-  height: 5vh; /* Ajusta a altura */
-  background-color: #f0f0f0;
-  z-index: 1000; /* Garante que o header fique acima de outros elementos */
+export const Container = styled.div<{ isVisible: boolean }>`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5vh;
+  background-color: #141C16;
+  z-index: 1000;
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adiciona sombra para destaque */
-  
+
+  /* Adiciona a transição para suavizar o efeito de esconder/mostrar */
+  transition: transform 0.3s ease-in-out;
+
+  /* Estilo para visibilidade do header */
+  transform: ${(props) => (props.isVisible ? "translateY(0)" : "translateY(-100%)")};
+
   @media (max-width: 768px) {
-    height: 8vh; /* Aumenta a altura em telas pequenas */
+    height: 8vh;
   }
 `;
+
 
 export const Element = styled.div<{ isActive: boolean }>`
   position: absolute;
@@ -42,8 +48,14 @@ export const Element = styled.div<{ isActive: boolean }>`
 `;
 
 export const Img = styled.img`
-  height: 3.5vh;
+  height: 3.9vh;
   transition: all 0.3s ease;
+
+  &:hover {
+        cursor: pointer;
+        transition: 0.3s;
+        transform: scale(1.1);
+  }
 
   @media (max-width: 768px) {
     height: 5vh; /* Ajusta o tamanho da imagem em telas pequenas */
