@@ -1,170 +1,321 @@
-import React, { useEffect, useState } from 'react';
-import {Container, Hr} from "./HomeStyled";
-import FullScreenMedia from '../../components/FullScreenMedia/FullScreenMedia';
-import SectionPicture from '../../components/SectionPicture/SectionPicture';
-import CardComponent from '../../components/CardComponent/CardComponent';
-import BigTextSection from '../../components/BigTextSection/BigTextSection';
-import TitlePage from '../../components/TitlePage/TitlePage';
-import CustomCarousel from '../../components/Carousel/Carousel';
-import ScrollToTop from '../../components/ScrollToTop/ScrollToTop';
+import React from 'react';
+import * as S from './HomeStyled';
 import Footer from '../../components/footer/footer';
+import ContactSection from '../../components/contactComponente/contactComponente';
 
-const boat = require('../../assets/images/barco.jpg')
-const luz = require("../../assets/images/luz.png")
-
-const teste1 = require('../../assets/images/1.webp');
-const teste2 = require('../../assets/images/2.webp');
-const teste3 = require('../../assets/images/3.jpg');
-const teste4 = require('../../assets/images/4.webp');
-const teste5 = require('../../assets/images/5.jpg');
-
-const text = `
-<section>
-  <p>
-    O <strong>Projeto Luz, Câmera, EcoAção! – Arte e Sustentabilidade</strong> é uma iniciativa inovadora que acontecerá durante a <strong>COP 30</strong>, de 10 a 21 de novembro de 2025, em Belém, Pará. Sediado em um barco ancorado no rio Guamá, o projeto combina arte e sustentabilidade para explorar como as mudanças ambientais impactam nosso bem-estar psicológico. Ele apresentará soluções ambientais já implementadas globalmente e fomentará a discussão de novas ideias para enfrentar desafios futuros.
-  </p>
-  <p>
-    A programação incluirá <strong>podcasts, painéis de discussão, exposições interativas e oficinas de co-criação</strong>, promovendo a troca de ideias entre participantes da COP 30, artistas, ativistas, educadores e a comunidade local. Haverá ainda uma <strong>plataforma virtual</strong> e espaços de <strong>networking</strong> para ampliar o alcance e fortalecer redes de colaboração.
-  </p>
-  <p>
-    Com um público esperado de <strong>700 a 900 pessoas por dia</strong>, o projeto funcionará como um ponto de encontro para diálogos transformadores entre <strong>arte, meio ambiente e saúde mental</strong>, inspirando práticas sustentáveis e conscientização global. A iniciativa busca gerar um impacto duradouro, influenciando políticas e fortalecendo a conexão entre a sustentabilidade e o bem-estar.
-  </p>
-</section>
-`
-
-interface SlideItem {
-  gradient: string;
-  backgroundColor: string;
-  hoverBackgroundColor: string;
-  content?: React.ReactNode;
-  backgroundColor2?: string;
-
-  imageSrc: string; // Adicionado campo para a imagem
-}
-
-const defaultSlides: SlideItem[] = [
-  {
-    gradient: 'linear-gradient(128deg, #40afff 0%, #3f62ff 100%)',
-    backgroundColor: '#4287f50',
-    hoverBackgroundColor: '#000000',
-    imageSrc: teste1 // Usando a imagem local
-  },
-  {
-    gradient: 'linear-gradient(128deg, #ff993f 0%, #ff4a40 100%)',
-    backgroundColor: '#ff6b6b',
-    hoverBackgroundColor: '#000000',
-    imageSrc: teste2 // Usando a mesma imagem
-  },
-  {
-    gradient: 'linear-gradient(128deg, #bdff53 0%, #2bfa51 100%)',
-    backgroundColor: '#4ade80',
-    hoverBackgroundColor: '#000000',
-    imageSrc: teste3
-  },
-  {
-    gradient: 'linear-gradient(128deg, #40fff2 0%, #3fbcff 100%)',
-    backgroundColor: '#38bdf8',
-    hoverBackgroundColor: '#000000',
-    imageSrc: teste4
-  },
-  {
-    gradient: 'linear-gradient(128deg, #ff409c 0%, #ff3f3f 100%)',
-    backgroundColor: '#f43f5e',
-    hoverBackgroundColor: '#000000',
-    imageSrc: teste5
-  },
-];
+const logoEcoacao = require('../../assets/images/logo/logoEcoacao.png');
+const localizacao = require('../../assets/images/icons/localizacao.png');
+const barco = require('../../assets/images/icons/barco.png');
+const folha = require('../../assets/images/icons/folha.png');
+const podcastIcon = require('../../assets/images/icons/podcast.png');
+const expoIcon = require('../../assets/images/icons/quadro.png');
+const painelIcon = require('../../assets/images/icons/balao de conversa.png');
+const oficinaIcon = require('../../assets/images/icons/pessoa com lampada na mao.png');
+const mundoConectado = require('../../assets/images/icons/mundo conectado.png');
+const esclamacao = require('../../assets/images/icons/esclamacao.png');
+const pinheiroClaro = require('../../assets/images/img/pinheiro claro.png');
+const barquim = require('../../assets/images/img/barquim.png');
+const homero = require('../../assets/images/img/homero.jpeg');
+const PalomaFoto = require('../../assets/images/img/PalomaFoto.jpg');
+const graciosa = require('../../assets/images/logo/graciosa.png');
+const baquinho = require('../../assets/images/img/baquinho.png');
 
 const HomePage: React.FC = () => {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(()=> {
-    console.log("window.innerWidth <= 768", window.innerWidth <= 768)
-    setIsMobile(window.innerWidth <= 768);
-  },[])
-
-
+  const handleClick = () => {
+    window.location.href = 'https://www.graciosapictures.com';
+  };
   return (
-    <Container>
-      <ScrollToTop /> 
-      <FullScreenMedia mediaSrc={boat} />
-      <TitlePage isMobile={isMobile} titleText="Luz, Câmera, EcoAção!" titleColor="#000000" textColor="#000000" backgroundColor="#0000000"/>
-      <hr/>
-      <SectionPicture
-        imageSrc={luz}
-        backgroundColor = '#ecebdc'
-        textColor = '#1A3F13'
-        titleColor = '#1A3F13'
-        borderColor = '#1A3F13'
-        backgroundColorHover = '#e9e6d0'
-        heightMobile = '130vh'
-        height = '80vh'
-        width = '90vw'
-        scale = '1.01'
-        mainTitle = 'Projeto Luz, Câmera, EcoAção! - Arte e Sustentabilidade'
-        mainText = {text}
-        isMobile={isMobile}
+    <S.MainContainer>
+      <S.InicialSecao>
+        <S.LogoEcoacao src={logoEcoacao} alt="logoEcoacao" />
+        <S.TextoInicial>
+          |  Projeto Luz, Câmera, EcoAção! - Arte e Sustentabilidade
+        </S.TextoInicial>
+      </S.InicialSecao>
+      <S.SecaoTexto1>
+        <S.Texto1>
+          • NOSSO OBJETIVO!
+        </S.Texto1>
+        <S.TextoSub1>
+          Explorar a interconexão entre arte, meio ambiente e saúde mental, promovendo práticas sustentáveis e criando espaços para troca de conhecimento e colaboração.
+        </S.TextoSub1>
+      </S.SecaoTexto1>
+      <S.SecSecao>
+        <S.CardSection>
+          <S.Card>
+            <S.IconCard src={localizacao} />
+            <S.TextCard>
+              uma iniciativa inovadora<br />
+              que acontecerá durante a<br />
+              COP 30, de 10 a 21 de novembro<br />
+              de 2025, em Belém, Pará.
+            </S.TextCard>
+          </S.Card>
+          <S.Card>
+            <S.IconCard src={barco} />
+            <S.TextCard>
+              Sediado em um barco ancorado<br />
+              no rio Guamá, o projeto combina<br />
+              arte e sustentabilidade para<br />
+              explorar como as mudanças<br />
+              ambientais impactam nosso<br />
+              bem-estar psicológico.
+            </S.TextCard>
+          </S.Card>
+          <S.Card>
+            <S.IconCard src={folha} />
+            <S.TextCard>
+              Ele apresentará soluções<br />
+              ambientais já implementadas<br />
+              globalmente e fomentará a<br />
+              discussão de novas ideias para<br />
+              enfrentar desafios futuros.
+            </S.TextCard>
+          </S.Card>
+        </S.CardSection>
+        <S.Texto2>
+          • NOSSO PÚBLICO ALVO
+        </S.Texto2>
+        <S.CardSection2>
+          <S.Card2>
+            <S.CardTitle2>
+              Participantes da COP30
+            </S.CardTitle2>
+            <S.TextCard2>
+              Incluem líderes políticos, representantes de ONGs, especialistas em sustentabilidade e visitantes internacionais que já estão engajados em questões ambientais e podem amplificar a mensagem do projeto.
+            </S.TextCard2>
+          </S.Card2>
+          <S.Card2>
+            <S.CardTitle2>
+              Artistas e Ativistas
+            </S.CardTitle2>
+            <S.TextCard2>
+              Esses grupos são cruciais para criar, promover e implementar soluções sustentáveis. Eles podem usar o projeto como uma plataforma para expandir seu alcance e influência.            </S.TextCard2>
+          </S.Card2>
+          <S.Card2>
+            <S.CardTitle2>
+              Comunidade Local
+            </S.CardTitle2>
+            <S.TextCard2>
+              Envolver a população de Belém é essencial para garantir que o legado do projeto continue após a COP30. Foco em educadores, estudantes e organizações comunitárias é estratégico para criar impacto local duradouro.            </S.TextCard2>
+          </S.Card2>
+          <S.Card2>
+            <S.CardTitle2>
+              Mídia Global
+            </S.CardTitle2>
+            <S.TextCard2>
+              A cobertura midiática global pode levar as mensagens e inovações discutidas no projeto para um público ainda maior, além de dar visibilidade às iniciativas sustentáveis e culturais apresentadas.            </S.TextCard2>
+          </S.Card2>
+        </S.CardSection2>
+        <S.SubTitle>
+          • A programação incluirá:
+        </S.SubTitle>
+        <S.MiniCardSection>
+          <S.MiniCardContainer>
+            <S.MiniCardEsfera>
+              <S.MiniCardEsferaIcon src={podcastIcon} alt="Podcast Icon" />
+            </S.MiniCardEsfera>
+            <S.MiniCard>
+              <S.MinCardText>
+                Podcasts
+              </S.MinCardText>
+            </S.MiniCard>
+          </S.MiniCardContainer>
+          <S.MiniCardContainer>
+            <S.MiniCardEsfera>
+              <S.MiniCardEsferaIcon src={expoIcon} alt="Exposição Icon" />
+            </S.MiniCardEsfera>
+            <S.MiniCard>
+              <S.MinCardText>
+                Exposições interativas
+              </S.MinCardText>
+            </S.MiniCard>
+          </S.MiniCardContainer>
+          <S.MiniCardContainer>
+            <S.MiniCardEsfera>
+              <S.MiniCardEsferaIcon src={painelIcon} alt="Painel Icon" />
+            </S.MiniCardEsfera>
+            <S.MiniCard>
+              <S.MinCardText>
+                Painéis de discussão
+              </S.MinCardText>
+            </S.MiniCard>
+          </S.MiniCardContainer>
+          <S.MiniCardContainer>
+            <S.MiniCardEsfera>
+              <S.MiniCardEsferaIcon src={oficinaIcon} alt="Oficina Icon" />
+            </S.MiniCardEsfera>
+            <S.MiniCard>
+              <S.MinCardText>
+                Oficinas de co-criação
+              </S.MinCardText>
+            </S.MiniCard>
+          </S.MiniCardContainer>
+        </S.MiniCardSection>
+        <S.SubtextSection>
+          Promovendo troca de ideias entre participantes da COP 30, artistas, ativistas, educadores e a comunidade local.
+        </S.SubtextSection>
+        <S.LongCardContainer>
+          <S.LongCard>
+            <S.LongCardIcon src={mundoConectado} alt="mundoConectado" />
+            <S.LongCardText>
+              Haverá ainda uma plataforma virtual e espaços de networking para ampliar o alcance e fortalecer redes de colaboração.
+            </S.LongCardText>
+          </S.LongCard>
+        </S.LongCardContainer>
+      </S.SecSecao>
+      <S.QuarSecao>
+        <S.BigCardContainer>
+          <S.BigCard>
+            <S.BigCardIcon src={esclamacao} />
+            <S.BigCardTextContainer>
+              <S.BigCardTitle>
+                COM UM PÚBLICO ESPERADO DE <u>700 A 900 PESSOAS POR DIA</u>
+              </S.BigCardTitle>
+              <S.BigCardText>
+                o projeto funcionará como um ponto de encontro para diálogos transformadores entre arte, meio ambiente e saúde mental,<br />
+                inspirando práticas sustentáveis e conscientização global.
+              </S.BigCardText>
+              <S.BigCardText>
+                A iniciativa busca gerar um impacto duradouro, influenciando políticas e fortalecendo a conexão entre a sustentabilidade e o<br />
+                bem-estar.
+              </S.BigCardText>
+            </S.BigCardTextContainer>
+          </S.BigCard>
+        </S.BigCardContainer>
+      </S.QuarSecao>
+      <S.QuinSecao bgImage={barquim}>
+        <S.QuinSecaoContainer>
+          <S.Card3>
+            <S.Card3Img src={homero} />
+            <S.Card3Title>
+              Homero Camargo
+            </S.Card3Title>
+            <S.Card3Text>
+              Homero Camargo é um produtor de cinema brasileiro com mais de<br />
+              35 anos de experiência na indústria audiovisual. Ele é conhecido por<br />
+              seu trabalho em diversos longas-metragens, incluindo “Os Xeretas”,<br />
+              “A Frente Fria que a Chuva Traz” e “Navalha na Carne”. Além de sua<br />
+              bem-sucedida trajetória na produção cinematográfica, Homero é o<br />
+              fundador da Filmjoin, uma plataforma que conecta profissionais do<br />
+              setor audiovisual para coproduções e parcerias. Seu conhecimento<br />
+              abrange tanto a produção cinematográfica quanto a gestão de<br />
+              projetos transmídia, trazendo uma visão inovadora para o<br />
+              desenvolvimento de conteúdos audiovisuais no Brasil.
+            </S.Card3Text>
+            <S.SubTitleCard3>
+              Principais Trabalhos:
+            </S.SubTitleCard3>
+            <S.SubTextCard3>
+              Os Xeretas (Direção: Michael Ruman)<br />
+              A Frente Fria que a Chuva Traz (Direção: Neville D’Almeida)<br />
+              Navalha na Carne
+            </S.SubTextCard3>
+            <S.Card3Text>
+              No projeto “Luz, Câmera, EcoAção! – Arte e Sustentabilidade”,<br />
+              Homero Camargo contribui com sua vasta experiência na produção<br />
+              audiovisual, ajudando a construir uma narrativa visual que fortalece<br />
+              as mensagens centrais do projeto sobre meio ambiente, saúde<br />
+              mental e justiça social. Sua habilidade de integrar o cinema e a<br />
+              cultura digital será essencial para conectar os diversos públicos<br />
+              participantes do evento.
+            </S.Card3Text>
+          </S.Card3>
+          <S.Card3>
+            <S.Card3Img src={PalomaFoto} />
+            <S.Card3Title>
+              Paloma Vogt
+            </S.Card3Title>
+            <S.Card3Text>
+              Paloma Vogt é diretora-executiva da  Graciosa Pictures UG e da<br />
+              K+W Löwenbruch GmbH, uma sociedade de administração<br />
+              patrimonial. Ela transita com segurança entre arte, economia e<br />
+              impacto social, equilibrando com facilidade diferentes culturas e<br />
+              disciplinas.
+            </S.Card3Text>
+            <S.Card3Text>
+              Com a Graciosa Pictures, Paloma aposta na narrativa criativa e em<br />
+              projetos sustentáveis. Criou a Arthouse Graciosa para tornar uma<br />
+              coleção de arte acessível a um público mais amplo e estabelecer um<br />
+              espaço de troca cultural. Em seu trabalho, conecta pessoas, ideias e<br />
+              recursos, seja no cinema, na arte ou em iniciativas sem fins<br />
+              lucrativos.
+            </S.Card3Text>
+            <S.Card3Text>
+              Ela tem experiência na captação e gestão de recursos, na<br />
+              organização de projetos interdisciplinares e no desenvolvimento<br />
+              estratégico de novos formatos. “Luz, Câmera, EcoAção!” representa<br />
+              a continuidade de sua visão: usar a arte como ferramenta para<br />
+              impulsionar mudanças sociais, construir pontes e transformar ideias<br />
+              sustentáveis em realidade.
+            </S.Card3Text>
+          </S.Card3>
+        </S.QuinSecaoContainer>
+        <S.Card4>
+          <S.Card4Logo>
+            <S.Card4LogoImg src={graciosa} />
+          </S.Card4Logo>
+          <S.Card4Text>
+            A Graciosa Pictures UG é uma produtora independente com sede em Berlim, especializada no desenvolvimento e na realização de projetos na<br />
+            interseção entre arte, cultura e transformação social. A empresa tem experiência em gestão de projetos, com foco na concepção, planejamento e<br />
+            execução de iniciativas culturais interdisciplinares.
+          </S.Card4Text>
+          <S.Card4Text>
+            Para o projeto “Luz, Câmera, EcoAção!”, a Graciosa Pictures contribui com sua experiência em produção audiovisual e no desenvolvimento<br />
+            estratégico de iniciativas sustentáveis. A empresa aplica metodologias consolidadas na organização de eventos complexos, na colaboração com<br />
+            parceiros internacionais e na coordenação de projetos culturais, tanto em seus aspectos conceituais quanto logísticos. Seu objetivo é utilizar a arte<br />
+            narrativa como um meio poderoso para a reflexão social e a promoção de mudanças sustentáveis.
+          </S.Card4Text>
+          <S.Card4Button onClick={handleClick}>
+            Acesse agora:<br />
+            <S.TextLink></S.TextLink>
+            https://www.graciosapictures.com
+          </S.Card4Button>
+        </S.Card4>
+      </S.QuinSecao>
+
+      <S.TercSecao>
+        <S.Logao src={logoEcoacao} />
+        <S.TercSecaoTitle>
+          RESUMO SOBRE OS OBJETIVOS DO PROJETO:
+        </S.TercSecaoTitle>
+        <S.TercSecaoText>
+          Buscamos envolver e inspirar diversos públicos, promovendo um diálogo global sobre sustentabilidade, saúde mental e as mudanças<br />
+          ambientais.<br />
+          <br />
+          Durante a COP30, o projeto usará a arte como ferramenta para destacar soluções ambientais, explorar a interconexão entre meio<br />
+          ambiente e saúde mental, e incentivar ações para um futuro mais sustentável.<br />
+          <br />
+          O projeto visa destacar soluções ambientais existentes e estimular novas ideias, utilizando diferentes formas de arte para abordar e refletir<br />
+          sobre o impacto das mudanças ambientais.<br />
+          <br />
+          A interseção entre a sustentabilidade e o bem-estar mental será central, com o objetivo de inspirar mudanças de comportamento que<br />
+          promovam a saúde ambiental e mental.<br />
+          <br />
+          Ao explorar como as mudanças no meio ambiente afetam a saúde mental, o projeto busca promover uma conscientização profunda e<br />
+          discutir soluções que ajudem a mitigar esses impactos.<br />
+          <br />
+          Esse diálogo será enriquecido pela participação de artistas, ativistas, especialistas e membros da comunidade local, incentivando a<br />
+          colaboração interdisciplinar para gerar um impacto duradouro.<br />
+          <br />
+          Além disso, o projeto foca em valorizar a cultura local e fomentar colaborações interdisciplinares. Ao promover a herança cultural da<br />
+          Amazônia, busca-se fortalecer a identidade local enquanto se trabalha para um futuro mais sustentável e mentalmente saudável.<br />
+          <br />
+          A inclusão de um público diversificado é essencial, criando um espaço acessível para que todos, de diferentes origens, possam contribuir<br />
+          para o intercâmbio de ideias e experiências.<br />
+          <br />
+          A cobertura midiática global e a participação de líderes mundiais e especialistas são cruciais para amplificar a mensagem do projeto e<br />
+          garantir que ele alcance e influencie um público ainda maior, dando visibilidade às iniciativas sustentáveis e culturais apresentadas.<br />
+        </S.TercSecaoText>
+      </S.TercSecao>
+      <ContactSection
+        backgroundColor="#F9F6E9"  // Cor de fundo do container
+        textColor="#000"          // Cor do texto
+        buttonColor='#141C16'
+        imageUrl={baquinho} // Substitua pela sua imagem
       />
-      {/* <CustomCarousel/> */}
-      <Hr/>
-      <CardComponent
-        isMobile={isMobile}
-        expandedMax='58vh'
-        expandedMin='58vh'
-        MobileHMax='200vh'
-        MobileHMin='40vh'
-        MobilePadding='0 1rem 2rem 0'
-        widthLongText='97%'
-        // justify={true}
-        imgMargin=' 5rem 5rem 2rem 0'
-        click={true}
-        width='90vw'
-        backgroundColor="#e9e6d0"
-        textColor="#1A3F13"
-        titleColor="#1A3F13"
-        mainTitle="Objetivos e Temas do Projeto"
-        mainText="O Projeto Luz, Câmera, EcoAção! – Arte e Sustentabilidade busca envolver e inspirar diversos públicos, promovendo um diálogo global sobre sustentabilidade, saúde mental e as mudanças ambientais. Durante a COP30, o projeto usará a arte como ferramenta para destacar soluções ambientais, explorar a interconexão entre meio ambiente e saúde mental, e incentivar ações para um futuro mais sustentável."
-        subheading1={{
-          title: "Primeiro Subtítulo",
-          text: "Descrição do primeiro subtítulo"
-        }}
-        subheading2={{
-          title: "Segundo Subtítulo",
-          text: "Descrição do segundo subtítulo"
-        }}
-        longText={`
-        O projeto visa destacar soluções ambientais existentes e estimular novas ideias, utilizando diferentes formas de arte para abordar e refletir sobre o impacto das mudanças ambientais. A interseção entre a sustentabilidade e o bem-estar mental será central, com o objetivo de inspirar mudanças de comportamento que promovam a saúde ambiental e mental. Ao explorar como as mudanças no meio ambiente afetam a saúde mental, o projeto busca promover uma conscientização profunda e discutir soluções que ajudem a mitigar esses impactos. Esse diálogo será enriquecido pela participação de artistas, ativistas, especialistas e membros da comunidade local, incentivando a colaboração interdisciplinar para gerar um impacto duradouro.<br/>
-        Além disso, o projeto foca em valorizar a cultura local e fomentar colaborações interdisciplinares. Ao promover a herança cultural da Amazônia, busca-se fortalecer a identidade local enquanto se trabalha para um futuro mais sustentável e mentalmente saudável. A inclusão de um público diversificado é essencial, criando um espaço acessível para que todos, de diferentes origens, possam contribuir para o intercâmbio de ideias e experiências. A cobertura midiática global e a participação de líderes mundiais e especialistas são cruciais para amplificar a mensagem do projeto e garantir que ele alcance e influencie um público ainda maior, dando visibilidade às iniciativas sustentáveis e culturais apresentadas.
-        `}
-        imageSrc={''}
-        frameHeight={'20vh'}
-        frameWidth={'40vw'}
-        imageWidth={'40vw'}
-        imageHeight={'20vh'}
-        hiddenText=''
-      />
-      <CustomCarousel
-        isMobile={isMobile}
-        backgroundColor = {'#ffffff0'}
-        backgroundColor2 = {'#ffffff0'}
-        textColor = {'#000000'}
-        title = {''}
-        subtitle = {''}    
-        slides={defaultSlides}  
-      />
-      <BigTextSection
-        zIndex='1'
-        textAlign={'center'}
-        portfo={false}
-        titleText='Um pouco mais sobre COP30'
-        bigText='
-        A COP (Conferência das Partes) é um evento anual organizado pela ONU com o objetivo de discutir e implementar ações globais contra as mudanças climáticas. Ela reúne líderes de todo o mundo para negociar acordos que busquem mitigar os impactos ambientais da atividade humana, especialmente no que se refere ao aquecimento global. O Brasil, com sua vasta biodiversidade, desempenha um papel crucial nestas discussões.
-        A COP 30, que ocorrerá em 2025, será um marco importante. O evento, a ser realizado em Belém (PA), visa fortalecer as ações para combater as mudanças climáticas e promover a sustentabilidade. Além disso, o Brasil tem uma responsabilidade estratégica devido à sua riqueza natural, que é fundamental para as soluções globais.
-        A principal meta das conferências é manter o aumento da temperatura global abaixo de 1,5°C até o final do século XXI. Para atingir esse objetivo, os países devem se comprometer a reduzir suas emissões de gases de efeito estufa e promover fontes de energia renováveis. O progresso das negociações nas COPs é essencial para o sucesso de qualquer plano climático global.
-        Além de estabelecer metas climáticas, a COP também enfatiza a importância da adaptação às mudanças climáticas já em curso. O apoio aos países mais vulneráveis, como os pequenos estados insulares, é uma das questões centrais discutidas. Esses países enfrentam os maiores impactos e necessitam de recursos financeiros e tecnológicos para lidar com as mudanças.
-        Por fim, a COP 30 terá um papel fundamental no fortalecimento da colaboração internacional. A crise climática é um desafio global, e somente com a cooperação entre os países será possível alcançar resultados eficazes. O Brasil, ao sediar a conferência, terá a oportunidade de influenciar as políticas climáticas internacionais e impulsionar iniciativas que beneficiem tanto o país quanto o mundo.'/>
-      <Footer marginTop={'5vh'}/>
-    </Container>
+      <Footer />
+    </S.MainContainer>
   );
 };
 

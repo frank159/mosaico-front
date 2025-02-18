@@ -27,6 +27,19 @@ module.exports = {
         test: /\.css$/, // Suporte a CSS
         use: ['style-loader', 'css-loader'],
       },
+      {
+        enforce: 'pre',
+        test: /\.js$/,
+        loader: 'source-map-loader',
+        exclude: [
+          /node_modules[\\/]@emotion[\\/]is-prop-valid[\\/]node_modules[\\/]@emotion[\\/]memoize/,
+          /node_modules[\\/]ansi-html-community/,
+          /node_modules[\\/]gsap/,
+          /node_modules[\\/]webpack/,
+          /node_modules[\\/]react-dom[\\/]node_modules[\\/]scheduler/,
+          /node_modules[\\/]styled-components[\\/]node_modules[\\/]stylis/,
+        ],
+      }
     ],
   },
   plugins: [
