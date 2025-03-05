@@ -3,6 +3,9 @@
 @import '~slick-carousel/slick/slick-theme.css';
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Arsenal:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arsenal:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arimo&display=swap');
 
 @font-face {
   font-family: 'Chocolates';
@@ -19,16 +22,61 @@
 }
 
 body {
-  margin: 0;
-  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: #030504;
+  margin: 0 !important;
+  font-family: 'Arsenal', sans-serif !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+  background-color: #030504 !important;
+}
+
+h1, h2, h3, h4, h5, h6, .font-bebas {
+  font-family: 'Bebas Neue', sans-serif !important;
+  font-weight: lighter !important;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+    monospace !important;
+}
+
+/* Estilo padrão para a tag p */
+h1 {
+  font-size: 3.5rem !important;
+  margin: 0 !important;
+}
+
+/* Estilo para telas com largura máxima de 1224px */
+@media (max-width: 1224px) {
+  h1 {
+    font-size: 2.5rem !important;
+  }
+}
+
+h2 {
+  font-size: 2.5rem !important;
+  margin: 0 !important;
+}
+
+/* Estilo para telas com largura máxima de 1224px */
+@media (max-width: 1224px) {
+  h2 {
+    font-size: 1.5rem !important;
+  }
+}
+
+h3 {
+  font-size: 2rem !important;
+  margin: 0 !important;
+}
+
+/* Estilo para telas com largura máxima de 1224px */
+@media (max-width: 1224px) {
+  h3 {
+    font-size: 1rem !important;
+  }
+}
+
+p {
+  font-size: 1.6rem !important;
+  margin: 0 !important;
 }
