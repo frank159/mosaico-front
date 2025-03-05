@@ -1,7 +1,7 @@
 import { TextField } from '@mui/material';
 import Button from '@mui/material/Button';
-
 import styled from 'styled-components';
+
 
 export const MainContainer = styled.div`
   background: #F8F6E6;
@@ -12,13 +12,39 @@ export const MainContainer = styled.div`
   align-items: center;
   width: auto;
   height: auto;
+  overflow-x: hidden;
 `;
 
 export const InicialSecao = styled.div`
   background-color: #c2cfb4;
   width: 100%;
-  height: 45vh;
-  margin-top: 5vh;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`;
+
+export const InicialSecao1 = styled.div`
+  position: relative;
+  background-color: #c2cfb4;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+`;
+
+export const SubInicialSecao1 = styled.div`
+
+`;
+
+export const TituloVertical = styled.h1`
+  transform: rotate(90deg);
+  white-space: nowrap;
+  font-size: 20rem !important;
+  color: rgba(228, 235, 221, 1);
 `;
 
 export const SecaoTexto1 = styled.div`
@@ -36,14 +62,14 @@ export const Texto1 = styled.div`
 
 `;
 
-export const Texto2 = styled.div`
-  color: #C2CFB4;
-  font-weight: bolder;
-  font-style: italic;
-  font-size: 2rem;
-  margin-left: 4vw;
-  margin-top: 6vh;
-  margin-bottom: 2vh;
+export const Texto2 = styled.h1`
+  color: #141C16;
+  margin-top: 6vh !important;
+  margin-bottom: 2vh !important;
+  width: 90%; 
+  display: flex;
+  justify-content: start;
+  align-items: center;
 `;
 
 export const TextoSub1 = styled.div`
@@ -53,27 +79,29 @@ export const TextoSub1 = styled.div`
 `;
 
 export const SecSecao = styled.div`
-  background-color: #141c16;
+  background-color: #C2CFB4;
   width: 100%;
-  height: 150vh;
+  height: 140vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 `;
 
 export const QuarSecao = styled.div`
-  background-color: #253529;
+  background-color: #000000;
   width: 100%;
-  height: 45vh;
+  height: auto;
 `;
 
 interface QuinSecaoProps {
   bgImage: string;
 }
 
-export const QuinSecao = styled.div<QuinSecaoProps>`
-  background: url(${props => props.bgImage}) center/cover no-repeat;
-  background-color: #ffffff;
+export const QuinSecao = styled.div`
+  background-color: #C2CFB4;
   padding: 2rem;
   width: 96.5%;
-  height: 200vh;
+  height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -96,7 +124,7 @@ export const Card3 = styled.div`
   justify-content: start;
   align-items: center;
   width: 37vw;
-  height: 110vh;
+  height: auto;
 `;
 
 export const Card4 = styled.div`
@@ -117,6 +145,7 @@ export const TextLink = styled.span`
 
 export const Card4Button = styled(Button)`
   margin-top: 5vh !important;
+  margin-bottom: 2vh !important;
   width: 40vh !important;
   display: flex !important;
   flex-direction: column !important;
@@ -150,6 +179,27 @@ export const Card4Logo = styled.div`
   justify-content: center;
 `;
 
+export const Card4Section = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+`;
+
+export const LogoFundacao = styled.p`
+  height: 10vh;
+  width: 20vh;
+  background-color: #4E5C2C;
+  display: flex;
+  font-size: 1.2rem !important;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 50px;
+`;
+
 export const Card4Text = styled.div`
   width: 100%;
   font-size: 1.2rem;
@@ -161,23 +211,29 @@ export const Card4Text = styled.div`
   justify-content: center;
 `;
 
-export const Card4LogoImg = styled.img`
-  width: 5vw;
+interface PropCard {
+  width?: string;
+}
+
+export const Card4LogoImg = styled.img<PropCard>`
+  width: ${(props) => props.width || '10vw'};
 `;
 
-export const Card3Text = styled.div`
+export const Card3Text = styled.p`
   color: white;
-  padding: 1rem;
-  text-align: start;
-  width: 100%;
-  font-size: 1.2rem;
-  margin-left: 4rem;
-
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
+  text-align: start !important;
+  width: 100% !important;
+  height: auto;
+  box-sizing: border-box;
 `;
+
+
 
 export const SubTitleCard3 = styled.div`
   color: white;
-  padding: 1rem;
+  padding-top: 1rem;
   font-weight: bolder;
   text-align: start;
   width: 100%;
@@ -187,20 +243,17 @@ export const SubTitleCard3 = styled.div`
 
 export const SubTextCard3 = styled.div`
   color: white;
-  padding: 1rem;
   text-align: start;
-  width: 100%;
   font-size: 1.2rem;
-  margin-left: 6rem;
-
+  width: 100%;
+  padding-left: 8rem;
+  padding-bottom: 1rem;
 `;
 
-export const Card3Title = styled.div`
+export const Card3Title = styled.h2`
   color: #C2CFB4;
-  font-size: 2rem;
-  font-weight: bolder;
   width: 100%;
-  margin-left: 4rem;
+  margin-left: 4rem !important;
 `;
 
 export const Card3Img = styled.img`
@@ -210,10 +263,9 @@ export const Card3Img = styled.img`
 
 export const CardSection = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
-  padding-left: 6rem;
-  padding-right: 6rem;
+  gap: 6vh;
   margin-top: 10vh;
 `;
 
@@ -223,6 +275,7 @@ export const CardSection2 = styled.div`
   justify-content: space-between;
   padding-left: 6rem;
   padding-right: 6rem;
+  width: 90%;
 `;
 
 export const TextCard = styled.div`
@@ -258,9 +311,9 @@ export const Card = styled.div`
   flex-direction: column;
   justify-content: start;
   align-items: center;
-  background-color: #4e5c2c;
+  background-color: #141C16;
   border-radius: 6px;
-  height: 25vh;
+  height: 20vh;
   width: 25vw;
 `;
 
@@ -270,33 +323,53 @@ export const Card2 = styled.div`
   flex-direction: column;
   justify-content: start;
   align-items: center;
-  background-color: #4e5c2c;
+  background-color: #141C16;
   border-radius: 6px;
   height: 45vh;
-  width: 20vw;
+  width: 17vw;
 `;
 
 export const IconCard = styled.img`
   position: absolute;
-  top: -4.5vh;
+  top: -3.5vh;
   left: 2vh;
-  height: 7vh;
+  height: 5vh;
 `;
 
 export const LogoEcoacao = styled.img`
-  width: 30rem;
-  margin-top: 10vh;
-  margin-left: 10vh;
+  width: 17rem;
+  margin-bottom: 5vh;
 `;
 
-export const TextoInicial = styled.div`
+export const Plantinha = styled.img`
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.2;
+`;
+
+export const Aspas = styled.img`
+margin-top: 15vh;
+  width: 3rem;
+`;
+
+export const TitleInicial = styled.h1`
+font-size: 7rem;
   margin-top: 5vh;
-  margin-left: 10vh;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 2rem;
-  font-style: italic;
-  font-weight: bolder;
   color: #000000;
+`;
+
+export const TextoSubInicial = styled.p`
+  font-size: 3rem;
+  color: #000000;
+`;
+
+export const TextoInicial = styled.p`
+  color: #000000;
+  text-align: center;
 `;
 
 export const Hr = styled.hr`
@@ -305,13 +378,14 @@ export const Hr = styled.hr`
   border: 1px solid #1a3f136c;
 `;
 
-export const SubTitle = styled.div`
-  color: #C2CFB4;
-  font-size: 2rem;
-  font-style: italic;
-  font-weight: bolder;
-  margin-top: 7vh;
-  margin-left: 4vw;
+export const SubTitle = styled.p`
+  color: #141C16;
+  margin-top: 16vh !important;
+  width: 90% !important;
+  display: flex !important;
+  justify-content: start !important;
+  align-items: center !important;
+  font-weight: bolder !important;
 `;
 
 export const MiniCardSection = styled.div`
@@ -326,8 +400,7 @@ export const MiniCardSection = styled.div`
 export const MinCardText = styled.div`
   font-size: 1.4rem;
   font-weight: bolder;
-  color: #141c16;
-  margin-left: 2rem;
+  color: #FFFFFF;
 `;
 
 export const MiniCardContainer = styled.div`
@@ -342,7 +415,7 @@ export const MiniCardContainer = styled.div`
 export const MiniCardEsfera = styled.div`
   width: 5rem;
   height: 5rem;
-  background-color: #4e5c2c;
+  background-color: #4E5C2C;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -362,13 +435,13 @@ export const MiniCardEsferaIcon = styled.img`
 export const MiniCard = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: start;
+  justify-content: center;
   align-items: center;
   height: 7vh;
   width: 16.5vw;
-  background-color: #4e5c2c;
+  background-color: #141C16;
   position: relative;
-  border-radius: 6px;
+  border-radius: 50px;
   z-index: 0;
   padding-left: 2rem;
 `;
@@ -386,27 +459,27 @@ export const SubtextSection = styled.div`
 `;
 
 export const LongCardContainer = styled.div`
-  width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: start;
+  height: 100%;
 `;
 
 export const LongCard = styled.div`
-  margin-top: 5vh;
-  background-color: #4e5c2c;
   width: 86.1vw;
-  border-radius: 10px;
   height: 10vh;
+  margin-top: 13vh;
   display: flex;
+  flex-direction: column;
   justify-content: start;
   align-items: center;
 `;
 
 export const LongCardText = styled.div`
-  color: #e4e6da;
+  color: #141C16;
   font-size: 1.4rem;
   font-weight: bold;
+  text-align: center;
 `;
 
 export const LongCardIcon = styled.img`
@@ -423,7 +496,6 @@ export const Faixa = styled.div`
 
 export const BigCardContainer = styled.div`
     width: 100%;
-    margin-top: 7vh;
     display: flex;
     justify-content: center;
 `;
@@ -433,7 +505,6 @@ export const BigCard = styled.div`
   height: 30vh;
   position: relative;
 
-  background-color: #0f1410;
   display: flex;
   flex-direction: row;
 `;
@@ -450,17 +521,31 @@ height: 25vh;
 
 `;
 
+export const BigIconTextCard = styled.p`
+    font-size: 40vh !important;
+    font-style: italic!important;
+    color: rgba(78, 92, 44, 1) !important;
+    font-weight: bolder !important;
+    font-family: 'Arimo' !important;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 8%;
+    top: 36%;
+
+    z-index: 1;
+`;
+
 export const BigCardTextSection = styled.div`
   width: 100%;
 `;
 
-export const BigCardTitle = styled.div`
-  font-size: 2rem;
-  font-weight: bolder;
+export const BigCardTitle = styled.h1`
   color: #C2CFB4;
   margin-bottom: 10px;
-  font-family: 'Montserrat', sans-serif;
-
 `;
 
 export const BigCardTextContainer = styled.div`
@@ -468,18 +553,13 @@ export const BigCardTextContainer = styled.div`
   flex-direction: column;
   justify-content: center;
 
-  margin-left: 6rem;
+  margin-left: 14rem;
 
 `;
 
-export const BigCardText = styled.div`
-margin-bottom: 2rem;
-font-size: 1.4rem;
+export const BigCardText = styled.p`
   font-weight: lighter;
   color: #D8D6D3;
-
-  font-family: 'Montserrat', sans-serif;
-
 `;
 
 

@@ -15,7 +15,6 @@ export const VideoWrapper = styled.div`
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  background-color: #dbda77;
 `;
 
 export const Seta = styled.div`
@@ -46,7 +45,7 @@ export const ColorOverlay = styled.div`
 `;
 
 export const LogoImg = styled.img`
-  height: 10rem;
+  width: 40vw;
 `;
 
 export const BackImg = styled.img`
@@ -112,7 +111,7 @@ export const TextOverlay = styled.div`
 
 export const SectionBelowVideo = styled.div`
   height: 170vh; /* Ocupa a altura da tela */
-  background-color: #141c16; /* Cor de fundo (pode ser alterada) */
+  background-color: #C2CFB4; /* Cor de fundo (pode ser alterada) */
 `;
 
 export const BackgroundImage = styled.div<Props>`
