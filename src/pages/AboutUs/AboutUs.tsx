@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 import * as S from './AboutUsStyled';
+import TextComponent from '../text/text';
 
 const mosaicoLogo = require('../../assets/images/logo/mosaicoLogo1.png');
 const esclamacao = require('../../assets/images/icons/esclamacao.png');
@@ -85,12 +86,14 @@ const AboutUs: React.FC = () => {
           <S.ContainerTitleA>
             <S.SecaoInicialIcon src={aspas} />
             <S.SubTitleText>
-              Explore iniciativas inovadoras de<br />
+              <TextComponent children={'Explore iniciativas inovadoras de'} type={'h1'}/>
+              
             </S.SubTitleText>
           </S.ContainerTitleA>
           <S.SubTitleText>
-            diferentes áreas e descubra como ideias<br />
-            podem transformar o mundo!<br />
+            <TextComponent children={'diferentes áreas e descubra como ideias'} type={'h1'}/>
+            <TextComponent children={'podem transformar o mundo!'} type={'h1'}/>
+
           </S.SubTitleText>
         </S.SubTitleContainer>
         <S.InitialTextContainer>
@@ -119,7 +122,7 @@ const AboutUs: React.FC = () => {
               <S.LogoImg src={mosaicoLogo} alt="mosaicoLogo" />
             </S.TitleLogo1>
             <S.TitleText2>
-              CRIAMOS UM ESPAÇO ONDE PROJETOS PODEM BRILHAR!
+              <TextComponent children={'CRIAMOS UM ESPAÇO ONDE PROJETOS PODEM BRILHAR!'} type={'h1'}/>
             </S.TitleText2>
           </S.TitleContainer1>
           <S.SubTextContainer>
