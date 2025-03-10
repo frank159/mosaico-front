@@ -18,6 +18,10 @@ export const Body = styled.div`
   width: auto;
   height: auto;
   padding: 0 10rem;
+
+  @media (max-width: 1224px) {
+    padding: 0 2rem;
+  }
 `;
 
 export const ContainerSubA = styled.div`
@@ -83,14 +87,16 @@ export const TextoAContiner = styled.div`
 export const TextoA = styled.p`
   line-height: 1;
 
-  @media (max-width: 768px) {
-    font-size: 1.5rem;
+  @media (max-width: 1224px) {
+    font-size: 1.2rem !important;
   }
 `;
 
 export const TextoB = styled.p`
-    font-size: 1.5rem;
-
+    margin-top: 2rem !important;
+    @media (max-width: 1224px) {
+    font-size: 1.2rem !important;
+  }
 `;
 
 export const Stro = styled.strong``;
@@ -111,8 +117,9 @@ export const ContainerRightA = styled.div`
 
 export const ImgFoto = styled.img`
   width: 100%;
+  height: auto;
   object-fit: contain;
-  object-position: end;
+  object-position: center;
 `;
 
 export const ImgFotoA = styled.img`
@@ -139,13 +146,19 @@ export const SubContainer = styled.div`
   color: white;
 `;
 
+export const SecaoInicialIcon = styled.img`
+  height: 2rem; /* 30% da largura do carrossel */
+  padding-right: 1rem;
+  padding-left: 1rem;
+`;
+
+
 export const SubTextContainer = styled.p`
   width: 100%;
   text-align: center;
   
   @media (max-width: 1224px) {
     width: auto;
-    text-align: start;
   }
 `;
 export const SubTextContainerB = styled.p`
@@ -154,7 +167,6 @@ export const SubTextContainerB = styled.p`
   color: #ABFA16;
   @media (max-width: 1224px) {
     width: auto;
-    text-align: start;
   }
 `;
 
@@ -198,13 +210,17 @@ export const BigCard = styled.div<Props>`
 `;
 
 export const ContainerBigCardFoto = styled.div`
-  height: 100%;
+  height: auto;
   display: flex;
   justify-content: center;
+  width: 50vw;
 
   @media (max-width: 1224px) {
-    width: 100%;
     margin-bottom: 3vh;
+  }
+  @media (max-width: 768px) {
+    margin-bottom: 3vh;
+    width: 100%;
   }
 `;
 
@@ -222,11 +238,11 @@ export const ImgBigCard = styled.img`
 
 export const TopSectionCard = styled.div<Props>`
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   padding-top: 4rem;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: start;
   flex-direction: row;
 
   @media (max-width: 1224px) {
@@ -263,6 +279,10 @@ export const TextoAContinerBigCard = styled.div`
   justify-content: space-between;
   align-items: start;
   padding-left: 1rem;
+
+  @media (max-width: 1224px) {
+    padding-left: 0;
+  }
 `;
 
 export const TextoBigCardSection = styled.div`
@@ -302,9 +322,7 @@ export const TopSectionCardC = styled.div`
 
 export const BodyC = styled.div`
   width: auto;
-  height: 100vh;
-  padding-left: 7rem;
-  padding-right: 7rem;
+  padding: 7rem;
   color: white;
   background-color: #0c0c0c;
   display: flex;

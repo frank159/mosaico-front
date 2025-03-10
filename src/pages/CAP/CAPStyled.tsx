@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import { Button } from '@mui/material';
 
 const calqueti = require("../../assets/images/img/clacket.png")
 
@@ -29,6 +30,11 @@ export const TitleContainer = styled.div`
     height: 50vh;
     padding-top: 10vh;
     width: 100%;
+
+    @media (max-width: 1224px) {
+    justify-content: center;
+  }
+
 `;
 
 export const TitleContant = styled.div`
@@ -36,6 +42,13 @@ export const TitleContant = styled.div`
     flex-direction: row;
     justify-content: start;
     align-items: center;
+
+    @media (max-width: 1224px) {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  
 `;
 
 export const TitleOverlayContainer = styled.div`
@@ -130,6 +143,11 @@ export const TitleSection = styled.div`
   padding-top: 4vh;
   display: flex;
   flex-direction: column;
+
+  @media (max-width: 1224px) {
+    align-items: center;
+  }
+
 `;
 
 export const DivText = styled.div`
@@ -138,8 +156,12 @@ export const DivText = styled.div`
 `;
 
 export const DivTitle = styled.h1`
-  font-size: 8rem !important;
-  font-weight: lighter !important;
+font-weight: lighter !important;
+font-size: 8rem !important;
+
+@media (max-width: 1224px) {
+    font-size: 4rem !important;
+  }
 `;
 
 export const DivBigText = styled.div`
@@ -201,6 +223,12 @@ export const ImgLogo = styled.img`
   overflow: hidden; 
   z-index: 0;
   margin-left: 3vw;
+  
+  @media (max-width: 1224px) {
+    margin-left: 0;
+    width: 12rem;
+    height: 12rem;
+  }
 `;
 export const BodyText = styled.div`
   margin-top: 20vh;
@@ -228,12 +256,11 @@ export const BodyListCard = styled.div`
 
 export const Card = styled.div`
   width: 100%;
-  height: 10vh;
+  min-height: 10vh;
   margin-left: 10rem;
   margin-right: 10rem;
   margin-bottom: 2rem;
   font-size: 1.4rem;
-
   color: #000000;
   border-radius: 10px;
   display: flex;
@@ -241,6 +268,12 @@ export const Card = styled.div`
   justify-content: center;
   align-items: start;
   transition: 1s;
+
+  
+  @media (max-width: 1224px) {
+    margin-left: 1rem;
+    margin-right: 1rem;  
+  }
 
 `;
 
@@ -286,12 +319,19 @@ export const CardIcon = styled.div`
 
 export const CardIconImg = styled.img`
   height: 5rem;
+    
+  @media (max-width: 1224px) {
+    height: 3rem;
+  }
 `;
 
 export const CardText = styled.p`
 margin-left: 3rem !important;
-word-spacing: 10px;
 
+@media (max-width: 1224px) {
+    margin-left: 1rem !important;
+    font-size: 1rem !important;
+  }
 `;
 
 export const Esclamacao = styled.img`
@@ -307,11 +347,15 @@ export const LinhaH = styled.div`
   height: 3px;
   background-color: rgba(0, 0, 0, 1);
   margin: 7rem;
-`;
+
+  @media (max-width: 1224px) {
+    margin: 4rem 1rem;
+  }
+  `;
 
 export const Faixa = styled.div`
   width: 100%;
-  height: 30vh;
+  min-height: 30vh;
   margin-top: 18vh;
   position: relative;
   display: flex;
@@ -324,7 +368,11 @@ export const FaixaText = styled.p`
   color: #000000 !important;
   text-align: center !important;
   z-index: 111;
+  
   padding: 0 10rem;
+  @media (max-width: 1224px) {
+    padding: 0 1rem;
+  }
 `;
 
 export const TitleFinalContainer = styled.div`
@@ -363,30 +411,32 @@ export const Img = styled.img<QuinSecaoProps>`
 
 export const VideoContainer = styled.div`
   position: relative;
-  height: 120vh;
+  height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: start;
   margin-bottom: 6vh;
-`;
+  `;
 
 export const VideoWrapper = styled.div`
-  width: 80vw;
+  width: 100%;
   height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   margin-top: 2rem;
-  iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-  }
 `;
+
 export const VideoTitle = styled.div`
   width: 100%;
   display: flex;
   font-size: 1.7rem;
   font-weight: bolder;
   margin-top: 6vh;
+  margin-left: 6vh;
+  margin-bottom: 2vh;
   justify-content: start;
   align-items: start;
 `;
@@ -406,68 +456,146 @@ export const ProjetosListContainer = styled.div`
     height: auto;
     gap: 20px;
     padding: 0rem 7rem 7rem 7rem;
-
+    
+    @media (max-width: 1224px) {
+      padding: 0rem 3rem 3rem 3rem;
+      font-size: 4rem !important;
+  }
 `;
 
-export const CardProjeto = styled.div`
-    background-color: #4E5C2C ;
+export const ProjetosListContainerA = styled.div`
     display: flex;
     justify-content: start;
     align-items: start;
-    margin-right: 1vw;
     flex-direction: row;
     height: auto;
-    padding-bottom: 2rem;
     width: 100%;
-    transition: 0.3s;
-    border-radius: 10px;
+`;
 
-    &:hover {
-        cursor: pointer;
-        transition: 0.3s;
-        border: 1px solid #C2CFB4;
-        transform: scale(1.05);
-    }
+export const ProjetosListContainerB = styled.div`
+
+`;
+
+export const ButtonCard = styled(Button)`
+  margin-top: 4vh !important;
+  background-color: #253529 !important;
+  color: #C2CFB4 !important;
+  font-family: 'Arsenal', sans-serif !important;
+  text-transform: none !important;
+  width: 10vw;
+  border-radius: 20px !important;
+  font-weight: bolder !important;
+`;
+
+export const CardProjeto = styled.div`
+  background-color: #B6C8B6;
+  padding: 1rem;
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  margin-right: 1vw;
+  flex-direction: column;
+  transition: 0.3s;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 80vw;
+  height: auto;
+  box-sizing: border-box;
+  overflow: hidden; /* Ensure content does not overflow */
+
+  &:hover ${ButtonCard} {
+    border: 1px solid #C2CFB4;
+    cursor: pointer;
+    transition: 0.3s;
+    transform: scale(1.05);
+  }
+
+  &:hover {
+    border: 1px solid #C2CFB4;
+    cursor: pointer;
+    transition: 0.6s;
+    transform: scale(1.05);
+  }
+
+  @media (max-width: 1072px) {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+  }
+
+  position: relative;
+
+  
+&::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 20px;  /* Ajuste conforme necessário */
+      background: linear-gradient(to top, #B6C8B6, rgba(255, 255, 255, 0));  /* Efeito de sobra */
+      pointer-events: none;  /* Permite interação com o texto */
+  }
 `;
 
 export const CardImgFremeProjeto = styled.div<Props>`
-    height: 26vh;
-    width: 20vw;
-    padding-top: 2rem;
-    margin-left: 1rem;
-    overflow: hidden; /* Corta o conteúdo que exceder os limites do contêiner */
-    position: relative; /* Garante que o posicionamento seja relativo ao contêiner */
+  background-color: #d9d9d967;
+  height: 100%;
+  width: 27vw;
+  max-width: 30vw; /* Adjust as needed */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 10px;
+
+  @media (max-width: 1072px) {
+    height: 25vh;
+    width: 100%;
+    max-width: none;
+  }
 `;
 
 export const CardImgProjeto = styled.img<Props>`
-    height: 100%; /* Faz com que a imagem preencha a altura do contêiner */
-    width: 100%; /* Faz com que a imagem preencha a largura do contêiner */
-    object-fit: cover; /* Garante que a imagem mantenha proporções e preencha o contêiner */
-    object-position: center; /* Centraliza a imagem dentro do contêiner */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 `;
 
 export const CardTextContainerProjeto = styled.div`
-    height: 100%;
-    margin-left: 1rem;
-    width: auto;
-    display: flex;
-    flex-direction: column;
-    padding-top: 2rem;
+  margin-left: 1rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Ensure text does not overflow */
+  text-overflow: ellipsis; /* Add ellipsis for overflowed text */
+
+  @media (max-width: 1072px) {
+    margin-left: 0;
+    padding-top: 1rem;
+  }
+
 `;
 
 export const CardTitleProjeto = styled.div`
     font-size: 1.3rem;
-    color: #C2CFB4;
+    color: #000000;
+    line-height: 1;
     font-family: 'Montserrat', sans-serif;
-    font-weight: bolder;
-    padding-bottom: 5px;
 `;
 
-export const CardTextProjeto = styled.div`
-    color: #C2CFB4;
-    font-size: 1.3rem;
-    word-spacing: 10px;
+
+export const CardTextProjeto = styled.p`
+    color: #000000;
+    margin-top: 0.5rem;
+    max-width: 95%;
+
+    @media (max-width: 1072px) {
+      font-size: 1rem !important;
+  }
 `;
+
 
 export const BigImgContainer = styled.div`  
     display: flex;
@@ -475,28 +603,52 @@ export const BigImgContainer = styled.div`
     width: 100%;
     padding-left: 7rem;
     padding-right: 7rem;
+    
+    @media (max-width: 1224px) {
+      padding-left: 0;
+      padding-right: 0;
+
+  }
+
+  @media (max-width: 768px) {
+    justify-content: start;
+    flex-direction: column;
+  }
 `;
 
 export const TitleBigImg = styled.h1`
-    margin-top:   4rem !important;
+    margin-top: 4rem !important;
     margin-left: 8rem !important;
+
+    
+  @media (max-width: 1224px) {
+    margin-left: 2rem !important;
+  }
 `;
 
 export const TextBigImgContainer = styled.div`
-  
+@media (max-width: 1224px) {
+    padding-bottom: 3rem;
+  }
 `;
 
 export const TextBigImg = styled.div`
   font-size: 1.4rem;
   padding-left: 3rem;
+
+  @media (max-width: 1224px) {
+    padding-right: 3rem;
+  }
 `;
 
 export const IconTextBigImgContainerList = styled.div`
     width: 100%;
     display: flex;
+    flex-direction: row;
     height: 20vh;
     align-items: center;
     justify-content: center;
+
 `;
 
 export const IconTextBigImgContainerListB = styled.div`
@@ -576,20 +728,24 @@ export const PatrocinadorTextLink = styled.span<Props>`
   }
 `;
 
-export const TitlePage = styled.div`
-    margin-left: 7rem;
+export const TitlePage = styled.h1`
+    margin-top: 10rem !important;
     z-index: 11;
-    font-family: 'Voga', sans-serif;
-    font-size: 6rem;
+    font-size: 6rem !important;
     color: #000000;
+    padding-left: 4rem;
+    
+    @media (max-width: 1224px) {
+      padding-left: 2rem;
+      font-size: 4rem !important;
+    padding-top: 2rem;
+  }
 `;
 
-export const SubTitlePage = styled.div`
+export const SubTitlePage = styled.p`
     z-index: 11;
     font-size: 1.4rem;
     color: #000000;
-    font-weight: bolder;
-    font-style: italic;
 `;
 
 export const Line2 = styled.div`
@@ -622,18 +778,15 @@ export const BigTextSpace = styled.div`
 `;
 
 export const ButtonContainer = styled.div`
-  position: absolute;
-  top: 50%;
-  width: 100%;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
-  pointer-events: none; /* Permite que o player receba cliques */
+  align-items: center;
 `;
-
 
 export const NavButton = styled.button`
   pointer-events: all; /* Habilita cliques nos botões */
-  background-color: #E4EBDD;
+  background-color: rgba(225, 225, 225, 0);
   border: none;
   color: #000000 !important;
   width: 50px;
@@ -644,12 +797,12 @@ export const NavButton = styled.button`
   justify-content: center;
   cursor: pointer;
   transition: 0.3s;
-  margin: 0 3rem;
-  
+
   &:hover {
     transition: 0.3s;
     transform: scale(1.2);
   }
+
 `;
 
 export const ArrowLeft = styled(ArrowBackIosIcon)`
@@ -666,13 +819,23 @@ export const DescriptionContainer = styled.div`
   justify-content: center;
   align-items: center;
   margin-top: 4vh;
+  width: 80%;
+`;
+
+export const DescriptionSection = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4vh;
   width: 100%;
-  background-color: red;
 `;
 
 export const LineDescription = styled.div`
-  width: 0.3rem ;
-  height: 10rem;
+  width: 0.2rem ;
+  height: 120%;
+  margin-right: 1rem;
+  border-radius: 4px;
   background-color: #AC1717;
 `;
 
@@ -688,5 +851,19 @@ export const DescrTitle = styled.h1`
 `;
 
 export const DescrText = styled.p`
-  width: 70%;
+  width: 100%;
+`;
+
+export const CardMainContainer = styled.div`
+  display: flex;
+  border-radius: 10px;
+  justify-content: start;
+  align-items: start;
+  flex-direction: row;
+  width: 100%;
+  box-sizing: border-box;
+
+  @media (max-width: 1072px) {
+    flex-direction: column;
+  }
 `;

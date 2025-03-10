@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import * as S from './HomeStyled';
 import Footer from '../../components/footer/footer';
 import ContactSection from '../../components/contactComponente/contactComponente';
@@ -29,6 +29,26 @@ const HomePage: React.FC = () => {
   const handleClick = () => {
     window.location.href = 'https://www.graciosapictures.com';
   };
+  const checkCardRef = useRef<HTMLDivElement>(null);
+  const checkCard2Ref = useRef<HTMLDivElement>(null);
+  const CardRef = useRef<HTMLDivElement>(null);
+
+  const [checkCardWidth, setCheckCardWidth] = useState(0);
+  const [checkCard2Width, setCheckCard2Width] = useState(0);
+  const [cardWidth, setCardWidth] = useState(0);
+
+  useEffect(() => {
+    if (checkCardRef.current) {
+      setCheckCardWidth(checkCardRef.current.clientWidth);
+    }
+    if (checkCard2Ref.current) {
+      setCheckCard2Width(checkCard2Ref.current.clientHeight);
+    }
+    if (CardRef.current) {
+      setCardWidth(CardRef.current.clientWidth);
+    }
+  }, []);
+
   return (
     <S.MainContainer>
       <S.InicialSecao>
@@ -52,7 +72,7 @@ const HomePage: React.FC = () => {
         </S.TituloVertical>
         <S.SubInicialSecao1>
           <S.CardSection>
-            <S.Card>
+            <S.Card style={{ width: `${checkCardWidth}px` }}  >
               <S.IconCard src={localizacao} />
               <S.TextCard>
                 uma iniciativa inovadora que acontecerá<br />
@@ -60,7 +80,7 @@ const HomePage: React.FC = () => {
                 2025, em Belém, Pará, Brasil
               </S.TextCard>
             </S.Card>
-            <S.Card>
+            <S.Card style={{ width: `${checkCardWidth}px` }}    >
               <S.IconCard src={barco} />
               <S.TextCard>
                 Sediado em um barco ancorado no rio Guamá, o<br />
@@ -69,7 +89,7 @@ const HomePage: React.FC = () => {
                 impactam nosso bem-estar psicológico.
               </S.TextCard>
             </S.Card>
-            <S.Card>
+            <S.Card ref={checkCardRef}>
               <S.IconCard src={folha} />
               <S.TextCard>
                 Ele apresentará soluções ambientais já<br />
@@ -86,7 +106,7 @@ const HomePage: React.FC = () => {
           NOSSO PÚBLICO ALVO
         </S.Texto2>
         <S.CardSection2>
-          <S.Card2>
+          <S.Card2 style={{ height: `${checkCard2Width}px` }} >
             <S.CardTitle2>
               Participantes da COP30
             </S.CardTitle2>
@@ -94,21 +114,21 @@ const HomePage: React.FC = () => {
               Incluem líderes políticos, representantes de ONGs, especialistas em sustentabilidade e visitantes internacionais que já estão engajados em questões ambientais e podem amplificar a mensagem do projeto.
             </S.TextCard2>
           </S.Card2>
-          <S.Card2>
+          <S.Card2 style={{ height: `${checkCard2Width}px` }} >
             <S.CardTitle2>
               Artistas e Ativistas
             </S.CardTitle2>
             <S.TextCard2>
               Esses grupos são cruciais para criar, promover e implementar soluções sustentáveis. Eles podem usar o projeto como uma plataforma para expandir seu alcance e influência.            </S.TextCard2>
           </S.Card2>
-          <S.Card2>
+          <S.Card2 style={{ paddingBottom: '3rem' }} ref={checkCard2Ref}>
             <S.CardTitle2>
               Comunidade Local
             </S.CardTitle2>
             <S.TextCard2>
               Envolver a população de Belém é essencial para garantir que o legado do projeto continue após a COP30. Foco em educadores, estudantes e organizações comunitárias é estratégico para criar impacto local duradouro.            </S.TextCard2>
           </S.Card2>
-          <S.Card2>
+          <S.Card2 style={{ height: `${checkCard2Width}px` }} >
             <S.CardTitle2>
               Mídia Global
             </S.CardTitle2>
@@ -121,44 +141,44 @@ const HomePage: React.FC = () => {
         </S.SubTitle>
         <S.MiniCardSection>
           <S.MiniCardContainer>
-            <S.MiniCardEsfera>
-              <S.MiniCardEsferaIcon src={podcastIcon} alt="Podcast Icon" />
-            </S.MiniCardEsfera>
-            <S.MiniCard>
+            <S.MiniCard style={{ width: `${cardWidth}px` }}>
+              <S.MiniCardEsfera>
+                <S.MiniCardEsferaIcon src={podcastIcon} alt="Podcast Icon" />
+              </S.MiniCardEsfera>
               <S.MinCardText>
                 Podcasts
               </S.MinCardText>
             </S.MiniCard>
           </S.MiniCardContainer>
           <S.MiniCardContainer>
-            <S.MiniCardEsfera>
-              <S.MiniCardEsferaIcon src={expoIcon} alt="Exposição Icon" />
-            </S.MiniCardEsfera>
-            <S.MiniCard>
+            <S.MiniCard style={{ width: `${cardWidth}px` }}>
+              <S.MiniCardEsfera>
+                <S.MiniCardEsferaIcon src={expoIcon} alt="Exposição Icon" />
+              </S.MiniCardEsfera>
               <S.MinCardText>
                 Exposições interativas
               </S.MinCardText>
             </S.MiniCard>
           </S.MiniCardContainer>
           <S.MiniCardContainer>
-            <S.MiniCardEsfera>
-              <S.MiniCardEsferaIcon src={painelIcon} alt="Painel Icon" />
-            </S.MiniCardEsfera>
-            <S.MiniCard>
+            <S.MiniCard style={{ width: `${cardWidth}px` }}>
+              <S.MiniCardEsfera>
+                <S.MiniCardEsferaIcon src={painelIcon} alt="Painel Icon" />
+              </S.MiniCardEsfera>
               <S.MinCardText>
                 Painéis de discussão
               </S.MinCardText>
             </S.MiniCard>
           </S.MiniCardContainer>
           <S.MiniCardContainer>
-            <S.MiniCardEsfera>
-              <S.MiniCardEsferaIcon src={oficinaIcon} alt="Oficina Icon" />
-            </S.MiniCardEsfera>
-            <S.MiniCard>
-              <S.MinCardText>
+            <S.MiniCard1 ref={CardRef}>
+              <S.MiniCardEsfera>
+                <S.MiniCardEsferaIcon src={oficinaIcon} alt="Oficina Icon" />
+              </S.MiniCardEsfera>
+              <S.MinCardText1>
                 Oficinas de co-criação
-              </S.MinCardText>
-            </S.MiniCard>
+              </S.MinCardText1>
+            </S.MiniCard1>
           </S.MiniCardContainer>
         </S.MiniCardSection>
         <S.LongCardContainer>
@@ -231,13 +251,13 @@ const HomePage: React.FC = () => {
             </S.Card3Text>
             <S.Card4Section>
               <S.Card4Logo>
-                <S.Card4LogoImg width='6vw' src={capFundoBranco} />
+                <S.Card4LogoImg width='15%' src={capFundoBranco} />
               </S.Card4Logo>
               <S.Card4Button onClick={handleClick}>
                 Acesse agora<br />
               </S.Card4Button>
               <S.Card4Logo>
-                <S.Card4LogoImg width='14vw' src={cooperativa} />
+                <S.Card4LogoImg width='25%' src={cooperativa} />
               </S.Card4Logo>
 
               <S.Card4Button onClick={handleClick}>
@@ -278,12 +298,13 @@ const HomePage: React.FC = () => {
             </S.Card3Text>
             <S.Card4Section>
               <S.Card4Logo>
-                <S.Card4LogoImg src={graciosa1} />
+                <S.Card4LogoImg width='25%' src={graciosa1} />
               </S.Card4Logo>
               <S.Card4Button onClick={handleClick}>
                 Acesse agora:<br />
-                <S.TextLink></S.TextLink>
-                https://www.graciosapictures.com
+                <S.TextLink>
+                  https://www.graciosapictures.com
+                </S.TextLink>
               </S.Card4Button>
               <S.Card4Logo>
                 <S.LogoFundacao>
@@ -293,8 +314,9 @@ const HomePage: React.FC = () => {
               </S.Card4Logo>
               <S.Card4Button onClick={handleClick}>
                 Acesse agora:<br />
-                <S.TextLink></S.TextLink>
-                https://www.graciosapictures.com
+                <S.TextLink>
+                  https://www.graciosapictures.com
+                </S.TextLink>
               </S.Card4Button>
               <br />
 

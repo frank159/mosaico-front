@@ -22,7 +22,7 @@ export const Body = styled.div`
   padding-right: 12rem;
 
   @media (max-width: 1224px) {
-    padding: 0 6rem; /* Reduz o padding lateral para telas pequenas */
+    padding: 0 1rem !important; /* Reduz o padding lateral para telas pequenas */
   }
 `;
 
@@ -87,7 +87,7 @@ export const TextoA = styled.p`
   line-height: 1;
 
   @media (max-width: 768px) {
-    font-size: 1.5rem;
+    font-size: 1.2rem !important; 
   }
 `;
 
@@ -156,6 +156,11 @@ export const BodyB = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
+  @media (max-width: 1224px) {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 `;
 
 export const TitleB = styled.h1`
@@ -163,6 +168,11 @@ export const TitleB = styled.h1`
   padding-top: 5vh;
   padding-bottom: 5vh;
   width: 100%;
+
+  @media (max-width: 1224px) {
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+  }
 `;
 
 export const TitleC = styled.h1`
@@ -181,6 +191,11 @@ export const BigCard = styled.div<Props>`
   align-items: center;
   flex-direction: column;
   padding: 4rem;
+
+  @media (max-width: 1224px) {
+    padding: 1rem;
+    width: 80vw;
+  }
 `;
 
 export const ContainerBigCardFoto = styled.div`
@@ -229,13 +244,21 @@ export const TopSectionCardB = styled.div`
   align-items: center;
   flex-direction: row;
   gap: 10px;
+  position: relative;
 `
 
+
+
 export const CardlindText = styled.div<Props>`
-  height: ${(props)=> props.height || '100%'};
   width: 1px;
 
-    border: solid 2px #2F2E29;
+  width: 0.3rem; /* Define a largura da linha */
+  height: 100%; /* Altura total ou personalizada */
+  border-radius: 10px;
+  background-color: #253529; /* Cor da linha */
+  position: absolute;  /* Necessário para o tamanho máximo da linha */
+  top: 0;
+  bottom: 0;
 `;
 
 export const TextoAContinerBigCard = styled.div`
@@ -250,6 +273,7 @@ export const TextoAContinerBigCard = styled.div`
 
 export const TextoBigCardSection = styled.div`
   display: flex;
+  margin-left: 1rem;
   flex-direction: column;
 `;
 
@@ -262,6 +286,10 @@ export const TitleBigcardB = styled.h1`
 export const TextoB = styled.p`
   line-height: 1;
   width: 100%;
+
+  @media (max-width: 768px) {
+    font-size: 1.2rem !important; 
+  }
 `;
 
 export const CardButton = styled(Button)`
@@ -271,7 +299,7 @@ export const CardButton = styled(Button)`
     text-transform: none !important;
     font-weight: lighter !important;
     width: 20vw;
-    font-size: 1.5rem !important;
+    font-size: 1.2rem !important;
 
     @media (max-width: 1224px) {
       width: 100%;
@@ -283,20 +311,26 @@ export const TopSectionCardC = styled.div`
   margin-top: 3vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: end;
 `;
 
 export const BodyC = styled.div`
   width: auto;
-  height: 100vh;
+  height: auto;
   padding-left: 7rem;
   padding-right: 7rem;
+  padding-bottom: 4rem;
   color: white;
   background-color: #252525;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
+  @media (max-width: 768px) {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 `;
 
 
