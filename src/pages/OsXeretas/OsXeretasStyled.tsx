@@ -35,13 +35,14 @@ export const ContainerSubA = styled.div`
     margin-top: 10vh;
     width: auto;
     height: auto;
+    flex-direction: column-reverse;
 
   }
 
   @media (max-width: 768px) {
     margin-top: 10vh;
     width: 100%;
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
 `;
 
@@ -57,6 +58,8 @@ export const ContainerLeftA = styled.div`
   padding-left: 7rem;
   @media (max-width: 1224px) {
     width: 100%;
+    padding-left: 2rem;
+    padding-top: 2rem;
     height: auto !important;
     align-items: start;
     text-align: start;
@@ -172,7 +175,7 @@ export const TitleC = styled.h1`
 `;
 
 export const BigCard = styled.div<Props>`
-  height: ${(props)=> props.height || '80vh'};
+  height: ${(props) => props.height || '80vh'};
   width: 60vw;
   margin-bottom: 10vh;
   background-color: black;
@@ -215,7 +218,7 @@ export const TopSectionCard = styled.div<Props>`
   flex-direction: row;
 
   @media (max-width: 1224px) {
-    flex-direction: ${(props)=> props.InvertCard ? 'column-reverse' : 'column'};
+    flex-direction: ${(props) => props.InvertCard ? 'column-reverse' : 'column'};
     gap: 1vh;
   }
 `;
@@ -233,7 +236,7 @@ export const TopSectionCardB = styled.div`
 `
 
 export const CardlindText = styled.div<Props>`
-  height: ${(props)=> props.height || '100%'};
+  height: ${(props) => props.height || '100%'};
   width: 1px;
 
     border: solid 2px #2F2E29;
@@ -295,6 +298,11 @@ export const BodyC = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
+  @media (max-width: 1224px) {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 `;
 
 
@@ -303,4 +311,34 @@ export const VideoWrapper = styled.div`
   margin-top: 2rem;
   display: flex;
   justify-content: center;
+`;
+
+export const Galeria = styled.div`
+  display: flex;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  gap: 2rem;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: #000000;
+`;
+
+export const Img = styled.img`
+  width: 25rem;
+  transition: 0.8s;
+
+  &:hover {
+    transition: 0.5s;
+    transform: scale(1.05);
+  }
+
+  @media (max-width: 1224px) {
+    margin-top: 2rem;
+    align-items: start;
+    flex-direction: column;
+    width: 20rem;
+  }
 `;

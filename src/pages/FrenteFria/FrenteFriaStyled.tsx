@@ -156,13 +156,15 @@ export const SecaoInicialIcon = styled.img`
 export const SubTextContainer = styled.p`
   width: 100%;
   text-align: center;
-  
+  margin-top: 3vh !important;
+
   @media (max-width: 1224px) {
     width: auto;
   }
 `;
 export const SubTextContainerB = styled.p`
   width: 100%;
+  margin-top: 3vh !important;
   text-align: center;
   color: #ABFA16;
   @media (max-width: 1224px) {
