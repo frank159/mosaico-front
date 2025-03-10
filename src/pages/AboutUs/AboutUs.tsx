@@ -39,7 +39,7 @@ const AboutUs: React.FC = () => {
   useEffect(() => {
     const heights = midCardRefs.current.map(ref => ref.clientHeight);
     let maxHeights = (Math.max(...heights))
-    maxHeights = Number((maxHeights + (maxHeights / 5)));
+    maxHeights = Number((maxHeights + (maxHeights / 3)));
     console.log('maxHeights: ', maxHeights)
     console.log('------------------')
 
