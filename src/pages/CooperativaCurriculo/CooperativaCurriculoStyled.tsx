@@ -11,6 +11,7 @@ export const MainContainer = styled.div`
   overflow-x: hidden;
   position: relative;
   overflow-y: hidden;
+  height: 400vh;
 `;
 
 export const FullImg = styled.img`
@@ -207,8 +208,8 @@ export const ImageWrapper = styled.div`
     display: flex;
     justify-content: end;
     border-top: 1px solid #3B3B3B;
-    border-bottom: 1px solid #3B3B3B;
     @media (max-width: 1224px) {
+      border-bottom: 1px solid #3B3B3B;
         border-bottom: none;
         border-top: none;
     }
@@ -286,7 +287,18 @@ export const SmallImageContainer = styled.div`
   height: 100vh;
   padding-right: 3vw;
   margin-top: -1%;
-  border-right: 1px solid #3B3B3B;
+  position: relative;
+  background-color: #ad3e3e;
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 1px;
+    height: 300vh;
+    background-color: #3B3B3B;
+  }
   
   @media (max-width: 1224px) {
     width: 50%;
@@ -301,6 +313,41 @@ export const SmallImageContainer = styled.div`
     height: auto;
     flex-direction: column;
   }
+`;
+
+export const NewTextSection = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+`;
+
+export const NewTextContainer = styled.div`
+    width: 100%;
+    background-color: grey;
+    display: flex;
+    flex-direction: row;
+`;
+
+
+
+export const NewTextContainerText = styled.p`
+  background-color: green;
+  margin-left: 23vw !important;
+  transform: translate(-100%, -50%);
+  position: absolute;
+  top: 80vh;
+  left: 62%;
+  width: 50vw !important;
+`;
+
+export const NewTextContainerTitle = styled.h1`
+  background-color: green;
+  margin-left: 23vw !important;
+  transform: translate(-100%, -50%);
+  position: absolute;
+  top: 20%;
+  right: 45%;
 `;
 
 export const SmallImage = styled.img`

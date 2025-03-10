@@ -21,7 +21,8 @@ const Cooperativa: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [overlayHeight, setOverlayHeight] = useState(0);
   const overlayRef = useRef<HTMLDivElement>(null);
-
+  const overlayRefA = useRef<HTMLDivElement>(null);
+  useEffect(() => {console.log('overlayHeight: ', overlayHeight)}, [overlayHeight]);
   const listaCarrocel = [
     {
       id: 1,
@@ -73,8 +74,9 @@ const Cooperativa: React.FC = () => {
   }, [])
 
   useEffect(() => {
-    if (overlayRef.current) {
-      setOverlayHeight(overlayRef.current.clientHeight / 2);
+    if (overlayRef.current && overlayRefA.current) {
+
+      setOverlayHeight(overlayRef.current.clientHeight + overlayRefA.current.clientHeight);
     }
   }, [overlayRef]);
 
@@ -91,18 +93,10 @@ const Cooperativa: React.FC = () => {
       setContainerWidth(containerRef.current.scrollWidth);
     }
   }, [items]);
-    
-
-  // Cria um motion value para a posição horizontal
-  const x = useMotionValue(0);
-
-  // Atualiza a posição a cada frame, usando a velocidade atual (em pixels/segundo)
+      const x = useMotionValue(0);
   useAnimationFrame((t, delta) => {
     const moveBy = speed * (delta / 300);
     const newX = x.get() - moveBy;
-  
-    // Quando o deslocamento ultrapassa a largura de um conjunto,
-    // adiciona a largura para manter o movimento contínuo
     if (containerWidth && newX <= -containerWidth) {
       x.set(newX + containerWidth);
     } else {
@@ -140,23 +134,23 @@ const Cooperativa: React.FC = () => {
           </S.RightTextA>
         </S.ContainerA>
       </S.Body>
-      <S.BodyB>
+      <S.BodyB >
         <S.ImageWrapper>
-          <S.HomeroFullImgFrame style={{ marginBottom: `${overlayHeight}px` }}>
+          <S.HomeroFullImgFrame >
             <S.HomeroFullImg src={HomeroFoto} alt="Homero" />
             <S.GradientOverlay />
-          </S.HomeroFullImgFrame>
-          <S.OverlayContainer ref={overlayRef}>
-            <S.OverlayContent>
+          </S.HomeroFullImgFrame >
+          <S.OverlayContainer >
+            <S.OverlayContent >
               <S.SmallImageContainer>
                 <S.SmallImage src={HomeroFoto} alt="Homero" />
-                <S.SmallImageText>
+                <S.SmallImageText ref={overlayRefA}>
                   fundador da<br />
                   cooperativa de cinema<br />
                   & mídias siciais
                 </S.SmallImageText>
               </S.SmallImageContainer>
-              <S.TextSection>
+              <S.TextSection ref={overlayRef}>
                 <S.TextTitle>Homero Camargo</S.TextTitle>
                 <S.TextContent>
                   Responsável por fundar a Cooperativa de Cinema & Mídias Digitais e com mais de 35 anos no cinema, tem experiência na produção de longas-metragens, captação de recursos e consultoria. Participa ativamente de debates políticos sobre a indústria audiovisual e tem ampla experiência em marketing cinematográfico. Foi cofundador do SIAPAR e articulador do Prêmio Estadual de Cinema e Vídeo do Paraná. Já trabalhou com diretores renomados como Neville D’Almeida, Mauro Lima e Michael Ruman. Atua no desenvolvimento de estratégias para o mercado, além de projetos socioculturais e de regionalização do audiovisual.
@@ -169,6 +163,7 @@ const Cooperativa: React.FC = () => {
           </S.OverlayContainer>
         </S.ImageWrapper>
       </S.BodyB>
+      <S.MargemCoo height={`${overlayHeight}px`} />
       <Carousel isMobile={isMobile}/>
     </S.MainContainer >
   );

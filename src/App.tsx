@@ -12,6 +12,7 @@ import Cooperativa from './pages/Cooperativa/Cooperativa';
 import ProjetoIdentidade from './pages/ProjetoIdentidade/ProjetoIdentidade';
 import OsXeretas from './pages/OsXeretas/OsXeretas';
 import FrenteFria from './pages/FrenteFria/FrenteFria';
+import CooperativaCurriculo from './pages/CooperativaCurriculo/CooperativaCurriculo';
 
 const App = () => {
   // useEffect(() => {
@@ -56,6 +57,7 @@ const App = () => {
         <Route path="/projeto-id" element={<ProjetoIdentidade />} />
         <Route path="/Ox-Xeretas" element={<OsXeretas />} />
         <Route path="/FrenteFria" element={<FrenteFria />} />
+        <Route path="/CooperativaCurriculo" element={<CooperativaCurriculo />} />
       </Routes>
     </Router>
   );
