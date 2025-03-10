@@ -21,7 +21,7 @@
     "drei": "^2.2.21",
     "fabric": "^6.5.3",
     "framer-motion": "^12.4.10",
-    "gsap": "^3.12.5",
+    "gsap": "^3.12.7",
     "infinite-react-carousel": "^1.2.11",
     "keen-slider": "^6.8.6",
     "konva": "^9.3.16",
