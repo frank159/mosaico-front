@@ -120,7 +120,10 @@ export const TitleA = styled.h1`
 
 export const TextoA = styled.p`
   line-height: 1;
-
+  margin-top: 1rem !important;
+  @media (max-width: 768px) {
+    font-size: 1.4rem !important;
+  }
 `;
 
 export const ContainerRightA = styled.div`
@@ -250,7 +253,7 @@ export const OverlayContent = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  align-items: start;
+  align-items: center;
   justify-content: center;
   width: 100%;
 
@@ -315,7 +318,6 @@ export const SmallImageText = styled.h1`
 
 export const TextSection = styled.div`
   width: 70%;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -330,7 +332,7 @@ export const TextSection = styled.div`
 
 export const TextTitle = styled.h2`
   color: white;
-  font-size: 3rem;
+  font-size: 3rem !important;
   font-weight: lighter;
   line-height: 1;
   margin: 0 !important;
@@ -342,7 +344,10 @@ export const TextContent = styled.p`
   color: white;
   line-height: 1;
   margin: 0 !important;
-  padding-right: 7rem;
+  padding-right: 7rem !important;
+  @media (max-width: 768px) {
+    font-size: 1.4rem !important;
+  }
 `;
 
 export const SaibaMaisButton = styled(Button)`
@@ -375,19 +380,30 @@ export const CarrocelSection = styled.div`
 
 
 export const CardCarrocelImg = styled.img`
-    width: 100%;
+  width: 90%;
+  height: 50%;
+  margin-top: 1.5rem;
+  object-fit: cover;
+  object-position: bottom; /* Adiciona a posição da imagem ao final */
+`;
+
+export const ContainerCarrocelTitle = styled.div`
+  height: 12% !important;
+  display: flex !important;
+  align-items: flex-end !important;
 `;
 
 export const CardCarrocelTitle = styled.h2`
-
+  padding: 0 !important;
+  margin: 0 !important;
 `;
 
 export const CardCarrocelText = styled.p`
-    font-size: 1rem;
+    font-size: 1rem !important;
 `;
 
 export const CardCarrocelLineContainer = styled.div`
-    height: 120%;
+    height: 80%;
     width: 1px;
 
     border: solid 2px #2F2E29;
@@ -395,10 +411,19 @@ export const CardCarrocelLineContainer = styled.div`
 
 export const CardCarrocelTextContainer = styled.div`
     display: flex;
+    width: 90%;
+    height: 37%;
     justify-content: space-between;
     align-items: center;
     flex-direction: row;
     gap: 10px;
+`;
+
+export const ContainerCarrocelButton = styled.div`
+display: flex;
+justify-content: center;
+align-items: start;
+  height: 10%;
 `;
 
 export const CardCarrocelButton = styled(Button)`
@@ -407,8 +432,7 @@ export const CardCarrocelButton = styled(Button)`
     border-radius: 40px !important;
     text-transform: none !important;
     font-weight: lighter !important;
-    width: 10vw;
-    margin-top: 3vh !important;
+    width: 10vw !important;
 `;
 
 
@@ -422,7 +446,7 @@ export const CardCarrocelMotion = styled(motion.div)`
     height: auto;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: start;
     align-items: center;
     color: white;
     padding: 1vw;
@@ -431,8 +455,9 @@ export const CardCarrocelMotion = styled(motion.div)`
 
 export const CardCarrocelContent = styled.div`
     display: flex;
+    height: 90%;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
 `;
 
@@ -449,4 +474,13 @@ export const CardCarrocel = styled.div`
     color: white;
     padding: 1vw;
     border-radius: 21px;
+`;
+
+export const CarouselContainer = styled.div`
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5vh;
 `;

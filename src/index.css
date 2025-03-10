@@ -54,13 +54,17 @@ h1 {
 
 h2 {
   font-size: 2.5rem !important;
+  line-height: 2.5rem !important;
   margin: 0 !important;
+  padding: 0 !important;
 }
 
 /* Estilo para telas com largura máxima de 1224px */
 @media (max-width: 1224px) {
   h2 {
     font-size: 1.5rem !important;
+    padding: 0 !important;
+
   }
 }
 

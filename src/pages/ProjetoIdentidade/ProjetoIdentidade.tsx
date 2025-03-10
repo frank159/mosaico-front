@@ -73,7 +73,7 @@ const ProjetoIdentidade: React.FC = () => {
             </S.TextoAContinerBigCard>
           </S.TopSectionCard>
           <S.TopSectionCardB>
-            <S.CardlindText height='30vh' />
+            <S.CardlindText />
             <S.TextoBigCardSection>
               <S.TitleBigcardB>
                 SOBRE:

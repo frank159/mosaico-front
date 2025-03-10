@@ -1,3 +1,4 @@
+import { useEffect, useState, useRef } from 'react';
 import * as S from './AboutUsStyled';
 
 const mosaicoLogo = require('../../assets/images/logo/mosaicoLogo1.png');
@@ -14,10 +15,72 @@ const AboutUs: React.FC = () => {
   const handleProjetoClick = (route: string) => {
     window.open(route, '_blank'); // Abre a rota em uma nova aba
   };
+  const [isMobile, setIsMobile] = useState(false);
+  const [OpacityPin, setOpacityPin] = useState(false);
+  const [maxHeight, setMaxHeight] = useState(0);
+  const midCardRefs = useRef<HTMLDivElement[]>([]);
+  const [checkCardHeight, setCheckCardHeight] = useState(0);
+  const [checkCardWidth, setCheckCardWidth] = useState(0);
+  const [checkCardAWidth, setCheckCardAWidth] = useState(0);
+  const checkCardRef = useRef<HTMLDivElement>(null);
+  const checkCardARef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    console.log("window.innerWidth <= 768", window.innerWidth <= 768)
+    setIsMobile(window.innerWidth <= 768);
+  }, [])
+
+  useEffect(() => {
+    console.log("window.innerWidth <= 1880", window.innerWidth <= 1880)
+    setOpacityPin(window.innerWidth <= 1880);
+  }, [])
+
+  useEffect(() => {
+    const heights = midCardRefs.current.map(ref => ref.clientHeight);
+    let maxHeights = (Math.max(...heights))
+    maxHeights = Number((maxHeights + (maxHeights / 5)));
+    console.log('maxHeights: ', maxHeights)
+    console.log('------------------')
+
+    setMaxHeight(maxHeights);
+  }, [midCardRefs]);
+
+  useEffect(() => {
+    if (checkCardRef.current) {
+      console.log('checkCardRef.current', checkCardRef.current.clientWidth)
+      setCheckCardHeight(checkCardRef.current.clientHeight);
+      setCheckCardWidth(checkCardRef.current.clientWidth);
+    }
+
+    if (checkCardARef.current) {
+      setCheckCardAWidth(checkCardARef.current.clientWidth);
+    }
+  }, []);
+
+  const getWidth = () => {
+    if (window.innerWidth <= 768) {
+      return '60vw';
+    } else if (window.innerWidth <= 820) {
+      return '50vw';
+    } else {
+      return '40vw';
+    }
+  };
+  
+  const getWidthA = () => {
+    if (window.innerWidth <= 768) {
+      return '80vw';
+    } else if (window.innerWidth <= 820) {
+      return '70vw';
+    } else {
+      return '70vw';
+    }
+  };
+  
   return (
-    <>
+    <div style={{backgroundColor: '#C2CFB4'}}>
       <S.MainContainer>
-        <S.VectorImage src={pinheiro} alt="pinheiro" />
+        <S.VectorImage isMobile={OpacityPin} src={pinheiro} alt="pinheiro" />
         <S.SubTitleContainer>
           <S.ContainerTitleA>
             <S.SecaoInicialIcon src={aspas} />
@@ -39,7 +102,7 @@ const AboutUs: React.FC = () => {
             IDEIAS QUE TRANSFORMAM O MUNDO.<br />
             <br />
             Navegue por diferentes categorias e descubra iniciativas que promovem impacto positivo em comunidades,<br />
-            ambientese culturas. 
+            ambientese culturas.
           </S.InitialText>
         </S.InitialTextContainer>
         <S.CardTextContainer>
@@ -156,7 +219,9 @@ const AboutUs: React.FC = () => {
           No Brasil, projetos sociais e culturais frequentemente enfrentam barreiras como:
         </S.CheckCardsContainerTitle>
         <S.CheckCardsContainer>
-          <S.CheckCard1>
+          <S.CheckCard width={`${checkCardAWidth}px`}>
+
+          <S.CheckCard1 style={{ height: `${checkCardHeight}px` }}  >
             <S.CheckCardTitleContainer>
               <S.CheckCardIcon />
               <S.CheckCardTextTitle>
@@ -164,12 +229,14 @@ const AboutUs: React.FC = () => {
               </S.CheckCardTextTitle>
             </S.CheckCardTitleContainer>
             <S.CheckCardText>
-              Muitas iniciativas incríveis permanecem<br />
-              desconhecidas devido à falta de plataformas<br />
+              Muitas iniciativas incríveis permanecem
+              desconhecidas devido à falta de plataformas
               adequadas para divulgação.
             </S.CheckCardText>
           </S.CheckCard1>
-          <S.CheckCard1>
+          </S.CheckCard>
+          <S.CheckCard width={`${checkCardAWidth}px`} >
+          <S.CheckCard1 style={{ height: `${checkCardHeight}px` }} >
             <S.CheckCardTitleContainer>
               <S.CheckCardIcon />
               <S.CheckCardTextTitle>
@@ -177,12 +244,14 @@ const AboutUs: React.FC = () => {
               </S.CheckCardTextTitle>
             </S.CheckCardTitleContainer>
             <S.CheckCardText>
-              Sem uma vitrine confiável, os projetos<br />
-              têm dificuldade de demonstrar credibilidade<br />
+              Sem uma vitrine confiável, os projetos
+              têm dificuldade de demonstrar credibilidade
               e atrair apoiadores.
             </S.CheckCardText>
           </S.CheckCard1>
-          <S.CheckCard1>
+          </S.CheckCard>
+          <S.CheckCard ref={checkCardARef}>
+          <S.CheckCard1 ref={checkCardRef}>
             <S.CheckCardTitleContainer>
               <S.CheckCardIcon />
               <S.CheckCardTextTitle>
@@ -190,11 +259,12 @@ const AboutUs: React.FC = () => {
               </S.CheckCardTextTitle>
             </S.CheckCardTitleContainer>
             <S.CheckCardText>
-              Projetos transformadores não alcançam<br />
-              as comunidades ou audiências que poderiam se<br />
+              Projetos transformadores não alcançam
+              as comunidades ou audiências que poderiam se
               beneficiar diretamente de suas ações.
             </S.CheckCardText>
           </S.CheckCard1>
+          </S.CheckCard>
         </S.CheckCardsContainer>
         <S.TitleContainer>
           <S.TitleText1>
@@ -205,43 +275,45 @@ const AboutUs: React.FC = () => {
           </S.TitleText>
         </S.TitleContainer>
       </S.FinalContainer>
+
+        <S.MidCardSection>
+          <S.MidCard style={{ height: `${maxHeight}px`, width: getWidthA() }}>
+            <S.MidCardTextContainer ref={el => midCardRefs.current[0] = el!} style={{ width: getWidth() }}>
+              <S.CheckCardTitleContainer>
+                <S.CheckCardIcon2 />
+                <S.CheckCardTextTitleA>
+                  Exposição e Credibilidade
+                </S.CheckCardTextTitleA>
+              </S.CheckCardTitleContainer>
+              <S.CheckCardText>
+                O Mosaico funciona como uma vitrine
+                confiável e profissional, ajudando
+                projetos a ganharem reconhecimento.
+              </S.CheckCardText>
+            </S.MidCardTextContainer>
+          </S.MidCard>
+        </S.MidCardSection>
+
+        <S.MidCardSection1>
+          <S.MidCard1 style={{ height: `${maxHeight}px`, width: getWidthA() }}>
+            <S.MidCardTextContainer ref={el => midCardRefs.current[1] = el!} style={{ width: getWidth() }}>
+              <S.CheckCardTitleContainer>
+                <S.CheckCardIcon2 />
+                <S.CheckCardTextTitleA>
+                  Amplo Alcance
+                </S.CheckCardTextTitleA>
+              </S.CheckCardTitleContainer>
+              <S.CheckCardText>
+                Oferece um espaço digital para conectar iniciativas
+                a pessoas e organizações interessadas em apoiá-las
+                ou promovê-las.
+              </S.CheckCardText>
+            </S.MidCardTextContainer>
+          </S.MidCard1>
+        </S.MidCardSection1>
       <S.MidCardSection>
-        <S.MidCard>
-          <S.MidCardTextContainer>
-            <S.CheckCardTitleContainer>
-              <S.CheckCardIcon2 />
-              <S.CheckCardTextTitleA>
-                Conexão limitada com o público-alvo
-              </S.CheckCardTextTitleA>
-            </S.CheckCardTitleContainer>
-            <S.CheckCardText>
-              Projetos transformadores não alcançam
-              as comunidades ou audiências que poderiam se
-              beneficiar diretamente de suas ações.
-            </S.CheckCardText>
-          </S.MidCardTextContainer>
-        </S.MidCard>
-      </S.MidCardSection>
-      <S.MidCardSection1>
-        <S.MidCard1>
-          <S.MidCardTextContainer>
-            <S.CheckCardTitleContainer>
-              <S.CheckCardIcon2 />
-              <S.CheckCardTextTitleA>
-                Amplo Alcance
-              </S.CheckCardTextTitleA>
-            </S.CheckCardTitleContainer>
-            <S.CheckCardText>
-              Oferece um espaço digital para conectar iniciativas
-              a pessoas e organizações interessadas em apoiá-las
-              ou promovê-las.
-            </S.CheckCardText>
-          </S.MidCardTextContainer>
-        </S.MidCard1>
-      </S.MidCardSection1>
-      <S.MidCardSection>
-        <S.MidCard>
-          <S.MidCardTextContainer>
+        <S.MidCard style={{ height: `${maxHeight}px`, width: getWidthA() }}>
+          <S.MidCardTextContainer ref={el => midCardRefs.current[2] = el!} style={{ width: getWidth() }}>
             <S.CheckCardTitleContainer>
               <S.CheckCardIcon2 />
               <S.CheckCardTextTitleA>
@@ -257,8 +329,8 @@ const AboutUs: React.FC = () => {
         </S.MidCard>
       </S.MidCardSection>
       <S.MidCardSection1>
-        <S.MidCard1>
-          <S.MidCardTextContainer>
+        <S.MidCard1 style={{ height: `${maxHeight}px`, width: getWidthA() }}>
+          <S.MidCardTextContainer ref={el => midCardRefs.current[3] = el!} style={{ width: getWidth() }}>
             <S.CheckCardTitleContainer>
               <S.CheckCardIcon2 />
               <S.CheckCardTextTitleA>
@@ -328,7 +400,7 @@ const AboutUs: React.FC = () => {
           CONHEÇA NOSSOS PROJETOS
         </S.FinalButton>
       </S.ButtonContainer>
-    </>
+    </div>
   );
 };
 

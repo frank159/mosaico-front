@@ -10,6 +10,7 @@ const video1 = require('../../assets/videos/video1.mp4');
 const xeretas = require("../../assets/images/img/xeretas.png")
 const xeretas1 = require("../../assets/images/img/xeretas1.png")
 const frentefria = require("../../assets/images/img/frentefria.png")
+const aspas = require('../../assets/images/icons/aspas.png');
 
 
 const FrenteFria: React.FC = () => {
@@ -52,6 +53,7 @@ const FrenteFria: React.FC = () => {
             </S.SubTextContainer>
             <br />
             <br />
+            <S.SecaoInicialIcon src={aspas} />
             <S.SubTextContainer>
               O longa de Neville D’Almeida tem como objetivo propor uma análise sobre o abuso <br />
               das comunidades pelas classes altas:<br />

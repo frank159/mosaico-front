@@ -3,6 +3,8 @@ import * as S from './CooperativaStyled';
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, useMotionValue, useAnimationFrame } from "motion/react"; // ou "framer-motion" conforme sua lib
 import { useNavigate } from 'react-router-dom';
+import Carousel from '../../components/CarrocelCooperativa/carrocel';
+import CustomCarousel from '../../components/Carousel/Carousel';
 
 const HomeroFoto = require("../../assets/images/img/homero.png")
 const cameraCoop = require("../../assets/images/img/cameraCoop.png")
@@ -16,6 +18,9 @@ const sonhosTrop = require("../../assets/images/img/sonhosTrop.png")
 const estadoDressis = require("../../assets/images/img/estadoDressis.png")
 
 const Cooperativa: React.FC = () => {
+  const [isMobile, setIsMobile] = useState(false);
+  const [overlayHeight, setOverlayHeight] = useState(0);
+  const overlayRef = useRef<HTMLDivElement>(null);
 
   const listaCarrocel = [
     {
@@ -62,6 +67,17 @@ const Cooperativa: React.FC = () => {
   const slowSpeed = 40;
   const [speed, setSpeed] = useState(normalSpeed);
 
+  useEffect(() => {
+    console.log("window.innerWidth <= 820", window.innerWidth <= 820)
+    setIsMobile(window.innerWidth <= 820);
+  }, [])
+
+  useEffect(() => {
+    if (overlayRef.current) {
+      setOverlayHeight(overlayRef.current.clientHeight / 2);
+    }
+  }, [overlayRef]);
+
   // Duplica os itens para garantir o loop contínuo
   const items = [...listaCarrocel, ...listaCarrocel];
 
@@ -71,26 +87,29 @@ const Cooperativa: React.FC = () => {
 
   useEffect(() => {
     if (containerRef.current) {
-      // Usamos scrollWidth para obter a largura total dos itens (que não será limitada pelo CSS)
+      // A largura do primeiro conjunto de itens
       setContainerWidth(containerRef.current.scrollWidth);
     }
   }, [items]);
+    
 
   // Cria um motion value para a posição horizontal
   const x = useMotionValue(0);
 
   // Atualiza a posição a cada frame, usando a velocidade atual (em pixels/segundo)
   useAnimationFrame((t, delta) => {
-    const moveBy = speed * (delta / 1000);
-    x.set(x.get() - moveBy);
-
-    // Quando o deslocamento atinge metade do total (devido à duplicação dos itens),
-    // reiniciamos para 0 para criar um loop infinito sem espaços vazios
-    if (containerWidth && x.get() <= -containerWidth / 2) {
-      x.set(0);
+    const moveBy = speed * (delta / 300);
+    const newX = x.get() - moveBy;
+  
+    // Quando o deslocamento ultrapassa a largura de um conjunto,
+    // adiciona a largura para manter o movimento contínuo
+    if (containerWidth && newX <= -containerWidth) {
+      x.set(newX + containerWidth);
+    } else {
+      x.set(newX);
     }
   });
-
+    
   return (
     <S.MainContainer>
       <S.FullImgFrame>
@@ -123,11 +142,11 @@ const Cooperativa: React.FC = () => {
       </S.Body>
       <S.BodyB>
         <S.ImageWrapper>
-          <S.HomeroFullImgFrame>
+          <S.HomeroFullImgFrame style={{ marginBottom: `${overlayHeight}px` }}>
             <S.HomeroFullImg src={HomeroFoto} alt="Homero" />
             <S.GradientOverlay />
           </S.HomeroFullImgFrame>
-          <S.OverlayContainer>
+          <S.OverlayContainer ref={overlayRef}>
             <S.OverlayContent>
               <S.SmallImageContainer>
                 <S.SmallImage src={HomeroFoto} alt="Homero" />
@@ -150,37 +169,7 @@ const Cooperativa: React.FC = () => {
           </S.OverlayContainer>
         </S.ImageWrapper>
       </S.BodyB>
-      <S.CarrocelSection style={{ overflow: "hidden" }}>
-        <motion.div
-          ref={containerRef}
-          style={{ x, display: "flex" }}
-        >
-          {items.map((item, index) => (
-            <S.CardCarrocelMotion
-              key={index}
-              // Ao passar o mouse sobre um card, diminui a velocidade para desacelerar o carrossel
-              onMouseEnter={() => setSpeed(slowSpeed)}
-              onMouseLeave={() => setSpeed(normalSpeed)}
-              // Altera a cor de fundo com uma transição suave (a cor pode ser ajustada)
-              whileHover={{
-                backgroundColor: "#333333",
-                transition: { duration: 0.3 },
-              }}
-              style={{ margin: "0 1vw", flexShrink: 0 }} // garante que os cards não encolham
-            >
-              <S.CardCarrocelContent>
-                <S.CardCarrocelImg src={item.img} alt={item.title} />
-                <S.CardCarrocelTitle>{item.title}</S.CardCarrocelTitle>
-                <S.CardCarrocelTextContainer>
-                  <S.CardCarrocelLineContainer/>
-                  <S.CardCarrocelText>{item.text}</S.CardCarrocelText>
-                </S.CardCarrocelTextContainer>
-              </S.CardCarrocelContent>
-              <S.CardCarrocelButton onClick={(e) => {handleClick(item.id)}} >saiba mais</S.CardCarrocelButton>
-            </S.CardCarrocelMotion>
-          ))}
-        </motion.div>
-      </S.CarrocelSection>
+      <Carousel isMobile={isMobile}/>
     </S.MainContainer >
   );
 };
