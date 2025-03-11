@@ -84,7 +84,7 @@ const FrenteFria: React.FC = () => {
         </S.TitleC>
         <S.VideoWrapper>
           <ReactPlayer
-            url="https://www.youtube.com/watch?v=Ro7RBhkZszw"
+            url="https://www.facebook.com/100050233255888/videos/a-frente-fria-que-a-chuva-traz/472630300260914/?rdid=RcQ5gQFkxaSKKzYl"
             width="100%"
             height="100%"
             controls

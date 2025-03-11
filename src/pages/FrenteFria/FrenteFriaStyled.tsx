@@ -335,9 +335,10 @@ export const BodyC = styled.div`
 
 
 export const VideoWrapper = styled.div`
-  width: 100vw;
-  height: 80vh;
+  width: 80vw;
+  height: auto;
   margin-top: 2rem;
+  margin-bottom: 10vh;
   display: flex;
   justify-content: center;
 `;

@@ -59,7 +59,7 @@ const OsXeretas: React.FC = () => {
         </S.TitleC>
         <S.VideoWrapper>
             <ReactPlayer
-            url="https://www.youtube.com/watch?v=LXalwhsPl2A"
+            url="https://www.youtube.com/watch?v=m2NIJ-VwEOo"
             width="100%"
           height="100%"
               controls
