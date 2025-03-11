@@ -71,13 +71,13 @@ const defaultSlides: SlideItem[] = [
         hoverBackgroundColor: "#000000",
         gradient: "linear-gradient(128deg, #40afff 0%, #3f62ff 100%)",
         backgroundColor: "#4287f50",
-        rote: 'projeto-id'
+        rote: 'Tropicais'
     },
     {
         id: 5,
         imageSrc: estadoDressis,
         title: "ESTADO DE RESISTÊNCIA",
-        text: "Em 1889, Oswaldo Cruz retorna ao Brasil para atuar como médico, enquanto Esther, uma imigrante polonesa, é enganada e forçada à prostituição. Enquanto ele ascende na medicina, combatendo doenças como febre amarela e peste, ela luta para sobreviver. A obrigatoriedade da vacina contra a varíola gera a Revolta da Vacina, impactando profundamente a sociedade.",
+        text: "ESPERANDO TEXTO",
         hoverBackgroundColor: "#000000",
         gradient: "linear-gradient(128deg, #40afff 0%, #3f62ff 100%)",
         backgroundColor: "#4287f50",
@@ -94,8 +94,6 @@ const Carousel: React.FC<CarouselProps> = ({
     backgroundColor2 = "",
     isMobile,
 }) => {
-    const defaultAnimation = { duration: 20000, easing: (t: number) => t };
-    const hoverAnimation = { duration: 40000, easing: (t: number) => t };
 
     const [sliderRef, slider] = useKeenSlider<HTMLDivElement>({
         loop: true,
@@ -103,29 +101,9 @@ const Carousel: React.FC<CarouselProps> = ({
         slides: {
             perView: isMobile ? 1.1 : 3, // 1 slide por vez no mobile
             spacing: 15,
-        },
-        created(s) {
-            s.moveToIdx(5, true, defaultAnimation);
-        },
-        updated(s) {
-            s.moveToIdx(s.track.details.abs + 5, true, defaultAnimation);
-        },
-        animationEnded(s) {
-            s.moveToIdx(s.track.details.abs + 5, true, defaultAnimation);
-        },
+        }
     });
 
-    const handleMouseEnter = () => {
-        if (slider) {
-            slider.current?.moveToIdx(slider.current.track.details.abs + 5, true, hoverAnimation);
-        }
-    };
-
-    const handleMouseLeave = () => {
-        if (slider) {
-            slider.current?.moveToIdx(slider.current.track.details.abs + 5, true, defaultAnimation);
-        }
-    };
 
     return (
         <S.Container backgroundColor={backgroundColor} textColor={textColor}>
@@ -136,8 +114,6 @@ const Carousel: React.FC<CarouselProps> = ({
                             key={index}
                             className="keen-slider__slide"
                             gradient={slide.gradient}
-                            onMouseEnter={handleMouseEnter}
-                            onMouseLeave={handleMouseLeave}
                             isMobile={isMobile} // Pass isMobile prop to Slide
                         >
                             <S.CardContainer>

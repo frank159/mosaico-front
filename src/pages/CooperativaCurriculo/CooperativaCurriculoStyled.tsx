@@ -11,7 +11,7 @@ export const MainContainer = styled.div`
   overflow-x: hidden;
   position: relative;
   overflow-y: hidden;
-  height: 1000vh;
+  height: auto;
 `;
 
 export const FullImg = styled.img`
@@ -288,7 +288,6 @@ export const SmallImageContainer = styled.div`
   padding-right: 3vw;
   margin-top: -1%;
   position: relative;
-
   &::after {
     content: '';
     position: absolute;
@@ -296,7 +295,8 @@ export const SmallImageContainer = styled.div`
     right: 0;
     bottom: 0;
     width: 3px;
-    height: 10000vh;
+    z-index: 1;
+    height: 835vh;
     background-color: #3b3b3b96;
   }
   
@@ -316,83 +316,99 @@ export const SmallImageContainer = styled.div`
 `;
 
 export const NewTextSection = styled.div`
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    background-color: #000000 !important;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 2; /* Ensure it stays above the ::after pseudo-element */
 `;
 
 export const NewTextContainer = styled.div`
-    width: 100%;
-    background-color: grey;
-    display: flex;
-    flex-direction: row;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  gap: 1rem;
 `;
 
-
-
-export const TxtCardIten = styled.p<Props>`
-
+export const NewTextContainerTitle = styled.h1`
+  color: white;
+  width: 36vw;
+  text-align: end;
+  z-index: 300;
+  @media (max-width: 768px) {
+    text-align: start;
+    font-size: 2rem !important ;
+  }
 `;
 
-export const DataCardIten = styled.p<Props>`
+export const NewTextContainerTitleText = styled.div`
+`;
+
+export const NewTextContainerTitleSub = styled.h2`
+  color: #4D1408;
+
+  width: 36vw;
+  text-align: end;
+  @media (max-width: 768px) {
+    text-align: start;
+    font-size: 1.8rem !important ;
+  }
+`;
+
+export const NewTextContainerContainerText = styled.div`
+`;
+
+export const NewTextContainerText = styled.p`
+  color: white;
+  width: 64vw;
+  justify-self: end;
+  padding-right: 2vw;
+   /* Allows flexible horizontal positioning */
+  @media (max-width: 768px) {
+    font-size: 1.4rem !important ;
+  }
+`;
+
+export const LineTitle = styled.h2`
+  color: #4D1408;
+  width: 36vw;
+  text-align: end;
+  @media (max-width: 768px) {
+    font-size: 1.4rem !important ;
+  }
+`;
+
+export const CardIten = styled.div`
+display: flex;
+  flex-direction: row;
+  color: white;
+  width: 64vw;
+  justify-self: end;
+  padding-right: 2vw;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+`;
+
+export const DataCardIten = styled.p`
   color: #4D1408;
   font-weight: bolder;
   padding-right: 1rem;
+  width: 6rem !important;
+  @media (max-width: 768px) {
+    width: 16vw !important;
+    font-size: 1.4rem !important ;
+  }
 `;
 
-export const CardIten = styled.p<Props>`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
+export const TxtCardIten = styled.p`
   color: white;
-
-  position: absolute;
-  top: ${(p)=> p.height};
-  left: 34%;
-`;
-
-export const LineTitle = styled.h2<Props>`
-  color: #4D1408;
-  transform: translate(-100%, -50%);
-  position: absolute;
-  top: ${(p)=> p.height};
-  left: 40%;
-  z-index: 9999;
-`;
-
-export const NewTextContainerText = styled.p<Props>`
-  color: white;
-  margin-left: 23vw !important;
-  transform: translate(-100%, -50%);
-  position: absolute;
-  top: ${(p)=> p.height};
-  left: 61%;
-  width: 50vw !important;
-  z-index: 9999;
-`;
-
-export const NewTextContainerTitle = styled.h1<Props>`
-  margin-left: 23vw !important;
-  color: white;
-  transform: translate(-100%, -50%);
-  position: absolute;
-  top: ${(p)=>p.height};
-  left: 13%;
-  z-index: 9999;
-
-`;
-export const NewTextContainerTitleSub = styled.h2<Props>`
-  margin-left: 23vw !important;
-  color: #4D1408;
-  transform: translate(-100%, -50%);
-  position: absolute;
-  top: ${(p)=>p.height};
-  left: 13%;
-  z-index: 9999;
+  width: 100%;
+  @media (max-width: 768px) {
+    font-size: 1.4rem !important ;
+  }
 `;
 
 export const SmallImage = styled.img`
@@ -589,3 +605,199 @@ export const CarouselContainer = styled.div`
   align-items: center;
   margin-top: 5vh;
 `;
+
+export const Line = styled.div`
+  height: 0.5rem; /* Define the height of the line */
+  justify-self: stretch; /* Stretch the line to fill the container */
+  margin-bottom: 1rem; /* Add some space below the line */
+`;
+
+export const LineA = styled.div`
+  height: 2.5rem; /* Define the height of the line */
+  justify-self: stretch; /* Stretch the line to fill the container */
+  margin-bottom: 1rem; /* Add some space below the line */
+`;
+
+
+export const FlexTemple = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  margin-top: 20vh;
+  padding-left: 7rem;
+  padding-right: 7rem;
+  position: relative;
+  z-index: 2; /* Ensure it stays above the ::after pseudo-element */
+
+  @media (max-width: 768px) {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+`;
+
+export const FlexTempleCard = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8vh !important;
+`;
+
+export const FlexTempleTitle = styled.h2`
+  color: white;
+  margin-bottom: 10vh !important;
+`;
+
+export const FlexTempleTitleA = styled(FlexTempleTitle)`
+  margin-bottom: 0 !important;
+`;
+
+export const FlexTempleCardTitle = styled.p`
+  font-weight: bolder;
+  color: white;
+
+`;
+
+export const FlexTempleCardLInk = styled.a`
+  color: white;
+`;
+
+export const ImgCardFlex = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  width: 80vw;
+  max-height: 100%; /* Ensure the card adapts to its content without overflowing */
+  margin-bottom: 20vh;
+  
+  @media (max-width: 768px) {
+    flex-direction: column-reverse;
+    width: 100%;
+    max-height: 100%;
+  }
+`;
+
+export const ImgCardFlexTextContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+  width: 60%;
+  flex: 1;
+  @media (max-width: 768px) {
+    width: 100%;
+    }
+`;
+
+export const ImgCardFlexTextContainerA = styled(ImgCardFlexTextContainer)`
+  width: 40%;
+  height: 100%;
+  justify-content: center;
+  padding-left: 2rem;
+  @media (max-width: 768px) {
+    padding-left: 0;
+    padding-top: 2rem;
+    }
+`;
+
+export const ImgCardFlexA = styled(ImgCardFlex)`
+  flex-direction: row-reverse;
+
+  @media (max-width: 768px) {
+    flex-direction: column-reverse;
+    width: 100%;
+    max-height: 100%;
+  }
+`;
+
+export const ImgCardFlexText = styled.p`
+`;
+
+export const ImgCardFlexTitle = styled.h1`
+  color: white;
+  width: 80%;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    }
+`;
+
+export const ImgCardFlexSubTitle = styled.p`
+  color: white;
+  font-weight: bolder;
+  font-style: italic;
+  margin-bottom: 15vh !important;
+`;
+
+export const ImgCardFlexSubTitleA = styled(ImgCardFlexSubTitle)`
+  margin-bottom: 5vh !important;
+`;
+
+export const ImgCardFlexImgContainer = styled.div`
+  background-color: #d9d9d967;
+  height: auto;
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    }
+`;
+
+export const ImgCardFlexImgContainerA = styled(ImgCardFlexImgContainer)`
+  width: 60%;
+  @media (max-width: 768px) {
+    width: 100%;
+    }
+`;
+
+export const ImgCardFlexImg = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+`;
+
+
+export const Img = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+`;
+
+export const ImgContainer = styled.div`
+  background-color: #d9d9d967;
+  height: auto;
+  width: 27%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  margin-bottom: 1rem;
+`;
+
+export const ImgContainerA = styled(ImgContainer)`
+  width: 27%;
+  `;
+  
+
+  export const ImgBig = styled.img`
+  width: auto;
+  height: 120vh;
+  object-fit: cover;
+  object-position: center;
+`;
+
+export const ImgBigContainer = styled.div`
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-bottom: 1rem;
+  `;

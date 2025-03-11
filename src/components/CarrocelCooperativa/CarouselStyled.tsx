@@ -112,7 +112,7 @@ export const Img = styled.img<{ isMobile?: boolean }>`
 
 export const CardCarrocelImg = styled.img`
   width: 90%;
-  height: 50%;
+  height: 100%;
   margin-top: 1.5rem;
   object-fit: cover;
   object-position: bottom; /* Adiciona a posição da imagem ao final */
@@ -161,7 +161,7 @@ export const Slide = styled.div<SlideProps & { isMobile?: boolean }>`
   background: #1F1D1D;
   border-radius: 10px;
   width: 100vw  !important;
-  height: 65vh !important;
+  height: 80vh !important;
   cursor: grab;
 
   &:hover {

@@ -86,13 +86,12 @@ const AboutUs: React.FC = () => {
           <S.ContainerTitleA>
             <S.SecaoInicialIcon src={aspas} />
             <S.SubTitleText>
-              <TextComponent children={'Explore iniciativas inovadoras de'} type={'h1'}/>
-              
+              <TextComponent children={'O Mosaico é uma vitrine para expor'} type={'h1'}/>
             </S.SubTitleText>
           </S.ContainerTitleA>
           <S.SubTitleText>
-            <TextComponent children={'diferentes áreas e descubra como ideias'} type={'h1'}/>
-            <TextComponent children={'podem transformar o mundo!'} type={'h1'}/>
+            <TextComponent children={'projetos sociais e culturais'} type={'h1'}/>
+            <TextComponent children={'de todas as áreas!'} type={'h1'}/>
 
           </S.SubTitleText>
         </S.SubTitleContainer>

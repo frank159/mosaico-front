@@ -5,6 +5,14 @@ import ReactPlayer from 'react-player';
 const video1 = require('../../assets/videos/video1.mp4');
 const frentefria = require("../../assets/images/img/frentefria.png")
 const aspas = require('../../assets/images/icons/aspas.png');
+const f1 = require("../../assets/images/img/1.png")
+const f2 = require("../../assets/images/img/2.png")
+const f3 = require("../../assets/images/img/3.png")
+const f4 = require("../../assets/images/img/4.png")
+const f5 = require("../../assets/images/img/5.png")
+const f6 = require("../../assets/images/img/6.png")
+const f7 = require("../../assets/images/img/7.png")
+const f8 = require("../../assets/images/img/9.png")
 
 
 const FrenteFria: React.FC = () => {
@@ -58,19 +66,29 @@ const FrenteFria: React.FC = () => {
         </S.SubContainer>
 
       </S.Body>
+      <S.GalleryContainer>
+        <S.Gallery>
+          <S.GalleryCard><img src={f1} alt="Foto 1" /></S.GalleryCard>
+          <S.GalleryCard><img src={f2} alt="Foto 2" /></S.GalleryCard>
+          <S.GalleryCard><img src={f3} alt="Foto 3" /></S.GalleryCard>
+          <S.GalleryCard><img src={f4} alt="Foto 4" /></S.GalleryCard>
+          <S.GalleryCard><img src={f5} alt="Foto 5" /></S.GalleryCard>
+          <S.GalleryCard><img src={f6} alt="Foto 6" /></S.GalleryCard>
+          <S.GalleryCard><img src={f7} alt="Foto 7" /></S.GalleryCard>
+          <S.GalleryCard><img src={f8} alt="Foto 8" /></S.GalleryCard>
+        </S.Gallery>
+      </S.GalleryContainer>
       <S.BodyC>
         <S.TitleC>
           • assista o teaser:
         </S.TitleC>
         <S.VideoWrapper>
-          <div style={{ width: '100%', height: '100%' }}>
-            <ReactPlayer
-              url={video1}
-              width="100%"
-              height="100%"
-              controls
-            />
-          </div>
+          <ReactPlayer
+            url="https://www.youtube.com/watch?v=Ro7RBhkZszw"
+            width="100%"
+            height="100%"
+            controls
+          />
         </S.VideoWrapper>
       </S.BodyC>
 
