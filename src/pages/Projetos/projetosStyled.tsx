@@ -191,7 +191,7 @@ export const CardMainContainer = styled.div`
 
 export const CardImgFremeProjeto = styled.div<Props>`
   background-color: #d9d9d967;
-  height: 100%;
+  height: 30vh;
   width: 27vw;
   max-width: 30vw; /* Adjust as needed */
   display: flex;

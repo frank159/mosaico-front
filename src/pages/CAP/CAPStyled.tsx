@@ -502,6 +502,7 @@ export const CardProjeto = styled.div`
   height: auto;
   box-sizing: border-box;
   overflow: hidden; /* Ensure content does not overflow */
+  padding-right: 2rem;
 
   &:hover ${ButtonCard} {
     border: 1px solid #C2CFB4;
@@ -566,11 +567,12 @@ export const CardImgProjeto = styled.img<Props>`
 export const CardTextContainerProjeto = styled.div`
   margin-left: 1rem;
   width: 100%;
+  height: 100%;
+  gap: 1rem;
   display: flex;
   flex-direction: column;
   overflow: hidden; /* Ensure text does not overflow */
   text-overflow: ellipsis; /* Add ellipsis for overflowed text */
-
   @media (max-width: 1072px) {
     margin-left: 0;
     padding-top: 1rem;
@@ -578,11 +580,9 @@ export const CardTextContainerProjeto = styled.div`
 
 `;
 
-export const CardTitleProjeto = styled.div`
-    font-size: 1.3rem;
+export const CardTitleProjeto = styled.h2`
     color: #000000;
     line-height: 1;
-    font-family: 'Montserrat', sans-serif;
 `;
 
 
@@ -590,7 +590,7 @@ export const CardTextProjeto = styled.p`
     color: #000000;
     margin-top: 0.5rem;
     max-width: 95%;
-
+    font-size: 1.4rem !important;
     @media (max-width: 1072px) {
       font-size: 1rem !important;
   }

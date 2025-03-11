@@ -180,7 +180,7 @@ export const PilaresListContainer = styled.div`
     display: flex;
     z-index: 1111111;
     flex-direction: row;
-    align-items: start;
+    align-items: center;
     justify-content: start;
     height: auto;
     position: relative;  /* Necessário para o tamanho máximo da linha */
@@ -210,7 +210,8 @@ export const PilaresListLine1 = styled(PilaresListLine)`
 
 
 export const PilaresCard = styled.div`
-    margin-bottom: 13vh;
+    margin-bottom: 3vh;
+    margin-top: 3vh;
 `;
 
 export const PilaresCard1 = styled.div`
@@ -251,7 +252,7 @@ export const PilaresText = styled.p`
     margin-bottom: 20px;
 
     @media (max-width: 768px) {
-        font-size: 0.9rem !important;  /* Ajuste de fonte para mobile */
+        font-size: 1rem !important;  /* Ajuste de fonte para mobile */
         max-width: 90vw;  /* Ajuste de largura para mobile */
     }
 `;

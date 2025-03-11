@@ -202,8 +202,8 @@ const School: React.FC = () => {
                 <S.CardImgProjeto src={img3} />
               </S.CardImgFremeProjeto>
               <S.CardTextContainerProjeto>
-                <S.CardTitleProjeto>
-                <strong>CEEPA</strong> - Centro de Educação e Produção Audiovisual do Paraná
+              <S.CardTitleProjeto>
+                CEEPA - Centro de Educação e Produção Audiovisual do Paraná
               </S.CardTitleProjeto>
               <S.CardTextProjeto>
                 O projeto Centro de Excelência em Educação e Produção Audiovisual, iniciado em 2001,
