@@ -70,7 +70,7 @@ export const ContainerLeftA = styled.div`
 
 export const TitleA = styled.h1`
   line-height: 1;
-  color: #ABFA16;
+  color: #B6687C;
   margin: 0 !important;
   padding: 0 !important;
 `;
@@ -333,7 +333,6 @@ export const BodyC = styled.div`
   flex-direction: column;
 `;
 
-
 export const VideoWrapper = styled.div`
   width: 100vw;
   height: 80vh;
@@ -344,9 +343,6 @@ export const VideoWrapper = styled.div`
 
 export const GalleryContainer = styled.div`
   padding: 7rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   @media (max-width: 1224px) {
     padding: 2rem;
   }
@@ -364,10 +360,10 @@ export const GalleryCard = styled.div`
 
 export const Gallery = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 0.6fr); /* 40% smaller */
+  grid-template-columns: repeat(4, 1fr);
   grid-template-rows: auto;
-  gap: 6px; /* Adjust gap if needed */
-  width: 60vw;
+  gap: 10px;
+
   & > div:nth-child(1) {
     grid-column: span 4;
     background-color: #ff0000;

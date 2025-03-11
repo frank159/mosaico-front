@@ -308,7 +308,8 @@ export const BodyC = styled.div`
 
 
 export const VideoWrapper = styled.div`
-  width: 70vw;
+  width: 100vw;
+  height: 80vh;
   margin-top: 2rem;
   display: flex;
   justify-content: center;
@@ -318,13 +319,10 @@ export const Galeria = styled.div`
   display: flex;
   padding-top: 5rem;
   padding-bottom: 5rem;
-  gap: 2rem;
   width: 100%;
   justify-content: center;
   align-items: center;
-  flex-direction: row;
-  flex-wrap: wrap;
-  background-color: #000000;
+
 `;
 
 export const Img = styled.img`
@@ -341,5 +339,64 @@ export const Img = styled.img`
     align-items: start;
     flex-direction: column;
     width: 20rem;
+  }
+`;
+
+export const GalleryContainer = styled.div`
+  padding: 7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @media (max-width: 1224px) {
+    padding: 2rem;
+  }
+`;
+
+export const GalleryCard = styled.div`
+    transition: 0.5s;
+    z-index: 10;
+  &:hover {
+    z-index: 400;
+    transition: 0.5s;
+    transform: scale(1.1);
+  }
+`;
+
+export const Gallery = styled.div`
+  display: grid;
+  grid-template-columns: repeat(4, 0.6fr); /* 40% smaller */
+  grid-template-rows: auto;
+  gap: 6px; /* Adjust gap if needed */
+  width: 60vw;
+  & > div:nth-child(1) {
+    grid-column: span 4;
+    background-color: #ff0000;
+  }
+
+  & > div:nth-child(2),
+  & > div:nth-child(3) {
+    grid-column: span 2;
+    background-color: #00ff00;
+  }
+
+  & > div:nth-child(4) {
+    grid-column: span 1;
+    background-color: #0000ff;
+  }
+
+  & > div:nth-child(5) {
+    grid-column: span 1;
+    background-color: #131310;
+  }  
+  & > div:nth-child(6) {
+    grid-column: span 1;
+    background-color: #ffff00;
+  }
+
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 `;

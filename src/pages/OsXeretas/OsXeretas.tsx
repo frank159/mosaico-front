@@ -43,29 +43,29 @@ const OsXeretas: React.FC = () => {
         </S.ContainerSubA>
       </S.Body>
       <S.Galeria>
-          <S.Img src={ft1} />
-          <S.Img src={ft2} />
-          <S.Img src={ft3} />
-          <S.Img src={ft4} />
-          <S.Img src={ft5} />
-          <S.Img src={ft6} />
-          <S.Img src={ft7} />
+          <S.Gallery>
+            <S.GalleryCard><img src={ft1} alt="Foto 1" /></S.GalleryCard>
+            <S.GalleryCard><img src={ft2} alt="Foto 2" /></S.GalleryCard>
+            <S.GalleryCard><img src={ft3} alt="Foto 3" /></S.GalleryCard>
+            <S.GalleryCard><img src={ft4} alt="Foto 4" /></S.GalleryCard>
+            <S.GalleryCard><img src={ft5} alt="Foto 5" /></S.GalleryCard>
+            <S.GalleryCard><img src={ft6} alt="Foto 6" /></S.GalleryCard>
+            <S.GalleryCard><img src={ft7} alt="Foto 7" /></S.GalleryCard>
+          </S.Gallery>
         </S.Galeria>
-      <S.BodyC>
+        <S.BodyC>
         <S.TitleC>
           • assista o teaser:
         </S.TitleC>
         <S.VideoWrapper>
-          <div style={{ width: '100%', height: '100%' }}>
             <ReactPlayer
-              url={video1}
-              width="100%"
-              height="100%"
+            url="https://www.youtube.com/watch?v=LXalwhsPl2A"
+            width="100%"
+          height="100%"
               controls
             />
-          </div>
         </S.VideoWrapper>
-      </S.BodyC>
+      </S.BodyC >
 
     </S.MainContainer >
   );
