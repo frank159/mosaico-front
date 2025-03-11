@@ -11,7 +11,7 @@ export const MainContainer = styled.div`
   overflow-x: hidden;
   position: relative;
   overflow-y: hidden;
-  height: 400vh;
+  height: 1000vh;
 `;
 
 export const FullImg = styled.img`
@@ -288,16 +288,16 @@ export const SmallImageContainer = styled.div`
   padding-right: 3vw;
   margin-top: -1%;
   position: relative;
-  background-color: #ad3e3e;
+
   &::after {
     content: '';
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
-    width: 1px;
-    height: 300vh;
-    background-color: #3B3B3B;
+    width: 3px;
+    height: 10000vh;
+    background-color: #3b3b3b96;
   }
   
   @media (max-width: 1224px) {
@@ -317,9 +317,11 @@ export const SmallImageContainer = styled.div`
 
 export const NewTextSection = styled.div`
     width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     position: absolute;
+    background-color: #000000 !important;
 `;
 
 export const NewTextContainer = styled.div`
@@ -331,23 +333,66 @@ export const NewTextContainer = styled.div`
 
 
 
-export const NewTextContainerText = styled.p`
-  background-color: green;
-  margin-left: 23vw !important;
-  transform: translate(-100%, -50%);
-  position: absolute;
-  top: 80vh;
-  left: 62%;
-  width: 50vw !important;
+export const TxtCardIten = styled.p<Props>`
+
 `;
 
-export const NewTextContainerTitle = styled.h1`
-  background-color: green;
+export const DataCardIten = styled.p<Props>`
+  color: #4D1408;
+  font-weight: bolder;
+  padding-right: 1rem;
+`;
+
+export const CardIten = styled.p<Props>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  color: white;
+
+  position: absolute;
+  top: ${(p)=> p.height};
+  left: 34%;
+`;
+
+export const LineTitle = styled.h2<Props>`
+  color: #4D1408;
+  transform: translate(-100%, -50%);
+  position: absolute;
+  top: ${(p)=> p.height};
+  left: 40%;
+  z-index: 9999;
+`;
+
+export const NewTextContainerText = styled.p<Props>`
+  color: white;
   margin-left: 23vw !important;
   transform: translate(-100%, -50%);
   position: absolute;
-  top: 20%;
-  right: 45%;
+  top: ${(p)=> p.height};
+  left: 61%;
+  width: 50vw !important;
+  z-index: 9999;
+`;
+
+export const NewTextContainerTitle = styled.h1<Props>`
+  margin-left: 23vw !important;
+  color: white;
+  transform: translate(-100%, -50%);
+  position: absolute;
+  top: ${(p)=>p.height};
+  left: 13%;
+  z-index: 9999;
+
+`;
+export const NewTextContainerTitleSub = styled.h2<Props>`
+  margin-left: 23vw !important;
+  color: #4D1408;
+  transform: translate(-100%, -50%);
+  position: absolute;
+  top: ${(p)=>p.height};
+  left: 13%;
+  z-index: 9999;
 `;
 
 export const SmallImage = styled.img`

@@ -143,7 +143,7 @@ export const BodyText = styled.div`
 
 export const BodyListCardContainer = styled.div`
   width: 100%;
-  margin-top: 40vh;
+  margin-top: 20vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -159,8 +159,7 @@ export const BodyListCard = styled.div`
 export const Card = styled.div`
   width: 50vw;
   height: 17vh;
-  margin: 2rem 2rem 14vh 2rem;
-
+  margin-bottom: 10vh;
   color: #000000;
   border-radius: 10px;
   padding: 2rem;
@@ -657,9 +656,11 @@ export const ImgCard = styled.div`
 
 export const TextCard = styled.p`
 width: 70%;
+font-size: 1.4rem !important;
 padding-left: 10rem !important;
 padding-right: 4rem !important;
 padding-bottom: 2rem !important;
+padding-top: 1rem !important;
 
 @media (max-width: 1224px) {
 
@@ -671,8 +672,9 @@ padding-bottom: 2rem !important;
 export const StyledListItem = styled.li`
   list-style: none; /* Remove o marcador padrão */
   position: relative;
+  font-size: 1.4rem !important;
   padding-left: 1.2em; /* Espaço para o marcador customizado */
-
+  padding-right: 2rem;
   &::before {
     content: "•";
     position: absolute;

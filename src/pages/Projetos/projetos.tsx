@@ -36,7 +36,7 @@ const Projetos: React.FC = () => {
               </S.CardImgFremeProjeto>
               <S.CardTextContainerProjeto>
                 <S.CardTitleProjeto>
-                  <strong> Luz, Câmera, EcoAção!</strong>
+                  Luz, Câmera, EcoAção!
                 </S.CardTitleProjeto>
                 <S.CardTextProjeto>
                   O projeto Luz, Câmera, EcoAção! Arte e Sustentabilidade propõe um espaço cultural
@@ -57,7 +57,7 @@ const Projetos: React.FC = () => {
               </S.CardImgFremeProjeto>
               <S.CardTextContainerProjeto>
                 <S.CardTitleProjeto>
-                  <strong>CAP</strong> - Centro audiovisual do Paraná
+                  CAP - Centro audiovisual do Paraná
                 </S.CardTitleProjeto>
                 <S.CardTextProjeto>
                   O Centro Audiovisual do Pr desenvolve projetos voltados para educação audiovisual, seja
@@ -78,24 +78,24 @@ const Projetos: React.FC = () => {
               </S.CardImgFremeProjeto>
               <S.CardTextContainerProjeto>
                 <S.CardTitleProjeto>
-                <strong>CEEPA</strong> - Centro de Educação e Produção Audiovisual do Paraná
-              </S.CardTitleProjeto>
-              <S.CardTextProjeto>
-                O projeto Centro de Excelência em Educação e Produção Audiovisual, iniciado em 2001,
-                foi uma iniciativa sócio-cultural desenvolvida pela Cooperativa Cinema & Mídias Digitais
-                com foco na arte-cidadania. Ele usou o audiovisual e formas de comunicação como
-                ferramentas para a formação humana e promoção da cidadania, atendendo jovens de
-                12 a 17 anos em comunidades carentes. Com atividades práticas e teóricas, os
-                participantes produziram documentários, materiais jornalísticos e conteúdos para
-                WebTV, promovendo o desenvolvimento de habilidades técnicas e fortalecendo a
-                autoestima comunitária. O projeto alcançou impacto regional, envolvendo mais de 150
-                pessoas e inspirando práticas de resgate cultural e inclusão social.
-              </S.CardTextProjeto>
-            </S.CardTextContainerProjeto>
-          </S.CardMainContainer>
-        </S.CardProjeto>
-      </S.ProjetosListContainer>
-    </S.ProjetosContainer>
+                  CEEPA - Centro de Educação e Produção Audiovisual do Paraná
+                </S.CardTitleProjeto>
+                <S.CardTextProjeto>
+                  O projeto Centro de Excelência em Educação e Produção Audiovisual, iniciado em 2001,
+                  foi uma iniciativa sócio-cultural desenvolvida pela Cooperativa Cinema & Mídias Digitais
+                  com foco na arte-cidadania. Ele usou o audiovisual e formas de comunicação como
+                  ferramentas para a formação humana e promoção da cidadania, atendendo jovens de
+                  12 a 17 anos em comunidades carentes. Com atividades práticas e teóricas, os
+                  participantes produziram documentários, materiais jornalísticos e conteúdos para
+                  WebTV, promovendo o desenvolvimento de habilidades técnicas e fortalecendo a
+                  autoestima comunitária. O projeto alcançou impacto regional, envolvendo mais de 150
+                  pessoas e inspirando práticas de resgate cultural e inclusão social.
+                </S.CardTextProjeto>
+              </S.CardTextContainerProjeto>
+            </S.CardMainContainer>
+          </S.CardProjeto>
+        </S.ProjetosListContainer>
+      </S.ProjetosContainer>
     </S.MainContainer >
   );
 };

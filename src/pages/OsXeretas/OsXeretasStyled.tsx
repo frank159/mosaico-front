@@ -289,7 +289,7 @@ export const TopSectionCardC = styled.div`
 
 export const BodyC = styled.div`
   width: auto;
-  height: 100vh;
+  min-height: 100vh;
   padding-left: 7rem;
   padding-right: 7rem;
   color: white;
@@ -301,6 +301,7 @@ export const BodyC = styled.div`
 
   @media (max-width: 1224px) {
     padding-left: 2rem;
+    min-height: 60vh;
     padding-right: 2rem;
   }
 `;
