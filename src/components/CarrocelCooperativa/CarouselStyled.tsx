@@ -11,6 +11,7 @@ interface SlideProps {
   backgroundColor?: string;
   backgroundColor2?: string;
   hoverBackgroundColor?: string;
+  alignEnd?: boolean;
 }
 
 export const Container = styled.div<ColorProps>`
@@ -110,16 +111,16 @@ export const Img = styled.img<{ isMobile?: boolean }>`
   `};
 `;
 
-export const CardCarrocelImg = styled.img`
+export const CardCarrocelImg = styled.img<SlideProps>`
   width: 90%;
   height: 100%;
   margin-top: 1.5rem;
   object-fit: cover;
-  object-position: bottom; /* Adiciona a posição da imagem ao final */
+  object-position: ${props => props.alignEnd ? 'center' : 'bottom'};
 `;
 
 export const ContainerCarrocelTitle = styled.div`
-  height: 12% !important;
+  height: 20% !important;
   display: flex !important;
   align-items: flex-end !important;
 `;

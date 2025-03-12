@@ -287,6 +287,7 @@ export const SmallImageContainer = styled.div`
   height: 100vh;
   padding-right: 3vw;
   margin-top: -1%;
+  margin-bottom: 3rem;
   position: relative;
   &::after {
     content: '';
@@ -296,7 +297,7 @@ export const SmallImageContainer = styled.div`
     bottom: 0;
     width: 3px;
     z-index: 1;
-    height: 835vh;
+    height: 780vh;
     background-color: #3b3b3b96;
   }
   
@@ -374,9 +375,7 @@ export const LineTitle = styled.h2`
   color: #4D1408;
   width: 36vw;
   text-align: end;
-  @media (max-width: 768px) {
-    font-size: 1.4rem !important ;
-  }
+  white-space: nowrap;
 `;
 
 export const CardIten = styled.div`
@@ -439,6 +438,7 @@ export const SmallImageText = styled.h1`
 
 export const TextSection = styled.div`
   width: 70%;
+  z-index: 999;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -620,10 +620,6 @@ export const LineA = styled.div`
 
 
 export const FlexTemple = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: start;
   margin-top: 20vh;
   padding-left: 7rem;
   padding-right: 7rem;
@@ -659,6 +655,13 @@ export const FlexTempleCardTitle = styled.p`
 
 export const FlexTempleCardLInk = styled.a`
   color: white;
+  font-size: 1.6rem;
+
+  word-wrap: break-word; /* Ensure long words break to the next line */
+  @media (max-width: 768px) {
+    width: 100%; /* Ensure the link takes the full width on mobile */
+    font-size: 1.3rem !important;
+  }
 `;
 
 export const ImgCardFlex = styled.div`
@@ -772,28 +775,36 @@ export const Img = styled.img`
 export const ImgContainer = styled.div`
   background-color: #d9d9d967;
   height: auto;
-  width: 27%;
+  width: 15vw;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
   margin-bottom: 1rem;
+  
+  @media (max-width: 768px) {
+    width: 60vw;
+  }
 `;
 
 export const ImgContainerA = styled(ImgContainer)`
-  width: 27%;
+  width: 27vw;
+
+  @media (max-width: 768px) {
+    width: 90%;
+  }
   `;
   
 
   export const ImgBig = styled.img`
-  width: auto;
-  height: 120vh;
-  object-fit: cover;
-  object-position: center;
-`;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Change from cover to contain */
+    object-position: center;
+  `;
 
-export const ImgBigContainer = styled.div`
-    height: auto;
+  export const ImgBigContainer = styled.div`
+    height: 120vh;
     width: 100%;
     display: flex;
     justify-content: center;

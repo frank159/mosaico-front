@@ -46,6 +46,11 @@ export const ColorOverlay = styled.div`
 
 export const LogoImg = styled.img`
   width: 40vw;
+  
+  @media (max-width: 768px) {
+    width: 90vw;
+  }
+
 `;
 
 export const BackImg = styled.img`
@@ -87,7 +92,7 @@ export const TitleOverlayContainer = styled.div`
 
   display: flex;
   justify-content: center;
-
+  align-items: center;
   flex-direction: column;
 `;
 

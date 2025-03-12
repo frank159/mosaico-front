@@ -118,11 +118,11 @@ const Carousel: React.FC<CarouselProps> = ({
                         >
                             <S.CardContainer>
                                 <S.CardCarrocelContent>
-                                    <S.CardCarrocelImg src={slide.imageSrc} alt={slide.title} />
+                                    <S.CardCarrocelImg alignEnd={slide.title === "A FRENTE FRIA QUE A CHUVA TRAZ"} src={slide.imageSrc} alt={slide.title} />
                                     <S.ContainerCarrocelTitle>
                                         <S.CardCarrocelTitle>{slide.title}</S.CardCarrocelTitle>
                                     </S.ContainerCarrocelTitle>
-                                    <S.CardCarrocelTextContainer alignStart={slide.title === "A FRENTE FRIA QUE A CHUVA TRAZ"}>
+                                    <S.CardCarrocelTextContainer alignStart={slide.title === "A FRENTE FRIA QUE A CHUVA TRAZ" && isMobile}>
                                         <S.CardCarrocelLineContainer />
                                         <S.CardCarrocelText>{slide.text}</S.CardCarrocelText>
                                     </S.CardCarrocelTextContainer>

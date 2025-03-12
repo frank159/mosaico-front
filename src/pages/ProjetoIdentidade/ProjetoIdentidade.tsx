@@ -11,10 +11,76 @@ const BRASILDeSAINT = require("../../assets/images/img/BRASILDeSAINT.png")
 const cooperativa111 = require("../../assets/images/img/cooperativa111.png")
 const tropeiro = require("../../assets/images/img/tropeiro.png")
 const cooperativaLogo = require("../../assets/images/logo/cooperativaLogo.png")
-const video1 = require('../../assets/videos/video1.mp4');
+const video1 = require('../../assets/videos/filme1.mp4');
+
+const SAO_GONÇALO1 = require('../../assets/images/img/SAO_GONÇALO1.png');
+const SAO_GONÇALO2 = require('../../assets/images/img/SAO_GONÇALO2.png');
+const SAO_GONÇALO3 = require('../../assets/images/img/SAO_GONÇALO3.png');
+const SAO_GONÇALO4 = require('../../assets/images/img/SAO_GONÇALO4.png');
+const SAO_GONÇALO5 = require('../../assets/images/img/SAO_GONÇALO5.png');
+const SAO_GONÇALO6 = require('../../assets/images/img/SAO_GONÇALO6.png');
+const SAO_GONÇALO7 = require('../../assets/images/img/SAO_GONÇALO7.png');
+const SAO_GONÇALO8 = require('../../assets/images/img/SAO_GONÇALO8.png');
+
+const saint1 = require('../../assets/images/img/saint1.PNG');
+const saint2 = require('../../assets/images/img/saint2.PNG');
+const saint3 = require('../../assets/images/img/saint3.PNG');
+const saint4 = require('../../assets/images/img/saint4.PNG');
+const saint5 = require('../../assets/images/img/saint5.PNG');
+const saint6 = require('../../assets/images/img/saint6.PNG');
+const saint7 = require('../../assets/images/img/saint7.PNG');
+const saint8 = require('../../assets/images/img/saint8.PNG');
+const saint9 = require('../../assets/images/img/saint9.PNG');
+const saint10 = require('../../assets/images/img/saint10.PNG');
+const saint11 = require('../../assets/images/img/saint11.PNG');
 
 
 const ProjetoIdentidade: React.FC = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [galleryImages, setGalleryImages] = useState<string[]>([]);
+  const [fullScreenImage, setFullScreenImage] = useState<string | null>(null);
+  const isMobile = window.innerWidth <= 768;
+
+  const openGallery = (images: string[]) => {
+    setGalleryImages(images);
+    setIsModalOpen(true);
+  };
+
+  const closeGallery = () => {
+    setIsModalOpen(false);
+    setGalleryImages([]);
+  };
+
+  const toggleFullScreen = (src: string) => {
+    if(!isMobile){
+      setFullScreenImage(fullScreenImage ? null : src);
+    }
+  };
+
+  const sao_goncal = [
+    SAO_GONÇALO1,
+    SAO_GONÇALO2,
+    SAO_GONÇALO3,
+    SAO_GONÇALO4,
+    SAO_GONÇALO5,
+    SAO_GONÇALO6,
+    SAO_GONÇALO7,
+    SAO_GONÇALO8
+  ];
+
+  const saint = [
+    saint1,
+    saint2,
+    saint3,
+    saint4,
+    saint5,
+    saint6,
+    saint7,
+    saint8,
+    saint9,
+    saint10,
+    saint11
+  ];
 
   return (
     <S.MainContainer>
@@ -26,11 +92,9 @@ const ProjetoIdentidade: React.FC = () => {
               <S.TextoA>
                 A Cooperativa Cinema & Mídias Digitais realizou o projeto IDENTIDADE, uma iniciativa dedicada à exibição e circulação de documentários focados no resgate histórico, cultural e identitário do Paraná.
               </S.TextoA>
-              <br />
               <S.TextoA>
                 Além das exibições, cada local recebeu um box contendo os três títulos, ampliando o acesso ao conteúdo e fortalecendo a memória cultural paranaense.
               </S.TextoA>
-              <br />
               <S.TextoA>
                 Uma ação que reafirmou e valorizou a identidade do Paraná por meio do audiovisual.
               </S.TextoA>
@@ -85,7 +149,7 @@ const ProjetoIdentidade: React.FC = () => {
             </S.TextoBigCardSection>
           </S.TopSectionCardB>
           <S.TopSectionCardC>
-            <S.CardButton>Veja as fotos da produção</S.CardButton>
+            <S.CardButton onClick={() => openGallery(saint)}>Veja as fotos da produção</S.CardButton>
           </S.TopSectionCardC>
         </S.BigCard>
         <S.BigCard height='auto'>
@@ -122,26 +186,26 @@ const ProjetoIdentidade: React.FC = () => {
             </S.TextoBigCardSection>
           </S.TopSectionCardB>
           <S.TopSectionCardC>
-            <S.CardButton>Veja as fotos da produção</S.CardButton>
+            <S.CardButton onClick={() => openGallery(sao_goncal)}>Veja as fotos da produção</S.CardButton>
           </S.TopSectionCardC>
         </S.BigCard>
         <S.BigCard height='auto'>
           <S.TopSectionCard>
-                            <S.ContainerBigCardFoto >
+            <S.ContainerBigCardFoto >
               <S.ImgFotoA src={tropeiro} />
             </S.ContainerBigCardFoto>
             <S.TextoAContinerBigCard>
-              <S.TitleA>Tropeiro:
-                @lma sem fronteira</S.TitleA>
-              <S.TextoA>
-                                Direção: Berenice Mendes.<br />
-                Produção Executiva: Lu Rufalco.<br />
-                Direção de som: Claudio Silva.<br />
-                Direção de Fotografia: Peter Lorenzo.<br />
-                Direção de arte: Rui Almeida.<br />
-                Visagista: Zenor Ribas.<br />
-                Assistente de cenografia: Reale Filho.<br />
-                Cinegrafista: Farpa Gomes.<br />
+            <S.TitleA>Tropeiro:
+              @lma sem fronteira</S.TitleA>
+                <S.TextoA>
+                  Direção: Berenice Mendes.<br />
+                  Produção Executiva: Lu Rufalco.<br />
+                  Direção de som: Claudio Silva.<br />
+                  Direção de Fotografia: Peter Lorenzo.<br />
+                  Direção de arte: Rui Almeida.<br />
+                  Visagista: Zenor Ribas.<br />
+                  Assistente de cenografia: Reale Filho.<br />
+                  Cinegrafista: Farpa Gomes.<br />
                 Plato: Zinho de Oliveira.<br />
                 Produtores: Homero Camargo, Sandro Alves e Silvana Fontana.<br />
                 Assessoria de imprensa: Silvana Fontana.
@@ -165,9 +229,6 @@ const ProjetoIdentidade: React.FC = () => {
               </S.TextoB>
             </S.TextoBigCardSection>
           </S.TopSectionCardB>
-          <S.TopSectionCardC>
-            <S.CardButton>Veja as fotos da produção</S.CardButton>
-          </S.TopSectionCardC>
         </S.BigCard>
       </S.BodyB>
       <S.BodyC>
@@ -185,6 +246,33 @@ const ProjetoIdentidade: React.FC = () => {
           </div>
         </S.VideoWrapper>
       </S.BodyC>
+      {isModalOpen && (
+        <S.ModalOverlay onClick={closeGallery}>
+          <S.CloseButton onClick={closeGallery}>×</S.CloseButton>
+          <S.GalleryContainer onClick={(e) => e.stopPropagation()}>
+            {galleryImages.map((src, index) => (
+              <S.GalleryImage
+                key={index}
+                src={src}
+                alt={`Gallery image ${index + 1}`}
+                onClick={() => toggleFullScreen(src)}
+              />
+            ))}
+          </S.GalleryContainer>
+        </S.ModalOverlay>
+      )}
+      {fullScreenImage && (
+        <S.ModalOverlay onClick={() => toggleFullScreen('')}>
+          <motion.img
+            src={fullScreenImage}
+            alt="Full screen"
+            style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          />
+        </S.ModalOverlay>
+      )}
     </S.MainContainer >
   );
 };
