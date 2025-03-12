@@ -81,7 +81,7 @@ const defaultSlides: SlideItem[] = [
         hoverBackgroundColor: "#000000",
         gradient: "linear-gradient(128deg, #40afff 0%, #3f62ff 100%)",
         backgroundColor: "#4287f50",
-        rote: 'projeto-id'
+        rote: 'EstadoResistencia'
     },
 ];
 
