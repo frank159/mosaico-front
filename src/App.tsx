@@ -14,6 +14,7 @@ import OsXeretas from './pages/OsXeretas/OsXeretas';
 import FrenteFria from './pages/FrenteFria/FrenteFria';
 import Tropicais from './pages/Tropicais/Tropicais';
 import CooperativaCurriculo from './pages/CooperativaCurriculo/CooperativaCurriculo';
+import EstadoResistencia from './pages/EstadoResistencia/EstadoResistencia';
 
 const App = () => {
   // useEffect(() => {
@@ -60,6 +61,7 @@ const App = () => {
         <Route path="/FrenteFria" element={<FrenteFria />} />
         <Route path="/CooperativaCurriculo" element={<CooperativaCurriculo />} />
         <Route path="/Tropicais" element={<Tropicais />} />
+        <Route path="/EstadoResistencia" element={<EstadoResistencia />} />
       </Routes>
     </Router>
   );
