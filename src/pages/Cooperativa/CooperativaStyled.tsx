@@ -497,3 +497,10 @@ export const CarouselContainer = styled.div`
   align-items: center;
   margin-top: 5vh;
 `;
+
+export const Title = styled.h1`
+  color: white;
+  margin-top: 10vh !important;
+  margin-bottom: 4vh !important;
+  margin-left: 2vh !important;
+`;

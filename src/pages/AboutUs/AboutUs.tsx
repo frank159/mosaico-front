@@ -101,10 +101,7 @@ const AboutUs: React.FC = () => {
             O <strong style={{ fontStyle: 'italic' }}>Mosaico</strong> é um espaço dedicado a exibir projetos inspiradores, conectando ideias a pessoas. <br />
             O projeto nasceu com o propósito de ser uma vitrine para projetos sociais e culturais de todas as áreas.<br />
             Acreditamos no poder da VISIBILIDADE, para promover MUDANÇAS e valorizar<br />
-            IDEIAS QUE TRANSFORMAM O MUNDO.<br />
-            <br />
-            Navegue por diferentes categorias e descubra iniciativas que promovem impacto positivo em comunidades,<br />
-            ambientese culturas.
+            IDEIAS QUE TRANSFORMAM O MUNDO.
           </S.InitialText>
         </S.InitialTextContainer>
         <S.CardTextContainer>

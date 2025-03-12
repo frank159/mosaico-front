@@ -15,7 +15,6 @@ interface SlideProps {
 }
 
 export const Container = styled.div<ColorProps>`
-  padding: 40px 0;
   height: auto;
   align-content: center;
   text-align: center;
@@ -63,7 +62,6 @@ export const CarouselWrapper = styled.div<SlideProps>`
     overflow: hidden;
   }
   background-color: ${props => props.backgroundColor2 || '#0000007a'};
-  padding-top: 3vh;
   padding-bottom: 3vh;
   .keen-slider__slide {
     display: flex;
