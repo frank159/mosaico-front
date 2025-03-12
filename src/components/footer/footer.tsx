@@ -4,7 +4,7 @@ import { ColumnLinks, ColumnHeader, FooterContainer, FooterDiv, IconsDiv, Img, L
 const facebook = require('../../assets/images/icons/facebook.png');
 const instagram = require('../../assets/images/icons/instagram.png');
 const youtube = require('../../assets/images/icons/youtube.png');
-const mosaico = require('../../assets/images/icons/mosaico.png');
+const mosaico = require('../../assets/images/icons/mosaicoIconeMono.png');
   const graciosa = require("../../assets/images/logo/graciosa.png");
 
 interface FooterProps {

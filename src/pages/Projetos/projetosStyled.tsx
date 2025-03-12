@@ -1,14 +1,20 @@
 import { Button } from '@mui/material';
-import styled, {keyframes} from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 interface Props {
-    width?: string;
+  width?: string;
 }
 
 export const MainContainer = styled.div`
-    background: #030504;
-    display: flex;
-    flex-direction: column;
+  background: #030504;
+  display: flex;
+  flex-direction: column;
+    margin-top: 5vh;
+  overflow-x: hidden; /* Bloqueia a rolagem lateral */
+
+  @media (max-width: 768px) {
+    margin-top: 8vh;
+  }
 `;
 
 export const TopContainer = styled.div`
@@ -31,7 +37,7 @@ export const MosaicoWrapper = styled.div`
   overflow: hidden;
   width: 100%;
   height: 100%;
-`;  
+`;
 
 export const MosaicoImgContainer = styled.div`
   display: flex;
@@ -44,20 +50,25 @@ export const MosaicoImg = styled.img`
   width: 50%;
   object-fit: cover;
   pointer-events: none;
+  height: 10vh !important;
 `;
 
-export const TitlePage = styled.div`
+export const TitlePage = styled.h1`
     z-index: 11;
     top: 4rem;
     left: 7rem;
     position: absolute;
-    font-family: 'Voga', sans-serif;
-    font-size: 8rem;
+    font-size: 8rem !important;
     color: #C2CFB4;
+
+    @media (max-width: 1072px) {
+      font-size: 4rem !important;
+      left: 3rem;
+    }
+
 `;
 
-export const Line = styled.div`
-  position: relative;
+export const Line1 = styled.div`
   left: 6rem;
   top: -1rem;
   width: 0.5rem;
@@ -66,10 +77,24 @@ export const Line = styled.div`
   background-color: #253529;
 `;
 
+export const Line = styled.div`
+  width: 0.3rem; /* Define a largura da linha */
+  height: 100% !important; /* Altura total ou personalizada */
+  border-radius: 10px;
+  background-color: #253529; /* Cor da linha */
+  position: absolute;  /* Necessário para o tamanho máximo da linha */
+  top: 0;
+  left: 3%;
+  bottom:  0;
+`;
+
 export const ProjetosContainer = styled.div`
     position: relative;
     display: flex;
     flex-direction: row;
+    padding-bottom: 3rem;
+    padding-top: 3rem;
+    margin-bottom: 3rem;
 `;
 
 export const ButtonCard = styled(Button)`
@@ -91,31 +116,54 @@ export const ButtonCard = styled(Button)`
 
 
 export const CardProjeto = styled.div`
-    background-color: #4E5C2C;
-    display: flex;
-    justify-content: start;
-    align-items: start;
-    margin-right: 1vw;
-    flex-direction: column;
-    height: auto;
-    width: 100%;
-    padding-bottom: 2rem;
-    transition: 0.3s;
-    border-radius: 10px;
-    
-    &:hover ${ButtonCard} {
-      border: 1px solid #C2CFB4;
-        cursor: pointer;
-        transition: 0.3s;
-        transform: scale(1.05);
-    }
+  background-color: #4E5C2C;
+  padding: 1rem;
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  margin-right: 1vw;
+  flex-direction: column;
+  transition: 0.3s;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 80vw;
+  height: auto;
+  box-sizing: border-box;
+  overflow: hidden; /* Ensure content does not overflow */
 
-    &:hover  {
-      border: 1px solid #C2CFB4;
-        cursor: pointer;
-        transition: 0.6s;
-        transform: scale(1.05);
-    }
+  &:hover ${ButtonCard} {
+    border: 1px solid #C2CFB4;
+    cursor: pointer;
+    transition: 0.3s;
+    transform: scale(1.05);
+  }
+
+  &:hover {
+    border: 1px solid #C2CFB4;
+    cursor: pointer;
+    transition: 0.6s;
+    transform: scale(1.05);
+  }
+
+  @media (max-width: 1072px) {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+  }
+
+  position: relative;
+
+  
+&::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 20px;  /* Ajuste conforme necessário */
+      background: linear-gradient(to top, #4E5C2C, rgba(255, 255, 255, 0));  /* Efeito de sobra */
+      pointer-events: none;  /* Permite interação com o texto */
+  }
 `;
 
 export const ContainerButton = styled.div`
@@ -128,66 +176,93 @@ export const ContainerButton = styled.div`
 
 
 export const CardMainContainer = styled.div`
-    background-color: #4E5C2C;
-    display: flex;
-    border-radius: 10px;
+  display: flex;
+  border-radius: 10px;
+  justify-content: start;
+  align-items: start;
+  flex-direction: row;
+  width: 100%;
+  box-sizing: border-box;
 
-    justify-content: start;
-    align-items: start;
-    margin-right: 1vw;
-    flex-direction: row;
-    height: auto;
-    width: 100%;
+  @media (max-width: 1072px) {
+    flex-direction: column;
+  }
 `;
 
 export const CardImgFremeProjeto = styled.div<Props>`
-    background-color: #d9d9d967;
-    height: 26vh;
-    width: 20vw;
-    margin-top: 2rem;
-    margin-left: 1rem;
-    overflow: hidden; /* Corta o conteúdo que exceder os limites do contêiner */
-    position: relative; /* Garante que o posicionamento seja relativo ao contêiner */
+  background-color: #d9d9d967;
+  height: 30vh;
+  width: 27vw;
+  max-width: 30vw; /* Adjust as needed */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 10px;
+
+  @media (max-width: 1072px) {
+    height: 25vh;
+    width: 100%;
+    max-width: none;
+  }
 `;
 
 export const CardImgProjeto = styled.img<Props>`
-    height: 100%; /* Faz com que a imagem preencha a altura do contêiner */
-    width: 100%; /* Faz com que a imagem preencha a largura do contêiner */
-    object-fit: cover; /* Garante que a imagem mantenha proporções e preencha o contêiner */
-    object-position: center; /* Centraliza a imagem dentro do contêiner */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 `;
 
 export const ProjetosListContainer = styled.div`
     display: flex;
+    position: relative;
     flex-direction: column;
     padding: 2rem;
     width: 100%;
     height: auto;
     gap: 30px;
-    padding: 0rem 7rem 7rem 7rem;
+    padding-left: 7rem;
+    padding-right: 7rem;
+    margin-bottom: 4rem;
 
+    @media (max-width: 1072px) {
+      font-size: 4rem !important;
+      padding-left: 3rem;
+      padding-right: 3rem;
+      margin-bottom: 0rem;
+    }
 `;
 
 
 export const CardTextContainerProjeto = styled.div`
-    height: 100%;
-    margin-left: 1rem;
-    width: auto;
-    display: flex;
-    flex-direction: column;
-    padding-top: 2rem;
+  margin-left: 1rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Ensure text does not overflow */
+  text-overflow: ellipsis; /* Add ellipsis for overflowed text */
+
+  @media (max-width: 1072px) {
+    margin-left: 0;
+    padding-top: 1rem;
+  }
+
 `;
 
 export const CardTitleProjeto = styled.div`
     font-size: 1.3rem;
-    margin-top: 0.5rem;
     color: #C2CFB4;
+    line-height: 1;
     font-family: 'Montserrat', sans-serif;
 `;
 
-export const CardTextProjeto = styled.div`
+export const CardTextProjeto = styled.p`
     color: #ffffff;
     margin-top: 0.5rem;
-    font-size: 1.3rem;
-    word-spacing: 10px;
+    max-width: 95%;
+
+    @media (max-width: 1072px) {
+      font-size: 1rem !important;
+  }
 `;
