@@ -44,7 +44,7 @@ const School: React.FC = () => {
   }, [])
 
   const handleProjetoClick = (route: string) => {
-    window.open(route, '_blank'); // Abre a rota em uma nova aba
+    window.location.href = route; // Abre a rota em uma nova aba
   };
 
   const nextVideo = () => {
@@ -155,21 +155,17 @@ const School: React.FC = () => {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -100 }}
                 transition={{ duration: 0.5 }}
-                style={{ height: '100%' }}
               >
-                <S.VideoTitle>• {videos[current].title}</S.VideoTitle>
+                <S.VideoTitle>• Produção Audiovisual: ESTADO DE RESISTÊNCIA</S.VideoTitle>
                 <S.ButtonContainer>
-                  <S.NavButton onClick={prevVideo} className="left">
-                    <S.ArrowLeft />
-                  </S.NavButton>
-                  <video
-                    src={videos[current].src}
-                    style={{ width: "100%", maxWidth: "80vw" }}
-                    controls
-                  />
-                  <S.NavButton onClick={nextVideo} className="right">
-                    <S.ArrowRight />
-                  </S.NavButton>
+                  <S.VideoWrapperA>
+                    <ReactPlayer
+                      url="https://www.youtube.com/watch?v=tPrwualBmMU"
+                      width="100%"
+                      height="100%"
+                      controls
+                    />
+                  </S.VideoWrapperA>
                 </S.ButtonContainer>
               </motion.div>
             </AnimatePresence>
@@ -197,28 +193,28 @@ const School: React.FC = () => {
               • Modelo de iniciativa que será levada para a COP 30!
             </S.SubTitlePage>
             <S.CardProjeto onClick={() => handleProjetoClick('/Ceepa')}>
-            <S.CardMainContainer>
-              <S.CardImgFremeProjeto>
-                <S.CardImgProjeto src={img3} />
-              </S.CardImgFremeProjeto>
-              <S.CardTextContainerProjeto>
-              <S.CardTitleProjeto>
-                CEEPA - Centro de Educação e Produção Audiovisual do Paraná
-              </S.CardTitleProjeto>
-              <S.CardTextProjeto>
-                O projeto Centro de Excelência em Educação e Produção Audiovisual, iniciado em 2001,
-                foi uma iniciativa sócio-cultural desenvolvida pela Cooperativa Cinema & Mídias Digitais
-                com foco na arte-cidadania. Ele usou o audiovisual e formas de comunicação como
-                ferramentas para a formação humana e promoção da cidadania, atendendo jovens de
-                12 a 17 anos em comunidades carentes. Com atividades práticas e teóricas, os
-                participantes produziram documentários, materiais jornalísticos e conteúdos para
-                WebTV, promovendo o desenvolvimento de habilidades técnicas e fortalecendo a
-                autoestima comunitária. O projeto alcançou impacto regional, envolvendo mais de 150
-                pessoas e inspirando práticas de resgate cultural e inclusão social.
-              </S.CardTextProjeto>
-            </S.CardTextContainerProjeto>
-          </S.CardMainContainer>
-        </S.CardProjeto>
+              <S.CardMainContainer>
+                <S.CardImgFremeProjeto>
+                  <S.CardImgProjeto src={img3} />
+                </S.CardImgFremeProjeto>
+                <S.CardTextContainerProjeto>
+                  <S.CardTitleProjeto>
+                    CEEPA - Centro de Educação e Produção Audiovisual do Paraná
+                  </S.CardTitleProjeto>
+                  <S.CardTextProjeto>
+                    O projeto Centro de Excelência em Educação e Produção Audiovisual, iniciado em 2001,
+                    foi uma iniciativa sócio-cultural desenvolvida pela Cooperativa Cinema & Mídias Digitais
+                    com foco na arte-cidadania. Ele usou o audiovisual e formas de comunicação como
+                    ferramentas para a formação humana e promoção da cidadania, atendendo jovens de
+                    12 a 17 anos em comunidades carentes. Com atividades práticas e teóricas, os
+                    participantes produziram documentários, materiais jornalísticos e conteúdos para
+                    WebTV, promovendo o desenvolvimento de habilidades técnicas e fortalecendo a
+                    autoestima comunitária. O projeto alcançou impacto regional, envolvendo mais de 150
+                    pessoas e inspirando práticas de resgate cultural e inclusão social.
+                  </S.CardTextProjeto>
+                </S.CardTextContainerProjeto>
+              </S.CardMainContainer>
+            </S.CardProjeto>
 
           </S.ProjetosListContainer>
         </S.ProjetosContainer>

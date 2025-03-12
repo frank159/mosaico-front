@@ -332,12 +332,11 @@ export const VideoContainer = styled.div`
 `;
 
 export const VideoTitle = styled.div`
-  width: 100%;
+  width: 85%;
   display: flex;
   font-size: 1.7rem;
   font-weight: bolder;
   margin-top: 6vh;
-  margin-left: 6vh;
   margin-bottom: 2vh;
   justify-content: start;
   align-items: start;
@@ -372,13 +371,25 @@ export const NavButton = styled.button`
 
 `;
 
+export const VideoWrapperA = styled.div`
+  width: 80vw;
+  height: 80vh;
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 
 export const ArrowLeft = styled(ArrowBackIosIcon)`
-  
+margin-left: 3rem;
+
 `;
 
 export const ArrowRight = styled(ArrowBackIosIcon)`
 transform: rotate(-180deg);
+
+margin-right: 3rem;
 `;
 
 export const TitleSection1 = styled.div`

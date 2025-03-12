@@ -9,7 +9,7 @@ const img4 = require('../../assets/images/logo/logoCA.png');
 const Projetos: React.FC = () => {
 
   const handleProjetoClick = (route: string) => {
-    window.open(route, '_blank'); // Abre a rota em uma nova aba
+    window.location.href = route; // Redireciona a página para a rota especificada
   };
 
 

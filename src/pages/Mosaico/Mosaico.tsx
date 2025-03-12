@@ -7,7 +7,7 @@ import ScrollToTop from '../../components/ScrollToTop/ScrollToTop';
 import CheckIcon from '@mui/icons-material/Check';
 import AboutUs from '../AboutUs/AboutUs';
 
-const mosaicoLogo = require('../../assets/images/logo/mosaicoLogo1.png');
+const mosaicoLogo = require('../../assets/images/logo/mosaico color correto.png');
 const seta = require('../../assets/images/icons/seta.png');
 const backgroundImage = require('../../assets/images/icons/mosaicoIconeMono.png');
 const esclamacaoverde = require('../../assets/images/icons/esclamacaoverde.png');
