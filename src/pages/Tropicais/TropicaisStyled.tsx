@@ -332,7 +332,7 @@ export const BodyC = styled.div`
   align-items: center;
   flex-direction: column;
 `;
-
+///
 export const VideoWrapper = styled.div`
   width: 100vw;
   height: 80vh;
