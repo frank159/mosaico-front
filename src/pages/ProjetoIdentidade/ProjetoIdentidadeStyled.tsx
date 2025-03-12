@@ -94,6 +94,10 @@ export const TextoAContiner = styled.div`
 
 export const TextoA = styled.p`
   line-height: 1;
+
+  @media (max-width: 768px) {
+    font-size: 1.2rem !important; 
+  }
 `;
 
 export const Stro = styled.strong``;

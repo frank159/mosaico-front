@@ -22,11 +22,16 @@ const Cooperativa: React.FC = () => {
 
   useEffect(() => {
     if (overlayRef.current && overlayRefA.current) {
-
-      setOverlayHeight(overlayRef.current.clientHeight + overlayRefA.current.clientHeight);
+      if (window.innerWidth > 1130) {
+        setOverlayHeight(overlayRef.current.clientHeight);
+      } else if (window.innerWidth <= 820) {
+        setOverlayHeight(overlayRef.current.clientHeight - (overlayRefA.current.clientHeight / 10));
+      } else if (window.innerWidth <= 1130) {
+        setOverlayHeight(overlayRef.current.clientHeight - (overlayRefA.current.clientHeight / 10));
+      }
     }
-  }, [overlayRef]);
-    
+  }, [overlayRef, isMobile]);
+
   return (
     <S.MainContainer>
       <S.FullImgFrame>
@@ -87,7 +92,8 @@ const Cooperativa: React.FC = () => {
         </S.ImageWrapper>
       </S.BodyB>
       <S.MargemCoo height={`${overlayHeight}px`} />
-      <Carousel isMobile={isMobile}/>
+      <S.Title>• nossas produções</S.Title>
+      <Carousel isMobile={isMobile} />
     </S.MainContainer >
   );
 };
