@@ -47,7 +47,7 @@ const Header: React.FC = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
+///
   const getTargetPosition = (index: number, centerIndex: number, containerWidth: number) => {
     const margin = 60;
     const leftExtreme = -containerWidth / 2 + margin;
