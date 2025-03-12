@@ -20,7 +20,6 @@
     "dat.gui": "^0.7.9",
     "delaunator": "^5.0.1",
     "drei": "^2.2.21",
-    "fabric": "^6.5.3",
     "framer-motion": "^12.4.10",
     "gsap": "^3.12.7",
     "infinite-react-carousel": "^1.2.11",
