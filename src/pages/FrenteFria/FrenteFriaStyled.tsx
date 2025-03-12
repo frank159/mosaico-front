@@ -409,4 +409,12 @@ export const Gallery = styled.div`
     height: 100%;
     object-fit: cover;
   }
+
+  @media (max-width: 768px) {
+    width: 90vw;
+    grid-template-columns: 1fr;
+    & > div {
+      grid-column: span 1 !important;
+    }
+  }
 `;

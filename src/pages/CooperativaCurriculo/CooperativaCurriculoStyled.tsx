@@ -807,8 +807,12 @@ export const ImgContainerA = styled(ImgContainer)`
     height: 120vh;
     width: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: start;
+    align-items: start;
     overflow: hidden;
     margin-bottom: 1rem;
+
+    @media (max-width: 768px) {
+      height: auto;
+    }
   `;
