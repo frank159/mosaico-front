@@ -36,15 +36,15 @@ const Projetos: React.FC = () => {
               </S.CardImgFremeProjeto>
               <S.CardTextContainerProjeto>
                 <S.CardTitleProjeto>
-                  <strong> Luz, Câmera, EcoAção!</strong>
+                  Luz, Câmera, EcoAção!
                 </S.CardTitleProjeto>
                 <S.CardTextProjeto>
-                  O projeto Luz, Câmera, EcoAção! Arte e Sustentabilidade propõe um espaço cultural<br />
-                  inovador e interativo durante a COP 30, em novembro de 2025, em Belém/PA, ancorado<br />
-                  em um barco no rio Guamá. O objetivo é explorar como as mudanças ambientais<br />
-                  impactam o bem-estar psicológico, promovendo soluções sustentáveis e fomentando<br />
-                  novas ideias. Utilizando as artes visuais, o projeto destaca iniciativas ambientais em<br />
-                  andamento e inspira estratégias futuras, sendo um ponto de encontro para participantes<br />
+                  O projeto Luz, Câmera, EcoAção! Arte e Sustentabilidade propõe um espaço cultural
+                  inovador e interativo durante a COP 30, em novembro de 2025, em Belém/PA, ancorado
+                  em um barco no rio Guamá. O objetivo é explorar como as mudanças ambientais
+                  impactam o bem-estar psicológico, promovendo soluções sustentáveis e fomentando
+                  novas ideias. Utilizando as artes visuais, o projeto destaca iniciativas ambientais em
+                  andamento e inspira estratégias futuras, sendo um ponto de encontro para participantes
                   da COP 30, artistas, ativistas, comunidade local e a mídia nacional e internacional.
                 </S.CardTextProjeto>
               </S.CardTextContainerProjeto>
@@ -57,36 +57,16 @@ const Projetos: React.FC = () => {
               </S.CardImgFremeProjeto>
               <S.CardTextContainerProjeto>
                 <S.CardTitleProjeto>
-                  <strong>CAP</strong> - Centro audiovisual do Paraná
+                  CAP - Centro audiovisual do Paraná
                 </S.CardTitleProjeto>
                 <S.CardTextProjeto>
-                  O Centro Audiovisual do Pr desenvolve projetos voltados para educação audiovisual, seja<br />
-                  na realização de oficinas de criação e produção em si, como também na produção de<br />
-                  conteúdo de entreterimento com forte engajamento educacional e temática<br />
-                  de floresta e reciclagem do lixo.<br />
-                  Trabalhamos com foco na comunicação com crianças e adolescentes, promovendo<br />
-                  educação audiovisual empírica, onde os participantes aprendem sobre o processo criativo,<br />
-                  com resultados concretos de produção audiovisual.<br />
-                </S.CardTextProjeto>
-              </S.CardTextContainerProjeto>
-            </S.CardMainContainer>
-          </S.CardProjeto>
-          <S.CardProjeto onClick={() => handleProjetoClick('/Escola-Digital')}>
-            <S.CardMainContainer>
-              <S.CardImgFremeProjeto>
-                <S.CardImgProjeto src={img2} />
-              </S.CardImgFremeProjeto>
-              <S.CardTextContainerProjeto>
-                <S.CardTitleProjeto>
-                  <strong>Escola Digital</strong> - Educação e Produção Audiovisual para a Sustentabilidade
-                </S.CardTitleProjeto>
-                <S.CardTextProjeto>
-                  O curso de audiovisual proposto tem como objetivo principal capacitar crianças e jovens a<br />
-                  se expressarem por meio de produções audiovisuais que abordem temas relacionados às<br />
-                  mudanças climáticas, à defesa da biodiversidade e à promoção da sustentabilidade.<br />
-                  Além disso, busca engajar esse público em uma discussão profunda sobre o papel de<br />
-                  cada um na preservação do planeta, tornando-o ciente de sua responsabilidade enquanto<br />
-                  cidadãos.
+                  O Centro Audiovisual do Pr desenvolve projetos voltados para educação audiovisual, seja
+                  na realização de oficinas de criação e produção em si, como também na produção de
+                  conteúdo de entreterimento com forte engajamento educacional e temática
+                  de floresta e reciclagem do lixo.
+                  Trabalhamos com foco na comunicação com crianças e adolescentes, promovendo
+                  educação audiovisual empírica, onde os participantes aprendem sobre o processo criativo,
+                  com resultados concretos de produção audiovisual.
                 </S.CardTextProjeto>
               </S.CardTextContainerProjeto>
             </S.CardMainContainer>
@@ -98,24 +78,24 @@ const Projetos: React.FC = () => {
               </S.CardImgFremeProjeto>
               <S.CardTextContainerProjeto>
                 <S.CardTitleProjeto>
-                <strong>CEEPA</strong> - Centro de Educação e Produção Audiovisual do Paraná
-              </S.CardTitleProjeto>
-              <S.CardTextProjeto>
-                O projeto Centro de Excelência em Educação e Produção Audiovisual, iniciado em 2001,<br />
-                foi uma iniciativa sócio-cultural desenvolvida pela Cooperativa Cinema & Mídias Digitais<br />
-                com foco na arte-cidadania. Ele usou o audiovisual e formas de comunicação como<br />
-                ferramentas para a formação humana e promoção da cidadania, atendendo jovens de<br />
-                12 a 17 anos em comunidades carentes. Com atividades práticas e teóricas, os<br />
-                participantes produziram documentários, materiais jornalísticos e conteúdos para<br />
-                WebTV, promovendo o desenvolvimento de habilidades técnicas e fortalecendo a<br />
-                autoestima comunitária. O projeto alcançou impacto regional, envolvendo mais de 150<br />
-                pessoas e inspirando práticas de resgate cultural e inclusão social.
-              </S.CardTextProjeto>
-            </S.CardTextContainerProjeto>
-          </S.CardMainContainer>
-        </S.CardProjeto>
-      </S.ProjetosListContainer>
-    </S.ProjetosContainer>
+                  CEEPA - Centro de Educação e Produção Audiovisual do Paraná
+                </S.CardTitleProjeto>
+                <S.CardTextProjeto>
+                  O projeto Centro de Excelência em Educação e Produção Audiovisual, iniciado em 2001,
+                  foi uma iniciativa sócio-cultural desenvolvida pela Cooperativa Cinema & Mídias Digitais
+                  com foco na arte-cidadania. Ele usou o audiovisual e formas de comunicação como
+                  ferramentas para a formação humana e promoção da cidadania, atendendo jovens de
+                  12 a 17 anos em comunidades carentes. Com atividades práticas e teóricas, os
+                  participantes produziram documentários, materiais jornalísticos e conteúdos para
+                  WebTV, promovendo o desenvolvimento de habilidades técnicas e fortalecendo a
+                  autoestima comunitária. O projeto alcançou impacto regional, envolvendo mais de 150
+                  pessoas e inspirando práticas de resgate cultural e inclusão social.
+                </S.CardTextProjeto>
+              </S.CardTextContainerProjeto>
+            </S.CardMainContainer>
+          </S.CardProjeto>
+        </S.ProjetosListContainer>
+      </S.ProjetosContainer>
     </S.MainContainer >
   );
 };
