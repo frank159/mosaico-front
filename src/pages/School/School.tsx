@@ -55,11 +55,6 @@ const School: React.FC = () => {
     setIsMobile(window.innerWidth <= 768);
   }, [])
 
-  const handleProjetoClick = (route: string) => {
-    window.open(route, '_blank'); // Abre a rota em uma nova aba
-  };
-
-
   return (
     <S.Container>
       <S.InicialSecao>
@@ -254,32 +249,35 @@ const School: React.FC = () => {
         </AnimatePresence>
 
         <S.VideoWrapper>
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={videos[current].id}
-              layout
-              initial={{ opacity: 0, x: 100 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -100 }}
-              transition={{ duration: 0.5 }}
-              style={{ height: '100%' }}
-            >
-              <S.VideoTitle>• {videos[current].title}</S.VideoTitle>
-              <S.ButtonContainer>
-                <S.NavButton onClick={prevVideo} className="left">
-                  <S.ArrowLeft />
-                </S.NavButton>
-                <video
-                  src={videos[current].src}
-                  style={{ width: "100%", maxWidth: "80vw" }}
-                  controls
-                />
-                <S.NavButton onClick={nextVideo} className="right">
-                  <S.ArrowRight />
-                </S.NavButton>
-              </S.ButtonContainer>
-            </motion.div>
-          </AnimatePresence>
+          <S.VideoTitle>• {videos[current].title}</S.VideoTitle>
+          <S.ButtonContainer>
+            <S.NavButton onClick={prevVideo} className="left">
+              <S.ArrowLeft />
+            </S.NavButton>
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={videos[current].id}
+                layout
+                initial={{ opacity: 0, x: 100 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -100 }}
+                transition={{ duration: 0.5 }}
+                style={{ height: '100%' }}
+              >
+                <S.VideoWrapperA>
+                  <ReactPlayer
+                    url={videos[current].src}
+                    width="90%"
+                    height="auto"
+                    controls
+                  />
+                </S.VideoWrapperA>
+              </motion.div>
+            </AnimatePresence>
+            <S.NavButton onClick={nextVideo} className="right">
+              <S.ArrowRight />
+            </S.NavButton>
+          </S.ButtonContainer>
         </S.VideoWrapper>
       </S.VideoContainer>
       <Footer />

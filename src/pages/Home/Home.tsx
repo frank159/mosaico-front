@@ -253,14 +253,14 @@ const HomePage: React.FC = () => {
               <S.Card4Logo>
                 <S.Card4LogoImg width='15%' src={capFundoBranco} />
               </S.Card4Logo>
-              <S.Card4Button onClick={handleClick}>
+                <S.Card4Button onClick={() => window.location.href = '/CAP'}>
                 Acesse agora<br />
-              </S.Card4Button>
+                </S.Card4Button>
               <S.Card4Logo>
                 <S.Card4LogoImg width='25%' src={cooperativa} />
               </S.Card4Logo>
 
-              <S.Card4Button onClick={handleClick}>
+              <S.Card4Button onClick={() => window.location.href = '/Cooperativa'}>
                 Acesse agora<br />
               </S.Card4Button>
               <br />

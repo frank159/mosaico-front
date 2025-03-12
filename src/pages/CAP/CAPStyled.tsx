@@ -430,12 +430,10 @@ export const VideoWrapper = styled.div`
 `;
 
 export const VideoTitle = styled.div`
-  width: 100%;
+  width: 80vw;
   display: flex;
   font-size: 1.7rem;
-  font-weight: bolder;
-  margin-top: 6vh;
-  margin-left: 6vh;
+  margin-bottom: 2vh;
   margin-bottom: 2vh;
   justify-content: start;
   align-items: start;
@@ -780,7 +778,7 @@ export const BigTextSpace = styled.div`
 export const ButtonContainer = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 `;
 
@@ -866,4 +864,11 @@ export const CardMainContainer = styled.div`
   @media (max-width: 1072px) {
     flex-direction: column;
   }
+`;
+export const VideoWrapperA = styled.div`
+  width: 80vw;
+  height: 80vh;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
 `;

@@ -33,7 +33,7 @@ const School: React.FC = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   const handleProjetoClick = (route: string) => {
-    window.open(route, '_blank'); // Abre a rota em uma nova aba
+    window.location.href = route; // Abre a rota em uma nova aba
   };
 
 

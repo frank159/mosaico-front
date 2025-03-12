@@ -38,7 +38,7 @@ const CooperativaCurriculo: React.FC = () => {
   useEffect(() => {
     if (overlayRef.current && overlayRefA.current) {
 
-      setOverlayHeight((overlayRef.current.clientHeight) + (overlayRef.current.clientHeight / 2));
+      setOverlayHeight((overlayRef.current.clientHeight) + (overlayRef.current.clientHeight / 1000));
     }
   }, [overlayRef]);
 
@@ -65,9 +65,6 @@ const CooperativaCurriculo: React.FC = () => {
                 <S.TextContent>
                   Responsável por fundar a Cooperativa de Cinema & Mídias Digitais e com mais de 35 anos no cinema, tem experiência na produção de longas-metragens, captação de recursos e consultoria. Participa ativamente de debates políticos sobre a indústria audiovisual e tem ampla experiência em marketing cinematográfico. Foi cofundador do SIAPAR e articulador do Prêmio Estadual de Cinema e Vídeo do Paraná. Já trabalhou com diretores renomados como Neville D’Almeida, Mauro Lima e Michael Ruman. Atua no desenvolvimento de estratégias para o mercado, além de projetos socioculturais e de regionalização do audiovisual.
                 </S.TextContent>
-                <S.SaibaMaisButton>
-                  Saiba Mais
-                </S.SaibaMaisButton>
               </S.TextSection>
             </S.OverlayContent>
           </S.OverlayContainer>
@@ -602,10 +599,10 @@ eventos/documentario-discute-ponto-polemico-dos-transgenicos-
             </S.FlexTempleCardLInk>
           </S.FlexTempleCard>
           <S.FlexTempleCard>
+            <S.FlexTempleTitleA>
             <S.ImgContainer>
               <S.Img src={coopCuri3} />
             </S.ImgContainer>
-            <S.FlexTempleTitleA>
               CAMARGO, Homero
             </S.FlexTempleTitleA>
             <S.ImgCardFlexSubTitleA>

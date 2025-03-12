@@ -14,7 +14,7 @@ const estrutura = require('../../assets/images/icons/estrutura esc.png');
 
 const AboutUs: React.FC = () => {
   const handleProjetoClick = (route: string) => {
-    window.open(route, '_blank'); // Abre a rota em uma nova aba
+    window.location.href = route; // Abre a rota em uma nova aba
   };
   const [isMobile, setIsMobile] = useState(false);
   const [OpacityPin, setOpacityPin] = useState(false);

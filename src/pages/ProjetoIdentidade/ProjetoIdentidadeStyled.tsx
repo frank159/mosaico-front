@@ -78,17 +78,22 @@ export const TextoAContiner = styled.div`
   height: 100% !important;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: start;
   align-items: start;
+  margin-top: 4rem;
   padding-right: 3rem;
+  gap: 3rem;
+
+  @media (max-width: 768px) {
+    justify-content: center;
+
+    padding-right: 0;
+    margin-top: 2rem;
+  }
 `;
 
 export const TextoA = styled.p`
   line-height: 1;
-
-  @media (max-width: 768px) {
-    font-size: 1.2rem !important; 
-  }
 `;
 
 export const Stro = styled.strong``;
@@ -339,4 +344,67 @@ export const VideoWrapper = styled.div`
   margin-top: 2rem;
   display: flex;
   justify-content: center;
+`;
+
+export const ModalOverlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+`;
+
+export const GalleryContainer = styled.div`
+  background: #0f0f0f;
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 80%;
+  max-height: 80%;
+  overflow-y: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+`;
+
+export const GalleryImage = styled.img`
+  width: 40vh;
+  height: auto;
+  object-fit: cover;
+  background-color: none;
+  border-radius: 5px;
+  transition: 1s;
+
+  &:hover {
+    transition: 0.5s;
+    transform: scale(1.1);
+  }
+
+  @media (max-width: 768px) {
+    width: 80vh;
+  }
+`;
+
+export const CloseButton = styled.button`
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 1001;
+  border-radius: 50%;
+  background-color: #2b2b2b;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
