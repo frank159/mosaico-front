@@ -1,0 +1,11 @@
+{
+    "build": {
+      "env": {
+        "PKG_CONFIG_PATH": "/usr/local/lib/pkgconfig:/opt/X11/lib/pkgconfig"
+      },
+      "commands": {
+        "install": "apt-get install -y libcairo2-dev libjpeg-dev libpango1.0-dev libgif-dev build-essential g++ && yarn install"
+      }
+    }
+  }
+  
