@@ -5,18 +5,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import ReactPlayer from 'react-player';
 
 
-const camerim = require("../../assets/images/img/camerim.png")
 const img3 = require('../../assets/images/img/comuni.png');
-const logoCap = require("../../assets/images/icons/logoCap.png")
-const impactoS = require("../../assets/images/icons/impacto social.png")
 const maoGlobo = require("../../assets/images/icons/maoGlobo.png")
 const ong = require("../../assets/images/icons/ong.png")
 const calendario = require("../../assets/images/icons/calendario.png")
 const localPreto = require("../../assets/images/icons/local preto.png")
 const esclamacao = require('../../assets/images/icons/esclamacao.png');
-const boat2 = require('../../assets/images/img/boat2.jpg');
-const filmeJ = require('../../assets/images/logo/filmeJ.png');
-const t = require('../../assets/images/logo/t.png');
 const capFundoBranco = require('../../assets/images/logo/capFundoBranco.png');
 const video1 = require('../../assets/videos/video1.mp4');
 const video2 = require('../../assets/videos/video2.mp4');
@@ -32,12 +26,6 @@ const School: React.FC = () => {
   ];
 
 
-  const handleClick = () => {
-    window.location.href = 'https://www.filmjoin.com.br';
-  };
-  const handleClick1 = () => {
-    window.location.href = 'https://apremavi.org.br/';
-  };
   useEffect(() => {
     console.log("window.innerWidth <= 768", window.innerWidth <= 768)
     setIsMobile(window.innerWidth <= 768);
@@ -45,14 +33,6 @@ const School: React.FC = () => {
 
   const handleProjetoClick = (route: string) => {
     window.location.href = route; // Abre a rota em uma nova aba
-  };
-
-  const nextVideo = () => {
-    setCurrent((prev) => (prev === videos.length - 1 ? 0 : prev + 1));
-  };
-
-  const prevVideo = () => {
-    setCurrent((prev) => (prev === 0 ? videos.length - 1 : prev - 1));
   };
 
   return (

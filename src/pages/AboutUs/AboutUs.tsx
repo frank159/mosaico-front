@@ -108,7 +108,9 @@ const AboutUs: React.FC = () => {
           <S.Card>
             <S.IconInicialCard src={estrutura} />
             <S.CardText>
-              <strong>AQUI</strong>, você encontra histórias que merecem ser contadas e projetos que estão mudando realidades.
+              <p>
+                <strong>AQUI</strong>, você encontra histórias que merecem ser contadas e projetos que estão mudando realidades.
+              </p>
             </S.CardText>
           </S.Card>
         </S.CardTextContainer>
@@ -396,7 +398,7 @@ const AboutUs: React.FC = () => {
       </S.MainContainer>
       <S.ButtonContainer onClick={() => handleProjetoClick('/Projetos')}>
         <S.FinalButton>
-          CONHEÇA NOSSOS PROJETOS
+          Conheça nossos Projetos
         </S.FinalButton>
       </S.ButtonContainer>
     </div>

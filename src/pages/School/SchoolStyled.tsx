@@ -101,6 +101,7 @@ export const Body = styled.div`
 
   display: flex;
   flex-direction: column;
+  z-index: 10;
 `;
 
 export const Title = styled.div`
@@ -143,10 +144,13 @@ export const BodyText = styled.div`
 
 export const BodyListCardContainer = styled.div`
   width: 100%;
-  margin-top: 20vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 20vh;
+  @media (max-width: 1224px) {
+    margin-top: 0;
+  }
 `;
 
 export const BodyListCard = styled.div`
@@ -297,6 +301,7 @@ export const Galeria = styled.div`
 export const Img = styled.img`
   width: 25rem;
   transition: 0.8s;
+  z-index: 10;
 
   &:hover {
     transition: 0.5s;
@@ -329,6 +334,8 @@ export const VideoContainer = styled.div`
   align-items: center;
   justify-content: center;
   margin-top: 2rem;
+  background-color: #E4EBDD;
+  z-index: 10 !important;
 `;
 
 export const VideoTitle = styled.div`
@@ -472,6 +479,7 @@ export const CardImgProjetoB = styled.img<Props>`
     width: 100%; /* Faz com que a imagem preencha a largura do contêiner */
     object-fit: cover; /* Garante que a imagem mantenha proporções e preencha o contêiner */
     object-position: center; /* Centraliza a imagem dentro do contêiner */
+    z-index: 0;
 `;
 
 
@@ -611,7 +619,7 @@ export const TextImgCard = styled.div`
     top: 0;
     right: 0;
     width: 98%;
-    border-top: 4px solid #C6BAAF;
+    border-top: 2px solid #C6BAAF;
     z-index: 0;
   }
 
@@ -622,7 +630,7 @@ export const TextImgCard = styled.div`
     bottom: 0;
     right: 0;
     width: 70%;
-    border-bottom: 4px solid #C6BAAF;
+    border-bottom: 2px solid #C6BAAF;
     z-index: 0;
 
     @media (max-width: 1224px) {
@@ -646,9 +654,9 @@ export const ImgCard = styled.div`
     left: 0;
     top: -100px; /* Faz a borda "vazar" um pouco para cima */
     height: 140%; /* Ocupa a altura total da viewport */
-    width: 4px;
+    width: 2px;
     background: #C6BAAF;
-    z-index: 999; /* Garante que fique sobre outros elementos, se necessário */
+    z-index: 0; /* Garante que fique sobre outros elementos, se necessário */
   }
 
   /* Borda direita que não afeta os demais elementos */
@@ -658,9 +666,12 @@ export const ImgCard = styled.div`
     right: 0;
     top: -60px; /* Faz a borda "vazar" um pouco para cima */
     height: 500vh; /* Ocupa a altura total da viewport */
-    width: 4px;
+    @media (max-width: 1224px) {
+      height: 1200vh; /* Ocupa a altura total da viewport */
+  }
+    width: 2px;
     background: #C6BAAF;
-    z-index: 999; /* Garante que fique sobre outros elementos, se necessário */
+    z-index: 0; /* Garante que fique sobre outros elementos, se necessário */
   }
 `;
 

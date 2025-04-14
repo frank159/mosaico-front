@@ -15,6 +15,7 @@ export const VideoWrapper = styled.div`
   width: 100%;
   height: 100vh;
   overflow: hidden;
+  z-index: 1;
 `;
 
 export const Seta = styled.div`
@@ -31,7 +32,6 @@ export const FullScreenVideo = styled.video`
   width: 100%;
   height: 100vh;
   object-fit: cover;
-  z-index: -1;
 `;
 
 export const ColorOverlay = styled.div`

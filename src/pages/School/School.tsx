@@ -96,7 +96,6 @@ const School: React.FC = () => {
         </S.TextImgCard>
       </S.TextImgCardMain>
       <S.Body>
-
         <S.BodyListCardContainer>
           <S.BodyListCard>
             <S.Card>
