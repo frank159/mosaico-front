@@ -1,10 +1,9 @@
-import { TextField } from '@mui/material';
-import Button from '@mui/material/Button';
-import styled from 'styled-components';
-
+import { TextField } from "@mui/material";
+import Button from "@mui/material/Button";
+import styled from "styled-components";
 
 export const MainContainer = styled.div`
-  background: #C2CFB4;
+  background: #c2cfb4;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -16,7 +15,7 @@ export const MainContainer = styled.div`
 `;
 
 export const InicialSecao = styled.div`
-  background-color: #C2CFB4;
+  background-color: #c2cfb4;
   width: 100%;
   min-height: 110vh;
   display: flex;
@@ -27,7 +26,7 @@ export const InicialSecao = styled.div`
 
 export const InicialSecao1 = styled.div`
   position: relative;
-  background-color: #C2CFB4;
+  background-color: #c2cfb4;
   width: 100%;
   display: flex;
   justify-content: end;
@@ -43,10 +42,10 @@ export const InicialSecao1 = styled.div`
 `;
 
 export const SubInicialSecao1 = styled.div`
- margin-right: 4rem;
- @media (max-width: 768px) {
-   margin-right: 0;
-    }
+  margin-right: 4rem;
+  @media (max-width: 768px) {
+    margin-right: 0;
+  }
 `;
 
 export const TituloVertical = styled.h1`
@@ -60,7 +59,6 @@ export const TituloVertical = styled.h1`
 
   @media (max-width: 768px) {
     opacity: 0;
-
   }
 `;
 
@@ -71,19 +69,18 @@ export const SecaoTexto1 = styled.div`
 `;
 
 export const Texto1 = styled.div`
-  color: #C2CFB4;
+  color: #c2cfb4;
   font-weight: bolder;
   font-style: italic;
   font-size: 2rem;
   margin-left: 4vw;
-
 `;
 
 export const Texto2 = styled.h1`
-  color: #141C16;
+  color: #141c16;
   margin-top: 6vh !important;
   margin-bottom: 2vh !important;
-  width: 90%; 
+  width: 90%;
   display: flex;
   justify-content: start;
   align-items: center;
@@ -115,7 +112,7 @@ interface QuinSecaoProps {
 }
 
 export const QuinSecao = styled.div`
-  background-color: #C2CFB4;
+  background-color: #c2cfb4;
   padding: 2rem;
   width: 96.5%;
   height: auto;
@@ -142,7 +139,7 @@ export const Card3 = styled.div`
   align-items: center;
   width: 37vw;
   height: auto;
-  
+
   @media (max-width: 1224px) {
     width: auto;
   }
@@ -161,14 +158,11 @@ export const Card4 = styled.div`
 
 export const TextLink = styled.span`
   font-size: 1rem !important;
-  
-  
+
   @media (max-width: 768px) {
     font-size: 0.6rem !important;
   }
-
-
-`
+`;
 
 export const Card4Button = styled(Button)`
   margin-top: 5vh !important;
@@ -182,24 +176,23 @@ export const Card4Button = styled(Button)`
   align-items: center !important;
   border-radius: 7px !important;
   height: 8vh !important;
-  color: #C2CFB4 !important;
+  color: #c2cfb4 !important;
   background-color: #253529 !important;
   font-size: 15px !important;
 
-  &:hover  {
+  &:hover {
     transition: 0.6s;
-    border: 1px solid #C2CFB4;
+    border: 1px solid #c2cfb4;
   }
 
-  &:hover ${TextLink}  {
+  &:hover ${TextLink} {
     transition: 0.4s !important;
     font-size: 18px !important;
-  } 
+  }
 
   @media (max-width: 1224px) {
     width: 60vw !important;
   }
-
 `;
 
 export const Card4Logo = styled.div`
@@ -222,7 +215,7 @@ export const Card4Section = styled.div`
 export const LogoFundacao = styled.p`
   height: 10vh;
   width: 20vh;
-  background-color: #4E5C2C;
+  background-color: #4e5c2c;
   display: flex;
   font-size: 1.2rem !important;
   justify-content: center;
@@ -247,7 +240,7 @@ interface PropCard {
 }
 
 export const Card4LogoImg = styled.img<PropCard>`
-  width: ${(props) => props.width || '10vw'};
+  width: ${(props) => props.width || "10vw"};
 `;
 
 export const Card3Text = styled.p`
@@ -258,13 +251,7 @@ export const Card3Text = styled.p`
   width: 100% !important;
   height: auto;
   box-sizing: border-box;
-
-  @media (max-width: 1224px) {
-    font-size: 1.2rem !important;
-  }
 `;
-
-
 
 export const SubTitleCard3 = styled.div`
   color: white;
@@ -291,7 +278,7 @@ export const SubTextCard3 = styled.div`
 `;
 
 export const Card3Title = styled.h2`
-  color: #C2CFB4;
+  color: #c2cfb4;
   width: 100%;
   margin-left: 4rem !important;
 `;
@@ -320,17 +307,15 @@ export const CardSection2 = styled.div`
   justify-content: space-between;
   align-items: center;
   gap: 6vh;
-  margin-top: 10vh;
+  margin-top: 3vh;
 
   @media (max-width: 1224px) {
     flex-direction: column;
-
   }
 `;
 
 export const TextCard = styled.div`
   display: flex;
-  margin-top: 4vh;
   text-align: center;
   font-size: 1.4rem;
   color: #ffffff;
@@ -341,16 +326,20 @@ export const CardTitle2 = styled.div`
   display: flex;
   margin-top: 4vh;
   text-align: center;
-  font-size: 1.4rem;
   font-weight: bolder;
   color: #ffffff;
+  font-size: 2rem !important;
+
+  @media (max-width: 1224px) {
+    font-size: 1.6rem !important;
+  }
 `;
 
 export const TextCard2 = styled.div`
   display: flex;
   margin-top: 2vh;
   text-align: center;
-  font-size: 1.4rem;
+  font-size: ;
   color: #ffffff;
   padding-left: 2rem;
   padding-right: 2rem;
@@ -360,16 +349,16 @@ export const Card = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: center;
   align-items: center;
-  background-color: #141C16;
+  background-color: #141c16;
   border-radius: 6px;
   min-height: 20vh;
   min-width: 25vw;
   max-width: 90%;
   @media (max-width: 768px) {
-   margin-right: 0;
-    }
+    margin-right: 0;
+  }
 `;
 
 export const Card2 = styled.div`
@@ -378,12 +367,11 @@ export const Card2 = styled.div`
   flex-direction: column;
   justify-content: start;
   align-items: center;
-  background-color: #141C16;
+  background-color: #141c16;
   border-radius: 6px;
   min-height: 20vh;
   width: 17vw;
 
-  
   @media (max-width: 1224px) {
     margin-right: 0;
     width: 90%;
@@ -414,34 +402,37 @@ export const Plantinha = styled.img`
   top: 50%;
   transform: translate(-50%, -50%);
   opacity: 0.2;
-  
+
   @media (max-width: 1224px) {
     object-fit: contain;
     width: auto;
-
   }
 `;
 
 export const Aspas = styled.img`
-margin-top: 15vh;
+  margin-top: 15vh;
   width: 3rem;
 `;
 
 export const TitleInicial = styled.h1`
-font-size: 7rem;
   margin-top: 5vh;
   color: #000000;
   text-align: center;
 `;
 
 export const TextoSubInicial = styled.p`
-  font-size: 3rem;
+  font-size: 2.5rem !important;
   color: #000000;
+  @media (max-width: 1224px) {
+    font-size: 2rem !important;
+  }
 `;
 
 export const TextoInicial = styled.p`
   color: #000000;
   text-align: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
 `;
 
 export const Hr = styled.hr`
@@ -451,13 +442,18 @@ export const Hr = styled.hr`
 `;
 
 export const SubTitle = styled.p`
-  color: #141C16;
+  color: #141c16;
   margin-top: 16vh !important;
   width: 90% !important;
   display: flex !important;
   justify-content: start !important;
   align-items: center !important;
   font-weight: bolder !important;
+  font-size: 2rem !important;
+
+  @media (max-width: 1224px) {
+    font-size: 1.6rem !important;
+  }
 `;
 
 export const MiniCardSection = styled.div`
@@ -473,17 +469,17 @@ export const MiniCardSection = styled.div`
   }
 `;
 
-export const MinCardText = styled.div`
-  font-size: 1.4rem;
+export const MinCardText = styled.p`
   font-weight: bolder;
   padding-left: 7rem;
-  color: #FFFFFF;
+  color: #ffffff;
+  white-space: nowrap; /* Prevents text from breaking */
 `;
 
 export const MinCardText1 = styled.div`
   font-size: 1.4rem;
   font-weight: bolder;
-  color: #FFFFFF;
+  color: #ffffff;
 `;
 
 export const MiniCardContainer = styled.div`
@@ -497,7 +493,7 @@ export const MiniCardContainer = styled.div`
 export const MiniCardEsfera = styled.div`
   width: 5.5rem;
   height: 5.5rem;
-  background-color: #4E5C2C;
+  background-color: #4e5c2c;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -511,7 +507,7 @@ export const MiniCardEsferaIcon = styled.img`
   width: 2rem;
   height: 2rem;
   height: 6rem;
-  object-fit: contain; /* Garante que o ícone mantenha a proporção */
+  object-fit: contain;
 `;
 
 export const MiniCard = styled.div`
@@ -520,10 +516,15 @@ export const MiniCard = styled.div`
   justify-content: start;
   align-items: center;
   height: 7vh;
-  background-color: #141C16;
+  width: 20vw;
+  background-color: #141c16;
   position: relative;
   border-radius: 50px;
   z-index: 0;
+
+  @media (max-width: 1224px) {
+    width: 85%;
+  }
 `;
 
 export const MiniCard1 = styled.div`
@@ -534,12 +535,11 @@ export const MiniCard1 = styled.div`
   height: 7vh;
   padding-left: 7rem;
   padding-right: 1rem;
-  background-color: #141C16;
+  background-color: #141c16;
   position: relative;
   border-radius: 50px;
   z-index: 0;
 `;
-
 
 export const SubtextSection = styled.div`
   margin-top: 5vh;
@@ -569,9 +569,8 @@ export const LongCard = styled.div`
   align-items: center;
 `;
 
-export const LongCardText = styled.div`
-  color: #141C16;
-  font-size: 1.4rem;
+export const LongCardText = styled.p`
+  color: #141c16;
   font-weight: bold;
   text-align: center;
 `;
@@ -582,20 +581,20 @@ export const LongCardIcon = styled.img`
 `;
 
 export const Faixa = styled.div`
-    width: 100%;
-    height: 40vh;
-    background-color: #4E5C2C;
-    margin-top: 6vh;
+  width: 100%;
+  height: 40vh;
+  background-color: #4e5c2c;
+  margin-top: 6vh;
 `;
 
 export const BigCardContainer = styled.div`
-    width: 100%;
-    display: flex;
-    justify-content: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 `;
 
 export const BigCard = styled.div`
-  width:  90%;
+  width: 90%;
   min-height: 30vh;
   position: relative;
 
@@ -604,7 +603,7 @@ export const BigCard = styled.div`
 `;
 
 export const BigCardIcon = styled.img`
-height: 25vh;
+  height: 25vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -612,38 +611,37 @@ height: 25vh;
   left: -1rem;
   top: -2rem;
   z-index: 1;
-
 `;
 
 export const BigIconTextCard = styled.p`
-    font-size: 40vh !important;
-    font-style: italic!important;
-    color: rgba(78, 92, 44, 1) !important;
-    font-weight: bolder !important;
-    font-family: 'Arimo' !important;
-    transform: translate(-50%, -50%);
+  font-size: 30vh !important;
+  font-style: italic !important;
+  color: rgba(78, 92, 44, 1) !important;
+  font-weight: bolder !important;
+  font-family: "Arimo" !important;
+  transform: translate(-50%, -50%);
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    left: 8%;
-    top: 36%;
-    
-    z-index: 1;
-    
-    @media (max-width: 1224px) {
-      left: 5%;
-      top: 10%;
-    }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 8%;
+  top: 45%;
+
+  z-index: 1;
+
+  @media (max-width: 1224px) {
+    left: 5%;
+    top: 10%;
+  }
 `;
 
 export const BigCardTextSection = styled.div`
   width: 100%;
 `;
 
-export const BigCardTitle = styled.h1`
-  color: #C2CFB4;
+export const BigCardTitle = styled.h2`
+  color: #c2cfb4;
   margin-bottom: 10px;
 `;
 
@@ -653,23 +651,21 @@ export const BigCardTextContainer = styled.div`
   justify-content: center;
   z-index: 11;
   margin-left: 14rem;
-  
+
   @media (max-width: 1224px) {
     margin-left: 4rem;
     margin-bottom: 4rem;
     margin-top: 4rem;
   }
-
 `;
 
 export const BigCardText = styled.p`
   font-weight: lighter;
-  color: #D8D6D3;
+  color: #d8d6d3;
 `;
 
-
 export const TercSecao = styled.div`
-  background-color: #C2CFB4;
+  background-color: #c2cfb4;
   width: 100%;
   height: 120vh;
   display: flex;
@@ -688,7 +684,6 @@ export const FullImg = styled.img`
   position: relative;
 `;
 
-
 export const TercSecaoTitle = styled.div`
   color: #141c16;
   font-size: 2rem;
@@ -705,12 +700,10 @@ export const TercSecaoText = styled.div`
   padding: 0rem 4rem 0rem 4rem;
 `;
 
-export const LogoTercSecao = styled.img`
-
-`;
+export const LogoTercSecao = styled.img``;
 
 export const TercSecaoSubText = styled.div`
-margin-top: 5vh;
+  margin-top: 5vh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -729,9 +722,7 @@ export const FormContainer = styled.div`
   margin-top: 2vh;
 `;
 
-export const TercSecaoSubInput = styled(TextField)`
-  
-`;
+export const TercSecaoSubInput = styled(TextField)``;
 
 export const TercSecaoSubButton = styled(Button)`
   height: 100%;
@@ -740,10 +731,10 @@ export const TercSecaoSubButton = styled(Button)`
   color: #ffffff !important;
   transition: all 0.3s ease-in-out !important;
 
-  &:hover  {
+  &:hover {
     background-color: #222c24 !important;
   }
-  &:active  {
+  &:active {
     font-size: 1.1rem !important; // Aumenta 10% o tamanho da fonte
     background-color: #253529 !important;
   }

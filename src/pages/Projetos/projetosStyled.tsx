@@ -92,8 +92,6 @@ export const ProjetosContainer = styled.div`
     position: relative;
     display: flex;
     flex-direction: row;
-    padding-bottom: 3rem;
-    padding-top: 3rem;
     margin-bottom: 3rem;
 `;
 
@@ -251,7 +249,6 @@ export const CardTextContainerProjeto = styled.div`
 `;
 
 export const CardTitleProjeto = styled.div`
-    font-size: 1.3rem;
     color: #C2CFB4;
     line-height: 1;
     font-family: 'Montserrat', sans-serif;

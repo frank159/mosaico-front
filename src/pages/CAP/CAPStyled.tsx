@@ -151,7 +151,7 @@ export const TitleSection = styled.div`
 `;
 
 export const DivText = styled.div`
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   padding: 0 !important;
 `;
 
