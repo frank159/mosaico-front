@@ -1,14 +1,14 @@
 import React from 'react';
 import {
-    Checkbox,
-    Typography,
-    FormControlLabel
+  Checkbox,
+  Typography,
+  FormControlLabel
 } from '@mui/material';
 import {
-    StyledForm,
-    FormWrapper,
-    ImageContainer,
-    ContactSectionContainer
+  StyledForm,
+  FormWrapper,
+  ImageContainer,
+  ContactSectionContainer
 } from './contactComponenteStyled';
 
 import * as S from "./contactComponenteStyled"
@@ -37,17 +37,22 @@ const ContactSection: React.FC<ContactSectionProps> = ({
           <ImageContainer>
             <S.Img src={imageUrl} alt="Contact" />
           </ImageContainer>
+          <S.CreditosContainer>
+            Criação: Homero Camargo e Bruna Madsen – Centro Audiovisual do Paraná<br />
+            Desenvolvedora do Projeto: Paloma Vogt – Graciosa Pictures UG<br />
+            Tania Madureira: Consultoria Saúde Mental
+          </S.CreditosContainer>
         </S.Cainteiner1>
         <S.Cainteiner2>
           <FormWrapper >
             <Typography variant="h4" gutterBottom>
               Contato
             </Typography>
-            <Typography variant="body1" paragraph>
+            <Typography variant="body1" paragraph style={{ fontFamily: 'Arsenal, sans-serif' }}>
               Para mais detalhes do projeto entre em contato por e-mail:
             </Typography>
             <StyledForm onSubmit={(e) => e.preventDefault()}>
-              <S.Input 
+              <S.Input
                 label="Name"
                 variant="outlined"
                 fullWidth

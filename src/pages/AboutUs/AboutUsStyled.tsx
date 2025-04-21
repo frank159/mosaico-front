@@ -167,6 +167,22 @@ export const PilaresListContainer = styled.div`
   justify-content: start;
   height: auto;
   position: relative; /* Necessário para o tamanho máximo da linha */
+  @media (max-width: 768px) {
+    height: 100%;
+  }
+`;
+
+export const PilaresListContainer1 = styled.div`
+  display: flex;
+  z-index: 1111111;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  height: 70vh;
+  position: relative; /* Necessário para o tamanho máximo da linha */
+  @media (max-width: 768px) {
+    height: 100%;
+  }
 `;
 
 export const PilaresListItensContainer = styled.div`
@@ -179,10 +195,10 @@ export const PilaresListItensContainer = styled.div`
 `;
 
 export const PilaresListLine = styled.div`
-  width: 0.3rem; /* Define a largura da linha */
+  width: 0.1rem; /* Define a largura da linha */
   height: 100%; /* Altura total ou personalizada */
   border-radius: 10px;
-  background-color: #2535294b; /* Cor da linha */
+  background-color: #000000; /* Cor da linha */
   position: absolute; /* Necessário para o tamanho máximo da linha */
   top: 0;
   bottom: 0;
@@ -207,6 +223,9 @@ export const PilaresTitleIcon = styled.img<Props>`
 export const PilaresTitleText = styled.h1`
   color: #141c16;
   margin-left: 10vw;
+  @media (max-width: 768px) {
+    font-size: 2.5rem !important;
+  }
 `;
 
 export const PilaresTitleText1 = styled.h2`
@@ -332,7 +351,7 @@ export const CheckCardsContainer = styled.div`
 
 export const ButtonContainer = styled.div`
   width: 100%;
-  background-color: #c2cfb4;
+  background-color: rgba(102, 112, 77, 0.10);
   height: 20vh;
   margin-bottom: 2vh;
   display: flex;
@@ -342,13 +361,18 @@ export const ButtonContainer = styled.div`
 `;
 
 export const FinalButton = styled(Button)`
-  font-size: 1.5rem !important;
-  background-color: #141c16 !important;
+  font-size: 1.2rem !important;
+  background-color: #4E5C2C !important;
   border-radius: 70px !important;
-  padding: 1.3rem !important;
+  padding: 0.5rem !important;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
   color: white !important;
-  text-transform: none !important;
   font-family: 'Arsenal', sans-serif !important;
+
+  @media (max-width: 768px) {
+    font-size: 0.8rem !important;
+  }
 `;
 
 export const CheckCardsContainerTitle = styled.div`

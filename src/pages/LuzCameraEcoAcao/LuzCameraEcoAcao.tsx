@@ -13,6 +13,7 @@ const painelIcon = require("../../assets/images/icons/balao de conversa.png");
 const oficinaIcon = require("../../assets/images/icons/pessoa com lampada na mao.png");
 const mundoConectado = require("../../assets/images/icons/mundin.png");
 const homero = require("../../assets/images/img/homero.jpeg");
+const bruna = require("../../assets/images/img/image (4).png");
 const PalomaFoto = require("../../assets/images/img/paloma.png");
 const graciosa1 = require("../../assets/images/logo/graciosaa.png");
 const capFundoBranco = require("../../assets/images/logo/capFundoBranco.png");
@@ -20,6 +21,8 @@ const baquinho = require("../../assets/images/img/baquinho.png");
 const aspasPreta = require("../../assets/images/icons/aspasPreta.png");
 const plantinha = require("../../assets/images/img/plantinha.jpg");
 const cooperativa = require("../../assets/images/logo/cooperativaLogo.png");
+// const emailIcon = require("../../assets/images/icons/email.png");
+// const whatsAppIcon = require("../../assets/images/icons/whatsapp.png");
 
 const LuzCameraEcoAcaoPage: React.FC = () => {
   const handleClick = () => {
@@ -60,36 +63,33 @@ const LuzCameraEcoAcaoPage: React.FC = () => {
       </S.InicialSecao>
       <S.InicialSecao1>
         <S.Plantinha src={plantinha} alt="aspasPreta" />
-        <S.TituloVertical>COP30</S.TituloVertical>
         <S.SubInicialSecao1>
+          <S.CardSectionTitulo>
+            <S.TituloVertical>COP30</S.TituloVertical>
+          </S.CardSectionTitulo>
           <S.CardSection>
-            <S.Card style={{ width: `${checkCardWidth}px` }}>
+            <S.Card>
               <S.IconCard src={localizacao} />
               <S.TextCard>
                 uma iniciativa inovadora que acontecerá
-                <br />
                 durante a COP 30, de 10 a 21 de novembro de
-                <br />
                 2025, em Belém, Pará, Brasil
               </S.TextCard>
             </S.Card>
-            <S.Card style={{ width: `${checkCardWidth}px` }}>
+            <S.Card>
               <S.IconCard src={barco} />
               <S.TextCard>
-                Sediado em um barco ancorado no rio Guamá, o<br />
+                Sediado em um barco ancorado no rio Guamá, o
                 projeto combina arte e sustentabilidade para
-                <br />
                 explorar como as mudanças ambientais
-                <br />
                 impactam nosso bem-estar psicológico.
               </S.TextCard>
             </S.Card>
-            <S.Card ref={checkCardRef}>
+            <S.Card>
               <S.IconCard src={folha} />
               <S.TextCard>
                 Ele apresentará soluções ambientais já
-                <br />
-                implementadas globalmente e fomentará a<br />
+                implementadas globalmente e fomentará a
                 discussão de novas ideias para enfrentar desafios futuros.
               </S.TextCard>
             </S.Card>
@@ -192,8 +192,8 @@ const LuzCameraEcoAcaoPage: React.FC = () => {
       <S.QuarSecao>
         <S.BigCardContainer>
           <S.BigCard>
-            <S.BigIconTextCard>!</S.BigIconTextCard>
             <S.BigCardTextContainer>
+            <S.BigIconTextCard>!</S.BigIconTextCard>
               <S.BigCardTitle>
                 COM UM PÚBLICO ESPERADO DE 700 A 900 PESSOAS POR DIA
               </S.BigCardTitle>
@@ -230,11 +230,15 @@ const LuzCameraEcoAcaoPage: React.FC = () => {
             </S.Card3Text>
             <S.SubTitleCard3>Principais Trabalhos:</S.SubTitleCard3>
             <S.SubTextCard3>
-              Os Xeretas (Direção: Michael Ruman)
-              <br />
-              A Frente Fria que a Chuva Traz (Direção: Neville D’Almeida)
-              <br />
+              <li>
+                Os Xeretas (Direção: Michael Ruman)
+              </li>
+              <li>
+                A Frente Fria que a Chuva Traz (Direção: Neville D’Almeida)
+              </li>
+              <li>
               Navalha na Carne
+              </li>
             </S.SubTextCard3>
             <S.Card3Text>
               No projeto “Luz, Câmera, EcoAção! – Arte e Sustentabilidade”,
@@ -245,26 +249,44 @@ const LuzCameraEcoAcaoPage: React.FC = () => {
               e a cultura digital será essencial para conectar os diversos
               públicos participantes do evento.
             </S.Card3Text>
+            <S.ContactInfoContainer>
+              <S.ContactInfo>
+                {/* <S.Icon src={emailIcon} alt="Email Icon" /> */}
+                <S.BoldText underline>cooperativacm@uol.com.br</S.BoldText>
+              </S.ContactInfo>
+              <S.ContactInfo>
+                {/* <S.Icon src={whatsAppIcon} alt="WhatsApp Icon" /> */}
+                <S.BoldText>(42)9 9102-4351</S.BoldText>
+              </S.ContactInfo>
+            </S.ContactInfoContainer>
             <S.Card4Section>
               <S.Card4Logo>
                 <S.Card4LogoImg width="15%" src={capFundoBranco} />
               </S.Card4Logo>
-              <S.Card4Button onClick={() => (window.location.href = "/CAP")}>
-                Acesse agora
-                <br />
-              </S.Card4Button>
+              <S.ButtonCard onClick={() => (window.location.href = "/CAP")}>
+                Saiba Mais
+              </S.ButtonCard>
               <S.Card4Logo>
                 <S.Card4LogoImg width="25%" src={cooperativa} />
               </S.Card4Logo>
-
-              <S.Card4Button
-                onClick={() => (window.location.href = "/Cooperativa")}
-              >
-                Acesse agora
-                <br />
-              </S.Card4Button>
+              <S.ButtonCard onClick={() => (window.location.href = "/Cooperativa")}>
+                Saiba Mais
+              </S.ButtonCard>
               <br />
             </S.Card4Section>
+          </S.Card3>
+          <S.Card3>
+            <S.Card3Img src={bruna} />
+            <S.Card3Title>Bruna Madsen</S.Card3Title>
+            <S.Card3Text>
+              Bruna Madsen é uma profissional com ampla experiência em gestão de projetos e produção executiva, especialmente nas áreas de mídia, entretenimento e cultura.
+              Ao longo de sua carreira, tem se destacado pela coordenação de equipes e pelo gerenciamento de recursos, com forte expertise nas Leis de Incentivo à Cultura, incluindo MinC e Ancine.
+              Com um olhar estratégico para o planejamento e a organização, ela tem se destacado no mercado pela habilidade em gerenciar recursos e desenvolver soluções criativas, especialmente em projetos de grande escala.
+              Atualmente, ocupa a posição de produtora de locação na ELOCS, empresa de renome em São Paulo, e possui experiência anterior em diversas funções de destaque, como na Pano Social, onde foi responsável por estratégias de marketing com a criação e realizaçoes de eventos.
+              Sua trajetória inclui passagens por grandes agências e empresas, como Agência New Contet, Futuri Comunicação e AktuellMix, onde atuou em importantes ações estratégicas, como o lançamento de produtos para o Banco Itaú e o Banco Bradesco.
+              Além disso, desempenhou papéis fundamentais em eventos significativos para o mercado audiovisual, como o DIA DA MÚSICA, CLIPES E BANDAS e BIG FRSTIVAL, e na produção de projetos culturais, como o longametragem de animação "Tito e os Pássaros." Com formação em Turismo pela Universidade Positivo - PR e uma série de cursos de especialização em Produção Executiva e Gestão de Projetos.
+              Sua carreira é marcada pela paixão pela inovação e pela excelência na execução de projetos de impacto cultural e social.
+              Conversas com a jovem Isabella Camargo, sua filha, foram fundamentais para a criação deste projeto, somando a sua expertise em desenvolver soluções criativas contribuíram para a criação do evento “Luz, Câmera, EcoAÇÃO” elaborando ações que combinem arte, natureza e bem-estar, promovendo a conexão com o meio ambiente e o impacto positivo nas pessoas, estimulando a saúde mental por meio de práticas artísticas sustentáveis.            </S.Card3Text>
           </S.Card3>
           <S.Card3>
             <S.Card3Img src={PalomaFoto} />
@@ -293,15 +315,23 @@ const LuzCameraEcoAcaoPage: React.FC = () => {
               impulsionar mudanças sociais, construir pontes e transformar
               ideias sustentáveis em realidade.
             </S.Card3Text>
+            <S.ContactInfoContainer>
+              <S.ContactInfo>
+                {/* <S.Icon src={emailIcon} alt="Email Icon" /> */}
+                <S.BoldText underline>p.vogt@graciosa-pictures.com</S.BoldText>
+              </S.ContactInfo>
+              <S.ContactInfo>
+                {/* <S.Icon src={whatsAppIcon} alt="WhatsApp Icon" /> */}
+                <S.BoldText>(176) 31258861</S.BoldText>
+              </S.ContactInfo>
+            </S.ContactInfoContainer>
             <S.Card4Section>
               <S.Card4Logo>
                 <S.Card4LogoImg width="25%" src={graciosa1} />
               </S.Card4Logo>
-              <S.Card4Button onClick={handleClick}>
-                Acesse agora:
-                <br />
-                <S.TextLink>https://www.graciosapictures.com</S.TextLink>
-              </S.Card4Button>
+              <S.ButtonCard onClick={handleClick}>
+                Saiba Mais
+              </S.ButtonCard>
               <S.Card4Logo>
                 <S.LogoFundacao>
                   logotipo
@@ -309,12 +339,9 @@ const LuzCameraEcoAcaoPage: React.FC = () => {
                   fundação
                 </S.LogoFundacao>
               </S.Card4Logo>
-              <S.Card4Button onClick={handleClick}>
-                Acesse agora:
-                <br />
-                <S.TextLink>https://www.graciosapictures.com</S.TextLink>
-              </S.Card4Button>
-              <br />
+              <S.ButtonCard onClick={handleClick}>
+                Saiba Mais
+              </S.ButtonCard>
             </S.Card4Section>
           </S.Card3>
         </S.QuinSecaoContainer>

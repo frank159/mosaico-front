@@ -81,18 +81,18 @@ h3 {
 }
 
 p {
-  font-size: 1.6rem !important;
+  font-size: 1.5rem !important;
   margin: 0 !important;
 }
 
 @media (max-width: 1224px) {
   p {
-    font-size: 1.2rem !important;
+    font-size: 1.25rem !important;
     margin: 0 !important;
   }
 }
 
 a {
-  font-size: 1.6rem !important;
+  font-size: 1.5rem !important;
   margin: 0 !important;
 }
