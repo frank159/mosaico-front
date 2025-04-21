@@ -157,7 +157,7 @@ const AboutUs: React.FC = () => {
               <S.PilaresTextContainer>
                 <S.PilaresText>
                   Ser a principal plataforma de projetos sociais e culturais.<br />
-                  Transformar o Mosaico na plataforma de referência para projetos sociais, culturais, ambientais e educacionais no Brasil, conectando iniciativas a um público amplo e diversificado,<br />
+                  Transformar o Mosaico na plataforma de referência para projetos sociais, culturais, ambientais e educacionais, conectando iniciativas a um público amplo e diversificado,
                   inspirando mudanças, colaborações e inovações.
                 </S.PilaresText>
               </S.PilaresTextContainer>
@@ -174,21 +174,21 @@ const AboutUs: React.FC = () => {
                   <S.PilaresList>
                     <S.SubItenList>Inclusão:</S.SubItenList>
                     <S.PilaresText>
-                      Todos os projetos, independentemente de tamanho, localidade ou tema, são bem-vindos no Mosaico.
-                      A plataforma busca representar a diversidade de iniciativas brasileiras, abrindo espaço para vozes que frequentemente não têm visibilidade.
+                      Todos os projetos, independentemente de tamanho, localidade ou tema, são bem-vindos no Mosaico.<br />
+                      A plataforma busca representar a diversidade, abrindo espaço para vozes que frequentemente não têm visibilidade.
                     </S.PilaresText>
                     <br />
                     <S.SubItenList>Diversidade:</S.SubItenList>
                     <S.PilaresText>
-                      Promover iniciativas que representem a riqueza cultural, ambiental e social do Brasil.
-                      Valorizar tradições, práticas locais e inovações que destacam a pluralidade do país.
+                      Promover iniciativas que representem a riqueza cultural, ambiental e social.<br />
+                      Valorizar tradições, práticas locais e inovações que destacam a pluralidade do país.<br />
                       Priorizar projetos de diferentes regiões e contextos (ex.: comunidades indígenas, rurais e urbanas).
                     </S.PilaresText>
                     <br />
                     <S.SubItenList>Inspiração:</S.SubItenList>
                     <S.PilaresText>
-                      Motivar novas ideias e iniciativas, mostrando histórias de sucesso e impacto social real.
-                      Criar um ciclo de inovação social ao expor projetos que transformam.
+                      Motivar novas ideias e iniciativas, mostrando histórias de sucesso e impacto social real.<br />
+                      Criar um ciclo de inovação social ao expor projetos que transformam.<br />
                       Ter uma seção de “Histórias que Inspiram” para compartilhar o impacto concreto de projetos cadastrados.
                     </S.PilaresText>
                   </S.PilaresList>
@@ -210,7 +210,7 @@ const AboutUs: React.FC = () => {
             NOSSA MISSÃO É SIMPLES!
           </S.BigIconCardTitle>
           <S.BigIconText>
-            Mostrar ao mundo iniciativas que inspiram, educam e conectam.
+            Mostrar ao mundo iniciativas que <strong>inspiram, educam e conectam.</strong>
           </S.BigIconText>
         </S.BigIconCard>
       </S.BigIconCardContainer>
@@ -343,13 +343,13 @@ const AboutUs: React.FC = () => {
               culturais e ambientais, a plataforma
               contribui para a preservação de
               tradições, histórias e práticas que
-              refletem a diversidade do Brasil.
+              refletem a diversidade.
             </S.CheckCardText>
           </S.MidCardTextContainer>
         </S.MidCard1>
       </S.MidCardSection1>
       <S.MainContainer>
-        <S.PilaresListContainer>
+        <S.PilaresListContainer1>
           <S.PilaresListLine1 />
           <S.PilaresListItensContainer>
             <S.PilaresTitleContainer>
@@ -394,7 +394,7 @@ const AboutUs: React.FC = () => {
               </S.PilaresTextContainer>
             </S.PilaresCard1>
           </S.PilaresListItensContainer>
-        </S.PilaresListContainer>
+        </S.PilaresListContainer1>
       </S.MainContainer>
       <S.ButtonContainer onClick={() => handleProjetoClick('/Projetos')}>
         <S.FinalButton>
