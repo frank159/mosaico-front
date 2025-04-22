@@ -1,9 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useLayoutEffect } from "react";
 import * as S from "./LuzCameraEcoAcaoStyled";
 import Footer from "../../components/footer/footer";
 import ContactSection from "../../components/contactComponente/contactComponente";
 
 const logoEcoacao = require("../../assets/images/logo/ecoação.png");
+const logoFuncao = require("../../assets/images/logo/logoFuncao.png");
 const localizacao = require("../../assets/images/icons/localizacao.png");
 const barco = require("../../assets/images/icons/barco.png");
 const folha = require("../../assets/images/icons/folha.png");
@@ -26,15 +27,30 @@ const cooperativa = require("../../assets/images/logo/cooperativaLogo.png");
 
 const LuzCameraEcoAcaoPage: React.FC = () => {
   const handleClick = () => {
-    window.location.href = "https://www.graciosapictures.com";
+    window.open("https://www.graciosapictures.com", "_blank");
   };
+  const Card3Ref = useRef<HTMLDivElement>(null);
   const checkCardRef = useRef<HTMLDivElement>(null);
   const checkCard2Ref = useRef<HTMLDivElement>(null);
   const CardRef = useRef<HTMLDivElement>(null);
 
+  const [isMobile, setIsMobile] = useState(false);
   const [checkCardWidth, setCheckCardWidth] = useState(0);
   const [checkCard2Width, setCheckCard2Width] = useState(0);
   const [cardWidth, setCardWidth] = useState(0);
+  const [Card3Width, setCard3Width] = useState(0);
+
+
+  const handleImageLoad = () => {
+    if (Card3Ref.current) {
+      setCard3Width(Card3Ref.current.clientHeight);
+    }
+  };
+
+  useEffect(() => {
+    console.log("window.innerWidth <= 768", window.innerWidth <= 768)
+    setIsMobile(window.innerWidth <= 768);
+  }, [])
 
   useEffect(() => {
     if (checkCardRef.current) {
@@ -45,6 +61,9 @@ const LuzCameraEcoAcaoPage: React.FC = () => {
     }
     if (CardRef.current) {
       setCardWidth(CardRef.current.clientWidth);
+    }
+    if (Card3Ref.current) {
+      setCard3Width(Card3Ref.current.clientWidth);
     }
   }, []);
 
@@ -193,7 +212,7 @@ const LuzCameraEcoAcaoPage: React.FC = () => {
         <S.BigCardContainer>
           <S.BigCard>
             <S.BigCardTextContainer>
-            <S.BigIconTextCard>!</S.BigIconTextCard>
+              <S.BigIconTextCard>!</S.BigIconTextCard>
               <S.BigCardTitle>
                 COM UM PÚBLICO ESPERADO DE 700 A 900 PESSOAS POR DIA
               </S.BigCardTitle>
@@ -213,8 +232,8 @@ const LuzCameraEcoAcaoPage: React.FC = () => {
       </S.QuarSecao>
       <S.QuinSecao>
         <S.QuinSecaoContainer>
-          <S.Card3>
-            <S.Card3Img src={homero} />
+          <S.Card3 ref={Card3Ref}>
+            <S.Card3Img src={homero} onLoad={handleImageLoad} />
             <S.Card3Title>Homero Camargo</S.Card3Title>
             <S.Card3Text>
               Homero Camargo é um produtor de cinema brasileiro com mais de 35
@@ -237,7 +256,7 @@ const LuzCameraEcoAcaoPage: React.FC = () => {
                 A Frente Fria que a Chuva Traz (Direção: Neville D’Almeida)
               </li>
               <li>
-              Navalha na Carne
+                Navalha na Carne
               </li>
             </S.SubTextCard3>
             <S.Card3Text>
@@ -275,7 +294,7 @@ const LuzCameraEcoAcaoPage: React.FC = () => {
               <br />
             </S.Card4Section>
           </S.Card3>
-          <S.Card3>
+          <S.Card3 style={{ height: `${Card3Width}px` }}>
             <S.Card3Img src={bruna} />
             <S.Card3Title>Bruna Madsen</S.Card3Title>
             <S.Card3Text>
@@ -288,7 +307,7 @@ const LuzCameraEcoAcaoPage: React.FC = () => {
               Sua carreira é marcada pela paixão pela inovação e pela excelência na execução de projetos de impacto cultural e social.
               Conversas com a jovem Isabella Camargo, sua filha, foram fundamentais para a criação deste projeto, somando a sua expertise em desenvolver soluções criativas contribuíram para a criação do evento “Luz, Câmera, EcoAÇÃO” elaborando ações que combinem arte, natureza e bem-estar, promovendo a conexão com o meio ambiente e o impacto positivo nas pessoas, estimulando a saúde mental por meio de práticas artísticas sustentáveis.            </S.Card3Text>
           </S.Card3>
-          <S.Card3>
+          <S.Card3 style={{ height: `${Card3Width}px` }}>
             <S.Card3Img src={PalomaFoto} />
             <S.Card3Title>Paloma Vogt</S.Card3Title>
             <S.Card3Text>
@@ -327,21 +346,18 @@ const LuzCameraEcoAcaoPage: React.FC = () => {
             </S.ContactInfoContainer>
             <S.Card4Section>
               <S.Card4Logo>
-                <S.Card4LogoImg width="25%" src={graciosa1} />
+                <S.Card4LogoImg width="35%" src={graciosa1} />
               </S.Card4Logo>
               <S.ButtonCard onClick={handleClick}>
                 Saiba Mais
               </S.ButtonCard>
               <S.Card4Logo>
-                <S.LogoFundacao>
-                  logotipo
-                  <br />
-                  fundação
-                </S.LogoFundacao>
+                <S.Card4LogoImg width="35%" src={logoFuncao} />
               </S.Card4Logo>
               <S.ButtonCard onClick={handleClick}>
                 Saiba Mais
               </S.ButtonCard>
+              <br />
             </S.Card4Section>
           </S.Card3>
         </S.QuinSecaoContainer>
@@ -353,7 +369,9 @@ const LuzCameraEcoAcaoPage: React.FC = () => {
         buttonColor="#141c16"
         imageUrl={baquinho} // Substitua pela sua imagem
       />
-      <Footer />
+      {!isMobile && (
+        <Footer />
+      )}
     </S.MainContainer>
   );
 };

@@ -12,7 +12,7 @@ const impactoS = require("../../assets/images/icons/impacto social.png")
 const producao = require("../../assets/images/icons/producao e resultados.png")
 const reconhecimento = require("../../assets/images/icons/reconhecimento.png")
 const esclamacao = require('../../assets/images/icons/esclamacao.png');
-const estrutura = require("../../assets/images/icons/estrutura.png")
+const estrutura = require("../../assets/images/icons/LOTUS BRANCO.png")
 const localizacao = require("../../assets/images/icons/localizacao.png")
 const clacket = require("../../assets/images/img/clacket.png")
 const ft1 = require("../../assets/images/img/ft1.jpg")
@@ -29,26 +29,55 @@ const ft11 = require("../../assets/images/img/ft11.jpg")
 const img2 = require('../../assets/images/img/boat2.jpg');
 const img88 = require("../../assets/images/img/img88.png")
 const coruja = require('../../assets/images/logo/coruja-pn.png');
-const video1 = require('../../assets/videos/video1.mp4');
-const video2 = require('../../assets/videos/video2.mp4');
+const video1 = require('../../assets/videos/filmesCeep/video1.mp4');
+const video2 = require('../../assets/videos/filmesCeep/video2.mp4');
+const video3 = require('../../assets/videos/filmesCeep/CONTADORHISTORIAS.mp4');
+const video4 = require('../../assets/videos/filmesCeep/DESPERTANDOREALIDADE.mp4');
+const video5 = require('../../assets/videos/filmesCeep/ILHAPERDIDA.mp4');
+const video6 = require('../../assets/videos/filmesCeep/NADAAPAGAAMOR.mp4');
+const video7 = require('../../assets/videos/filmesCeep/redencao.mp4');
+const video8 = require('../../assets/videos/filmesCeep/resgate.mp4');
+const caseCeepa = require('../../assets/videos/filmesCeep/caseCeepa.mp4');
+const globoReporter = require('../../assets/videos/filmesCeep/globoReporter.mp4');
 
+interface Video {
+  id: number;
+  title: string;
+  src: string;
+  thumbnail: string; // Adicione esta linha
+}
 
 const School: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [current, setCurrent] = useState(0);
+  const [selectedVideo, setSelectedVideo] = useState<Video | null>(null);
 
   const videos = [
-    { id: 1, title: "Filme - Terror Songo Ou Realidade", src: video1 },
-    { id: 2, title: "Filme - Tropas e Boiadas", src: video2 },
+    { id: 1, title: "Terror, Sonho Ou Realidade", src: video1, thumbnail: require('../../assets/thumbnails/video1-thumb.png') },
+    { id: 2, title: "Tropas e Boiadas", src: video2, thumbnail: require('../../assets/thumbnails/video1-thumb.png') },
+    { id: 3, title: "O Contador de Histórias", src: video3, thumbnail: require('../../assets/thumbnails/video1-thumb.png') },
+    { id: 4, title: "Despertar para Realidade", src: video4, thumbnail: require('../../assets/thumbnails/video1-thumb.png') },
+    { id: 5, title: "Ilha Perdida", src: video5, thumbnail: require('../../assets/thumbnails/video1-thumb.png') },
+    { id: 6, title: "Nada Apaga o Amor", src: video6, thumbnail: require('../../assets/thumbnails/video1-thumb.png') },
+    { id: 7, title: "Redenção", src: video7, thumbnail: require('../../assets/thumbnails/video1-thumb.png') },
+    { id: 8, title: "O Resgate", src: video8, thumbnail: require('../../assets/thumbnails/video1-thumb.png') },
   ];
 
-  const nextVideo = () => {
-    setCurrent((prev) => (prev === videos.length - 1 ? 0 : prev + 1));
-  };
-
-  const prevVideo = () => {
-    setCurrent((prev) => (prev === 0 ? videos.length - 1 : prev - 1));
-  };
+  // Adicione esta constante após a declaração de 'videos'
+  const reportVideos = [
+    {
+      id: 9,
+      title: "Case Ceepa",
+      src: globoReporter, 
+      thumbnail: require('../../assets/thumbnails/ceepaCaseImg.png')
+    },
+    {
+      id: 10,
+      title: "Globo reporter",
+      src: caseCeepa,
+      thumbnail: require('../../assets/thumbnails/globoreporter.png')
+    },
+  ];
 
   useEffect(() => {
     console.log("window.innerWidth <= 768", window.innerWidth <= 768)
@@ -58,7 +87,6 @@ const School: React.FC = () => {
   return (
     <S.Container>
       <S.InicialSecao>
-        {/* <S.LogoEcoacao src={logoEcoacao} alt="logoEcoacao" /> */}
         <S.TitleSectio>
           <S.TitleInicial>
             CEEPA
@@ -80,21 +108,176 @@ const School: React.FC = () => {
       <S.TextImgCardMain>
         <S.TextImgCard>
           <S.TextCard>
-            O Centro de Educação e Produção Audiovisual do Paraná foi
-            um projeto piloto realizado em Tibagi, Paraná, que utilizou o
-            cinema e a comunicação como ferramentas de transformação
-            social.
+            O Centro de Educação e Produção Audiovisual do Paraná foi um projeto piloto realizado em Tibagi, Paraná, Brasil que utilizou o
+            cinema e a comunicação como ferramentas de transformação social.
             <br />
             <br />
-            A iniciativa teve como foco adolescentes de 12 a 16 anos
-            da rede pública de ensino, promovendo uma formação
-            cultural, técnica e cidadã.
-          </S.TextCard>
+
+            A iniciativa teve como foco adolescentes de 12 a 16 anos da rede pública de ensino, promovendo uma formação cultural que resultou na produção de 8 filmes organizados pelos próprios alunos.          </S.TextCard>
           <S.ImgCard>
             <S.CardImgProjetoB src={img88} />
           </S.ImgCard>
         </S.TextImgCard>
       </S.TextImgCardMain>
+
+      <S.MainTitle>filmes produzidos pelos alunos</S.MainTitle>
+      <S.VideoContainer>
+        <S.VideoGrid>
+          {videos.map((video) => (
+            <S.VideoCard key={video.id} onClick={() => setSelectedVideo(video)}>
+              <S.VideoThumbnail>
+                <ReactPlayer
+                  url={video.src}
+                  width="100%"
+                  height="100%"
+                  light={true} // Adicione uma thumbnail aqui se quiser
+                />
+              </S.VideoThumbnail>
+              <S.VideoCardTitle>• {video.title}</S.VideoCardTitle>
+            </S.VideoCard>
+          ))}
+        </S.VideoGrid>
+
+        <AnimatePresence>
+          {selectedVideo && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              style={{
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                backgroundColor: 'rgba(0,0,0,0.9)',
+                zIndex: 999,
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+              onClick={() => setSelectedVideo(null)}
+            >
+              <motion.div
+                initial={{ scale: 0.8 }}
+                animate={{ scale: 1 }}
+                exit={{ scale: 0.8 }}
+                style={{
+                  width: '80%',
+                  maxWidth: '1200px',
+                  position: 'relative' // Adicione esta linha
+                }}
+                onClick={(e) => e.stopPropagation()}
+              >
+                <div style={{ position: 'relative', width: '100%' }}>
+                  <ReactPlayer
+                    url={selectedVideo.src}
+                    width="100%"
+                    height="auto"
+                    controls
+                    playing={!!selectedVideo}
+                  />
+                </div>
+
+                <S.CloseButton onClick={() => setSelectedVideo(null)}>
+                  ×
+                </S.CloseButton>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </S.VideoContainer>
+      <S.MainTitle>fotos da pré e pós produção</S.MainTitle>
+      <S.Galeria>
+        <S.ImgContainer>
+          <S.Img src={ft1} />
+        </S.ImgContainer>
+        <S.ImgContainer>
+          <S.Img src={ft2} />
+        </S.ImgContainer>
+        <S.ImgContainer>
+          <S.Img src={ft3} />
+        </S.ImgContainer>
+        <S.ImgContainer>
+          <S.Img src={ft4} />
+        </S.ImgContainer>
+        <S.ImgContainer>
+          <S.Img src={ft5} />
+        </S.ImgContainer>
+        <S.ImgContainer>
+          <S.Img src={ft6} />
+        </S.ImgContainer>
+        <S.ImgContainer>
+          <S.Img src={ft7} />
+        </S.ImgContainer>
+        <S.ImgContainer>
+          <S.Img src={ft8} />
+        </S.ImgContainer>
+        <S.ImgContainer>
+          <S.Img src={ft9} />
+        </S.ImgContainer>
+        <S.ImgContainer>
+          <S.Img src={ft10} />
+        </S.ImgContainer>
+        <S.ImgContainer>
+          <S.Img src={ft11} />
+        </S.ImgContainer>
+        <S.ImgContainer>
+          <S.Img src={ft11} />
+        </S.ImgContainer>
+      </S.Galeria>
+      <S.MainTitle>Reportagens sobre o ceepa</S.MainTitle><S.ReportVideoContainer>
+        <S.ReportVideoGrid>
+          {reportVideos.map((video) => (
+            <S.ReportVideoCard key={video.id} onClick={() => setSelectedVideo(video)}>
+              <S.VideoCardTitle>• {video.title}</S.VideoCardTitle>
+              <S.VideoThumbnail>
+                <img
+                  src={video.thumbnail}
+                  alt={video.title}
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover'
+                  }}
+                />
+              </S.VideoThumbnail>
+            </S.ReportVideoCard>
+          ))}
+        </S.ReportVideoGrid>
+      </S.ReportVideoContainer>
+      <S.LinhaHorizontal />
+      <S.MainTitle>organização</S.MainTitle>
+      <S.OrganisationCard>
+        <p>
+          <strong>Silvana Fontana</strong> – produtora
+        </p>
+        <p>
+          <strong>Homero Camargo</strong> – produtor
+        </p>
+        <p>
+          <strong>Claudio Portiolli</strong> – fotógrafo
+        </p>
+        <p>
+          <strong>Frank de Castro</strong> – montador
+        </p>
+        <p>
+          <strong>Marcio Jacovani</strong> – som
+        </p>
+        <p>
+          <strong>Zinho Oliveira</strong> – assistente de produção
+        </p>
+        <p>
+          <strong>Sandro Alves</strong> – assistente de produção
+        </p>
+        <p>
+          <strong>Ubirajara Gouveia</strong> – assistente de produção
+        </p>
+        <p>
+          <strong>Marylena Bukowski</strong> – diretora de arte
+        </p>
+      </S.OrganisationCard>
+      <S.LinhaHorizontal />
       <S.Body>
         <S.BodyListCardContainer>
           <S.BodyListCard>
@@ -205,81 +388,14 @@ const School: React.FC = () => {
                 <S.CardText>
                   <S.StyledListItem>
                     Audiovisual e Comunicação, com três laboratórios principais:<br />
+                    Produção e Criação, Imagem, Áudio
                   </S.StyledListItem>
-                  Produção e Criação, Imagem, Áudio
                 </S.CardText>
               </S.CardContent>
             </S.Card>
           </S.BodyListCard>
         </S.BodyListCardContainer>
-        <S.Faixa>
-          <S.Esclamacao src={esclamacao} />
-          <S.FaixaText>
-            Um dos grandes desafios será construir um network mundial linkado com universidades.<br />
-            Uma inspiradora rede.
-          </S.FaixaText>
-        </S.Faixa>
       </S.Body>
-      <S.Galeria>
-        <S.Img src={ft1} />
-        <S.Img src={ft2} />
-        <S.Img src={ft3} />
-        <S.Img src={ft4} />
-        <S.Img src={ft5} />
-        <S.Img src={ft6} />
-        <S.Img src={ft7} />
-        <S.Img src={ft8} />
-        <S.Img src={ft9} />
-        <S.Img src={ft10} />
-        <S.Img src={ft11} />
-      </S.Galeria>
-      <S.VideoContainer>
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={videos[current].id}
-            layout
-            initial={{ opacity: 0, x: 100 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -100 }}
-            transition={{ duration: 0.5 }}
-            style={{ display: 'flex', justifyContent: 'start', width: '100%' }}
-          >
-          </motion.div>
-        </AnimatePresence>
-
-        <S.VideoWrapper>
-          <S.VideoTitle>• {videos[current].title}</S.VideoTitle>
-          <S.ButtonContainer>
-            <S.NavButton onClick={prevVideo} className="left">
-              <S.ArrowLeft />
-            </S.NavButton>
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={videos[current].id}
-                layout
-                initial={{ opacity: 0, x: 100 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -100 }}
-                transition={{ duration: 0.5 }}
-                style={{ height: '100%' }}
-              >
-                <S.VideoWrapperA>
-                  <ReactPlayer
-                    url={videos[current].src}
-                    width="90%"
-                    height="auto"
-                    controls
-                  />
-                </S.VideoWrapperA>
-              </motion.div>
-            </AnimatePresence>
-            <S.NavButton onClick={nextVideo} className="right">
-              <S.ArrowRight />
-            </S.NavButton>
-          </S.ButtonContainer>
-        </S.VideoWrapper>
-      </S.VideoContainer>
-      <Footer />
     </S.Container>
   );
 };

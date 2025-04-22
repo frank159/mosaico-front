@@ -353,7 +353,6 @@ export const ButtonContainer = styled.div`
   width: 100%;
   background-color: rgba(102, 112, 77, 0.10);
   height: 20vh;
-  margin-bottom: 2vh;
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -125,9 +125,9 @@ export const TitleA = styled.h1`
 export const TextoA = styled.p`
   line-height: 1;
   margin-top: 1rem !important;
-  @media (max-width: 768px) {
+  /* @media (max-width: 768px) {
     font-size: 1.4rem !important;
-  }
+  } */
 `;
 
 export const ContainerRightA = styled.div`
@@ -155,7 +155,7 @@ export const ImgFotoA = styled.img`
   }
 `;
 
-export const RightTextA = styled.h1`
+export const RightTextA = styled.h2`
   font-weight: lighter;
   margin-top: 2rem !important;
   width: 100%;
@@ -206,8 +206,8 @@ export const ImageWrapper = styled.div`
     width: 100%;
     display: flex;
     justify-content: end;
-    border-top: 1px solid #3B3B3B;
-    border-bottom: 1px solid #3B3B3B;
+    border-top: 1px solid #3b3b3b78;
+    border-bottom: 1px solid #3b3b3b78;
     @media (max-width: 1224px) {
         border-bottom: none;
         border-top: none;
@@ -286,7 +286,7 @@ export const SmallImageContainer = styled.div`
   height: 100vh;
   padding-right: 3vw;
   margin-top: -1%;
-  border-right: 1px solid #3B3B3B;
+  border-right: 1px solid #3b3b3b78;
   
   @media (max-width: 1224px) {
     width: 50%;
@@ -316,7 +316,7 @@ export const SmallImageText = styled.h1`
   font-weight: lighter;
   margin-top: 2rem;
   width: 100%;
-  color: #2f2f2f;
+  color: #ffffff21;
   text-align: start;
   line-height: 1;
 
@@ -500,7 +500,114 @@ export const CarouselContainer = styled.div`
 
 export const Title = styled.h1`
   color: white;
-  margin-top: 10vh !important;
+  width: 100%;
+  text-align: start;
   margin-bottom: 4vh !important;
-  margin-left: 2vh !important;
+  margin-left: 8vh !important;
+`;
+
+// Adicione estes estilos no arquivo CooperativaStyled.tsx
+export const MoviesContainer = styled.div`
+  width: 100%;
+  background-repeat: repeat-y;
+  background-size: contain;
+  background-position: center;
+  background-image: url(${require("../../assets/images/img/camerafundohomero.png")});
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  padding-top: 10vh;
+  padding-bottom: 10vh;
+`;
+
+export const MoviesGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  width: 70%;
+  position: relative;
+  @media (max-width: 1224px) {
+    width: 90%;
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    padding: 2rem;
+  }
+`;
+
+export const MovieCard = styled.div`
+  background-color: #222020d8;
+  padding: 1rem;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url(${require("../../assets/images/img/camerafundohomero.png")});
+    opacity: 0.1;
+    z-index: -1;
+  }
+`;
+
+export const MovieImage = styled.img`
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  margin-bottom: 1.5rem;
+`;
+
+export const MovieTitle = styled.h2`
+  margin-bottom: 2rem !important;
+  text-align: center;
+`;
+
+export const MovieDescription = styled.p`
+  font-size: 1rem;
+  margin-bottom: 1.5rem !important;
+  border-left: 4px solid #00000034;
+  padding-left: 1rem;
+`;
+
+export const ButtonContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  @media (max-width: 1224px) {
+    height: auto;
+  }
+`;
+
+export const MovieButton = styled(Button)`
+  background-color: #FCA827 !important;
+  color: #000000 !important;
+  border-radius: 3px !important;
+  text-transform: none !important;
+  width: 30% !important;
+  margin-top: auto !important;
+  font-family: 'Arsenal', sans-serif !important;
+  @media (max-width: 1224px) {
+    width: 40% !important;
+  }
+`;
+
+export const LinhaHorizontal = styled.div`
+  width: auto;
+  height: 1px;
+  background-color: #3b3b3b78; /* Cor da linha */
+  margin-left: 5rem;
+  margin-right: 5rem;
+  margin-bottom: 5rem;
 `;

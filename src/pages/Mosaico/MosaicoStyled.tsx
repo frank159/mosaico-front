@@ -1,4 +1,5 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes, css } from 'styled-components'; // Adicione a importação do css
+import { motion } from 'framer-motion';
 
 interface Props {
   backgroundImage?: string;
@@ -26,7 +27,6 @@ export const Seta = styled.div`
   z-index: 1111; /* Define a camada acima do vídeo */
 `;
 
-
 export const FullScreenVideo = styled.video`
   opacity: 0.7;
   width: 100%;
@@ -46,11 +46,10 @@ export const ColorOverlay = styled.div`
 
 export const LogoImg = styled.img`
   width: 40vw;
-  
+
   @media (max-width: 768px) {
     width: 90vw;
   }
-
 `;
 
 export const BackImg = styled.img`
@@ -65,14 +64,16 @@ export const SetaImg = styled.img`
   height: 40px;
   transition: 0.3s;
 
-  &:hover{
+  &:hover {
     cursor: pointer;
     transition: 0.3s;
     transform: scale(1.4);
   }
 `;
 
-export const TitleLogo = styled.div``;
+export const TitleLogo = styled.div`
+  position: relative;
+`;
 
 export const Line = styled.div`
   width: 0.7rem; /* Define a largura da linha */
@@ -133,7 +134,6 @@ export const BackgroundImage = styled.div<Props>`
   z-index: 0; /* Garante que a imagem fique atrás dos outros conteúdos */
 `;
 
-
 export const SectionTextCard = styled.div`
   color: #C2CFB4;
   font-family: 'Montserrat', sans-serif;
@@ -164,24 +164,22 @@ export const IconteTextContainer = styled.div`
 export const SectionTitle = styled.div`
   font-size: 2.2rem;
   font-weight: bolder;
-  
-  `;
+`;
 
 export const SectionText = styled.div`
-font-size: 1.5rem;
-font-weight: lighter;
-letter-spacing: 0.05em;
-
+  font-size: 1.5rem;
+  font-weight: lighter;
+  letter-spacing: 0.05em;
 `;
 
 export const BigIconImgCard = styled.img`
-    width: 7.5vh;
-    position: relative;
-    top: -10px; /* Ajuste a altura desejada */
+  width: 7.5vh;
+  position: relative;
+  top: -10px; /* Ajuste a altura desejada */
 `;
 
 export const CardContainer = styled.div`
-padding: 2rem;
+  padding: 2rem;
 `;
 
 export const PageCardContainer = styled.div`
@@ -211,13 +209,12 @@ export const SetaImgPlus = styled.img`
   height: 40px;
   transition: 0.3s;
 
-  &:hover{
+  &:hover {
     cursor: pointer;
     transition: 0.3s;
     transform: scale(1.4);
   }
 `;
-
 
 const pulseAnimation = keyframes`
   0%, 100% {
@@ -339,8 +336,8 @@ export const SubTitle = styled.div`
 
 export const IconCard = styled.div`
   margin-right: 3px;
-
 `;
+
 export const IconCard2 = styled.div`
   color: #74b102;
   margin-right: 3px;
@@ -367,13 +364,10 @@ export const FaixaTilteBigText = styled.div`
   z-index: 1000;
 `;
 
-
-export const FaixaLogoMosaicoContainer = styled.div`
-`;
+export const FaixaLogoMosaicoContainer = styled.div``;
 
 export const FaixaLogoMosaico = styled.img`
   height: 2rem;
-
 `;
 
 export const EsclamacaoFaixa = styled.div`
@@ -387,3 +381,73 @@ export const Escaclamacao = styled.img`
   filter: invert(1);
 `;
 
+const vibrate = keyframes`
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(2deg); }
+  50% { transform: rotate(-2deg); }
+  75% { transform: rotate(2deg); }
+  100% { transform: rotate(0deg); }
+`;
+
+const fadeIn = keyframes`
+  from { opacity: 0; }
+  to { opacity: 1; }
+`;
+
+const fadeOut = keyframes`
+  from { opacity: 1; }
+  to { opacity: 0; }
+`;
+
+const spin = keyframes`
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+`;
+
+export const LogoImgA = styled.img<{ $isPlaying: boolean; $blur?: boolean }>`
+  width: 7vw;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 27%;
+  transition: filter 0.3s ease;
+
+  ${props => props.$isPlaying && css`
+    animation: ${spin} 5s linear infinite;
+  `}
+  ${props => props.$blur && css`
+    filter: blur(2px);
+  `}
+
+  @media (max-width: 768px) {
+    width: 15vw;
+  }
+`;
+
+export const LogoContainer = styled.div`
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 27%;
+  cursor: pointer;
+
+  /* &:hover ${LogoImgA} {
+    filter: blur(2px);
+  } */
+`;
+export const PlayPauseIcon = styled.div<{ $isVisible: boolean, isMobileVisible: boolean }>`
+  opacity: ${props => {
+    if (!props.isMobileVisible) {
+      return props.$isVisible ? 1 : 0;
+    }
+    return (props.$isVisible && props.isMobileVisible) ? 1 : 0;
+  }};
+  transition: opacity ${props => props.isMobileVisible ? '1s' : '0.3s'} ease-in-out;
+  ${props => props.isMobileVisible && props.$isVisible && css`
+    animation: ${fadeIn} 1s ease-in-out, ${fadeOut} 1s ease-in-out 1s forwards;
+  `}
+`;

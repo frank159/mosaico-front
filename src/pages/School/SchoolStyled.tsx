@@ -14,7 +14,7 @@ export const Container = styled.div`
     justify-content: center;
     align-items: center;
     width: auto;
-    overflow-x: hidden
+    overflow: hidden
 `;
 
 export const TESTE = styled.div`
@@ -70,11 +70,6 @@ export const FinalContainer = styled.div`
   align-items: center;
   justify-content: center;
 `;
-
-export const ImgContainer = styled.div`
-
-`;
-
 
 interface Props {
   src?: string;
@@ -147,7 +142,7 @@ export const BodyListCardContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20vh;
+  margin-top: 10vh;
   @media (max-width: 1224px) {
     margin-top: 0;
   }
@@ -163,7 +158,7 @@ export const BodyListCard = styled.div`
 export const Card = styled.div`
   width: 50vw;
   height: 17vh;
-  margin-bottom: 10vh;
+  margin-bottom: 20vh;
   color: #000000;
   border-radius: 10px;
   padding: 2rem;
@@ -172,7 +167,7 @@ export const Card = styled.div`
   justify-content: center;
   align-items: start;
   @media (max-width: 1224px) {
-    width: auto;
+    width: 90vw;
     height: auto;
   }
   
@@ -201,11 +196,9 @@ export const CardTitleContainer = styled.div`
 
 export const TitleCard = styled.h1`
   font-weight: bolder;
-
 `;
 
-export const SUbText = styled.div`
-  font-size: 1.3rem;
+export const SUbText = styled.p`
 `;
 
 export const CardContent = styled.div`
@@ -242,7 +235,6 @@ export const CardIconImg = styled.img`
 
 export const CardText = styled.div`
 margin-left: 1rem;
-font-size: 1.3rem;
 width: 100% !important;
 `;
 
@@ -287,46 +279,138 @@ export const TextFinalContainer = styled.div`
 `;
 
 export const Galeria = styled.div`
-  display: flex;
-  padding: 5rem;
-  gap: 2rem;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  width: 70%; // Alterado para 70% da largura
+  margin: 0 auto; // Centraliza o container
+  padding: 2rem 0; // Ajuste no padding
   background-color: #E4EBDD;
+  margin-bottom: 5rem;
+
+  @media (max-width: 1224px) {
+    width: 85%; // Aumenta a porcentagem em telas menores
+    grid-template-columns: repeat(2, 1fr);
+    
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 1600px) {
+    max-width: 1200px; // Limita a largura máxima
+  }
 `;
 
 export const Img = styled.img`
-  width: 25rem;
-  transition: 0.8s;
-  z-index: 10;
-
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  aspect-ratio: 1/1; /* Mantém proporção quadrada */
+  
   &:hover {
-    transition: 0.5s;
-    transform: scale(1.05);
+    transform: scale(1.03);
+    z-index: 2;
   }
 
-  @media (max-width: 1224px) {
-    margin-top: 2rem;
-    align-items: start;
-    flex-direction: column;
-    width: 20rem;
+  @media (max-width: 768px) {
+    aspect-ratio: 16/9; /* Proporção mais larga em mobile */
+  }
+`;
+
+export const ImgContainer = styled.div`
+  position: relative;
+  overflow: hidden;
+  
+  &:hover {
+    img {
+      transform: scale(1.05);
+    }
   }
 `;
 
 export const VideoContainer = styled.div`
-  position: relative;
-  height: auto;
+  width: 100%;
+  padding: 4rem;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: start;
-  margin-bottom: 6vh;
-  `;
+  justify-content: center;
+  margin-bottom: 5rem;
+`;
 
-  export const VideoWrapper = styled.div`
+export const VideoGrid = styled.div`
+  display: grid;
+  width: 80%;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin: 0 auto;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+export const VideoCard = styled.div`
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+`;
+
+export const VideoThumbnail = styled.div`
+  position: relative;
+  padding-top: 56.25%; // Proporção 16:9
+  background: #000;
+
+  // Adicione esta parte
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  & > div {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+`;
+
+export const VideoCardTitle = styled.div`
+  padding-bottom: 1.5rem;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #000000;
+  
+`;
+
+export const CloseButton = styled.button`
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: opacity 0.3s;
+
+  &:hover {
+    opacity: 0.8;
+  }
+`;
+
+export const VideoWrapper = styled.div`
   width: 100%;
   height: 80%;
   display: flex;
@@ -594,6 +678,7 @@ export const TextImgCardMain = styled.div`
   padding-right: 7rem;
   justify-content: end;
   align-items: center;
+  margin-bottom: 25vh;
 `;
 
 export const TextImgCard = styled.div`
@@ -665,10 +750,8 @@ export const ImgCard = styled.div`
     position: absolute; /* Permite que a borda fique fixa na viewport */
     right: 0;
     top: -60px; /* Faz a borda "vazar" um pouco para cima */
-    height: 500vh; /* Ocupa a altura total da viewport */
-    @media (max-width: 1224px) {
-      height: 1200vh; /* Ocupa a altura total da viewport */
-  }
+    height: 120vh; /* Ocupa a altura total da viewport */
+
     width: 2px;
     background: #C6BAAF;
     z-index: 0; /* Garante que fique sobre outros elementos, se necessário */
@@ -691,10 +774,9 @@ padding-top: 1rem !important;
   }
 `;
 
-export const StyledListItem = styled.li`
+export const StyledListItem = styled.p`
   list-style: none; /* Remove o marcador padrão */
   position: relative;
-  font-size: 1.4rem !important;
   padding-left: 1.2em; /* Espaço para o marcador customizado */
   padding-right: 2rem;
   &::before {
@@ -704,4 +786,68 @@ export const StyledListItem = styled.li`
     top: 0;
     /* Ajuste o 'top' para alinhar verticalmente se necessário */
   }
+`;
+
+// Adicione estas linhas no final do seu arquivo de estilos
+export const ReportVideoContainer = styled.div`
+  width: 100%;
+  padding: 4rem;
+  background-color: #E4EBDD;
+  margin-bottom: 5rem;
+
+`;
+
+export const ReportVideoGrid = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+`;
+
+export const ReportVideoCard = styled.div`
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  overflow: hidden;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+`;
+
+export const MainTitle = styled.h1`
+  width: 100%;
+  text-align: left;
+  padding-left: 12rem;
+  padding-bottom: 3rem;
+
+  @media (max-width: 1224px) {
+    padding-left: 3rem !important;
+  }
+`;
+
+export const OrganisationCard = styled.ul`
+  width: 100%;
+  text-align: left;
+  padding-left: 17rem;
+  padding-bottom: 3rem;
+  
+  @media (max-width: 1224px) {
+    width: 85%;
+    padding-left: 1rem !important;
+  }
+`;
+
+export const LinhaHorizontal = styled.div`
+  width: 90%;
+  height: 2px;
+  background-color: #C6BAAF; /* Cor da linha */
+  margin: 1rem 0;
+  margin-bottom: 5rem;
 `;

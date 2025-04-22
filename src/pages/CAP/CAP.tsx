@@ -59,7 +59,7 @@ const School: React.FC = () => {
     <S.Container>
       <S.TitleContainer>
         <S.TitleContant>
-          <S.ImgLogo src={capFundoBranco} />
+          <S.ImgLogo src={capLogo} />
           <S.TitleSection>
             <S.DivTitle>
               CAP
@@ -74,11 +74,11 @@ const School: React.FC = () => {
         <S.BodyListCardContainer>
           <S.Card>
             <S.CardContent>
-                {!isMobile && (
+              {!isMobile && (
                 <S.CardIcon>
                   <S.CardIconImg src={maoGlobo} />
                 </S.CardIcon>
-                )}
+              )}
               <S.CardText>
                 O Centro Audiovisual do Pr desenvolve projetos voltados para educação audiovisual, seja na realização de
                 oficinas de criação e produção em si, como também na produção de conteúdo de entreterimento com forte
@@ -92,9 +92,9 @@ const School: React.FC = () => {
         </S.TitleBigImg>
 
         <S.BigImgContainerA>
-            {isMobile && (
+          {isMobile && (
             <S.LineDescriptionA style={{ height: `calc(${lineHeight} * 1.05)` }} />
-            )}
+          )}
           <S.BigImgContainer ref={bigImgContainerRef}>
             <S.TextBigImgContainer>
               <S.TextBigImg>
@@ -122,7 +122,7 @@ const School: React.FC = () => {
                 <S.IconTextBigImgContainer>
                   <S.IconBigImgCard src={localPreto} />
                   <S.TextBigImgCard>
-                    Sediada na cidade de Ventania - PR
+                    Sediada Campos Gerais - PR
                   </S.TextBigImgCard>
                 </S.IconTextBigImgContainer>
               </S.IconTextBigImgContainerListB>
@@ -158,7 +158,7 @@ const School: React.FC = () => {
                 <h2>2024</h2>
                 <p>A Filmjoin foi player nos eventos: CINEPITCHING, rodada de negócios de audiovisual, em agosto, São Paulo DOC-SP – Rodada de negócios audiovisual, em outubro, São Paulo</p>
               </S.ListItem>
-              <S.ListItemLinkCard>
+              <S.ListItemLinkCard href='https://www.filmjoin.com.br' target="_blank" rel="noopener noreferrer">
                 https://www.filmjoin.com.br/
               </S.ListItemLinkCard>
               <S.ListFloatingCard>
@@ -243,8 +243,9 @@ const School: React.FC = () => {
           </S.CapLogoList>
         </S.ProjetosContainer>
       </S.Body>
-
-      <Footer />
+      {!isMobile && (
+        <Footer />
+      )}
     </S.Container>
   );
 };

@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from 'react';
 import * as S from './AboutUsStyled';
 import TextComponent from '../text/text';
+import Footer from '../../components/footer/footer';
 
 const mosaicoLogo = require('../../assets/images/logo/mosaicoLogo1.png');
 const esclamacao = require('../../assets/images/icons/esclamacao.png');
@@ -67,7 +68,7 @@ const AboutUs: React.FC = () => {
       return '40vw';
     }
   };
-  
+
   const getWidthA = () => {
     if (window.innerWidth <= 768) {
       return '80vw';
@@ -77,21 +78,21 @@ const AboutUs: React.FC = () => {
       return '70vw';
     }
   };
-  
+
   return (
-    <div style={{backgroundColor: '#C2CFB4'}}>
+    <div style={{ backgroundColor: '#C2CFB4' }}>
       <S.MainContainer>
         <S.VectorImage isMobile={OpacityPin} src={pinheiro} alt="pinheiro" />
         <S.SubTitleContainer>
           <S.ContainerTitleA>
             <S.SecaoInicialIcon src={aspas} />
             <S.SubTitleText>
-              <TextComponent children={'O Mosaico é uma vitrine para expor'} type={'h1'}/>
+              <TextComponent children={'O Mosaico é uma vitrine para expor'} type={'h1'} />
             </S.SubTitleText>
           </S.ContainerTitleA>
           <S.SubTitleText>
-            <TextComponent children={'projetos sociais e culturais'} type={'h1'}/>
-            <TextComponent children={'de todas as áreas!'} type={'h1'}/>
+            <TextComponent children={'projetos sociais e culturais'} type={'h1'} />
+            <TextComponent children={'de todas as áreas!'} type={'h1'} />
 
           </S.SubTitleText>
         </S.SubTitleContainer>
@@ -120,7 +121,7 @@ const AboutUs: React.FC = () => {
               <S.LogoImg src={mosaicoLogo} alt="mosaicoLogo" />
             </S.TitleLogo1>
             <S.TitleText2>
-              <TextComponent children={'CRIAMOS UM ESPAÇO ONDE PROJETOS PODEM BRILHAR!'} type={'h1'}/>
+              <TextComponent children={'CRIAMOS UM ESPAÇO ONDE PROJETOS PODEM BRILHAR!'} type={'h1'} />
             </S.TitleText2>
           </S.TitleContainer1>
           <S.SubTextContainer>
@@ -222,49 +223,49 @@ const AboutUs: React.FC = () => {
         <S.CheckCardsContainer>
           <S.CheckCard width={`${checkCardAWidth}px`}>
 
-          <S.CheckCard1 style={{ height: `${checkCardHeight}px` }}  >
-            <S.CheckCardTitleContainer>
-              <S.CheckCardIcon />
-              <S.CheckCardTextTitle>
-                Baixa visibilidade
-              </S.CheckCardTextTitle>
-            </S.CheckCardTitleContainer>
-            <S.CheckCardText>
-              Muitas iniciativas incríveis permanecem
-              desconhecidas devido à falta de plataformas
-              adequadas para divulgação.
-            </S.CheckCardText>
-          </S.CheckCard1>
+            <S.CheckCard1 style={{ height: `${checkCardHeight}px` }}  >
+              <S.CheckCardTitleContainer>
+                <S.CheckCardIcon />
+                <S.CheckCardTextTitle>
+                  Baixa visibilidade
+                </S.CheckCardTextTitle>
+              </S.CheckCardTitleContainer>
+              <S.CheckCardText>
+                Muitas iniciativas incríveis permanecem
+                desconhecidas devido à falta de plataformas
+                adequadas para divulgação.
+              </S.CheckCardText>
+            </S.CheckCard1>
           </S.CheckCard>
           <S.CheckCard width={`${checkCardAWidth}px`} >
-          <S.CheckCard1 style={{ height: `${checkCardHeight}px` }} >
-            <S.CheckCardTitleContainer>
-              <S.CheckCardIcon />
-              <S.CheckCardTextTitle>
-                Dificuldade de legitimação
-              </S.CheckCardTextTitle>
-            </S.CheckCardTitleContainer>
-            <S.CheckCardText>
-              Sem uma vitrine confiável, os projetos
-              têm dificuldade de demonstrar credibilidade
-              e atrair apoiadores.
-            </S.CheckCardText>
-          </S.CheckCard1>
+            <S.CheckCard1 style={{ height: `${checkCardHeight}px` }} >
+              <S.CheckCardTitleContainer>
+                <S.CheckCardIcon />
+                <S.CheckCardTextTitle>
+                  Dificuldade de legitimação
+                </S.CheckCardTextTitle>
+              </S.CheckCardTitleContainer>
+              <S.CheckCardText>
+                Sem uma vitrine confiável, os projetos
+                têm dificuldade de demonstrar credibilidade
+                e atrair apoiadores.
+              </S.CheckCardText>
+            </S.CheckCard1>
           </S.CheckCard>
           <S.CheckCard ref={checkCardARef}>
-          <S.CheckCard1 ref={checkCardRef}>
-            <S.CheckCardTitleContainer>
-              <S.CheckCardIcon />
-              <S.CheckCardTextTitle>
-                Conexão limitada com o público-alvo
-              </S.CheckCardTextTitle>
-            </S.CheckCardTitleContainer>
-            <S.CheckCardText>
-              Projetos transformadores não alcançam
-              as comunidades ou audiências que poderiam se
-              beneficiar diretamente de suas ações.
-            </S.CheckCardText>
-          </S.CheckCard1>
+            <S.CheckCard1 ref={checkCardRef}>
+              <S.CheckCardTitleContainer>
+                <S.CheckCardIcon />
+                <S.CheckCardTextTitle>
+                  Conexão limitada com o público-alvo
+                </S.CheckCardTextTitle>
+              </S.CheckCardTitleContainer>
+              <S.CheckCardText>
+                Projetos transformadores não alcançam
+                as comunidades ou audiências que poderiam se
+                beneficiar diretamente de suas ações.
+              </S.CheckCardText>
+            </S.CheckCard1>
           </S.CheckCard>
         </S.CheckCardsContainer>
         <S.TitleContainer>
@@ -277,41 +278,41 @@ const AboutUs: React.FC = () => {
         </S.TitleContainer>
       </S.FinalContainer>
 
-        <S.MidCardSection>
-          <S.MidCard style={{ height: `${maxHeight}px`, width: getWidthA() }}>
-            <S.MidCardTextContainer ref={el => midCardRefs.current[0] = el!} style={{ width: getWidth() }}>
-              <S.CheckCardTitleContainer>
-                <S.CheckCardIcon2 />
-                <S.CheckCardTextTitleA>
-                  Exposição e Credibilidade
-                </S.CheckCardTextTitleA>
-              </S.CheckCardTitleContainer>
-              <S.CheckCardText>
-                O Mosaico funciona como uma vitrine
-                confiável e profissional, ajudando
-                projetos a ganharem reconhecimento.
-              </S.CheckCardText>
-            </S.MidCardTextContainer>
-          </S.MidCard>
-        </S.MidCardSection>
+      <S.MidCardSection>
+        <S.MidCard style={{ height: `${maxHeight}px`, width: getWidthA() }}>
+          <S.MidCardTextContainer ref={el => midCardRefs.current[0] = el!} style={{ width: getWidth() }}>
+            <S.CheckCardTitleContainer>
+              <S.CheckCardIcon2 />
+              <S.CheckCardTextTitleA>
+                Exposição e Credibilidade
+              </S.CheckCardTextTitleA>
+            </S.CheckCardTitleContainer>
+            <S.CheckCardText>
+              O Mosaico funciona como uma vitrine
+              confiável e profissional, ajudando
+              projetos a ganharem reconhecimento.
+            </S.CheckCardText>
+          </S.MidCardTextContainer>
+        </S.MidCard>
+      </S.MidCardSection>
 
-        <S.MidCardSection1>
-          <S.MidCard1 style={{ height: `${maxHeight}px`, width: getWidthA() }}>
-            <S.MidCardTextContainer ref={el => midCardRefs.current[1] = el!} style={{ width: getWidth() }}>
-              <S.CheckCardTitleContainer>
-                <S.CheckCardIcon2 />
-                <S.CheckCardTextTitleA>
-                  Amplo Alcance
-                </S.CheckCardTextTitleA>
-              </S.CheckCardTitleContainer>
-              <S.CheckCardText>
-                Oferece um espaço digital para conectar iniciativas
-                a pessoas e organizações interessadas em apoiá-las
-                ou promovê-las.
-              </S.CheckCardText>
-            </S.MidCardTextContainer>
-          </S.MidCard1>
-        </S.MidCardSection1>
+      <S.MidCardSection1>
+        <S.MidCard1 style={{ height: `${maxHeight}px`, width: getWidthA() }}>
+          <S.MidCardTextContainer ref={el => midCardRefs.current[1] = el!} style={{ width: getWidth() }}>
+            <S.CheckCardTitleContainer>
+              <S.CheckCardIcon2 />
+              <S.CheckCardTextTitleA>
+                Amplo Alcance
+              </S.CheckCardTextTitleA>
+            </S.CheckCardTitleContainer>
+            <S.CheckCardText>
+              Oferece um espaço digital para conectar iniciativas
+              a pessoas e organizações interessadas em apoiá-las
+              ou promovê-las.
+            </S.CheckCardText>
+          </S.MidCardTextContainer>
+        </S.MidCard1>
+      </S.MidCardSection1>
       <S.MidCardSection>
         <S.MidCard style={{ height: `${maxHeight}px`, width: getWidthA() }}>
           <S.MidCardTextContainer ref={el => midCardRefs.current[2] = el!} style={{ width: getWidth() }}>
@@ -401,6 +402,9 @@ const AboutUs: React.FC = () => {
           Conheça nossos Projetos
         </S.FinalButton>
       </S.ButtonContainer>
+      {!isMobile && (
+        <Footer isMosaico={true}/>
+      )}
     </div>
   );
 };
