@@ -26,25 +26,14 @@ const ft8 = require("../../assets/images/img/ft8.jpg")
 const ft9 = require("../../assets/images/img/ft9.jpg")
 const ft10 = require("../../assets/images/img/ft10.jpg")
 const ft11 = require("../../assets/images/img/ft11.jpg")
-const img2 = require('../../assets/images/img/boat2.jpg');
 const img88 = require("../../assets/images/img/img88.png")
 const coruja = require('../../assets/images/logo/coruja-pn.png');
-const video1 = require('../../assets/videos/filmesCeep/video1.mp4');
-const video2 = require('../../assets/videos/filmesCeep/video2.mp4');
-const video3 = require('../../assets/videos/filmesCeep/CONTADORHISTORIAS.mp4');
-const video4 = require('../../assets/videos/filmesCeep/DESPERTANDOREALIDADE.mp4');
-const video5 = require('../../assets/videos/filmesCeep/ILHAPERDIDA.mp4');
-const video6 = require('../../assets/videos/filmesCeep/NADAAPAGAAMOR.mp4');
-const video7 = require('../../assets/videos/filmesCeep/redencao.mp4');
-const video8 = require('../../assets/videos/filmesCeep/resgate.mp4');
-const caseCeepa = require('../../assets/videos/filmesCeep/caseCeepa.mp4');
-const globoReporter = require('../../assets/videos/filmesCeep/globoReporter.mp4');
 
 interface Video {
   id: number;
   title: string;
   src: string;
-  thumbnail: string; // Adicione esta linha
+  thumbnail: string;
 }
 
 const School: React.FC = () => {
@@ -53,28 +42,51 @@ const School: React.FC = () => {
   const [selectedVideo, setSelectedVideo] = useState<Video | null>(null);
 
   const videos = [
-    { id: 1, title: "Terror, Sonho Ou Realidade", src: video1, thumbnail: require('../../assets/thumbnails/video1-thumb.png') },
-    { id: 2, title: "Tropas e Boiadas", src: video2, thumbnail: require('../../assets/thumbnails/video1-thumb.png') },
-    { id: 3, title: "O Contador de Histórias", src: video3, thumbnail: require('../../assets/thumbnails/video1-thumb.png') },
-    { id: 4, title: "Despertar para Realidade", src: video4, thumbnail: require('../../assets/thumbnails/video1-thumb.png') },
-    { id: 5, title: "Ilha Perdida", src: video5, thumbnail: require('../../assets/thumbnails/video1-thumb.png') },
-    { id: 6, title: "Nada Apaga o Amor", src: video6, thumbnail: require('../../assets/thumbnails/video1-thumb.png') },
-    { id: 7, title: "Redenção", src: video7, thumbnail: require('../../assets/thumbnails/video1-thumb.png') },
-    { id: 8, title: "O Resgate", src: video8, thumbnail: require('../../assets/thumbnails/video1-thumb.png') },
+    { id: 1,
+      title: "Terror, Sonho Ou Realidade", 
+      src: 'https://drive.google.com/file/d/1QMaW7l3G1__7kw33PQqcaQFgRipO8olM/view?usp=drive_link', 
+      thumbnail: require('../../assets/thumbnails/video1-thumb.png') },
+    { id: 2,
+      title: "Tropas e Boiadas", 
+      src: 'https://drive.google.com/file/d/1V8SrwhPqYcShTa71YDaV7gl72kc8t-LI/view?usp=drive_link', 
+      thumbnail: require('../../assets/thumbnails/video1-thumb.png') },
+    { id: 3,
+      title: "O Contador de Histórias", 
+      src: 'https://drive.google.com/file/d/1n15wTYtX_Zie-k1A61R3tdvdVaDPHsuf/view?usp=drive_link', 
+      thumbnail: require('../../assets/thumbnails/video1-thumb.png') },
+    { id: 4,
+      title: "Despertar para Realidade", 
+      src: 'https://drive.google.com/file/d/1PhgZ9yeT-KquEGV_ZIMMqhblKXIhHesV/view?usp=drive_link', 
+      thumbnail: require('../../assets/thumbnails/video1-thumb.png') },
+    { id: 5,
+      title: "Ilha Perdida", 
+      src: 'https://drive.google.com/file/d/1TI4pH-xp1h2X9Wn5XAmu0UNrEqGzPAIu/view?usp=drive_link', 
+      thumbnail: require('../../assets/thumbnails/video1-thumb.png') },
+    { id: 6,
+      title: "Nada Apaga o Amor", 
+      src: 'https://drive.google.com/file/d/1yIQ_DZmqO8EshD6cZwUWTCOJDQbz7hxk/view?usp=drive_link', 
+      thumbnail: require('../../assets/thumbnails/video1-thumb.png') },
+    { id: 7,
+      title: "Redenção", 
+      src: 'https://drive.google.com/file/d/12siUuNetOhiGkodvy_XS3974Lne7JER0/view?usp=drive_link', 
+      thumbnail: require('../../assets/thumbnails/video1-thumb.png') },
+    { id: 8,
+      title: "O Resgate", 
+      src: 'https://drive.google.com/file/d/1dR5_H982tcI5vBKhtFEVShYx1BYbMAuf/view?usp=drive_link', 
+      thumbnail: require('../../assets/thumbnails/video1-thumb.png') },
   ];
 
-  // Adicione esta constante após a declaração de 'videos'
   const reportVideos = [
     {
       id: 9,
       title: "Case Ceepa",
-      src: globoReporter, 
+      src: 'https://drive.google.com/file/d/1BzeZCYJgX-sVk6zqTHMHb0RlULS3_5KA/view?usp=drive_link',
       thumbnail: require('../../assets/thumbnails/ceepaCaseImg.png')
     },
     {
       id: 10,
       title: "Globo reporter",
-      src: caseCeepa,
+      src: 'https://drive.google.com/file/d/1Nr7e_w7VzVcW4frKW3XUbGoh15xb4-Le/view?usp=drive_link',
       thumbnail: require('../../assets/thumbnails/globoreporter.png')
     },
   ];
@@ -126,11 +138,14 @@ const School: React.FC = () => {
           {videos.map((video) => (
             <S.VideoCard key={video.id} onClick={() => setSelectedVideo(video)}>
               <S.VideoThumbnail>
-                <ReactPlayer
-                  url={video.src}
+                <iframe
+                  src={video.src.replace('/view?usp=drive_link', '/preview')}
                   width="100%"
                   height="100%"
-                  light={true} // Adicione uma thumbnail aqui se quiser
+                  allow="autoplay; encrypted-media"
+                  allowFullScreen
+                  style={{ border: 0 }}
+                  title={video.title}
                 />
               </S.VideoThumbnail>
               <S.VideoCardTitle>• {video.title}</S.VideoCardTitle>
@@ -165,17 +180,19 @@ const School: React.FC = () => {
                 style={{
                   width: '80%',
                   maxWidth: '1200px',
-                  position: 'relative' // Adicione esta linha
+                  position: 'relative'
                 }}
                 onClick={(e) => e.stopPropagation()}
               >
                 <div style={{ position: 'relative', width: '100%' }}>
-                  <ReactPlayer
-                    url={selectedVideo.src}
+                  <iframe
+                    src={selectedVideo.src.replace('/view?usp=drive_link', '/preview')}
                     width="100%"
-                    height="auto"
-                    controls
-                    playing={!!selectedVideo}
+                    height="500px"
+                    allow="autoplay; encrypted-media"
+                    allowFullScreen
+                    style={{ border: 0 }}
+                    title={selectedVideo.title}
                   />
                 </div>
 
@@ -226,7 +243,8 @@ const School: React.FC = () => {
           <S.Img src={ft11} />
         </S.ImgContainer>
       </S.Galeria>
-      <S.MainTitle>Reportagens sobre o ceepa</S.MainTitle><S.ReportVideoContainer>
+      <S.MainTitle>Reportagens sobre o ceepa</S.MainTitle>
+      <S.ReportVideoContainer>
         <S.ReportVideoGrid>
           {reportVideos.map((video) => (
             <S.ReportVideoCard key={video.id} onClick={() => setSelectedVideo(video)}>
@@ -246,6 +264,55 @@ const School: React.FC = () => {
           ))}
         </S.ReportVideoGrid>
       </S.ReportVideoContainer>
+      <AnimatePresence>
+        {selectedVideo && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            style={{
+              position: 'fixed',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              backgroundColor: 'rgba(0,0,0,0.9)',
+              zIndex: 999,
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}
+            onClick={() => setSelectedVideo(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.8 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.8 }}
+              style={{
+                width: '80%',
+                maxWidth: '1200px',
+                position: 'relative'
+              }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div style={{ position: 'relative', width: '100%' }}>
+                <iframe
+                  src={selectedVideo.src.replace('/view?usp=drive_link', '/preview')}
+                  width="100%"
+                  height="500px"
+                  allow="autoplay; encrypted-media"
+                  allowFullScreen
+                  style={{ border: 0 }}
+                  title={selectedVideo.title}
+                />
+              </div>
+              <S.CloseButton onClick={() => setSelectedVideo(null)}>
+                ×
+              </S.CloseButton>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
       <S.LinhaHorizontal />
       <S.MainTitle>organização</S.MainTitle>
       <S.OrganisationCard>

@@ -365,23 +365,11 @@ export const VideoCard = styled.div`
 
 export const VideoThumbnail = styled.div`
   position: relative;
-  padding-top: 56.25%; // Proporção 16:9
   background: #000;
+  height: 50vh;
 
-  // Adicione esta parte
-  img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  & > div {
-    position: absolute;
-    top: 0;
-    left: 0;
+  iframe {
+    pointer-events: none;
   }
 `;
 
