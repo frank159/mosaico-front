@@ -3,8 +3,8 @@ import * as S from "./MosaicoStyled";
 import { motion } from 'framer-motion';
 
 // Assets
-import video from "../../assets/videos/voo.mp4";
-import videoMobile from "../../assets/videos/vooMobile.mp4";
+// import video from "../../assets/videos/voo.mp4";
+// import videoMobile from "../../assets/videos/vooMobile.mp4";
 import audioFile from "../../assets/musica.mp3";
 import PauseIcon from '@mui/icons-material/Pause';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
@@ -167,7 +167,7 @@ const MosaicoPage: React.FC = () => {
     </S.Seta>
     <S.VideoWrapper>
       <S.FullScreenVideo ref={videoRef} autoPlay loop muted>
-        <source src={isMobile ? videoMobile : video} type="video/mp4" />
+        <source src={isMobile ? '/videos/vooMobile.mp4' : '/videos/voo.mp4'} type="video/mp4" />
         Your browser does not support the video tag.
       </S.FullScreenVideo>
     </S.VideoWrapper>

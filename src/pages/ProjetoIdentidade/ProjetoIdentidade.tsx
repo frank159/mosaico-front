@@ -1,17 +1,14 @@
 import { text } from 'd3';
 import * as S from './ProjetoIdentidadeStyled';
-import React, { useState, useRef, useEffect } from 'react';
-import { motion, useMotionValue, useAnimationFrame } from "motion/react"; // ou "framer-motion" conforme sua lib
+import React, { useState } from 'react';
+import { motion } from "motion/react"; // ou "framer-motion" conforme sua lib
 import ReactPlayer from 'react-player';
 
-const HomeroFoto = require("../../assets/images/img/homero.png")
-const cameraCoop = require("../../assets/images/img/cameraCoop.png")
 const idProgeto = require("../../assets/images/img/idProgeto.png")
 const BRASILDeSAINT = require("../../assets/images/img/BRASILDeSAINT.png")
 const cooperativa111 = require("../../assets/images/img/cooperativa111.png")
 const tropeiro = require("../../assets/images/img/tropeiro.png")
-const cooperativaLogo = require("../../assets/images/logo/cooperativaLogo.png")
-const video1 = require('../../assets/videos/filme1.mp4');
+const video1 = '/videos/filme1.mp4';
 
 const SAO_GONÇALO1 = require('../../assets/images/img/SAO_GONÇALO1.png');
 const SAO_GONÇALO2 = require('../../assets/images/img/SAO_GONÇALO2.png');
