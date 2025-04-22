@@ -11440,7 +11440,7 @@ voronoi-diagram@^1.0.1:
 
 "voronoi@https://github.com/gorhill/Javascript-Voronoi.git":
   version "1.0.0"
-  resolved "git+ssh://git@github.com/gorhill/Javascript-Voronoi.git#3fe2165aed14d3424398e04bccb120f68114eab5"
+  resolved "git+https://github.com/gorhill/Javascript-Voronoi.git#3fe2165aed14d3424398e04bccb120f68114eab5"
 
 w3c-hr-time@^1.0.2:
   version "1.0.2"
