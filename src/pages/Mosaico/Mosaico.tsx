@@ -167,7 +167,7 @@ const MosaicoPage: React.FC = () => {
     </S.Seta>
     <S.VideoWrapper>
       <S.FullScreenVideo ref={videoRef} autoPlay loop muted>
-        <source src={isMobile ? '/videos/vooMobile.mp4' : '/videos/voo.mp4'} type="video/mp4" />
+        <source src={isMobile ? '/videos/vooMobile.webm' : '/videos/voo.webm'} type="video/mp4" />
         Your browser does not support the video tag.
       </S.FullScreenVideo>
     </S.VideoWrapper>
