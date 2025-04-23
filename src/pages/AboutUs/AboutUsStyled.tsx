@@ -267,7 +267,6 @@ export const BigIconCardContainer = styled.div`
 export const FinalContainer = styled.div`
   position: relative; /* Adicionado para criar um novo contexto de empilhamento */
   padding-top: 6vh;
-  background-color: #c2cfb4;
   z-index: 1111111111111;
   padding: 80px 80px 0 80px;
 

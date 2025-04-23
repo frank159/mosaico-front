@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Container, Element, Img, ShadowDiv } from "./HeaderStyled";
+import { Container, Element, Img } from "./HeaderStyled";
 import img2 from "../../assets/images/icons/mosaicoIconeMonoW.png";
 import img1 from "../../assets/images/logo/cooperativa.png";
-import img3 from "../../assets/images/icons/estrutura.png";
+// import img3 from "../../assets/images/icons/estrutura.png";
+import img3 from "../../assets/images/icons/LOTUS BRANCO.png";
 
 import { gsap } from "gsap";
 import { useNavigate, useLocation } from "react-router-dom";

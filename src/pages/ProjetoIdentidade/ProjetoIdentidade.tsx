@@ -152,7 +152,7 @@ const ProjetoIdentidade: React.FC = () => {
         <S.BigCard height='auto'>
           <S.TopSectionCard InvertCard={true}>
             <S.TextoAContinerBigCard>
-              <S.TitleA>PROJETO IDENTIDADE</S.TitleA>
+              <S.TitleA>SÃO GONÇALO</S.TitleA>
               <S.TextoA>
                 Direção: Berenice Mendes.<br />
                 Produção Executiva: Lu Rufalco.<br />

@@ -187,6 +187,7 @@ export const TitleB = styled.h1`
 export const TitleC = styled.h1`
   line-height: 1;
   width: 100%;
+  white-space: nowrap;
 `;
 
 export const BigCard = styled.div<Props>`
@@ -337,8 +338,8 @@ export const BodyC = styled.div`
   flex-direction: column;
 
   @media (max-width: 768px) {
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 `;
 
