@@ -8,7 +8,7 @@ const idProgeto = require("../../assets/images/img/idProgeto.png")
 const BRASILDeSAINT = require("../../assets/images/img/BRASILDeSAINT.png")
 const cooperativa111 = require("../../assets/images/img/cooperativa111.png")
 const tropeiro = require("../../assets/images/img/tropeiro.png")
-const video1 = '/videos/filme1.filme1';
+const video1 = '/videos/filme1.webm';
 
 const SAO_GONÇALO1 = require('../../assets/images/img/SAO_GONÇALO1.png');
 const SAO_GONÇALO2 = require('../../assets/images/img/SAO_GONÇALO2.png');
