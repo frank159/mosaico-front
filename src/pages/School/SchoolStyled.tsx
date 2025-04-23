@@ -696,19 +696,21 @@ export const TextImgCard = styled.div`
     z-index: 0;
   }
 
-  /* Borda de baixo: 40% da largura, alinhada à esquerda */
-  &::before {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 70%;
-    border-bottom: 2px solid #C6BAAF;
-    z-index: 0;
 
-    @media (max-width: 1224px) {
-    width: 100%;
-  }
+  @media (min-width: 768px) {
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 70%;
+      border-bottom: 2px solid #C6BAAF;
+      z-index: 0;
+  
+      @media (max-width: 1224px) {
+      width: 100%;
+    }
+    }
   }
 `;
 
@@ -716,8 +718,6 @@ export const ImgCard = styled.div`
   position: relative; /* Necessário para o posicionamento absoluto do ::before */
   height: 99%;
   width: 88%;
-
-
 
   /* Borda esquerda com pequenas extensões para cima e para baixo */
   /* Borda direita que não afeta os demais elementos */

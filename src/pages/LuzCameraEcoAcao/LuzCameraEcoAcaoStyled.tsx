@@ -530,6 +530,9 @@ export const MinCardText = styled.p`
   padding-left: 7rem;
   color: #ffffff;
   white-space: nowrap; /* Prevents text from breaking */
+  @media (max-width: 768px) {
+    padding: 6rem;
+  }
 `;
 
 export const MinCardText1 = styled.div`

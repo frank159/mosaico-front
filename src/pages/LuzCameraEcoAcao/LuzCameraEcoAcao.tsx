@@ -29,6 +29,9 @@ const LuzCameraEcoAcaoPage: React.FC = () => {
   const handleClick = () => {
     window.open("https://www.graciosapictures.com", "_blank");
   };
+  const handleClickA = () => {
+    window.open("https://www.dbkv-berlin.com/", "_blank");
+  };
   const Card3Ref = useRef<HTMLDivElement>(null);
   const checkCardRef = useRef<HTMLDivElement>(null);
   const checkCard2Ref = useRef<HTMLDivElement>(null);
@@ -354,7 +357,7 @@ const LuzCameraEcoAcaoPage: React.FC = () => {
               <S.Card4Logo>
                 <S.Card4LogoImg width="35%" src={logoFuncao} />
               </S.Card4Logo>
-              <S.ButtonCard onClick={handleClick}>
+              <S.ButtonCard onClick={handleClickA}>
                 Saiba Mais
               </S.ButtonCard>
               <br />
