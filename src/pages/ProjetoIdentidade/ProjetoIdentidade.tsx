@@ -3,8 +3,10 @@ import * as S from './ProjetoIdentidadeStyled';
 import React, { useState } from 'react';
 import { motion } from "motion/react"; // ou "framer-motion" conforme sua lib
 import ReactPlayer from 'react-player';
+import { useSearchParams } from 'react-router-dom';
 
-const idProgeto = require("../../assets/images/img/idProgeto.png")
+const idProgeto = require("../../assets/images/img/idIMg.jpg")
+const idProgetoDefault = require("../../assets/images/img/idProgeto.png")
 const BRASILDeSAINT = require("../../assets/images/img/BRASILDeSAINT.png")
 const cooperativa111 = require("../../assets/images/img/cooperativa111.png")
 const tropeiro = require("../../assets/images/img/tropeiro.png")
@@ -33,6 +35,10 @@ const saint11 = require('../../assets/images/img/saint11.PNG');
 
 
 const ProjetoIdentidade: React.FC = () => {
+  const [search] = useSearchParams();
+  const fromCooperativa = search.get('fromCooperativa') === 'true';
+  const mainImage = fromCooperativa ? idProgetoDefault : idProgeto;
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [galleryImages, setGalleryImages] = useState<string[]>([]);
   const [fullScreenImage, setFullScreenImage] = useState<string | null>(null);
@@ -98,7 +104,7 @@ const ProjetoIdentidade: React.FC = () => {
             </S.TextoAContiner>
           </S.ContainerLeftA>
           <S.ContainerRightA >
-            <S.ImgFoto src={idProgeto} />
+            <S.ImgFoto src={mainImage} />
           </S.ContainerRightA>
         </S.ContainerSubA>
         <S.SubContainer>

@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import Home from './pages/LuzCameraEcoAcao/LuzCameraEcoAcao';
 import School from './pages/School/School';
 import EscolaDigital from './pages/EscolaDigital/EscolaDigital';
@@ -16,20 +16,20 @@ import Tropicais from './pages/Tropicais/Tropicais';
 import CooperativaCurriculo from './pages/CooperativaCurriculo/CooperativaCurriculo';
 import EstadoResistencia from './pages/EstadoResistencia/EstadoResistencia';
 
-const App = () => {
-
+const App: React.FC = () => {
   return (
     <Router>
       <Header />
       <Routes>
         <Route path="/EcoAcao" element={<Home />} />
         <Route path="/Ceepa" element={<School />} />
-        <Route path="" element={<Mosaico />} />
+        <Route path="/" element={<Mosaico />} />
         <Route path="/Cooperativa" element={<Cooperativa />} />
         <Route path="/AboutUs" element={<AboutUs />} />
         <Route path="/Projetos" element={<Projetos />} />
         <Route path="/CAP" element={<CAP />} />
         <Route path="/Escola-Digital" element={<EscolaDigital />} />
+        {/* Rota ajustada para ler a prop via wrapper */}
         <Route path="/projeto-id" element={<ProjetoIdentidade />} />
         <Route path="/Ox-Xeretas" element={<OsXeretas />} />
         <Route path="/FrenteFria" element={<FrenteFria />} />
