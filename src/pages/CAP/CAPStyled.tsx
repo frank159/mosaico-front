@@ -447,11 +447,11 @@ export const ProjetosContainer = styled.div`
   flex-direction: row;
   padding-left: 8rem;
   padding-bottom: 4rem;
-
-  @media (max-width: 768px) {
+  @media (max-width: 1224px) {
     align-items: center;
+    padding-bottom: 2rem;
     padding-left: 2rem;
-    padding-right: 2rem;
+    padding-right: 0;
   }
 `;
 
@@ -1026,15 +1026,36 @@ margin-top: 3rem !important;
   }
 `;
 
-export const ListItemLinkCard = styled.a`
+export const ListItemLinkCard = styled.div`
+  /* faz o card encolher ao tamanho do conteúdo, mas nunca ultrapassar 100% da tela */
+  display: inline-block;
+  width: fit-content;
+  max-width: 100%;
+
+  /* permite quebra de palavras/linhas dentro do próprio card */
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-break: break-word;
+
   padding: 0.5rem 1rem;
-  background-color: #0075BF;
-  color: white;
-  font-size: 1rem;
-  width: min-content;
+  background-color: #0075bf;
+
+  /* margens conforme antes */
   margin-top: 1rem !important;
   margin-bottom: 3rem !important;
 `;
+
+export const ListItemLink = styled.a`
+  /* apenas garanta que texto também possa quebrar */
+  display: inline-block;
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-break: break-word;
+
+  color: white;
+  font-size: 1rem;
+`;
+
 
 export const CapLogo = styled.img`
   height: 60vh;
@@ -1048,18 +1069,23 @@ export const CapLogo = styled.img`
 `;
 
 export const CapLogoList = styled.ul`
+  width: 100%;
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
   flex-direction: column;
   position: relative;
+  align-items: center;
   justify-content: center;
   gap: 3rem;
   top: -2rem; /* Adjust position slightly above the logo */
   @media (max-width: 1224px) {
-    position: relative;
-    left: -100%;
+    height: 40vh;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
   }
 `;
 

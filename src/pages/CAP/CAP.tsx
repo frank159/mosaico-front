@@ -1,37 +1,56 @@
-import React, { useEffect, useRef, useState } from 'react';
-import * as S from "./CAPStyled"
-import Footer from '../../components/footer/footer';
-import { motion, AnimatePresence } from 'framer-motion';
-import ReactPlayer from 'react-player';
-import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
-import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+import React, { useEffect, useRef, useState } from "react";
+import * as S from "./CAPStyled";
+import Footer from "../../components/footer/footer";
+import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
+import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 
-const img3 = require('../../assets/images/img/comuni.png');
-const maoGlobo = require("../../assets/images/icons/maoGlobo.png")
-const ong = require("../../assets/images/icons/ong.png")
-const calendario = require("../../assets/images/icons/calendario.png")
-const localPreto = require("../../assets/images/icons/local preto.png")
-const esclamacao = require('../../assets/images/icons/esclamacao.png');
-const capFundoBranco = require('../../assets/images/logo/capFundoBranco.png');
-const filmeJoin = require('../../assets/images/logo/image 29.png');
-const capLogo = require('../../assets/images/logo/logotipo 5.png');
+const maoGlobo = require("../../assets/images/icons/maoGlobo.png");
+const ong = require("../../assets/images/icons/ong.png");
+const calendario = require("../../assets/images/icons/calendario.png");
+const localPreto = require("../../assets/images/icons/local preto.png");
+const esclamacao = require("../../assets/images/icons/esclamacao.png");
+const filmeJoin = require("../../assets/images/logo/image 29.png");
+const capLogo = require("../../assets/images/logo/logotipo 5.png");
 
 const School: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
-  const [current, setCurrent] = useState(0);
   const [isExpanded, setIsExpanded] = useState(false);
-  const [lineHeight, setLineHeight] = useState('0px');
+  const [lineHeight, setLineHeight] = useState("0px");
   const bigImgContainerRef = useRef<HTMLDivElement>(null);
 
   const listItems = [
-    { title: "2023", text: "A Filmjoin foi player nos eventos: RIO2C, evento de economia criativa, realizada em abril, Rio de Janeiro CINEPITCHING, rodada de negócios de audiovisual, em agosto, São Paulo FAM – Festival de Florianópolis, em setembro, Santa Catarina DOC-SP – Rodada de negócios audiovisual, em outubro, São Paulo." },
-    { title: "2022", text: "Incubação no EIT – Escritório de Inovação Tecnológica da UFMT. A Filmjoin foi player nos eventos: CINEPITCHING, rodada de negócios de audiovisual, em agosto DOC-SP – Rodada de negócios audiovisual, em outubro, São Paulo" },
-    { title: "2021", text: "Em 25 de janeiro foi formalizada como empresa de pequeno porte, CNPJ: 40.550.704/0001-52 Incubação no EIT – Escritório de Inovação Tecnológica da UFMT." },
-    { title: "2020", text: "Incubação no EIT – Escritório de Inovação Tecnológica da UFMT. Em 07 de abril, a marca Filmjoin é registrada no INPI." },
-    { title: "2019", text: "Incubação na Faster Capital, fundo de investimento de Dubai, Emirados Árabes. Incubação no EIT – Escritório de Inovação Tecnológica da UFMT. Contrato de consultoria com Camila Santo da Rizhoma LLC, do Vale do Silício, EUA. Recebe o apoio da Secretaria de Cultura e Economia Criativa do Estado de São Paulo. Participa do coworking do Sebrae-SP, no Palácio Campos Elíseos, em São Paulo. Recebe apoio da Fundação Cassiano Ricardo de São José dos Campos, Estado de Sâo Paulo. Selecionada como Startup convidada na Innovation Zone – da feira SET EXPO, em São Paulo, SP, pela participação foi premiada pela Amazon/AWS, com uma aceleração de 1 ano." },
-    { title: "2018", text: "Incubação no EIT – Escritório de Inovação Tecnológica da UFMT. Selecionada para o MIC-BR, mercado da indústria criativa do Brasil, realizada na cidade de São Paulo, com apoio da APEX - Agência Brasileira de Promoção de Exportações e Investimentos e Sebrae SP." },
-    { title: "2017", text: "O projeto “Cinema do bem”, é selecionado para o IDEAÇÃO, do MT Criativo, EIT – Escritório de Inovação Tecnológica da UFMT – Universidade Federal do Mato Grosso e Sebrae MT, programa de aceleração de ideia criativas, com duração de setembro a dezembro, onde nasceu a Filmjoin, uma plataforma TVOD-Transational Video On Demand, independente e interativa, de produção e exibição de filmes, séries e documentários. Em dezembro o site da plataforma é lançado no endereço https://www.filmjoin.com.br/" },
-    { title: "2016", text: "Eu tinha acabado de produzir o longa-metragem “Meu Amigo Hindu”, do Hector Babenco, e todas as previsões do lançamento foram frustradas e muito pouca gente viu o filme, e mais uma vez a sensação era de perda, perda da possibilidade de se conectar com o público e com isso poder ter recursos para continuar a produzir filmes. Essa frustação me fez partir para um ano sabático, porque eu precisava encontrar uma saída para a distribuição dos filmes que produzimos. De julho a outubro, ministrei o curso “Cinema é Inovação”, em Cuiabá-MT, onde discuto com os participantes a importância da inovação no processo produção audiovisual para obter sucesso de público e renda, depois segui para Brasília e para Alto Paraíso de Goiás, onde nasceu o projeto “Cinema do Bem”, o projeto era pensar uma formula de acabar com a dor da distribuição, e se comunicar direto com o público, uma forma de disponibilizar o conhecimento dos produtores, para todos e para o benefício de todos." },
+    {
+      title: "2023",
+      text: "A Filmjoin foi player nos eventos: RIO2C, evento de economia criativa, realizada em abril, Rio de Janeiro CINEPITCHING, rodada de negócios de audiovisual, em agosto, São Paulo FAM – Festival de Florianópolis, em setembro, Santa Catarina DOC-SP – Rodada de negócios audiovisual, em outubro, São Paulo.",
+    },
+    {
+      title: "2022",
+      text: "Incubação no EIT – Escritório de Inovação Tecnológica da UFMT. A Filmjoin foi player nos eventos: CINEPITCHING, rodada de negócios de audiovisual, em agosto DOC-SP – Rodada de negócios audiovisual, em outubro, São Paulo",
+    },
+    {
+      title: "2021",
+      text: "Em 25 de janeiro foi formalizada como empresa de pequeno porte, CNPJ: 40.550.704/0001-52 Incubação no EIT – Escritório de Inovação Tecnológica da UFMT.",
+    },
+    {
+      title: "2020",
+      text: "Incubação no EIT – Escritório de Inovação Tecnológica da UFMT. Em 07 de abril, a marca Filmjoin é registrada no INPI.",
+    },
+    {
+      title: "2019",
+      text: "Incubação na Faster Capital, fundo de investimento de Dubai, Emirados Árabes. Incubação no EIT – Escritório de Inovação Tecnológica da UFMT. Contrato de consultoria com Camila Santo da Rizhoma LLC, do Vale do Silício, EUA. Recebe o apoio da Secretaria de Cultura e Economia Criativa do Estado de São Paulo. Participa do coworking do Sebrae-SP, no Palácio Campos Elíseos, em São Paulo. Recebe apoio da Fundação Cassiano Ricardo de São José dos Campos, Estado de Sâo Paulo. Selecionada como Startup convidada na Innovation Zone – da feira SET EXPO, em São Paulo, SP, pela participação foi premiada pela Amazon/AWS, com uma aceleração de 1 ano.",
+    },
+    {
+      title: "2018",
+      text: "Incubação no EIT – Escritório de Inovação Tecnológica da UFMT. Selecionada para o MIC-BR, mercado da indústria criativa do Brasil, realizada na cidade de São Paulo, com apoio da APEX - Agência Brasileira de Promoção de Exportações e Investimentos e Sebrae SP.",
+    },
+    {
+      title: "2017",
+      text: "O projeto “Cinema do bem”, é selecionado para o IDEAÇÃO, do MT Criativo, EIT – Escritório de Inovação Tecnológica da UFMT – Universidade Federal do Mato Grosso e Sebrae MT, programa de aceleração de ideia criativas, com duração de setembro a dezembro, onde nasceu a Filmjoin, uma plataforma TVOD-Transational Video On Demand, independente e interativa, de produção e exibição de filmes, séries e documentários. Em dezembro o site da plataforma é lançado no endereço https://www.filmjoin.com.br/",
+    },
+    {
+      title: "2016",
+      text: "Eu tinha acabado de produzir o longa-metragem “Meu Amigo Hindu”, do Hector Babenco, e todas as previsões do lançamento foram frustradas e muito pouca gente viu o filme, e mais uma vez a sensação era de perda, perda da possibilidade de se conectar com o público e com isso poder ter recursos para continuar a produzir filmes. Essa frustação me fez partir para um ano sabático, porque eu precisava encontrar uma saída para a distribuição dos filmes que produzimos. De julho a outubro, ministrei o curso “Cinema é Inovação”, em Cuiabá-MT, onde discuto com os participantes a importância da inovação no processo produção audiovisual para obter sucesso de público e renda, depois segui para Brasília e para Alto Paraíso de Goiás, onde nasceu o projeto “Cinema do Bem”, o projeto era pensar uma formula de acabar com a dor da distribuição, e se comunicar direto com o público, uma forma de disponibilizar o conhecimento dos produtores, para todos e para o benefício de todos.",
+    },
   ];
 
   useEffect(() => {
@@ -43,13 +62,9 @@ const School: React.FC = () => {
       }
     };
     updateLineHeight();
-    window.addEventListener('resize', updateLineHeight);
-    return () => window.removeEventListener('resize', updateLineHeight);
+    window.addEventListener("resize", updateLineHeight);
+    return () => window.removeEventListener("resize", updateLineHeight);
   }, []);
-
-  const handleProjetoClick = (route: string) => {
-    window.location.href = route; // Abre a rota em uma nova aba
-  };
 
   const toggleExpand = () => {
     setIsExpanded(!isExpanded);
@@ -61,12 +76,8 @@ const School: React.FC = () => {
         <S.TitleContant>
           <S.ImgLogo src={capLogo} />
           <S.TitleSection>
-            <S.DivTitle>
-              CAP
-            </S.DivTitle>
-            <S.DivText>
-              (Centro Audiovisual do Paraná)
-            </S.DivText>
+            <S.DivTitle>CAP</S.DivTitle>
+            <S.DivText>(Centro Audiovisual do Paraná)</S.DivText>
           </S.TitleSection>
         </S.TitleContant>
       </S.TitleContainer>
@@ -80,32 +91,35 @@ const School: React.FC = () => {
                 </S.CardIcon>
               )}
               <S.CardText>
-                O Centro Audiovisual do Pr desenvolve projetos voltados para educação audiovisual, seja na realização de
-                oficinas de criação e produção em si, como também na produção de conteúdo de entreterimento com forte
-                engajamento educacional e temática de recuperação de floresta e reciclagem do lixo.
+                O Centro Audiovisual do Pr desenvolve projetos voltados para
+                educação audiovisual, seja na realização de oficinas de criação
+                e produção em si, como também na produção de conteúdo de
+                entreterimento com forte engajamento educacional e temática de
+                recuperação de floresta e reciclagem do lixo.
               </S.CardText>
             </S.CardContent>
           </S.Card>
         </S.BodyListCardContainer>
-        <S.TitleBigImg>
-          Sobre nós:
-        </S.TitleBigImg>
+        <S.TitleBigImg>Sobre nós:</S.TitleBigImg>
 
         <S.BigImgContainerA>
           {isMobile && (
-            <S.LineDescriptionA style={{ height: `calc(${lineHeight} * 1.05)` }} />
+            <S.LineDescriptionA
+              style={{ height: `calc(${lineHeight} * 1.05)` }}
+            />
           )}
           <S.BigImgContainer ref={bigImgContainerRef}>
             <S.TextBigImgContainer>
               <S.TextBigImg>
-                Trabalhamos com foco na comunicação com crianças e adolescentes, promovendo educação audiovisual empírica, onde os participantes<br />
-                aprendem sobre o processo criativo, com resultados concretos de produção audiovisual.
+                Trabalhamos com foco na comunicação com crianças e adolescentes,
+                promovendo educação audiovisual empírica, onde os participantes
+                <br />
+                aprendem sobre o processo criativo, com resultados concretos de
+                produção audiovisual.
               </S.TextBigImg>
             </S.TextBigImgContainer>
             <S.IconTextBigImgContainerList>
-              {!isMobile && (
-                <S.LineDescription />
-              )}
+              {!isMobile && <S.LineDescription />}
               <S.IconTextBigImgContainerListB>
                 <S.IconTextBigImgContainer>
                   <S.IconBigImgCard src={ong} />
@@ -115,9 +129,7 @@ const School: React.FC = () => {
                 </S.IconTextBigImgContainer>
                 <S.IconTextBigImgContainer>
                   <S.IconBigImgCard src={calendario} />
-                  <S.TextBigImgCard>
-                    Atua desde 2001
-                  </S.TextBigImgCard>
+                  <S.TextBigImgCard>Atua desde 2001</S.TextBigImgCard>
                 </S.IconTextBigImgContainer>
                 <S.IconTextBigImgContainer>
                   <S.IconBigImgCard src={localPreto} />
@@ -132,10 +144,14 @@ const School: React.FC = () => {
         <S.Faixa>
           <S.Esclamacao src={esclamacao} />
           <S.FaixaText>
-            O CAP funciona como um laboratório de novas ideias digitais, e oferece “HackAthon Digital”, que são eventos, que estimulam
-            a criação de novos conteúdos e produtos a partir de desafios de produção, onde profissionais, aspirantes e estudantes do
-            mercado tem oportunidade de transformar ideias de projetos de filmes, séries, games, em vídeo pilotos, com o objetivo de
-            antecipar a experiência digital dos fãs e aumentar as possibilidades de sucesso de seus projetos.
+            O CAP funciona como um laboratório de novas ideias digitais, e
+            oferece “HackAthon Digital”, que são eventos, que estimulam a
+            criação de novos conteúdos e produtos a partir de desafios de
+            produção, onde profissionais, aspirantes e estudantes do mercado tem
+            oportunidade de transformar ideias de projetos de filmes, séries,
+            games, em vídeo pilotos, com o objetivo de antecipar a experiência
+            digital dos fãs e aumentar as possibilidades de sucesso de seus
+            projetos.
           </S.FaixaText>
         </S.Faixa>
         <S.FloatingCard>
@@ -143,11 +159,16 @@ const School: React.FC = () => {
             <S.FloatingCardLogo src={filmeJoin} alt="FilmeJoin Logo" />
             Em parceria com a plataforma Filmjoin
           </S.TextFloatingCard>
-          <S.LinkFloatingCard href='https://www.filmjoin.com.br' target="_blank" rel="noopener noreferrer">
+          <S.LinkFloatingCard
+            href="https://www.filmjoin.com.br"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             www.filmjoin.com.br
           </S.LinkFloatingCard>
           <S.TextFloatingCard>
-            passamos a adotar temática ambiental, com estimulo para produção e exibição destes conteúdos.
+            passamos a adotar temática ambiental, com estimulo para produção e
+            exibição destes conteúdos.
           </S.TextFloatingCard>
           <S.TitleFloatingCard isExpanded={isExpanded}>
             CONHEÇA NOSSA TRAGETÓRIA
@@ -156,10 +177,20 @@ const School: React.FC = () => {
             <>
               <S.ListItem>
                 <h2>2024</h2>
-                <p>A Filmjoin foi player nos eventos: CINEPITCHING, rodada de negócios de audiovisual, em agosto, São Paulo DOC-SP – Rodada de negócios audiovisual, em outubro, São Paulo</p>
+                <p>
+                  A Filmjoin foi player nos eventos: CINEPITCHING, rodada de
+                  negócios de audiovisual, em agosto, São Paulo DOC-SP – Rodada
+                  de negócios audiovisual, em outubro, São Paulo
+                </p>
               </S.ListItem>
-              <S.ListItemLinkCard href='https://www.filmjoin.com.br' target="_blank" rel="noopener noreferrer">
-                https://www.filmjoin.com.br/
+              <S.ListItemLinkCard>
+                <S.ListItemLink
+                  href="https://www.filmjoin.com.br"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  https://www.filmjoin.com.br/
+                </S.ListItemLink>
               </S.ListItemLinkCard>
               <S.ListFloatingCard>
                 {listItems.map((item, index) => (
@@ -172,48 +203,63 @@ const School: React.FC = () => {
               <S.ListItemA>
                 <h2>2024</h2>
                 <p>
-                  <strong>•  Parceiro do projeto FILMJOIN http://filmjoin.com,</strong> uma plataforma digital inteligente,
-                  cuja rede de pessoas disponibilizam de forma colaborativa suas experiências, dados,
-                  informações, conhecimento e sabedoria para construir uma inteligência
-                  audiovisual! O JOIN é essa inteligência artificial que vai produzir resultados para que
-                  produtores façam filmes, séries e games cada vez mais do jeito que os fãs querem ver.
-                  A idealização é do parceiro produtor Johnny DiBartolo: o LaB ao cubo ou Lab3.
+                  <strong>
+                    • Parceiro do projeto FILMJOIN http://filmjoin.com,
+                  </strong>{" "}
+                  uma plataforma digital inteligente, cuja rede de pessoas
+                  disponibilizam de forma colaborativa suas experiências, dados,
+                  informações, conhecimento e sabedoria para construir uma
+                  inteligência audiovisual! O JOIN é essa inteligência
+                  artificial que vai produzir resultados para que produtores
+                  façam filmes, séries e games cada vez mais do jeito que os fãs
+                  querem ver. A idealização é do parceiro produtor Johnny
+                  DiBartolo: o LaB ao cubo ou Lab3.
                 </p>
                 <br />
                 <br />
                 <p>
-                  <strong>•  Em desenvolvimento – executivo do projeto IDENTIDADE –</strong> campos Gerais do Paraná –
-                  mostra/circulação de documentários, que vai passar por mais de 25 cidades
-                  paranaenses entre 2017 e 2018. Além das mostras, cada local visitado receberá o box
-                  com os três títulos de documentários. Uma proposta que resgata e reapresenta ao
-                  Paraná sua identidade.
+                  <strong>
+                    • Em desenvolvimento – executivo do projeto IDENTIDADE –
+                  </strong>{" "}
+                  campos Gerais do Paraná – mostra/circulação de documentários,
+                  que vai passar por mais de 25 cidades paranaenses entre 2017 e
+                  2018. Além das mostras, cada local visitado receberá o box com
+                  os três títulos de documentários. Uma proposta que resgata e
+                  reapresenta ao Paraná sua identidade.
                 </p>
                 <br />
                 <br />
                 <p>
-                  <strong>•  Produtora do longa-metragem Sumiços Delirantes,</strong> que terá 90 minutos finais, rodado
-                  basicamente em Curitiba e Rio de Janeiro, com uma equipe quase cem por cento
-                  paranaense, que traz uma proposta de linguagem inovadora (na fronteira entre ficção
-                  e documentário) com um cronograma de execução ágil, dinâmico e de baixo
-                  orçamento.
-                  A proposta é a direção compartilhada entre um diretor e ator de teatro e
-                  um diretor de cinema. Em desenvolvimento / captação de recursos.
+                  <strong>
+                    • Produtora do longa-metragem Sumiços Delirantes,
+                  </strong>{" "}
+                  que terá 90 minutos finais, rodado basicamente em Curitiba e
+                  Rio de Janeiro, com uma equipe quase cem por cento paranaense,
+                  que traz uma proposta de linguagem inovadora (na fronteira
+                  entre ficção e documentário) com um cronograma de execução
+                  ágil, dinâmico e de baixo orçamento. A proposta é a direção
+                  compartilhada entre um diretor e ator de teatro e um diretor
+                  de cinema. Em desenvolvimento / captação de recursos.
                 </p>
                 <br />
                 <br />
                 <p>
-                  <strong>•  Produtor do documentário Visões do Porto –</strong> história e estórias, 52 min, de autoria e
-                  direção de Silvana Fontana, sobre a vai falar da enorme riqueza histórico-cultural
-                  existente ao redor do Porto de Paranaguá, a partir de narrativas dos caiçaras,
-                  descendentes de índios, pescadores, dos trabalhadores, em contraste com os
-                  empresários, marinheiros, caminhoneiros. Gente de todo o modo, de toda a fala. Em
-                  desenvolvimento; Fará parte da proposta IDENTIDADE – litoral do Paraná
+                  <strong>• Produtor do documentário Visões do Porto –</strong>{" "}
+                  história e estórias, 52 min, de autoria e direção de Silvana
+                  Fontana, sobre a vai falar da enorme riqueza
+                  histórico-cultural existente ao redor do Porto de Paranaguá, a
+                  partir de narrativas dos caiçaras, descendentes de índios,
+                  pescadores, dos trabalhadores, em contraste com os
+                  empresários, marinheiros, caminhoneiros. Gente de todo o modo,
+                  de toda a fala. Em desenvolvimento; Fará parte da proposta
+                  IDENTIDADE – litoral do Paraná
                 </p>
                 <br />
                 <br />
                 <p>
-                  <strong>•  Desenvolvimento de projeto -</strong> Produtor do projeto longa-metragem Sobre Touros e
-                  Homens: a saga brasileira do zebu, Direção Werner Schumann.
+                  <strong>• Desenvolvimento de projeto -</strong> Produtor do
+                  projeto longa-metragem Sobre Touros e Homens: a saga
+                  brasileira do zebu, Direção Werner Schumann.
                 </p>
               </S.ListItemA>
             </>
@@ -223,19 +269,19 @@ const School: React.FC = () => {
           </S.ExpandButton>
         </S.FloatingCard>
         <S.LinhaH />
-        <S.TitlePage>
-          PROJETOS:
-        </S.TitlePage>
+        <S.TitlePage>PROJETOS:</S.TitlePage>
         <S.ProjetosContainer>
           <S.CapLogo src={capLogo} alt="CAP Logo" />
           <S.CapLogoList>
             {[
-              { text: '• Escola Audiovisual CEEPA', link: '/Ceepa' },
-              { text: '• Projeto  Identidade ', link: '/projeto-id' },
+              { text: "• Escola Audiovisual CEEPA", link: "/Ceepa" },
+              { text: "• Projeto  Identidade ", link: "/projeto-id" },
             ].map((item, index) => (
               <S.CapLogoListItem key={index} index={index}>
                 {item.text}
-                <S.SaibaMaisButton onClick={() => window.location.href = item.link}>
+                <S.SaibaMaisButton
+                  onClick={() => (window.location.href = item.link)}
+                >
                   Saiba Mais
                 </S.SaibaMaisButton>
               </S.CapLogoListItem>
@@ -243,9 +289,7 @@ const School: React.FC = () => {
           </S.CapLogoList>
         </S.ProjetosContainer>
       </S.Body>
-      {!isMobile && (
-        <Footer />
-      )}
+      {!isMobile && <Footer />}
     </S.Container>
   );
 };
