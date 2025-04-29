@@ -5,7 +5,7 @@ export const Container = styled.div<{ isVisible: boolean }>`
   top: 0;
   left: 0;
   width: 100%;
-  height: 5vh;
+  height: 8vh;
   background-color: #141C16;
   z-index: 1000;
   display: flex;

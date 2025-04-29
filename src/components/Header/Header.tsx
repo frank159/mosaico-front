@@ -1,128 +1,89 @@
-import React, { useState, useEffect } from "react";
-import { Container, Element, Img } from "./HeaderStyled";
-import img2 from "../../assets/images/icons/mosaicoIconeMonoW.png";
-import img1 from "../../assets/images/logo/cooperativa.png";
-// import img3 from "../../assets/images/icons/estrutura.png";
-import img3 from "../../assets/images/icons/LOTUS BRANCO.png";
+import React, { useState, useEffect, useLayoutEffect, useRef } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { gsap } from 'gsap';
+import { Container, Element } from './HeaderStyled'; // Removed Img import to use native <img>
 
-import { gsap } from "gsap";
-import { useNavigate, useLocation } from "react-router-dom";
+// Define items with images, paths, and alt text
+const items = [
+  { src: require('../../assets/images/logo/cooperativa.png'), path: '/Cooperativa', alt: 'Cooperativa' },
+  { src: require('../../assets/images/icons/mosaicoIconeMonoW.png'), path: '/', alt: 'Home' },
+  { src: require('../../assets/images/icons/LOTUS BRANCO.png'), path: '/CAP', alt: 'CAP' },
+];
 
 const Header: React.FC = () => {
-  const location = useLocation(); // Hook para obter a URL atual
   const navigate = useNavigate();
+  const { pathname } = useLocation();
 
-  // Imagens e links
-  const images = [img1, img2, img3];
-  const routes = ["/Cooperativa", "", "/Projetos"];
+  // Determine active index based on current path
+  const [activeIndex, setActiveIndex] = useState(() => {
+    const idx = items.findIndex(item => item.path === pathname);
+    return idx >= 0 ? idx : 1;
+  });
 
-  // Determinar o índice ativo com base na URL atual
-  const getActiveIndex = (currentLocation: string): number => {
-    const index = routes.indexOf(currentLocation);
-    return index !== -1 ? index : 1; // Se não encontrar, define o índice 1 (padrão)
-  };
+  // Track header visibility on scroll
+  const [isVisible, setIsVisible] = useState(true);
 
-  const [activeIndex, setActiveIndex] = useState<number>(getActiveIndex(location.pathname));
-  const [isHeaderVisible, setIsHeaderVisible] = useState(true); // Estado para controlar visibilidade do header
+  // Refs for each element to animate
+  const elementsRef = useRef<Array<HTMLDivElement | null>>([]);
 
-  const handleClick = (index: number) => {
-    setActiveIndex(index);
-    navigate(routes[index]); // Redireciona para a rota correspondente
-  };
-
+  // Update activeIndex on route change
   useEffect(() => {
-    setActiveIndex(getActiveIndex(location.pathname)); // Atualiza o índice ativo ao mudar de rota
-    organizeElements(activeIndex);
-  }, [location, activeIndex]); // Atualiza quando a rota ou o índice mudar
+    const idx = items.findIndex(item => item.path === pathname);
+    setActiveIndex(idx >= 0 ? idx : 1);
+  }, [pathname]);
 
-  // Lógica para esconder ou mostrar o header
-  useEffect(() => {
-    let lastScrollY = window.scrollY;
-    const handleScroll = () => {
-      if (window.scrollY > lastScrollY) {
-        // Rolou para baixo
-        setIsHeaderVisible(false);
-      } else {
-        // Rolou para cima
-        setIsHeaderVisible(true);
+  // Organize (animate) elements when activeIndex changes
+  useLayoutEffect(() => {
+    const positions = [-80, 0, 80];
+    elementsRef.current.forEach((el, idx) => {
+      if (el) {
+        gsap.to(el, { x: positions[idx], duration: 0 });
       }
-      lastScrollY = window.scrollY;
-    };
+    });
+  }, [activeIndex]);
 
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
+  // Hide/show header based on scroll direction
+  useEffect(() => {
+    let lastY = window.scrollY;
+    const onScroll = () => {
+      setIsVisible(window.scrollY <= lastY);
+      lastY = window.scrollY;
     };
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const organizeElements = (centerIndex: number) => {
-    const container = document.querySelector(".container") as HTMLElement;
-    const elements = document.querySelectorAll(".element");
-    const containerWidth = container.offsetWidth;
-
-    const isMobile = window.innerWidth <= 768;
-
-    if (isMobile) {
-      // Para mobile, manter posições fixas simples
-      const mobilePositions = [-80, 0, 80];
-
-      elements.forEach((el, index) => {
-        gsap.to(el, {
-          x: mobilePositions[index],
-          duration: 0,
-        });
-      });
-      return;
-    }
-
-    // Configuração para margens
-    const margin = 60; // Distância entre os elementos
-    const leftExtreme = -containerWidth / 2 + margin; // Extrema esquerda
-    const rightExtreme = containerWidth / 2 - margin; // Extrema direita
-
-    elements.forEach((el, index) => {
-      let targetPosition;
-
-      if (index === centerIndex) {
-        // Elemento centralizado
-        targetPosition = 0;
-      } else if (index < centerIndex) {
-        // Elementos à esquerda
-        targetPosition = leftExtreme + (index * margin); // Adiciona margem acumulada
-      } else {
-        // Elementos à direita
-        targetPosition = rightExtreme - ((elements.length - index - 1) * margin); // Subtrai margem acumulada
-      }
-
-      // Animação para posição alvo
-      gsap.to(el, {
-        x: targetPosition,
-        duration: 0.5,
-        ease: "power3.out",
-      });
-    });
-  };
-
   return (
-    <>
-      <Container
-        className={`container ${isHeaderVisible ? "visible" : "hidden"}`}
-        isVisible={isHeaderVisible} // Passando a propriedade 'isVisible'
-      >
-        {[1, 2, 3].map((item, index) => (
+    <Container isVisible={isVisible}>
+      {items.map((item, idx) => {
+        const isActive = activeIndex === idx;
+        const size = isActive ? '50px' : '40px';
+        const filter = isActive ? 'none' : 'grayscale(100%) brightness(60%)';
+
+        return (
           <Element
-            key={index}
-            className="element"
-            isActive={activeIndex === index}
-            onClick={() => handleClick(index)}
+            key={item.alt}
+            ref={el => (elementsRef.current[idx] = el)}
+            isActive={isActive}
+            onClick={() => {
+              setActiveIndex(idx);
+              navigate(item.path);
+            }}
           >
-            <Img src={images[index]} alt={`Elemento ${item}`} />
+            <img
+              src={item.src}
+              alt={item.alt}
+              style={{
+                width: size,
+                filter,
+                transition: 'width .3s, filter .3s',
+              }}
+            />
           </Element>
-        ))}
-      </Container>
-    </>
+        );
+      })}
+    </Container>
   );
-  
 };
 
 export default Header;
