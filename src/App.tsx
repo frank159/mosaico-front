@@ -17,32 +17,6 @@ import CooperativaCurriculo from './pages/CooperativaCurriculo/CooperativaCurric
 import EstadoResistencia from './pages/EstadoResistencia/EstadoResistencia';
 
 const App = () => {
-  // useEffect(() => {
-  //   const preventZoom = (event: any) => {
-  //     // Bloqueia Ctrl + Scroll (zoom)
-  //     if (event.ctrlKey && (event.deltaY !== 0 || event.deltaX !== 0)) {
-  //       event.preventDefault();
-  //     }
-  //     // Bloqueia Ctrl + '+' ou Ctrl + '-' (zoom)
-  //     if (event.ctrlKey && (event.key === '+' || event.key === '-' || event.key === '=')) {
-  //       event.preventDefault();
-  //     }
-  //     // Bloqueia Ctrl + '0' (resetar zoom)
-  //     if (event.ctrlKey && event.key === '0') {
-  //       event.preventDefault();
-  //     }
-  //   };
-
-  //   // Adiciona ouvintes de eventos
-  //   window.addEventListener('wheel', preventZoom, { passive: false });
-  //   window.addEventListener('keydown', preventZoom);
-
-  //   // Remove ouvintes de eventos na desmontagem do componente
-  //   return () => {
-  //     window.removeEventListener('wheel', preventZoom);
-  //     window.removeEventListener('keydown', preventZoom);
-  //   };
-  // }, []);
 
   return (
     <Router>
