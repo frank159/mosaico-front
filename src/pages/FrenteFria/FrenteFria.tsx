@@ -2,7 +2,6 @@ import * as S from './FrenteFriaStyled';
 import React from 'react';
 import ReactPlayer from 'react-player';
 
-const video1 = require('../../assets/videos/video1.mp4');
 const frentefria = require("../../assets/images/img/frentefria.png")
 const aspas = require('../../assets/images/icons/aspas.png');
 const f1 = require("../../assets/images/img/1.png")

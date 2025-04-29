@@ -35,6 +35,11 @@ export const ImageContainer = styled.div`
   }
 `;
 
+export const CreditosContainer = styled.div`
+  width: 80%;
+  font-weight: bolder;
+`;
+
 export const FormWrapper = styled.div`
   padding: 2rem;
 `;
@@ -63,7 +68,8 @@ export const Cainteiner1 = styled.div`
   width: 50%;
   height: 50%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: start;
   align-items: center;
 
   @media (max-width: 768px) {

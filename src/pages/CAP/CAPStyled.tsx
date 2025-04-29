@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import { Button } from '@mui/material';
 
@@ -30,8 +30,9 @@ export const TitleContainer = styled.div`
     height: 50vh;
     padding-top: 10vh;
     width: 100%;
-
+    
     @media (max-width: 1224px) {
+      padding-bottom: 10vh;
     justify-content: center;
   }
 
@@ -151,7 +152,7 @@ export const TitleSection = styled.div`
 `;
 
 export const DivText = styled.div`
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   padding: 0 !important;
 `;
 
@@ -330,7 +331,6 @@ margin-left: 3rem !important;
 
 @media (max-width: 1224px) {
     margin-left: 1rem !important;
-    font-size: 1rem !important;
   }
 `;
 
@@ -357,6 +357,7 @@ export const Faixa = styled.div`
   width: 100%;
   min-height: 30vh;
   margin-top: 18vh;
+  margin-bottom: 18vh;
   position: relative;
   display: flex;
   justify-content: center;
@@ -440,10 +441,18 @@ export const VideoTitle = styled.div`
 `;
 
 export const ProjetosContainer = styled.div`
-    margin-top: 4vh;
-    position: relative;
-    display: flex;
-    flex-direction: row;
+  margin-top: 4vh;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  padding-left: 8rem;
+  padding-bottom: 4rem;
+
+  @media (max-width: 768px) {
+    align-items: center;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 `;
 
 export const ProjetosListContainer = styled.div`
@@ -599,8 +608,6 @@ export const BigImgContainer = styled.div`
     display: flex;
     flex-direction: row;
     width: 100%;
-    padding-left: 7rem;
-    padding-right: 7rem;
     
     @media (max-width: 1224px) {
       padding-left: 0;
@@ -613,10 +620,21 @@ export const BigImgContainer = styled.div`
     flex-direction: column;
   }
 `;
+export const BigImgContainerA = styled.div`  
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+
+  @media (max-width: 768px) {
+    align-items: center; 
+    justify-content: start;
+    flex-direction: row;
+  }
+`;
 
 export const TitleBigImg = styled.h1`
     margin-top: 4rem !important;
-    margin-left: 8rem !important;
+    margin-left: 10rem !important;
 
     
   @media (max-width: 1224px) {
@@ -625,17 +643,21 @@ export const TitleBigImg = styled.h1`
 `;
 
 export const TextBigImgContainer = styled.div`
+padding-left: 10rem;
 @media (max-width: 1224px) {
+  padding-left: 2rem;
     padding-bottom: 3rem;
+  }
+@media (max-width: 768px) {
+  padding-left: 0;
   }
 `;
 
-export const TextBigImg = styled.div`
-  font-size: 1.4rem;
-  padding-left: 3rem;
+export const TextBigImg = styled.p`
 
   @media (max-width: 1224px) {
-    padding-right: 3rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 `;
 
@@ -646,7 +668,13 @@ export const IconTextBigImgContainerList = styled.div`
     height: 20vh;
     align-items: center;
     justify-content: center;
+    padding-right: 1rem;
 
+    @media (max-width: 768px) {
+      justify-content: start;
+      padding-left: 1rem;
+
+  }
 `;
 
 export const IconTextBigImgContainerListB = styled.div`
@@ -727,7 +755,6 @@ export const PatrocinadorTextLink = styled.span<Props>`
 `;
 
 export const TitlePage = styled.h1`
-    margin-top: 10rem !important;
     z-index: 11;
     font-size: 6rem !important;
     color: #000000;
@@ -735,8 +762,7 @@ export const TitlePage = styled.h1`
     
     @media (max-width: 1224px) {
       padding-left: 2rem;
-      font-size: 4rem !important;
-    padding-top: 2rem;
+      font-size: 3rem !important;
   }
 `;
 
@@ -837,6 +863,13 @@ export const LineDescription = styled.div`
   background-color: #AC1717;
 `;
 
+export const LineDescriptionA = styled.div`
+  width: 0.2rem;
+  border-radius: 10px;
+  background-color: #AC1717;
+  margin-left: 2rem;
+`;
+
 export const DescriptionTextContainer = styled.div`
   display: inline-block;
   background-color: #E4EBDD;
@@ -871,4 +904,228 @@ export const VideoWrapperA = styled.div`
   margin-top: 2rem;
   display: flex;
   justify-content: center;
+`;
+
+export const FloatingCard = styled.div`
+  background-color: #C8DEEB;
+  padding: 5rem 7rem 2rem 7rem;
+  border-radius: 10px;
+  margin: 10vh auto;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: 768px) {
+    padding: 2rem 1rem 0;
+    width: 80%;
+  }
+`;
+
+export const FloatingCardLogo = styled.img`
+  position: absolute;
+  top: -8.5rem;
+  left: -3rem;
+  height: 10vh;
+
+  @media (max-width: 768px) {
+    top: -4rem;
+    left: 1rem;
+    height: 7vh;
+  }
+`;
+
+export const ExpandButton = styled.button`
+  background: none;
+  border: none;
+  color: #0075BF;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    color: #005A8C;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+  }
+`;
+
+export const TitleFloatingCard = styled.h2<{ isExpanded: boolean }>`
+  color: #0075BF;
+  text-align: center;
+  margin-top: 10vh !important;
+  margin-bottom: ${(props) => (props.isExpanded ? '7vh' : '0')} !important;
+
+  @media (max-width: 768px) {
+    margin-top: 5vh !important;
+    font-size: 1.2rem;
+  }
+`;
+
+export const ListFloatingCard = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+`;
+
+export const TextFloatingCard = styled.p`
+ color: #000000;
+text-align: center;
+font-weight: bolder;
+font-style: italic;
+position: relative;
+
+`;
+
+export const LinkFloatingCard = styled.a`
+ color: #0075BF;
+text-align: center;
+font-weight: bolder;
+font-style: italic;
+`;
+
+export const ListItem = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #0075BF;
+  }
+
+  p {
+    font-size: 1rem;
+    margin-left: 1rem;
+    text-align: left;
+  }
+`;
+
+export const ListItemA = styled.div`
+margin-top: 3rem !important;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #0075BF;
+  }
+
+  p {
+    font-size: 1rem;
+    margin-left: 1rem;
+    text-align: left;
+  }
+`;
+
+export const ListItemLinkCard = styled.a`
+  padding: 0.5rem 1rem;
+  background-color: #0075BF;
+  color: white;
+  font-size: 1rem;
+  width: min-content;
+  margin-top: 1rem !important;
+  margin-bottom: 3rem !important;
+`;
+
+export const CapLogo = styled.img`
+  height: 60vh;
+  align-self: flex-start;
+
+  @media (max-width: 1224px) {
+    height: 40vh;
+    opacity: 0.2;
+  }
+
+`;
+
+export const CapLogoList = styled.ul`
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  justify-content: center;
+  gap: 3rem;
+  top: -2rem; /* Adjust position slightly above the logo */
+  @media (max-width: 1224px) {
+    position: relative;
+    left: -100%;
+  }
+`;
+
+interface CapLogoListItemProps {
+  index: number;
+}
+
+const floatAnimation = keyframes`
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+`;
+
+const slowFloatAnimation = keyframes`
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+`;
+
+export const CapLogoListItem = styled.li<CapLogoListItemProps>`
+  display: flex;
+  align-items: center;
+  padding-left: ${(props) => (props.index % 2 === 0 ? '2rem' : '4rem')};
+  font-size: 2rem;
+  color: #000;
+  animation: ${(props) =>
+      props.index % 2 === 0 ? slowFloatAnimation : floatAnimation}
+    3s ease-in-out infinite;
+  white-space: nowrap; /* Impede a quebra do texto */
+
+  @media (max-width: 1224px) {
+    font-size: 1.5rem;
+    flex-direction: column;
+    align-items: start;
+  }
+`;
+
+export const SaibaMaisButton = styled.button`
+  margin-left: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #253529;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-family: 'Arsenal', sans-serif;
+  transition: 0.3s;
+  font-weight: bolder;
+  &:hover {
+    background-color: #27352b;
+    transform: scale(1.04);
+  }
+  @media (max-width: 1224px) {
+   margin-top: 0.5rem;
+  }
 `;

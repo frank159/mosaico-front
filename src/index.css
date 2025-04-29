@@ -48,7 +48,7 @@ h1 {
 /* Estilo para telas com largura máxima de 1224px */
 @media (max-width: 1224px) {
   h1 {
-    font-size: 2.5rem !important;
+    font-size: 3rem !important;
   }
 }
 
@@ -62,7 +62,7 @@ h2 {
 /* Estilo para telas com largura máxima de 1224px */
 @media (max-width: 1224px) {
   h2 {
-    font-size: 1.5rem !important;
+    font-size: 2rem !important;
     padding: 0 !important;
 
   }
@@ -81,11 +81,18 @@ h3 {
 }
 
 p {
-  font-size: 1.6rem !important;
+  font-size: 1.5rem !important;
   margin: 0 !important;
 }
 
+@media (max-width: 1224px) {
+  p {
+    font-size: 1.25rem !important;
+    margin: 0 !important;
+  }
+}
+
 a {
-  font-size: 1.6rem !important;
+  font-size: 1.5rem !important;
   margin: 0 !important;
 }

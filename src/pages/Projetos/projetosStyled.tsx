@@ -54,18 +54,14 @@ export const MosaicoImg = styled.img`
 `;
 
 export const TitlePage = styled.h1`
-    z-index: 11;
-    top: 4rem;
-    left: 7rem;
-    position: absolute;
-    font-size: 8rem !important;
-    color: #C2CFB4;
-
-    @media (max-width: 1072px) {
-      font-size: 4rem !important;
-      left: 3rem;
-    }
-
+  font-size: 5rem !important;
+  color: #C2CFB4;
+  padding-left: 1rem;
+  line-height: 1;
+  @media (max-width: 1072px) {
+    font-size: 3.5rem !important;
+    left: 3rem;
+  }
 `;
 
 export const Line1 = styled.div`
@@ -92,31 +88,30 @@ export const ProjetosContainer = styled.div`
     position: relative;
     display: flex;
     flex-direction: row;
-    padding-bottom: 3rem;
-    padding-top: 3rem;
     margin-bottom: 3rem;
 `;
 
 export const ButtonCard = styled(Button)`
   background-color: #253529 !important;
-  border-radius: 60px !important;
-  padding-left: 20px !important;
-  padding-right: 20px !important;
-  padding-top: 10px !important;
-  padding-bottom: 10px !important;
-  width: 15vw;
-  color: white !important;
-
-  
-  &:hover  {
-    transition: 0.6s !important;
-        transform: scale(1.150) !important;
-    }
-`
-
+  color: #C2CFB4 !important;
+  border-radius: 25px !important;
+  margin-top: 0.5rem 1rem !important;
+  padding: 0.5rem 1rem !important;
+  font-size: 1rem !important;
+  text-transform: none !important;
+  width: 20%;
+  font-weight: bolder !important;
+  font-family: 'Arsenal', sans-serif !important;
+  &:hover {
+    background-color: #1e2e23 !important; /* Slightly darker shade for hover */
+    transition: 0.3s ease-in-out;
+  }
+  @media (max-width: 1224px) {
+    width: 60%;
+  }
+`;
 
 export const CardProjeto = styled.div`
-  background-color: #4E5C2C;
   padding: 1rem;
   display: flex;
   justify-content: start;
@@ -126,24 +121,11 @@ export const CardProjeto = styled.div`
   transition: 0.3s;
   border-radius: 10px;
   width: 100%;
-  max-width: 80vw;
   height: auto;
   box-sizing: border-box;
   overflow: hidden; /* Ensure content does not overflow */
 
-  &:hover ${ButtonCard} {
-    border: 1px solid #C2CFB4;
-    cursor: pointer;
-    transition: 0.3s;
-    transform: scale(1.05);
-  }
 
-  &:hover {
-    border: 1px solid #C2CFB4;
-    cursor: pointer;
-    transition: 0.6s;
-    transform: scale(1.05);
-  }
 
   @media (max-width: 1072px) {
     flex-direction: column;
@@ -154,16 +136,7 @@ export const CardProjeto = styled.div`
   position: relative;
 
   
-&::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 20px;  /* Ajuste conforme necessário */
-      background: linear-gradient(to top, #4E5C2C, rgba(255, 255, 255, 0));  /* Efeito de sobra */
-      pointer-events: none;  /* Permite interação com o texto */
-  }
+
 `;
 
 export const ContainerButton = styled.div`
@@ -198,7 +171,6 @@ export const CardImgFremeProjeto = styled.div<Props>`
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  border-radius: 10px;
 
   @media (max-width: 1072px) {
     height: 25vh;
@@ -221,16 +193,28 @@ export const ProjetosListContainer = styled.div`
     padding: 2rem;
     width: 100%;
     height: auto;
-    gap: 30px;
+    gap: 10px;
     padding-left: 7rem;
     padding-right: 7rem;
-    margin-bottom: 4rem;
 
     @media (max-width: 1072px) {
       font-size: 4rem !important;
-      padding-left: 3rem;
-      padding-right: 3rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
       margin-bottom: 0rem;
+    }
+`;
+
+export const ProjetosListContainer1 = styled.div`
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    gap: 60px;
+
+    @media (max-width: 1072px) {
+      font-size: 4rem !important;
     }
 `;
 
@@ -238,29 +222,29 @@ export const ProjetosListContainer = styled.div`
 export const CardTextContainerProjeto = styled.div`
   margin-left: 1rem;
   width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   overflow: hidden; /* Ensure text does not overflow */
   text-overflow: ellipsis; /* Add ellipsis for overflowed text */
 
   @media (max-width: 1072px) {
     margin-left: 0;
+    height: 80%;
     padding-top: 1rem;
   }
 
 `;
 
 export const CardTitleProjeto = styled.div`
-    font-size: 1.3rem;
     color: #C2CFB4;
     line-height: 1;
-    font-family: 'Montserrat', sans-serif;
 `;
 
 export const CardTextProjeto = styled.p`
     color: #ffffff;
-    margin-top: 0.5rem;
-    max-width: 95%;
+    margin-top: 0.5rem !important;
 
     @media (max-width: 1072px) {
       font-size: 1rem !important;

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home/Home';
+import Home from './pages/LuzCameraEcoAcao/LuzCameraEcoAcao';
 import School from './pages/School/School';
 import EscolaDigital from './pages/EscolaDigital/EscolaDigital';
 import Mosaico from './pages/Mosaico/Mosaico';

@@ -2,7 +2,6 @@ import * as S from './OsXeretasStyled';
 import React from 'react';
 import ReactPlayer from 'react-player';
 
-const video1 = require('../../assets/videos/video1.mp4');
 const xeretas1 = require("../../assets/images/img/xeretas1.png")
 
 const ft1 = require("../../assets/images/img/xeretas-1.png")

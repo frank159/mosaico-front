@@ -8,30 +8,22 @@ interface ColorProps {
   paddingTop?: string;
   height?: string;
   marginTop?: string;
+  isBlackBg?: boolean;
 }
 
 export const FooterContainer = styled.div<ColorProps>`
-  height: 30vh;
-  background-color: #000000;
+  height: 13vh;
+  width: 100%;
+  background-color: ${props => props.isBlackBg ? "#000" : "#374120"};
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: ${props => props.marginTop || "none"};
   z-index: 11000;
-  @media (max-width: 768px) {
-    width: none;
-    height: auto;
-    padding: 20px 10px;
-  }
-  @media (min-width: 768px) {
-    width: 100%;
-  }
 `;
 
 export const FooterDiv = styled.div`
   width: 90%;
-  height: 80%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -44,50 +36,39 @@ export const FooterDiv = styled.div`
 `;
 
 export const MainDiv = styled.div`
-  border: 1px solid white;
   width: 100%;
-  height: 70%;
   display: flex;
   flex-direction: row;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-    height: auto;
-  }
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
 `;
 
-export const SubDiv = styled.div`
-  width: 100%;
-  height: 20%;
-  color: white;
-  font-size: 12px;
+export const MainDivICons = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: flex-end;
+`;
 
-  @media (max-width: 768px) {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    height: auto;
-    gap: 10px;
-  }
+export const SubDiv = styled.div`
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  color: white;
+  font-size: 12px;
 `;
 
 export const Text = styled.p`
-  @media (max-width: 768px) {
-    font-size: 10px;
-  }
+  font-size: 1rem !important;
 `;
 
 export const IconsDiv = styled.div`
   display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   gap: 10px;
-
-  @media (max-width: 768px) {
-    justify-content: center;
-  }
 `;
 
 export const Img = styled.img<ColorProps>`
@@ -174,20 +155,12 @@ export const ColumnLinks = styled.div`
 
 export const Subscribe = styled.div`
   height: 100%;
-  margin-left: 10vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: start;
   color: white;
   margin-right: 10px;
-
-  @media (max-width: 768px) {
-    width: 100%;
-    margin-left: 0;
-    margin-top: 20px;
-    align-items: center;
-  }
 `;
 
 export const SubscribeHeader = styled.div<ColorProps>`
@@ -255,6 +228,7 @@ export const SubscribeText = styled.div<ColorProps>`
 `;
 
 export const Logo = styled.img<ColorProps>`
-  height: ${(props) => (props.height || "5vh")};
   cursor: pointer;
+  width: 60px;
+  height: 60px;
 `;

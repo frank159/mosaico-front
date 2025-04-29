@@ -2,7 +2,6 @@ import * as S from './TropicaisStyled';
 import React from 'react';
 import ReactPlayer from 'react-player';
 
-const video1 = require('../../assets/videos/video1.mp4');
 const tropicais = require("../../assets/images/img/Tropicais.png")
 const f1 = require("../../assets/images/img/1p.png")
 const f2 = require("../../assets/images/img/2p.png")
