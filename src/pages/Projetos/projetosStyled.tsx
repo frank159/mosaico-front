@@ -194,12 +194,12 @@ export const ProjetosListContainer = styled.div`
     width: 100%;
     height: auto;
     gap: 10px;
-    padding-left: 7rem;
+    padding-left: 4vw;
     padding-right: 7rem;
 
     @media (max-width: 1072px) {
       font-size: 4rem !important;
-      padding-left: 1rem;
+      padding-left: 2rem;
       padding-right: 1rem;
       margin-bottom: 0rem;
     }
