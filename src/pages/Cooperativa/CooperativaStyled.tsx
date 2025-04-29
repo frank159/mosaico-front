@@ -159,7 +159,7 @@ export const RightTextA = styled.h2`
   font-weight: lighter;
   margin-top: 2rem !important;
   width: 100%;
-  color: #ffffff20;
+  color: #ffffff57;
   text-align: end;
   line-height: 1;
 
@@ -316,7 +316,7 @@ export const SmallImageText = styled.h1`
   font-weight: lighter;
   margin-top: 2rem;
   width: 100%;
-  color: #ffffff21;
+  color: #ffffff57;
   text-align: start;
   line-height: 1;
 
