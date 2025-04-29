@@ -59,65 +59,6 @@ const Projetos: React.FC = () => {
                 </S.CardTextContainerProjeto>
               </S.CardMainContainer>
             </S.CardProjeto>
-            <S.CardProjeto>
-              <S.CardMainContainer>
-                <S.CardImgFremeProjeto>
-                  <S.CardImgProjeto src={img3} />
-                </S.CardImgFremeProjeto>
-                <S.CardTextContainerProjeto>
-                  <div>
-                    <S.CardTitleProjeto>
-                      <h2>CAP - Centro audiovisual do Paraná</h2>
-                    </S.CardTitleProjeto>
-                    <S.CardTextProjeto>
-                      O Centro Audiovisual do Pr desenvolve projetos voltados
-                      para educação audiovisual, seja na realização de oficinas
-                      de criação e produção em si, como também na produção de
-                      conteúdo de entreterimento com forte engajamento
-                      educacional e temática de floresta e reciclagem do lixo.
-                      Trabalhamos com foco na comunicação com crianças e
-                      adolescentes, promovendo educação audiovisual empírica,
-                      onde os participantes aprendem sobre o processo criativo,
-                      com resultados concretos de produção audiovisual.
-                    </S.CardTextProjeto>
-                  </div>
-                  <S.ButtonCard onClick={() => handleProjetoClick("/CAP")}>
-                    Saiba Mais
-                  </S.ButtonCard>
-                </S.CardTextContainerProjeto>
-              </S.CardMainContainer>
-            </S.CardProjeto>
-            <S.CardProjeto>
-              <S.CardMainContainer>
-                <S.CardImgFremeProjeto>
-                  <S.CardImgProjeto src={img2} />
-                </S.CardImgFremeProjeto>
-                <S.CardTextContainerProjeto>
-                  <div>
-                    <S.CardTitleProjeto>
-                      <h2>
-                        CEEPA - Centro de Educação e Produção Audiovisual do
-                        Paraná
-                      </h2>
-                    </S.CardTitleProjeto>
-                    <S.CardTextProjeto>
-                      O projeto Centro de Excelência em Educação e Produção
-                      Audiovisual, iniciado em 2001, foi uma iniciativa
-                      sócio-cultural desenvolvida pela CAP com foco na
-                      arte-cidadania. Ele usou o audiovisual e formas de
-                      comunicação como ferramentas para a formação humana e
-                      promoção da cidadania, atendendo jovens de 12 a 17 anos em
-                      comunidades carentes. O projeto alcançou impacto regional,
-                      envolvendo mais de 150 pessoas e inspirando práticas de
-                      resgate cultural e inclusão social.
-                    </S.CardTextProjeto>
-                  </div>
-                  <S.ButtonCard onClick={() => handleProjetoClick("/Ceepa")}>
-                    Saiba Mais
-                  </S.ButtonCard>
-                </S.CardTextContainerProjeto>
-              </S.CardMainContainer>
-            </S.CardProjeto>
           </S.ProjetosListContainer1>
         </S.ProjetosListContainer>
       </S.ProjetosContainer>
