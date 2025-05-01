@@ -13,7 +13,8 @@ const items = [
 const Header: React.FC = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
-
+  const teste = ''
+  console.log(teste)
   // Determine active index based on current path
   const [activeIndex, setActiveIndex] = useState(() => {
     const idx = items.findIndex(item => item.path === pathname);
