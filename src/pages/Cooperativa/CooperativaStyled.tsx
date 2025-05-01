@@ -155,7 +155,7 @@ export const ImgFotoA = styled.img`
   }
 `;
 
-export const RightTextA = styled.h2`
+export const RightTextA = styled.h1`
   font-weight: lighter;
   margin-top: 2rem !important;
   width: 100%;
@@ -273,6 +273,7 @@ export const OverlayContent = styled.div`
   @media (max-width: 1224px) {
     gap: 4vw;
     flex-direction: column;
+    align-items: start;
   }
 `;
 
@@ -287,12 +288,10 @@ export const SmallImageContainer = styled.div`
   padding-right: 3vw;
   margin-top: -1%;
   border-right: 1px solid #3b3b3b78;
-  
   @media (max-width: 1224px) {
     width: 50%;
     gap: 3.5vw;
     height: auto;
-    flex-direction: row;
   }
 
   @media (max-width: 768px) {
@@ -321,7 +320,7 @@ export const SmallImageText = styled.h1`
   line-height: 1;
 
   @media (max-width: 1224px) {
-    margin-top: 3rem !important;
+    margin-top: 1rem !important;
   }
   
   @media (max-width: 768px) {

@@ -13,13 +13,18 @@ const items = [
 const Header: React.FC = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
-  const teste = ''
-  console.log(teste)
-  // Determine active index based on current path
-  const [activeIndex, setActiveIndex] = useState(() => {
-    const idx = items.findIndex(item => item.path === pathname);
+
+  // Função para determinar o índice ativo considerando as regras especiais
+  const getActiveIndex = (path: string) => {
+    if (path.endsWith('/Ceepa') || /^\/projeto-\w+/.test(path)) {
+      // CAP está no índice 2
+      return 2;
+    }
+    const idx = items.findIndex(item => item.path === path);
     return idx >= 0 ? idx : 1;
-  });
+  };
+
+  const [activeIndex, setActiveIndex] = useState(() => getActiveIndex(pathname));
 
   // Track header visibility on scroll
   const [isVisible, setIsVisible] = useState(true);
@@ -29,8 +34,7 @@ const Header: React.FC = () => {
 
   // Update activeIndex on route change
   useEffect(() => {
-    const idx = items.findIndex(item => item.path === pathname);
-    setActiveIndex(idx >= 0 ? idx : 1);
+    setActiveIndex(getActiveIndex(pathname));
   }, [pathname]);
 
   // Organize (animate) elements when activeIndex changes

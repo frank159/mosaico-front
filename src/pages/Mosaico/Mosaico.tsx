@@ -162,9 +162,6 @@ const MosaicoPage: React.FC = () => {
       </S.TitleLogo>
       <S.TextOverlay>Onde cada peça faz a diferença</S.TextOverlay>
     </S.TitleOverlayContainer>
-    <S.Seta onClick={handleScroll}>
-      <S.SetaImg src={seta} alt="mosaicoLogo" />
-    </S.Seta>
     <S.VideoWrapper>
       <S.FullScreenVideo ref={videoRef} autoPlay loop muted>
         <source src={isMobile ? '/videos/vooMobile.webm' : '/videos/voo.webm'} type="video/mp4" />

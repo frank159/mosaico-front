@@ -7,7 +7,7 @@ export const Container = styled.div<{ isVisible: boolean }>`
   width: 100%;
   height: 8vh;
   background-color: #141C16;
-  z-index: 1000;
+  z-index: 9999999 !important;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -40,7 +40,6 @@ const Footer: React.FC<FooterProps> = ({
                     <S.IconsDiv>
                         <FacebookIcon sx={{ fontSize: "24px", color: "white" }} />
                         <EmailIcon sx={{ fontSize: "24px", color: "white" }} />
-                        <WhatsAppIcon sx={{ fontSize: "24px", color: "white" }} />
                     </S.IconsDiv>
                 </S.MainDiv>
 

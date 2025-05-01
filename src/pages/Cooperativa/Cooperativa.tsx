@@ -1,12 +1,11 @@
 import * as S from './CooperativaStyled';
 import React, { useState, useRef, useEffect } from 'react';
-import Carousel from '../../components/CarrocelCooperativa/carrocel';
 import Footer from '../../components/footer/footer';
+import styled from 'styled-components';
 
 const HomeroFoto = require("../../assets/images/img/homero.png")
 const cameraCoop = require("../../assets/images/img/cameraCoop.png")
 const pinheiroCoop = require("../../assets/images/img/pinheiroCoop.png")
-const camerafundohomero = require("../../assets/images/img/camerafundohomero.png")
 const cooperativaLogo = require("../../assets/images/logo/cooperativaLogo.png")
 
 const xeretas = require("../../assets/images/img/xeretas.png");
@@ -14,6 +13,18 @@ const Afrente = require("../../assets/images/img/Afrente.png");
 const projetoID = require("../../assets/images/img/projetoID.png");
 const sonhosTrop = require("../../assets/images/img/sonhosTrop.png");
 const estadoDressis = require("../../assets/images/img/estadoDressis.png");
+
+const SonhosTropicaisImg = styled.img<{ isMobile: boolean }>`
+  width: 100%;
+  height: 80vh;
+  object-fit: cover;
+  object-position: 50% 30%;
+  opacity: 0.2;
+  ${props => props.isMobile && `
+    opacity: 0.1;
+    object-position: right center;
+  `}
+`;
 
 interface SlideItem {
   id: number;
@@ -90,8 +101,7 @@ const Cooperativa: React.FC = () => {
 
 
   useEffect(() => {
-    console.log("window.innerWidth <= 820", window.innerWidth <= 820)
-    setIsMobile(window.innerWidth <= 820);
+    setIsMobile(window.innerWidth <= 768);
   }, [])
 
   useEffect(() => {
@@ -139,7 +149,11 @@ const Cooperativa: React.FC = () => {
       <S.BodyB >
         <S.ImageWrapper>
           <S.HomeroFullImgFrame >
-            <S.HomeroFullImg src={HomeroFoto} alt="Homero" />
+            <SonhosTropicaisImg
+              src={HomeroFoto}
+              alt="Homero"
+              isMobile={isMobile}
+            />
             <S.GradientOverlay />
           </S.HomeroFullImgFrame >
           <S.OverlayContainer >

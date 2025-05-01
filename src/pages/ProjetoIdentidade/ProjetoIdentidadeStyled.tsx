@@ -187,7 +187,6 @@ export const TitleB = styled.h1`
 export const TitleC = styled.h1`
   line-height: 1;
   width: 100%;
-  white-space: nowrap;
 `;
 
 export const BigCard = styled.div<Props>`
@@ -345,10 +344,14 @@ export const BodyC = styled.div`
 
 
 export const VideoWrapper = styled.div`
-  width: 70vw;
+  width: 70%;
   margin-top: 2rem;
   display: flex;
   justify-content: center;
+  
+  @media (max-width: 1224px) {
+    width: 100%;
+  }
 `;
 
 export const ModalOverlay = styled.div`

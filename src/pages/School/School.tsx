@@ -2,11 +2,14 @@ import React, { useState } from "react";
 import * as S from "./SchoolStyled";
 import { motion, AnimatePresence } from "framer-motion";
 
+// Icon imports
 const impactoM = require("../../assets/images/icons/impacto na midia.png");
 const impactoS = require("../../assets/images/icons/impacto social.png");
 const producao = require("../../assets/images/icons/producao e resultados.png");
 const reconhecimento = require("../../assets/images/icons/reconhecimento.png");
 const estrutura = require("../../assets/images/icons/LOTUS BRANCO.png");
+
+// Photo imports
 const ft1 = require("../../assets/images/img/ft1.jpg");
 const ft2 = require("../../assets/images/img/ft2.jpg");
 const ft3 = require("../../assets/images/img/ft3.jpg");
@@ -28,20 +31,15 @@ interface Video {
   thumbnail?: string;
 }
 
-// Converte URL de YouTube ou Google Drive em URL de embed
+// Converts YouTube or Google Drive URLs to embed URLs
 const getEmbedUrl = (src: string) => {
-  // YouTube (youtu.be/ID ou youtube.com/watch?v=ID)
-  const ytMatch = src.match(
-    /(?:youtu\.be\/|youtube\.com\/watch\?v=)([^?&]+)/i
-  );
+  const ytMatch = src.match(/(?:youtu\.be\/|youtube\.com\/watch\?v=)([^?&]+)/i);
   if (ytMatch && ytMatch[1]) {
     return `https://www.youtube.com/embed/${ytMatch[1]}`;
   }
-  // Google Drive
   if (src.includes("drive.google.com")) {
     return src.replace("/view?usp=drive_link", "/preview");
   }
-  // Default
   return src;
 };
 
@@ -49,70 +47,42 @@ const School: React.FC = () => {
   const [selectedVideo, setSelectedVideo] = useState<Video | null>(null);
 
   const videos: Video[] = [
-    {
-      id: 1,
-      title: "Terror, Sonho Ou Realidade",
-      src: "https://youtu.be/rByDOqWPOBs?si=2VCBuOrfKsoBd3rc",
-      thumbnail: require("../../assets/thumbnails/ceepaCaseImg.png"),
-    },
-    {
-      id: 2,
-      title: "Tropas e Boiadas",
-      src: "https://youtu.be/i9g5YIYlxoY?si=RVNIA_adiLp6h9Aq",
-      thumbnail: require("../../assets/thumbnails/ceepaCaseImg.png"),
-    },
-    {
-      id: 3,
-      title: "O Contador de Histórias",
-      src: "https://youtu.be/2b_kqC0uCFA?si=hGVaiCLKlUkRX24K",
-      thumbnail: require("../../assets/thumbnails/ceepaCaseImg.png"),
-    },
-    {
-      id: 4,
-      title: "Despertar para Realidade",
-      src: "https://youtu.be/qvaB61fi_3g?si=Rqy3sb-2BZsd3I7g",
-      thumbnail: require("../../assets/thumbnails/ceepaCaseImg.png"),
-    },
-    {
-      id: 5,
-      title: "Ilha Perdida",
-      src: "https://youtu.be/lcQZUIf4Sso?si=YvmpINYlrC8RS172",
-      thumbnail: require("../../assets/thumbnails/ceepaCaseImg.png"),
-    },
-    {
-      id: 6,
-      title: "Nada Apaga o Amor",
-      src: "https://youtu.be/UOlL7dDWlPU?si=xH_gBxL68ZrTqzIo",
-      thumbnail: require("../../assets/thumbnails/ceepaCaseImg.png"),
-    },
-    {
-      id: 7,
-      title: "Redenção",
-      src: "https://youtu.be/NaCpEpfbB-8?si=j70MjcG4SFevxQ17",
-      thumbnail: require("../../assets/thumbnails/ceepaCaseImg.png"),
-    },
-    {
-      id: 8,
-      title: "O Resgate",
-      src: "https://youtu.be/EZHT_1NNa2o?si=qMjntUVDjzisWZvn",
-      thumbnail: require("../../assets/thumbnails/ceepaCaseImg.png"),
-    },
+    { id: 1, title: "Terror, Sonho Ou Realidade", src: "https://youtu.be/rByDOqWPOBs?si=2VCBuOrfKsoBd3rc" },
+    { id: 2, title: "Tropas e Boiadas", src: "https://youtu.be/i9g5YIYlxoY?si=RVNIA_adiLp6h9Aq" },
+    { id: 3, title: "O Contador de Histórias", src: "https://youtu.be/2b_kqC0uCFA?si=hGVaiCLKlUkRX24K" },
+    { id: 4, title: "Despertar para Realidade", src: "https://youtu.be/qvaB61fi_3g?si=Rqy3sb-2BZsd3I7g" },
+    { id: 5, title: "Ilha Perdida", src: "https://youtu.be/lcQZUIf4Sso?si=YvmpINYlrC8RS172" },
+    { id: 6, title: "Nada Apaga o Amor", src: "https://youtu.be/UOlL7dDWlPU?si=xH_gBxL68ZrTqzIo" },
+    { id: 7, title: "Redenção", src: "https://youtu.be/NaCpEpfbB-8?si=j70MjcG4SFevxQ17" },
+    { id: 8, title: "O Resgate", src: "https://youtu.be/EZHT_1NNa2o?si=qMjntUVDjzisWZvn" },
   ];
 
   const reportVideos: Video[] = [
-    {
-      id: 9,
-      title: "Case Ceepa",
-      src: "https://youtu.be/0m5YbDwTSSg?si=XcblAZA184FYhbkj",
-      thumbnail: require("../../assets/thumbnails/ceepaCaseImg.png"),
-    },
-    {
-      id: 10,
-      title: "Globo Reporter",
-      src: "https://youtu.be/XsQRllbukoM?si=FdA4IcOPnGNvUH5G",
-      thumbnail: require("../../assets/thumbnails/globoreporter.png"),
-    },
+    { id: 9, title: "Case Ceepa", src: "https://youtu.be/0m5YbDwTSSg?si=XcblAZA184FYhbkj" },
+    { id: 10, title: "Globo Reporter", src: "https://youtu.be/XsQRllbukoM?si=FdA4IcOPnGNvUH5G" },
   ];
+
+  // Generic renderer for a video grid
+  const renderVideoSection = (list: Video[]) => (
+    <S.VideoGrid>
+      {list.map((video) => (
+        <S.VideoCard key={video.id} onClick={() => setSelectedVideo(video)}>
+          <S.VideoThumbnail>
+            <iframe
+              src={getEmbedUrl(video.src)}
+              width="100%"
+              height="100%"
+              allow="autoplay; encrypted-media"
+              allowFullScreen
+              style={{ border: 0 }}
+              title={video.title}
+            />
+          </S.VideoThumbnail>
+          <S.VideoCardTitle>• {video.title}</S.VideoCardTitle>
+        </S.VideoCard>
+      ))}
+    </S.VideoGrid>
+  );
 
   return (
     <S.Container>
@@ -153,74 +123,7 @@ const School: React.FC = () => {
 
       <S.MainTitle>filmes produzidos pelos alunos</S.MainTitle>
       <S.VideoContainer>
-        <S.VideoGrid>
-          {videos.map((video) => (
-            <S.VideoCard key={video.id} onClick={() => setSelectedVideo(video)}>
-              <S.VideoThumbnail>
-                <iframe
-                  src={getEmbedUrl(video.src)}
-                  width="100%"
-                  height="100%"
-                  allow="autoplay; encrypted-media"
-                  allowFullScreen
-                  style={{ border: 0 }}
-                  title={video.title}
-                />
-              </S.VideoThumbnail>
-              <S.VideoCardTitle>• {video.title}</S.VideoCardTitle>
-            </S.VideoCard>
-          ))}
-        </S.VideoGrid>
-
-        <AnimatePresence>
-          {selectedVideo && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              style={{
-                position: "fixed",
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                backgroundColor: "rgba(0,0,0,0.9)",
-                zIndex: 999,
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-              onClick={() => setSelectedVideo(null)}
-            >
-              <motion.div
-                initial={{ scale: 0.8 }}
-                animate={{ scale: 1 }}
-                exit={{ scale: 0.8 }}
-                style={{
-                  width: "80%",
-                  maxWidth: "1200px",
-                  position: "relative",
-                }}
-                onClick={(e) => e.stopPropagation()}
-              >
-                <div style={{ position: "relative", width: "100%" }}>
-                  <iframe
-                    src={getEmbedUrl(selectedVideo.src)}
-                    width="100%"
-                    height="500px"
-                    allow="autoplay; encrypted-media"
-                    allowFullScreen
-                    style={{ border: 0 }}
-                    title={selectedVideo.title}
-                  />
-                </div>
-                <S.CloseButton onClick={() => setSelectedVideo(null)}>
-                  ×
-                </S.CloseButton>
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        {renderVideoSection(videos)}
       </S.VideoContainer>
 
       <S.MainTitle>fotos da pré e pós produção</S.MainTitle>
@@ -233,29 +136,10 @@ const School: React.FC = () => {
       </S.Galeria>
 
       <S.MainTitle>Reportagens sobre o ceepa</S.MainTitle>
-      <S.ReportVideoContainer>
-        <S.ReportVideoGrid>
-          {reportVideos.map((video) => (
-            <S.ReportVideoCard
-              key={video.id}
-              onClick={() => setSelectedVideo(video)}
-            >
-              <S.VideoCardTitle>• {video.title}</S.VideoCardTitle>
-              <S.VideoThumbnail>
-                <img
-                  src={video.thumbnail}
-                  alt={video.title}
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
-                  }}
-                />
-              </S.VideoThumbnail>
-            </S.ReportVideoCard>
-          ))}
-        </S.ReportVideoGrid>
-      </S.ReportVideoContainer>
+      <S.VideoContainer>
+        {renderVideoSection(reportVideos)}
+      </S.VideoContainer>
+
       <AnimatePresence>
         {selectedVideo && (
           <motion.div
@@ -287,56 +171,38 @@ const School: React.FC = () => {
               }}
               onClick={(e) => e.stopPropagation()}
             >
-              <div style={{ position: "relative", width: "100%" }}>
-                <iframe
-                  src={getEmbedUrl(selectedVideo.src)}
-                  width="100%"
-                  height="500px"
-                  allow="autoplay; encrypted-media"
-                  allowFullScreen
-                  style={{ border: 0 }}
-                  title={selectedVideo.title}
-                />
-              </div>
-              <S.CloseButton onClick={() => setSelectedVideo(null)}>
-                ×
-              </S.CloseButton>
+              <iframe
+                src={getEmbedUrl(selectedVideo.src)}
+                width="100%"
+                height="500px"
+                allow="autoplay; encrypted-media"
+                allowFullScreen
+                style={{ border: 0 }}
+                title={selectedVideo.title}
+              />
+              <S.CloseButton onClick={() => setSelectedVideo(null)}>×</S.CloseButton>
             </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
+
       <S.LinhaHorizontal />
+
       <S.MainTitle>organização</S.MainTitle>
       <S.OrganisationCard>
-        <p>
-          <strong>Silvana Fontana</strong> – produtora
-        </p>
-        <p>
-          <strong>Homero Camargo</strong> – produtor
-        </p>
-        <p>
-          <strong>Claudio Portiolli</strong> – fotógrafo
-        </p>
-        <p>
-          <strong>Frank de Castro</strong> – montador
-        </p>
-        <p>
-          <strong>Marcio Jacovani</strong> – som
-        </p>
-        <p>
-          <strong>Zinho Oliveira</strong> – assistente de produção
-        </p>
-        <p>
-          <strong>Sandro Alves</strong> – assistente de produção
-        </p>
-        <p>
-          <strong>Ubirajara Gouveia</strong> – assistente de produção
-        </p>
-        <p>
-          <strong>Marylena Bukowski</strong> – diretora de arte
-        </p>
+        <p><strong>Silvana Fontana</strong> – produsora</p>
+        <p><strong>Homero Camargo</strong> – produtor</p>
+        <p><strong>Claudio Portiolli</strong> – fotógrafo</p>
+        <p><strong>Frank de Castro</strong> – montador</p>
+        <p><strong>Marcio Jacovani</strong> – som</p>
+        <p><strong>Zinho Oliveira</strong> – assistente de produção</p>
+        <p><strong>Sandro Alves</strong> – assistente de produção</p>
+        <p><strong>Ubirajara Gouveia</strong> – assistente de produção</p>
+        <p><strong>Marylena Bukowski</strong> – diretora de arte</p>
       </S.OrganisationCard>
+
       <S.LinhaHorizontal />
+
       <S.Body>
         <S.BodyListCardContainer>
           <S.BodyListCard>

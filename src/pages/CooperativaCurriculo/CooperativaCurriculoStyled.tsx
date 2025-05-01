@@ -362,7 +362,7 @@ export const NewTextContainerContainerText = styled.div`
 
 export const NewTextContainerText = styled.p`
   color: white;
-  width: 64vw;
+  width: 64.5vw;
   justify-self: end;
   padding-right: 2vw;
    /* Allows flexible horizontal positioning */

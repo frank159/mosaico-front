@@ -267,7 +267,7 @@ export const BigIconCardContainer = styled.div`
 export const FinalContainer = styled.div`
   position: relative; /* Adicionado para criar um novo contexto de empilhamento */
   padding-top: 6vh;
-  z-index: 1111111111111;
+  z-index: 1;
   padding: 80px 80px 0 80px;
 
   @media (max-width: 768px) {
@@ -281,7 +281,7 @@ export const BigIconCard = styled.div`
   justify-content: center;
   flex-direction: row;
   background-color: #b8bca4;
-  height: 28vh;
+  min-height: 28vh;
   position: relative;
   width: 100%;
 `;
