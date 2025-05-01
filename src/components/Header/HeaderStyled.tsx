@@ -19,7 +19,7 @@ export const Container = styled.div<{ isVisible: boolean }>`
   transform: ${(props) => (props.isVisible ? "translateY(0)" : "translateY(-100%)")};
 
   @media (max-width: 768px) {
-    height: 8vh;
+    height: 10vh;
   }
 `;
 

@@ -25,74 +25,91 @@ interface Video {
   id: number;
   title: string;
   src: string;
-  thumbnail: string;
+  thumbnail?: string;
 }
+
+// Converte URL de YouTube ou Google Drive em URL de embed
+const getEmbedUrl = (src: string) => {
+  // YouTube (youtu.be/ID ou youtube.com/watch?v=ID)
+  const ytMatch = src.match(
+    /(?:youtu\.be\/|youtube\.com\/watch\?v=)([^?&]+)/i
+  );
+  if (ytMatch && ytMatch[1]) {
+    return `https://www.youtube.com/embed/${ytMatch[1]}`;
+  }
+  // Google Drive
+  if (src.includes("drive.google.com")) {
+    return src.replace("/view?usp=drive_link", "/preview");
+  }
+  // Default
+  return src;
+};
 
 const School: React.FC = () => {
   const [selectedVideo, setSelectedVideo] = useState<Video | null>(null);
 
-  const videos = [
+  const videos: Video[] = [
     {
       id: 1,
       title: "Terror, Sonho Ou Realidade",
-      src: "https://drive.google.com/file/d/1QMaW7l3G1__7kw33PQqcaQFgRipO8olM/view?usp=drive_link",
-      thumbnail: require("../../assets/thumbnails/video1-thumb.png"),
+      src: "https://youtu.be/rByDOqWPOBs?si=2VCBuOrfKsoBd3rc",
+      thumbnail: require("../../assets/thumbnails/ceepaCaseImg.png"),
     },
     {
       id: 2,
       title: "Tropas e Boiadas",
-      src: "https://drive.google.com/file/d/1V8SrwhPqYcShTa71YDaV7gl72kc8t-LI/view?usp=drive_link",
-      thumbnail: require("../../assets/thumbnails/video1-thumb.png"),
+      src: "https://youtu.be/i9g5YIYlxoY?si=RVNIA_adiLp6h9Aq",
+      thumbnail: require("../../assets/thumbnails/ceepaCaseImg.png"),
     },
     {
       id: 3,
       title: "O Contador de Histórias",
-      src: "https://drive.google.com/file/d/1n15wTYtX_Zie-k1A61R3tdvdVaDPHsuf/view?usp=drive_link",
-      thumbnail: require("../../assets/thumbnails/video1-thumb.png"),
+      src: "https://youtu.be/2b_kqC0uCFA?si=hGVaiCLKlUkRX24K",
+      thumbnail: require("../../assets/thumbnails/ceepaCaseImg.png"),
     },
     {
       id: 4,
       title: "Despertar para Realidade",
-      src: "https://drive.google.com/file/d/1PhgZ9yeT-KquEGV_ZIMMqhblKXIhHesV/view?usp=drive_link",
-      thumbnail: require("../../assets/thumbnails/video1-thumb.png"),
+      src: "https://youtu.be/qvaB61fi_3g?si=Rqy3sb-2BZsd3I7g",
+      thumbnail: require("../../assets/thumbnails/ceepaCaseImg.png"),
     },
     {
       id: 5,
       title: "Ilha Perdida",
-      src: "https://drive.google.com/file/d/1TI4pH-xp1h2X9Wn5XAmu0UNrEqGzPAIu/view?usp=drive_link",
-      thumbnail: require("../../assets/thumbnails/video1-thumb.png"),
+      src: "https://youtu.be/lcQZUIf4Sso?si=YvmpINYlrC8RS172",
+      thumbnail: require("../../assets/thumbnails/ceepaCaseImg.png"),
     },
     {
       id: 6,
       title: "Nada Apaga o Amor",
-      src: "https://drive.google.com/file/d/1yIQ_DZmqO8EshD6cZwUWTCOJDQbz7hxk/view?usp=drive_link",
-      thumbnail: require("../../assets/thumbnails/video1-thumb.png"),
+      src: "https://youtu.be/UOlL7dDWlPU?si=xH_gBxL68ZrTqzIo",
+      thumbnail: require("../../assets/thumbnails/ceepaCaseImg.png"),
     },
     {
       id: 7,
       title: "Redenção",
-      src: "https://drive.google.com/file/d/12siUuNetOhiGkodvy_XS3974Lne7JER0/view?usp=drive_link",
-      thumbnail: require("../../assets/thumbnails/video1-thumb.png"),
+      src: "https://youtu.be/NaCpEpfbB-8?si=j70MjcG4SFevxQ17",
+      thumbnail: require("../../assets/thumbnails/ceepaCaseImg.png"),
     },
     {
       id: 8,
       title: "O Resgate",
-      src: "https://drive.google.com/file/d/1dR5_H982tcI5vBKhtFEVShYx1BYbMAuf/view?usp=drive_link",
-      thumbnail: require("../../assets/thumbnails/video1-thumb.png"),
+      src: "https://youtu.be/EZHT_1NNa2o?si=qMjntUVDjzisWZvn",
+      thumbnail: require("../../assets/thumbnails/ceepaCaseImg.png"),
     },
   ];
 
-  const reportVideos = [
+  const reportVideos: Video[] = [
     {
       id: 9,
       title: "Case Ceepa",
-      src: "https://drive.google.com/file/d/1BzeZCYJgX-sVk6zqTHMHb0RlULS3_5KA/view?usp=drive_link",
+      src: "https://youtu.be/0m5YbDwTSSg?si=XcblAZA184FYhbkj",
       thumbnail: require("../../assets/thumbnails/ceepaCaseImg.png"),
     },
     {
       id: 10,
-      title: "Globo reporter",
-      src: "https://drive.google.com/file/d/1Nr7e_w7VzVcW4frKW3XUbGoh15xb4-Le/view?usp=drive_link",
+      title: "Globo Reporter",
+      src: "https://youtu.be/XsQRllbukoM?si=FdA4IcOPnGNvUH5G",
       thumbnail: require("../../assets/thumbnails/globoreporter.png"),
     },
   ];
@@ -116,6 +133,7 @@ const School: React.FC = () => {
           </S.TextoSubInicialA>
         </S.TextoSubInicialContainer>
       </S.InicialSecao>
+
       <S.TextImgCardMain>
         <S.TextImgCard>
           <S.TextCard>
@@ -125,7 +143,7 @@ const School: React.FC = () => {
             <br />
             <br />A iniciativa teve como foco adolescentes de 12 a 16 anos da
             rede pública de ensino, promovendo uma formação cultural que
-            resultou na produção de 8 filmes organizados pelos próprios alunos.{" "}
+            resultou na produção de 8 filmes organizados pelos próprios alunos.
           </S.TextCard>
           <S.ImgCard>
             <S.CardImgProjetoB src={img88} />
@@ -140,7 +158,7 @@ const School: React.FC = () => {
             <S.VideoCard key={video.id} onClick={() => setSelectedVideo(video)}>
               <S.VideoThumbnail>
                 <iframe
-                  src={video.src.replace("/view?usp=drive_link", "/preview")}
+                  src={getEmbedUrl(video.src)}
                   width="100%"
                   height="100%"
                   allow="autoplay; encrypted-media"
@@ -187,10 +205,7 @@ const School: React.FC = () => {
               >
                 <div style={{ position: "relative", width: "100%" }}>
                   <iframe
-                    src={selectedVideo.src.replace(
-                      "/view?usp=drive_link",
-                      "/preview"
-                    )}
+                    src={getEmbedUrl(selectedVideo.src)}
                     width="100%"
                     height="500px"
                     allow="autoplay; encrypted-media"
@@ -199,7 +214,6 @@ const School: React.FC = () => {
                     title={selectedVideo.title}
                   />
                 </div>
-
                 <S.CloseButton onClick={() => setSelectedVideo(null)}>
                   ×
                 </S.CloseButton>
@@ -208,42 +222,16 @@ const School: React.FC = () => {
           )}
         </AnimatePresence>
       </S.VideoContainer>
+
       <S.MainTitle>fotos da pré e pós produção</S.MainTitle>
       <S.Galeria>
-        <S.ImgContainer>
-          <S.Img src={ft1} />
-        </S.ImgContainer>
-        <S.ImgContainer>
-          <S.Img src={ft2} />
-        </S.ImgContainer>
-        <S.ImgContainer>
-          <S.Img src={ft3} />
-        </S.ImgContainer>
-        <S.ImgContainer>
-          <S.Img src={ft4} />
-        </S.ImgContainer>
-        <S.ImgContainer>
-          <S.Img src={ft5} />
-        </S.ImgContainer>
-        <S.ImgContainer>
-          <S.Img src={ft6} />
-        </S.ImgContainer>
-        <S.ImgContainer>
-          <S.Img src={ft7} />
-        </S.ImgContainer>
-        <S.ImgContainer>
-          <S.Img src={ft8} />
-        </S.ImgContainer>
-        <S.ImgContainer>
-          <S.Img src={ft9} />
-        </S.ImgContainer>
-        <S.ImgContainer>
-          <S.Img src={ft10} />
-        </S.ImgContainer>
-        <S.ImgContainer>
-          <S.Img src={ft11} />
-        </S.ImgContainer>
+        {[ft1, ft2, ft3, ft4, ft5, ft6, ft7, ft8, ft9, ft10, ft11].map((src, i) => (
+          <S.ImgContainer key={i}>
+            <S.Img src={src} />
+          </S.ImgContainer>
+        ))}
       </S.Galeria>
+
       <S.MainTitle>Reportagens sobre o ceepa</S.MainTitle>
       <S.ReportVideoContainer>
         <S.ReportVideoGrid>
@@ -301,10 +289,7 @@ const School: React.FC = () => {
             >
               <div style={{ position: "relative", width: "100%" }}>
                 <iframe
-                  src={selectedVideo.src.replace(
-                    "/view?usp=drive_link",
-                    "/preview"
-                  )}
+                  src={getEmbedUrl(selectedVideo.src)}
                   width="100%"
                   height="500px"
                   allow="autoplay; encrypted-media"

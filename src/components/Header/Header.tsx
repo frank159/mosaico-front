@@ -7,7 +7,7 @@ import { Container, Element } from './HeaderStyled'; // Removed Img import to us
 const items = [
   { src: require('../../assets/images/logo/cooperativa.png'), path: '/Cooperativa', alt: 'Cooperativa' },
   { src: require('../../assets/images/icons/mosaicoIconeMonoW.png'), path: '/', alt: 'Home' },
-  { src: require('../../assets/images/icons/LOTUS BRANCO.png'), path: '/CAP', alt: 'CAP' },
+  { src: require('../../assets/images/icons/logotipoCAP.png'), path: '/CAP', alt: 'CAP' },
 ];
 
 const Header: React.FC = () => {
