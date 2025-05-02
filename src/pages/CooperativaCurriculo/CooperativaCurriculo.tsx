@@ -1,28 +1,12 @@
-import { text } from 'd3';
 import * as S from './CooperativaCurriculoStyled';
 import React, { useState, useRef, useEffect } from 'react';
-import { motion, useMotionValue, useAnimationFrame } from "motion/react"; // ou "framer-motion" conforme sua lib
-import { useNavigate } from 'react-router-dom';
-import Carousel from '../../components/CarrocelCooperativa/carrocel';
-import CustomCarousel from '../../components/Carousel/Carousel';
+const HomeroFoto = require("../../assets/images/img/homero.webP")
 
-const HomeroFoto = require("../../assets/images/img/homero.png")
-const cameraCoop = require("../../assets/images/img/cameraCoop.png")
-const pinheiroCoop = require("../../assets/images/img/pinheiroCoop.png")
-const cooperativaLogo = require("../../assets/images/logo/cooperativaLogo.png")
-
-const xeretas = require("../../assets/images/img/xeretas.png")
-const Afrente = require("../../assets/images/img/Afrente.png")
-const projetoID = require("../../assets/images/img/projetoID.png")
-const sonhosTrop = require("../../assets/images/img/sonhosTrop.png")
-const estadoDressis = require("../../assets/images/img/estadoDressis.png")
-
-
-const coopCuri1 = require("../../assets/images/img/coopCuri1.png")
-const coopCuri2 = require("../../assets/images/img/coopCuri2.png")
-const coopCuri3 = require("../../assets/images/img/coopCuri3.png")
-const coopCuri4 = require("../../assets/images/img/coopCuri4.png")
-const coopCuri5 = require("../../assets/images/img/coopCuri5.png")
+const coopCuri1 = require("../../assets/images/img/coopCuri1.webP")
+const coopCuri2 = require("../../assets/images/img/coopCuri2.webP")
+const coopCuri3 = require("../../assets/images/img/coopCuri3.webP")
+const coopCuri4 = require("../../assets/images/img/coopCuri4.webP")
+const coopCuri5 = require("../../assets/images/img/coopCuri5.webP")
 
 const CooperativaCurriculo: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);

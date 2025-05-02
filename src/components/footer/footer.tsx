@@ -1,12 +1,11 @@
 import React from 'react';
-import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import EmailIcon from '@mui/icons-material/Email';
 
 import * as S from './footerStyled';
 
-const mosaico = require('../../assets/images/icons/mosaicoIconeMono.png');
-const graciosa = require("../../assets/images/logo/graciosa.png");
+const mosaico = require('../../assets/images/icons/mosaicoIconeMono.webP');
+const graciosa = require("../../assets/images/logo/graciosa.webP");
 
 interface FooterProps {
     isBlackBg?: boolean;

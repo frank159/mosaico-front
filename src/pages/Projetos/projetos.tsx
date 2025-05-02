@@ -1,9 +1,7 @@
 import * as S from "./projetosStyled";
 
-const faixaMosaico = require("../../assets/images/img/faixaMosaico.png");
-const img1 = require("../../assets/images/img/luz.png");
-const img2 = require("../../assets/images/img/comuni.png");
-const img3 = require("../../assets/images/logo/caapComFundo.png");
+const faixaMosaico = require("../../assets/images/img/faixaMosaico.webP");
+const img1 = require("../../assets/images/img/luz.webP");
 
 const Projetos: React.FC = () => {
   const handleProjetoClick = (route: string) => {

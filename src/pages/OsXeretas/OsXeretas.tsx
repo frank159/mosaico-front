@@ -2,15 +2,15 @@ import * as S from './OsXeretasStyled';
 import React from 'react';
 import ReactPlayer from 'react-player';
 
-const xeretas1 = require("../../assets/images/img/xeretas1.png")
+const xeretas1 = require("../../assets/images/img/xeretas1.webP")
 
-const ft1 = require("../../assets/images/img/xeretas-1.png")
-const ft2 = require("../../assets/images/img/xeretas-2.png")
-const ft3 = require("../../assets/images/img/xeretas-3.png")
-const ft4 = require("../../assets/images/img/xeretas-4.png")
-const ft5 = require("../../assets/images/img/xeretas-5.png")
-const ft6 = require("../../assets/images/img/xeretas-6.png")
-const ft7 = require("../../assets/images/img/xeretas-7.png")
+const ft1 = require("../../assets/images/img/xeretas-1.webP")
+const ft2 = require("../../assets/images/img/xeretas-2.webP")
+const ft3 = require("../../assets/images/img/xeretas-3.webP")
+const ft4 = require("../../assets/images/img/xeretas-4.webP")
+const ft5 = require("../../assets/images/img/xeretas-5.webP")
+const ft6 = require("../../assets/images/img/xeretas-6.webP")
+const ft7 = require("../../assets/images/img/xeretas-7.webP")
 
 const OsXeretas: React.FC = () => {
 

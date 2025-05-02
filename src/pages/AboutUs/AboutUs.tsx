@@ -3,15 +3,13 @@ import * as S from './AboutUsStyled';
 import TextComponent from '../text/text';
 import Footer from '../../components/footer/footer';
 
-const mosaicoLogo = require('../../assets/images/logo/mosaicoLogo1.png');
-const esclamacao = require('../../assets/images/icons/esclamacao.png');
-const missao = require('../../assets/images/icons/missao esc.png');
-const visao = require('../../assets/images/icons/visao esc.png');
-const valores = require('../../assets/images/icons/valores esc.png');
-const esclamacaoClaro = require('../../assets/images/icons/esclamacaoClaro.png');
-const pinheiro = require('../../assets/images/img/pinheiro.png');
-const aspas = require('../../assets/images/icons/aspasPreta.png');
-const estrutura = require('../../assets/images/icons/estrutura esc.png');
+const mosaicoLogo = require('../../assets/images/logo/mosaicoLogo1.webP');
+const missao = require('../../assets/images/icons/missao esc.webP');
+const visao = require('../../assets/images/icons/visao esc.webP');
+const valores = require('../../assets/images/icons/valores esc.webP');
+const pinheiro = require('../../assets/images/img/pinheiro.webP');
+const aspas = require('../../assets/images/icons/aspasPreta.webP');
+const estrutura = require('../../assets/images/icons/estrutura esc.webP');
 
 const AboutUs: React.FC = () => {
   const handleProjetoClick = (route: string) => {

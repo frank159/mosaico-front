@@ -2,16 +2,16 @@ import * as S from './FrenteFriaStyled';
 import React from 'react';
 import ReactPlayer from 'react-player';
 
-const frentefria = require("../../assets/images/img/frentefria.png")
-const aspas = require('../../assets/images/icons/aspas.png');
+const frentefria = require("../../assets/images/img/frentefria.webP")
+const aspas = require('../../assets/images/icons/aspas.webP');
 const f1 = require("../../assets/images/img/1.png")
 const f2 = require("../../assets/images/img/2.png")
-const f3 = require("../../assets/images/img/3.png")
+const f3 = require("../../assets/images/img/3.webP")
 const f4 = require("../../assets/images/img/4.png")
-const f5 = require("../../assets/images/img/5.png")
-const f6 = require("../../assets/images/img/6.png")
-const f7 = require("../../assets/images/img/7.png")
-const f8 = require("../../assets/images/img/9.png")
+const f5 = require("../../assets/images/img/5.webP")
+const f6 = require("../../assets/images/img/6.webP")
+const f7 = require("../../assets/images/img/7.webP")
+const f8 = require("../../assets/images/img/9.webP")
 
 
 const FrenteFria: React.FC = () => {

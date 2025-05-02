@@ -3,16 +3,16 @@ import React, { useState, useRef, useEffect } from 'react';
 import Footer from '../../components/footer/footer';
 import styled from 'styled-components';
 
-const HomeroFoto = require("../../assets/images/img/homero.png")
-const cameraCoop = require("../../assets/images/img/cameraCoop.png")
-const pinheiroCoop = require("../../assets/images/img/pinheiroCoop.png")
-const cooperativaLogo = require("../../assets/images/logo/cooperativaLogo.png")
+const HomeroFoto = require("../../assets/images/img/homero.webP")
+const cameraCoop = require("../../assets/images/img/cameraCoop.webP")
+const pinheiroCoop = require("../../assets/images/img/pinheiroCoop.webP")
+const cooperativaLogo = require("../../assets/images/logo/cooperativaLogo.webP")
 
-const xeretas = require("../../assets/images/img/xeretas.png");
-const Afrente = require("../../assets/images/img/Afrente.png");
-const projetoID = require("../../assets/images/img/projetoID.png");
-const sonhosTrop = require("../../assets/images/img/sonhosTrop.png");
-const estadoDressis = require("../../assets/images/img/estadoDressis.png");
+const xeretas = require("../../assets/images/img/xeretas.webP");
+const Afrente = require("../../assets/images/img/Afrente.webP");
+const projetoID = require("../../assets/images/img/projetoID.webP");
+const sonhosTrop = require("../../assets/images/img/sonhosTrop.webP");
+const estadoDressis = require("../../assets/images/img/estadoDressis.webP");
 
 const SonhosTropicaisImg = styled.img<{ isMobile: boolean }>`
   width: 100%;

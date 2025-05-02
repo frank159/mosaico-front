@@ -2,7 +2,6 @@ import styled, { keyframes } from 'styled-components';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import { Button } from '@mui/material';
 
-const calqueti = require("../../assets/images/img/clacket.png")
 
 interface QuinSecaoProps {
   width: string;

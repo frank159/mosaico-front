@@ -2,7 +2,7 @@ import * as S from './EstadoResistenciaStyled';
 import React from 'react';
 import ReactPlayer from 'react-player';
 
-const estadoDressis = require("../../assets/images/img/estadoDressis.png");
+const estadoDressis = require("../../assets/images/img/estadoDressis.webP");
 const EstadoResistencia: React.FC = () => {
 
   return (

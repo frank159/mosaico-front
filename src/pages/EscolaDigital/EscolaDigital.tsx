@@ -4,29 +4,12 @@ import Footer from '../../components/footer/footer';
 
 
 
-const camerim = require("../../assets/images/img/camerim.png")
-const impactoM = require("../../assets/images/icons/impacto na midia.png")
-const impactoS = require("../../assets/images/icons/impacto social.png")
-const producao = require("../../assets/images/icons/producao e resultados.png")
-const reconhecimento = require("../../assets/images/icons/reconhecimento.png")
-const esclamacao = require('../../assets/images/icons/esclamacao.png');
-const estrutura = require("../../assets/images/icons/estrutura.png")
-const mundoConectado = require("../../assets/images/icons/mundo conectado.png")
-const clacket = require("../../assets/images/img/clacket.png")
-const ft1 = require("../../assets/images/img/ft1.jpg")
-const ft2 = require("../../assets/images/img/ft2.jpg")
-const ft3 = require("../../assets/images/img/ft3.jpg")
-const ft4 = require("../../assets/images/img/ft4.jpg")
-const ft5 = require("../../assets/images/img/ft5.jpg")
-const ft6 = require("../../assets/images/img/ft6.jpg")
-const ft7 = require("../../assets/images/img/ft7.jpg")
-const ft8 = require("../../assets/images/img/ft8.jpg")
-const ft9 = require("../../assets/images/img/ft9.jpg")
-const ft10 = require("../../assets/images/img/ft10.jpg")
-const ft11 = require("../../assets/images/img/ft11.jpg")
-const folha = require("../../assets/images/icons/folha.png")
-const localizacao = require("../../assets/images/icons/localizacao.png")
-const img3 = require('../../assets/images/img/comuni.png');
+const camerim = require("../../assets/images/img/camerim.webP")
+const estrutura = require("../../assets/images/icons/estrutura.webP")
+const mundoConectado = require("../../assets/images/icons/mundo conectado.webP")
+const folha = require("../../assets/images/icons/folha.webP")
+const localizacao = require("../../assets/images/icons/localizacao.webP")
+const img3 = require('../../assets/images/img/comuni.webP');
 
 const School: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);

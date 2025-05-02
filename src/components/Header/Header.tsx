@@ -5,9 +5,9 @@ import { Container, Element } from './HeaderStyled'; // Removed Img import to us
 
 // Define items with images, paths, and alt text
 const items = [
-  { src: require('../../assets/images/logo/cooperativa.png'), path: '/Cooperativa', alt: 'Cooperativa' },
-  { src: require('../../assets/images/icons/mosaicoIconeMonoW.png'), path: '/', alt: 'Home' },
-  { src: require('../../assets/images/icons/logotipoCAP.png'), path: '/CAP', alt: 'CAP' },
+  { src: require('../../assets/images/logo/cooperativa.webP'), path: '/Cooperativa', alt: 'Cooperativa' },
+  { src: require('../../assets/images/icons/mosaicoIconeMonoW.webP'), path: '/', alt: 'Home' },
+  { src: require('../../assets/images/icons/logotipoCAP.webP'), path: '/CAP', alt: 'CAP' },
 ];
 
 const Header: React.FC = () => {
@@ -19,6 +19,10 @@ const Header: React.FC = () => {
     if (path.endsWith('/Ceepa') || /^\/projeto-\w+/.test(path)) {
       // CAP está no índice 2
       return 2;
+    }
+    if (path.includes('/projeto-id?fromCooperativa=true') || path.endsWith('/Ox-Xeretas') || path.endsWith('/FrenteFria') || path.endsWith('/CooperativaCurriculo') || path.endsWith('/Tropicais') || path.endsWith('/EstadoResistencia')) {
+      // CAP está no índice 2
+      return 0;
     }
     const idx = items.findIndex(item => item.path === path);
     return idx >= 0 ? idx : 1;

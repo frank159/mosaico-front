@@ -10,12 +10,10 @@ import PauseIcon from '@mui/icons-material/Pause';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import ScrollToTop from "../../components/ScrollToTop/ScrollToTop";
 import AboutUs from "../AboutUs/AboutUs";
-import Footer from '../../components/footer/footer';
 
 // Logos and icons
-const mosaicoLogo = require("./MOSAICO.png");
-const mosaicoCirculoLogo = require("./MOSAICO CIRCULO.png");
-const seta = require("../../assets/images/icons/seta.png");
+const mosaicoLogo = require("./MOSAICO.webP");
+const mosaicoCirculoLogo = require("./MOSAICO CIRCULO.webP");
 
 const MosaicoPage: React.FC = () => {
   // Refs for audio and video elements

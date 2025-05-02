@@ -5,33 +5,33 @@ import { motion } from "motion/react"; // ou "framer-motion" conforme sua lib
 import ReactPlayer from 'react-player';
 import { useSearchParams } from 'react-router-dom';
 
-const idProgeto = require("../../assets/images/img/idIMg.jpg")
-const idProgetoDefault = require("../../assets/images/img/idProgeto.png")
-const BRASILDeSAINT = require("../../assets/images/img/BRASILDeSAINT.png")
-const cooperativa111 = require("../../assets/images/img/cooperativa111.png")
-const tropeiro = require("../../assets/images/img/tropeiro.png")
+const idProgeto = require("../../assets/images/img/idIMg.webP")
+const idProgetoDefault = require("../../assets/images/img/idProgeto.webP")
+const BRASILDeSAINT = require("../../assets/images/img/BRASILDeSAINT.webP")
+const cooperativa111 = require("../../assets/images/img/cooperativa111.webP")
+const tropeiro = require("../../assets/images/img/tropeiro.webP")
 const video1 = '/videos/filme1.webm';
 
-const SAO_GONÇALO1 = require('../../assets/images/img/SAO_GONÇALO1.png');
-const SAO_GONÇALO2 = require('../../assets/images/img/SAO_GONÇALO2.png');
-const SAO_GONÇALO3 = require('../../assets/images/img/SAO_GONÇALO3.png');
-const SAO_GONÇALO4 = require('../../assets/images/img/SAO_GONÇALO4.png');
-const SAO_GONÇALO5 = require('../../assets/images/img/SAO_GONÇALO5.png');
-const SAO_GONÇALO6 = require('../../assets/images/img/SAO_GONÇALO6.png');
-const SAO_GONÇALO7 = require('../../assets/images/img/SAO_GONÇALO7.png');
-const SAO_GONÇALO8 = require('../../assets/images/img/SAO_GONÇALO8.png');
+const SAO_GONÇALO1 = require('../../assets/images/img/SAO_GONÇALO1.webP');
+const SAO_GONÇALO2 = require('../../assets/images/img/SAO_GONÇALO2.webP');
+const SAO_GONÇALO3 = require('../../assets/images/img/SAO_GONÇALO3.webP');
+const SAO_GONÇALO4 = require('../../assets/images/img/SAO_GONÇALO4.webP');
+const SAO_GONÇALO5 = require('../../assets/images/img/SAO_GONÇALO5.webP');
+const SAO_GONÇALO6 = require('../../assets/images/img/SAO_GONÇALO6.webP');
+const SAO_GONÇALO7 = require('../../assets/images/img/SAO_GONÇALO7.webP');
+const SAO_GONÇALO8 = require('../../assets/images/img/SAO_GONÇALO8.webP');
 
-const saint1 = require('../../assets/images/img/saint1.PNG');
-const saint2 = require('../../assets/images/img/saint2.PNG');
-const saint3 = require('../../assets/images/img/saint3.PNG');
-const saint4 = require('../../assets/images/img/saint4.PNG');
-const saint5 = require('../../assets/images/img/saint5.PNG');
-const saint6 = require('../../assets/images/img/saint6.PNG');
-const saint7 = require('../../assets/images/img/saint7.PNG');
-const saint8 = require('../../assets/images/img/saint8.PNG');
-const saint9 = require('../../assets/images/img/saint9.PNG');
-const saint10 = require('../../assets/images/img/saint10.PNG');
-const saint11 = require('../../assets/images/img/saint11.PNG');
+const saint1 = require('../../assets/images/img/saint1.webP');
+const saint2 = require('../../assets/images/img/saint2.webP');
+const saint3 = require('../../assets/images/img/saint3.webP');
+const saint4 = require('../../assets/images/img/saint4.webP');
+const saint5 = require('../../assets/images/img/saint5.webP');
+const saint6 = require('../../assets/images/img/saint6.webP');
+const saint7 = require('../../assets/images/img/saint7.webP');
+const saint8 = require('../../assets/images/img/saint8.webP');
+const saint9 = require('../../assets/images/img/saint9.webP');
+const saint10 = require('../../assets/images/img/saint10.webP');
+const saint11 = require('../../assets/images/img/saint11.webP');
 
 
 const ProjetoIdentidade: React.FC = () => {

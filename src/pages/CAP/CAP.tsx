@@ -4,13 +4,13 @@ import Footer from "../../components/footer/footer";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 
-const maoGlobo = require("../../assets/images/icons/maoGlobo.png");
-const ong = require("../../assets/images/icons/ong.png");
-const calendario = require("../../assets/images/icons/calendario.png");
-const localPreto = require("../../assets/images/icons/local preto.png");
-const esclamacao = require("../../assets/images/icons/esclamacao.png");
-const filmeJoin = require("../../assets/images/logo/image 29.png");
-const capLogo = require("../../assets/images/logo/logotipo 5.png");
+const maoGlobo = require("../../assets/images/icons/maoGlobo.webP");
+const ong = require("../../assets/images/icons/ong.webP");
+const calendario = require("../../assets/images/icons/calendario.webP");
+const localPreto = require("../../assets/images/icons/local preto.webP");
+const esclamacao = require("../../assets/images/icons/esclamacao.webP");
+const filmeJoin = require("../../assets/images/logo/image 29.webP");
+const capLogo = require("../../assets/images/logo/logotipo 5.webP");
 
 const School: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);

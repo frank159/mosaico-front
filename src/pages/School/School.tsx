@@ -3,26 +3,26 @@ import * as S from "./SchoolStyled";
 import { motion, AnimatePresence } from "framer-motion";
 
 // Icon imports
-const impactoM = require("../../assets/images/icons/impacto na midia.png");
-const impactoS = require("../../assets/images/icons/impacto social.png");
-const producao = require("../../assets/images/icons/producao e resultados.png");
-const reconhecimento = require("../../assets/images/icons/reconhecimento.png");
-const estrutura = require("../../assets/images/icons/LOTUS BRANCO.png");
+const impactoM = require("../../assets/images/icons/impacto na midia.webP");
+const impactoS = require("../../assets/images/icons/impacto social.webP");
+const producao = require("../../assets/images/icons/producao e resultados.webP");
+const reconhecimento = require("../../assets/images/icons/reconhecimento.webP");
+const estrutura = require("../../assets/images/icons/LOTUS BRANCO.webP");
 
 // Photo imports
-const ft1 = require("../../assets/images/img/ft1.jpg");
-const ft2 = require("../../assets/images/img/ft2.jpg");
-const ft3 = require("../../assets/images/img/ft3.jpg");
-const ft4 = require("../../assets/images/img/ft4.jpg");
-const ft5 = require("../../assets/images/img/ft5.jpg");
-const ft6 = require("../../assets/images/img/ft6.jpg");
-const ft7 = require("../../assets/images/img/ft7.jpg");
-const ft8 = require("../../assets/images/img/ft8.jpg");
-const ft9 = require("../../assets/images/img/ft9.jpg");
-const ft10 = require("../../assets/images/img/ft10.jpg");
-const ft11 = require("../../assets/images/img/ft11.jpg");
-const img88 = require("../../assets/images/img/img88.png");
-const coruja = require("../../assets/images/logo/coruja-pn.png");
+const ft1 = require("../../assets/images/img/ft1.webP");
+const ft2 = require("../../assets/images/img/ft2.webP");
+const ft3 = require("../../assets/images/img/ft3.webP");
+const ft4 = require("../../assets/images/img/ft4.webP");
+const ft5 = require("../../assets/images/img/ft5.webP");
+const ft6 = require("../../assets/images/img/ft6.webP");
+const ft7 = require("../../assets/images/img/ft7.webP");
+const ft8 = require("../../assets/images/img/ft8.webP");
+const ft9 = require("../../assets/images/img/ft9.webP");
+const ft10 = require("../../assets/images/img/ft10.webP");
+const ft11 = require("../../assets/images/img/ft11.webP");
+const img88 = require("../../assets/images/img/img88.webP");
+const coruja = require("../../assets/images/logo/coruja-pn.webP");
 
 interface Video {
   id: number;

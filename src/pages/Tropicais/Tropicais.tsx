@@ -2,13 +2,13 @@ import * as S from './TropicaisStyled';
 import React from 'react';
 import ReactPlayer from 'react-player';
 
-const tropicais = require("../../assets/images/img/Tropicais.png")
-const f1 = require("../../assets/images/img/1p.png")
-const f2 = require("../../assets/images/img/2p.png")
-const f3 = require("../../assets/images/img/3p.png")
-const f4 = require("../../assets/images/img/4p.png")
-const f5 = require("../../assets/images/img/5p.png")
-const f6 = require("../../assets/images/img/6p.png")
+const tropicais = require("../../assets/images/img/Tropicais.webP")
+const f1 = require("../../assets/images/img/1p.webP")
+const f2 = require("../../assets/images/img/2p.webP")
+const f3 = require("../../assets/images/img/3p.webP")
+const f4 = require("../../assets/images/img/4p.webP")
+const f5 = require("../../assets/images/img/5p.webP")
+const f6 = require("../../assets/images/img/6p.webP")
 
 const Tropicais: React.FC = () => {
 
