@@ -376,37 +376,31 @@ export const Gallery = styled.div`
   & > div:nth-child(1) {
     grid-column: span 2;
     grid-row: span 2;
-    background-color: #ff0000;
   }
 
   & > div:nth-child(2) {
     grid-column: 3 / 4;
     grid-row: 1 / 2;
-    background-color: #00ff00;
   }
 
   & > div:nth-child(3) {
     grid-column: 3 / 4;
     grid-row: 2 / 3;
-    background-color: #0000ff;
   }
 
   & > div:nth-child(4) {
     grid-column: 1 / 2;
     grid-row: 3 / 4;
-    background-color: #131310;
   }
 
   & > div:nth-child(5) {
     grid-column: 2 / 3;
     grid-row: 3 / 4;
-    background-color: #ffff00;
   }
 
   & > div:nth-child(6) {
     grid-column: 3 / 4;
     grid-row: 3 / 4;
-    background-color: #ff00ff;
   }
 
   img {

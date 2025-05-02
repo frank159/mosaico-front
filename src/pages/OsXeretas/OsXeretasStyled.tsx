@@ -371,27 +371,22 @@ export const Gallery = styled.div`
   width: 60vw;
   & > div:nth-child(1) {
     grid-column: span 4;
-    background-color: #ff0000;
   }
 
   & > div:nth-child(2),
   & > div:nth-child(3) {
     grid-column: span 2;
-    background-color: #00ff00;
   }
 
   & > div:nth-child(4) {
     grid-column: span 1;
-    background-color: #0000ff;
   }
 
   & > div:nth-child(5) {
     grid-column: span 1;
-    background-color: #131310;
   }  
   & > div:nth-child(6) {
     grid-column: span 1;
-    background-color: #ffff00;
   }
 
 
