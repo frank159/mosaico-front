@@ -2,15 +2,15 @@ import * as S from './OsXeretasStyled';
 import React from 'react';
 import ReactPlayer from 'react-player';
 
-const xeretas1 = require("../../assets/images/img/xeretas1.webP")
+const xeretas1 = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324660/xeretas1_yk9fxp.png'
 
-const ft1 = require("../../assets/images/img/xeretas-1.webP")
-const ft2 = require("../../assets/images/img/xeretas-2.webP")
-const ft3 = require("../../assets/images/img/xeretas-3.webP")
-const ft4 = require("../../assets/images/img/xeretas-4.webP")
-const ft5 = require("../../assets/images/img/xeretas-5.webP")
-const ft6 = require("../../assets/images/img/xeretas-6.webP")
-const ft7 = require("../../assets/images/img/xeretas-7.webP")
+const ft1 = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324660/xeretas-1_m0ifdv.png'
+const ft2 = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324660/xeretas-2_f24uk2.png'
+const ft3 = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324660/xeretas-3_yerm3i.png'
+const ft4 = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324660/xeretas-4_c8fg1r.png'
+const ft5 = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324661/xeretas-5_fpntt6.png'
+const ft6 = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324661/xeretas-6_cgbmrj.png'
+const ft7 = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324661/xeretas-7_av5nog.png'
 
 const OsXeretas: React.FC = () => {
 

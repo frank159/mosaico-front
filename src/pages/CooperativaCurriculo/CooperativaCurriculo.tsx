@@ -1,12 +1,12 @@
 import * as S from './CooperativaCurriculoStyled';
 import React, { useState, useRef, useEffect } from 'react';
-const HomeroFoto = require("../../assets/images/img/homero.webP")
+const HomeroFoto = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324650/homero_bmcqqj.png'
 
-const coopCuri1 = require("../../assets/images/img/coopCuri1.webP")
-const coopCuri2 = require("../../assets/images/img/coopCuri2.webP")
-const coopCuri3 = require("../../assets/images/img/coopCuri3.webP")
-const coopCuri4 = require("../../assets/images/img/coopCuri4.webP")
-const coopCuri5 = require("../../assets/images/img/coopCuri5.webP")
+const coopCuri1 = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324646/coopCuri1_lzdk6z.png'
+const coopCuri2 = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324646/coopCuri2_ewzkih.png'
+const coopCuri3 = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324646/coopCuri3_yq2vm6.png'
+const coopCuri4 = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324646/coopCuri4_i417ir.png'
+const coopCuri5 = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324647/coopCuri5_gvmjuy.png'
 
 const CooperativaCurriculo: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);

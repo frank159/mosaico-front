@@ -3,16 +3,16 @@ import React, { useState, useRef, useEffect } from 'react';
 import Footer from '../../components/footer/footer';
 import styled from 'styled-components';
 
-const HomeroFoto = require("../../assets/images/img/homero.webP")
-const cameraCoop = require("../../assets/images/img/cameraCoop.webP")
-const pinheiroCoop = require("../../assets/images/img/pinheiroCoop.webP")
-const cooperativaLogo = require("../../assets/images/logo/cooperativaLogo.webP")
+const HomeroFoto = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324650/homero_bmcqqj.png'
+const cameraCoop = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324645/cameraCoop_qatvbg.png'
+const pinheiroCoop = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324654/pinheiroCoop_zjd9te.png'
+const cooperativaLogo = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324713/cooperativaLogo_yycsv7.png'
 
-const xeretas = require("../../assets/images/img/xeretas.webP");
-const Afrente = require("../../assets/images/img/Afrente.webP");
-const projetoID = require("../../assets/images/img/projetoID.webP");
-const sonhosTrop = require("../../assets/images/img/sonhosTrop.webP");
-const estadoDressis = require("../../assets/images/img/estadoDressis.webP");
+const xeretas = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324661/xeretas_iqr0lb.png'
+const Afrente = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324641/Afrente_gn0qpz.png'
+const projetoID = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324654/projetoID_ytbj68.png'
+const sonhosTrop = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324659/sonhosTrop_tgylrk.jpg'
+const estadoDressis = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324647/estadoDressis_guhvqm.png'
 
 const SonhosTropicaisImg = styled.img<{ isMobile: boolean }>`
   width: 100%;

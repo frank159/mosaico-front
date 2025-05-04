@@ -230,7 +230,6 @@ export const CardIcon = styled.div`
 
 export const CardIconImg = styled.img`
   height: 5rem;
-  filter: invert(1);
 `;
 
 export const CardText = styled.div`

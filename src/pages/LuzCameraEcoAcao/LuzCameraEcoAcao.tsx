@@ -1,29 +1,27 @@
-import React, { useEffect, useRef, useState, useLayoutEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import * as S from "./LuzCameraEcoAcaoStyled";
 import Footer from "../../components/footer/footer";
 import ContactSection from "../../components/contactComponente/contactComponente";
 
-const logoEcoacao = require("../../assets/images/logo/ecoação.webP");
-const logoFuncao = require("../../assets/images/logo/logoFuncao.webP");
-const localizacao = require("../../assets/images/icons/localizacao.webP");
-const barco = require("../../assets/images/icons/barco.webP");
-const folha = require("../../assets/images/icons/folha.webP");
-const podcastIcon = require("../../assets/images/icons/podcast.webP");
-const expoIcon = require("../../assets/images/icons/quadro.webP");
-const painelIcon = require("../../assets/images/icons/balao de conversa.webP");
-const oficinaIcon = require("../../assets/images/icons/pessoa com lampada na mao.webP");
-const mundoConectado = require("../../assets/images/icons/mundin.webP");
-const homero = require("../../assets/images/img/homero.jpeg");
-const bruna = require("../../assets/images/img/image (4).webP");
-const PalomaFoto = require("../../assets/images/img/paloma.webP");
-const graciosa1 = require("../../assets/images/logo/graciosaa.png");
-const capFundoBranco = require("../../assets/images/logo/capFundoBranco.png");
-const baquinho = require("../../assets/images/img/baquinho.webP");
-const aspasPreta = require("../../assets/images/icons/aspasPreta.webP");
-const plantinha = require("../../assets/images/img/plantinha.webP");
-const cooperativa = require("../../assets/images/logo/cooperativaLogo.webP");
-// const emailIcon = require("../../assets/images/icons/email.png");
-// const whatsAppIcon = require("../../assets/images/icons/whatsapp.png");
+const logoEcoacao = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324711/ecoa%C3%A7%C3%A3o_k7uwq9.png'
+const logoFuncao = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324712/logoFuncao_bz0zbs.png'
+const localizacao = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324728/localizacao_wiy5ig.png'
+const barco = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324725/barco_lbioib.png'
+const folha = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324726/folha_aquzrk.png'
+const podcastIcon = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324731/podcast_l7xtrb.png'
+const expoIcon = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324739/quadro_tfkmsk.png'
+const painelIcon = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324725/balao_de_conversa_uppr8i.png'
+const oficinaIcon = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324731/pessoa_com_lampada_na_mao_do5701.png'
+const mundoConectado = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324730/mundin_dmjw3s.png'
+const homero = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324650/homero_bmcqqj.png'
+const bruna = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324651/image_4_vuw6kf.png'
+const PalomaFoto = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324652/paloma_idbr4j.png'
+const graciosa1 = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324712/graciosaa_r3kmct.png'
+const capFundoBranco = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324721/capFundoBranco_x1dlmt.png'
+const baquinho = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324643/baquinho_dzqgfy.png'
+const aspasPreta = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324725/aspasPreta_khaua6.png'
+const plantinha = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324654/plantinha_i9kjos.jpg'
+const cooperativa = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324713/cooperativaLogo_yycsv7.png'
 
 const LuzCameraEcoAcaoPage: React.FC = () => {
   const handleClick = () => {

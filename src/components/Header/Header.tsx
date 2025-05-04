@@ -5,9 +5,9 @@ import { Container, Element } from './HeaderStyled'; // Removed Img import to us
 
 // Define items with images, paths, and alt text
 const items = [
-  { src: require('../../assets/images/logo/cooperativa.webP'), path: '/Cooperativa', alt: 'Cooperativa' },
-  { src: require('../../assets/images/icons/mosaicoIconeMonoW.webP'), path: '/', alt: 'Home' },
-  { src: require('../../assets/images/icons/logotipoCAP.webP'), path: '/CAP', alt: 'CAP' },
+  { src: 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324711/cooperativa_lvklpg.png', path: '/Cooperativa', alt: 'Cooperativa' },
+  { src: 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324730/mosaicoIconeMonoW_sqiexp.png', path: '/', alt: 'Home' },
+  { src: 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324728/logotipoCAP_cc0xev.png', path: '/CAP', alt: 'CAP' },
 ];
 
 const Header: React.FC = () => {

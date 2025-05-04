@@ -1,38 +1,36 @@
-import { text } from 'd3';
 import * as S from './ProjetoIdentidadeStyled';
 import React, { useState } from 'react';
 import { motion } from "motion/react"; // ou "framer-motion" conforme sua lib
 import ReactPlayer from 'react-player';
 import { useSearchParams } from 'react-router-dom';
 
-const idProgeto = require("../../assets/images/img/idIMg.webP")
-const idProgetoDefault = require("../../assets/images/img/idProgeto.webP")
-const BRASILDeSAINT = require("../../assets/images/img/BRASILDeSAINT.webP")
-const cooperativa111 = require("../../assets/images/img/cooperativa111.webP")
-const tropeiro = require("../../assets/images/img/tropeiro.webP")
+const idProgeto = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324651/idIMg_jgfzt2.jpg'
+const idProgetoDefault = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324652/idProgeto_qi5kn6.png'
+const BRASILDeSAINT = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324644/BRASILDeSAINT_w8esax.png'
+const cooperativa111 = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324647/cooperativa111_jvefqh.png'
+const tropeiro = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324659/tropeiro_cyabii.png'
 const video1 = '/videos/filme1.webm';
 
-const SAO_GONÇALO1 = require('../../assets/images/img/SAO_GONÇALO1.webP');
-const SAO_GONÇALO2 = require('../../assets/images/img/SAO_GONÇALO2.webP');
-const SAO_GONÇALO3 = require('../../assets/images/img/SAO_GONÇALO3.webP');
-const SAO_GONÇALO4 = require('../../assets/images/img/SAO_GONÇALO4.webP');
-const SAO_GONÇALO5 = require('../../assets/images/img/SAO_GONÇALO5.webP');
-const SAO_GONÇALO6 = require('../../assets/images/img/SAO_GONÇALO6.webP');
-const SAO_GONÇALO7 = require('../../assets/images/img/SAO_GONÇALO7.webP');
-const SAO_GONÇALO8 = require('../../assets/images/img/SAO_GONÇALO8.webP');
+const SAO_GONÇALO1 = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324657/SAO_GON%C3%87ALO1_jrlyra.png'
+const SAO_GONÇALO2 = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324657/SAO_GON%C3%87ALO2_vrqear.png'
+const SAO_GONÇALO3 = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324657/SAO_GON%C3%87ALO3_fydfer.png'
+const SAO_GONÇALO4 = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324657/SAO_GON%C3%87ALO4_fns0ib.png'
+const SAO_GONÇALO5 = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324658/SAO_GON%C3%87ALO5_skjldr.png'
+const SAO_GONÇALO6 = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324658/SAO_GON%C3%87ALO6_yjgtsm.png'
+const SAO_GONÇALO7 = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324658/SAO_GON%C3%87ALO7_lldbfh.png'
+const SAO_GONÇALO8 = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324658/SAO_GON%C3%87ALO8_vjjffu.png'
 
-const saint1 = require('../../assets/images/img/saint1.webP');
-const saint2 = require('../../assets/images/img/saint2.webP');
-const saint3 = require('../../assets/images/img/saint3.webP');
-const saint4 = require('../../assets/images/img/saint4.webP');
-const saint5 = require('../../assets/images/img/saint5.webP');
-const saint6 = require('../../assets/images/img/saint6.webP');
-const saint7 = require('../../assets/images/img/saint7.webP');
-const saint8 = require('../../assets/images/img/saint8.webP');
-const saint9 = require('../../assets/images/img/saint9.webP');
-const saint10 = require('../../assets/images/img/saint10.webP');
-const saint11 = require('../../assets/images/img/saint11.webP');
-
+const saint1 = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324654/saint1_ldisvk.png'
+const saint2 = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324655/saint2_g9ouuo.png'
+const saint3 = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324655/saint3_ntrlc9.png'
+const saint4 = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324655/saint4_w2qqhv.png'
+const saint5 = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324655/saint5_ftgtmn.png'
+const saint6 = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324655/saint6_j53r23.png'
+const saint7 = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324656/saint7_pk380v.png'
+const saint8 = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324656/saint8_htxs3q.png'
+const saint9 = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324656/saint9_plb2wq.png'
+const saint10 = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324656/saint10_fpea9n.png'
+const saint11 = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324657/saint11_hsldnu.png'
 
 const ProjetoIdentidade: React.FC = () => {
   const [search] = useSearchParams();

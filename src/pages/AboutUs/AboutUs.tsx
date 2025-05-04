@@ -3,13 +3,13 @@ import * as S from './AboutUsStyled';
 import TextComponent from '../text/text';
 import Footer from '../../components/footer/footer';
 
-const mosaicoLogo = require('../../assets/images/logo/mosaicoLogo1.webP');
-const missao = require('../../assets/images/icons/missao esc.webP');
-const visao = require('../../assets/images/icons/visao esc.webP');
-const valores = require('../../assets/images/icons/valores esc.webP');
-const pinheiro = require('../../assets/images/img/pinheiro.webP');
-const aspas = require('../../assets/images/icons/aspasPreta.webP');
-const estrutura = require('../../assets/images/icons/estrutura esc.webP');
+const mosaicoLogo = "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324712/mosaicoLogo1_ch206u.png";
+const missao = "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324732/missao_esc_cbj8c2.png";
+const visao = "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324740/visao_esc_mkssot.png";
+const valores = "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324742/valores_esc_ctntpz.png"
+const pinheiro = "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324653/pinheiro_ygxzo0.png";
+const aspas = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324725/aspasPreta_khaua6.png';
+const estrutura = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324726/estrutura_esc_b3kqfd.png';
 
 const AboutUs: React.FC = () => {
   const handleProjetoClick = (route: string) => {

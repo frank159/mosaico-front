@@ -511,7 +511,7 @@ export const MoviesContainer = styled.div`
   background-repeat: repeat-y;
   background-size: contain;
   background-position: center;
-  background-image: url(${require("../../assets/images/img/camerafundohomero.webP")});
+  background-image: url(${'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324645/camerafundohomero_i3yjmv.png'});
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -553,7 +553,7 @@ export const MovieCard = styled.div`
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url(${require("../../assets/images/img/camerafundohomero.webP")});
+    background-image: url(${'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324645/camerafundohomero_i3yjmv.png'});
     opacity: 0.1;
     z-index: -1;
   }

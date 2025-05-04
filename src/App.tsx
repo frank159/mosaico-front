@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import Home from './pages/LuzCameraEcoAcao/LuzCameraEcoAcao';
 import School from './pages/School/School';
-import EscolaDigital from './pages/EscolaDigital/EscolaDigital';
 import Mosaico from './pages/Mosaico/Mosaico';
 import Header from './components/Header/Header';
 import AboutUs from './pages/AboutUs/AboutUs';
@@ -28,7 +27,6 @@ const App: React.FC = () => {
         <Route path="/AboutUs" element={<AboutUs />} />
         <Route path="/Projetos" element={<Projetos />} />
         <Route path="/CAP" element={<CAP />} />
-        <Route path="/Escola-Digital" element={<EscolaDigital />} />
         {/* Rota ajustada para ler a prop via wrapper */}
         <Route path="/projeto-id" element={<ProjetoIdentidade />} />
         <Route path="/Ox-Xeretas" element={<OsXeretas />} />

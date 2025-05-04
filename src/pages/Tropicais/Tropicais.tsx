@@ -2,13 +2,13 @@ import * as S from './TropicaisStyled';
 import React from 'react';
 import ReactPlayer from 'react-player';
 
-const tropicais = require("../../assets/images/img/Tropicais.webP")
-const f1 = require("../../assets/images/img/1p.webP")
-const f2 = require("../../assets/images/img/2p.webP")
-const f3 = require("../../assets/images/img/3p.webP")
-const f4 = require("../../assets/images/img/4p.webP")
-const f5 = require("../../assets/images/img/5p.webP")
-const f6 = require("../../assets/images/img/6p.webP")
+const tropicais = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324659/Tropicais_eiegoa.png'
+const f1 = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324640/1p_nbx9ba.png'
+const f2 = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324645/2p_jlm5ao.png'
+const f3 = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324641/3p_f64pgw.png'
+const f4 = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324641/4p_lnels9.png'
+const f5 = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324642/5p_ff0hmb.png'
+const f6 = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324640/6p_d17jqg.png'
 
 const Tropicais: React.FC = () => {
 

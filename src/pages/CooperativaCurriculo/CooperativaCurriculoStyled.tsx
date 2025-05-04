@@ -298,7 +298,7 @@ export const SmallImageContainer = styled.div`
     width: 3px;
     z-index: 1;
     height: 780vh;
-    background-color: #3b3b3b96;
+    background-color: #3b3b3b5c;
   }
   
   @media (max-width: 1224px) {

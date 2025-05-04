@@ -781,16 +781,6 @@ export const Line2 = styled.div`
   background-color: #323D09;
 `;
 
-export const BigTextSection = styled.div`
-  padding-left: 7rem;
-  padding-right: 7rem;
-  padding-top: 4rem;
-  padding-bottom: 7rem;
-
-  font-size: 1.3rem;
-  color: #141C16;
-`;
-
 export const BigTextTitle = styled.div`
   font-size: 1.8rem;
   font-weight: bolder;

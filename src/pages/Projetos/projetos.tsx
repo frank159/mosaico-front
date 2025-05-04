@@ -1,7 +1,7 @@
 import * as S from "./projetosStyled";
 
-const faixaMosaico = require("../../assets/images/img/faixaMosaico.webP");
-const img1 = require("../../assets/images/img/luz.webP");
+const faixaMosaico = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324647/faixaMosaico_ppbnkm.png'
+const img1 = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324652/luz_mhwttp.png'
 
 const Projetos: React.FC = () => {
   const handleProjetoClick = (route: string) => {

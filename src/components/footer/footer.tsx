@@ -4,8 +4,8 @@ import EmailIcon from '@mui/icons-material/Email';
 
 import * as S from './footerStyled';
 
-const mosaico = require('../../assets/images/icons/mosaicoIconeMono.webP');
-const graciosa = require("../../assets/images/logo/graciosa.webP");
+const mosaico = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324730/mosaicoIconeMonoW_sqiexp.png'
+const graciosa = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324712/graciosa_mvncnd.png'
 
 interface FooterProps {
     isBlackBg?: boolean;
@@ -22,7 +22,7 @@ const Footer: React.FC<FooterProps> = ({
                 <S.MainDiv>
                     <S.MainDivICons>
                         <S.MainIcon>
-                            <S.Img iconWidth="60px" iconHeight="60px" iconInvert={true} src={mosaico} alt="logo" />
+                            <S.Img iconWidth="60px" iconHeight="60px" src={mosaico} alt="logo" />
                         </S.MainIcon>
                         {isMosaico && (
                         <S.Subscribe>

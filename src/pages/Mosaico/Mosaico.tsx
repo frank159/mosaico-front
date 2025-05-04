@@ -12,8 +12,8 @@ import ScrollToTop from "../../components/ScrollToTop/ScrollToTop";
 import AboutUs from "../AboutUs/AboutUs";
 
 // Logos and icons
-const mosaicoLogo = require("./MOSAICO.webP");
-const mosaicoCirculoLogo = require("./MOSAICO CIRCULO.webP");
+const mosaicoLogo = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746325589/MOSAICO_n2quff.png';
+const mosaicoCirculoLogo = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746325589/MOSAICO_CIRCULO_rqlgqq.png';
 
 const MosaicoPage: React.FC = () => {
   // Refs for audio and video elements

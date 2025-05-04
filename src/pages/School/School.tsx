@@ -3,26 +3,26 @@ import * as S from "./SchoolStyled";
 import { motion, AnimatePresence } from "framer-motion";
 
 // Icon imports
-const impactoM = require("../../assets/images/icons/impacto na midia.webP");
-const impactoS = require("../../assets/images/icons/impacto social.webP");
-const producao = require("../../assets/images/icons/producao e resultados.webP");
-const reconhecimento = require("../../assets/images/icons/reconhecimento.webP");
-const estrutura = require("../../assets/images/icons/LOTUS BRANCO.webP");
+const impactoS = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324727/impacto_social_esc_qqf9vw.png'
+const impactoM  = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324727/impacto_na_midia_esc_mlgpdd.png'
+const producao = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324740/producao_e_resultados_esc_hoehdl.png'
+const reconhecimento = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324739/reconhecimento_esc_f2g4cw.png'
+const estrutura = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324729/LOTUS_PRETO_gdyvta.png'
 
 // Photo imports
-const ft1 = require("../../assets/images/img/ft1.webP");
-const ft2 = require("../../assets/images/img/ft2.webP");
-const ft3 = require("../../assets/images/img/ft3.webP");
-const ft4 = require("../../assets/images/img/ft4.webP");
-const ft5 = require("../../assets/images/img/ft5.webP");
-const ft6 = require("../../assets/images/img/ft6.webP");
-const ft7 = require("../../assets/images/img/ft7.webP");
-const ft8 = require("../../assets/images/img/ft8.webP");
-const ft9 = require("../../assets/images/img/ft9.webP");
-const ft10 = require("../../assets/images/img/ft10.webP");
-const ft11 = require("../../assets/images/img/ft11.webP");
-const img88 = require("../../assets/images/img/img88.webP");
-const coruja = require("../../assets/images/logo/coruja-pn.webP");
+const ft1 = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324653/ft1_j0anxj.jpg'
+const ft2 = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324648/ft2_r6geol.jpg'
+const ft3 = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324648/ft3_t1l25n.jpg'
+const ft4 = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324648/ft4_n0sgl1.jpg'
+const ft5 = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324649/ft5_xxr4zj.jpg'
+const ft6 = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324649/ft6_ygoscz.jpg'
+const ft7 = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324649/ft7_ud0nlz.jpg'
+const ft8 = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324649/ft8_gjcg5n.jpg'
+const ft9 = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324649/ft9_ativz8.jpg'
+const ft10 = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324650/ft10_yuvah4.jpg'
+const ft11 = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324650/ft11_hggkyr.jpg'
+const img88 = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324652/img88_lqnsrt.png'
+const coruja = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324711/coruja-pn_wm1vwo.png'
 
 interface Video {
   id: number;

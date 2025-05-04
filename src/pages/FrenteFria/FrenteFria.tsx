@@ -2,16 +2,16 @@ import * as S from './FrenteFriaStyled';
 import React from 'react';
 import ReactPlayer from 'react-player';
 
-const frentefria = require("../../assets/images/img/frentefria.webP")
-const aspas = require('../../assets/images/icons/aspas.webP');
-const f1 = require("../../assets/images/img/1.png")
-const f2 = require("../../assets/images/img/2.png")
-const f3 = require("../../assets/images/img/3.webP")
-const f4 = require("../../assets/images/img/4.png")
-const f5 = require("../../assets/images/img/5.webP")
-const f6 = require("../../assets/images/img/6.webP")
-const f7 = require("../../assets/images/img/7.webP")
-const f8 = require("../../assets/images/img/9.webP")
+const frentefria = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324648/frentefria_gamxjz.png'
+const aspas = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324726/aspas_u2hlhq.png'
+const f1 = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324677/1_gnqnox.png'
+const f2 = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324640/2_fxe2ma.png'
+const f3 = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324641/3_aopl2r.png'
+const f4 = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324641/4_zabiub.png'
+const f5 = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324641/5_gfo9mt.png'
+const f6 = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324642/6_tfrgkh.png'
+const f7 = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324640/7_txh8qi.png'
+const f8 = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324642/9_oic2ml.png'
 
 
 const FrenteFria: React.FC = () => {
