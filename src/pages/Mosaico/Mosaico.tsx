@@ -83,11 +83,6 @@ const MosaicoPage: React.FC = () => {
     if (isMobile) setShowIconMobile(prev => !prev);
   };
 
-  // Smooth scroll to AboutUs section
-  const handleScroll = () => {
-    document.getElementById('section-below')?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
     <S.Container>
     <audio ref={audioRef} src={audioFile} loop />
