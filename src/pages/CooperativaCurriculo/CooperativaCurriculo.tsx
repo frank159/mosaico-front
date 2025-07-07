@@ -13,6 +13,14 @@ const coopCuri4 =
   "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324646/coopCuri4_i417ir.png";
 const coopCuri5 =
   "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324647/coopCuri5_gvmjuy.png";
+const aspas =
+  "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324726/aspas_u2hlhq.png";
+
+const navalha =
+  "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1751915699/nova2_gefqr6.jpg";
+
+const vampa =
+  "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1751915884/nova11_b9nwjr.jpg";
 
 const CooperativaCurriculo: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -57,25 +65,21 @@ const CooperativaCurriculo: React.FC = () => {
               <S.TextSection ref={overlayRef}>
                 <S.TextTitle>Homero Camargo</S.TextTitle>
                 <S.TextContent>
-                  Responsável por fundar a Cooperativa de Cinema & Mídias
-                  Digitais e com mais de 35 anos no cinema, tem experiência na
-                  produção de longas-metragens, captação de recursos e
-                  consultoria. Participa ativamente de debates políticos sobre a
-                  indústria audiovisual e tem ampla experiência em marketing
-                  cinematográfico. Foi cofundador do SIAPAR e articulador do
-                  Prêmio Estadual de Cinema e Vídeo do Paraná. Já trabalhou com
-                  diretores renomados como Neville D’Almeida, Mauro Lima e
-                  Michael Ruman. Atua no desenvolvimento de estratégias para o
-                  mercado, além de projetos socioculturais e de regionalização
-                  do audiovisual.{" "}
+                  Nome: Carlos Homero Camargo Ribas
+                  <br />
+                  Nome artistico: Homero Camargo
+                  <br />
+                  Contatos: 42-9904351 cooperativacm@uol.com.br
+                  <br />
+                  DRT no 063 e 008 / Brasilia - DF; DRTno 514 - Paraná; DRT no
+                  18187 - Paraná
                 </S.TextContent>
-                <S.SaibaMaisButton
-                  onClick={() =>
-                    (window.location.href = "CooperativaCurriculo")
-                  }
-                >
-                  Saiba Mais
-                </S.SaibaMaisButton>
+                <S.TextContentDesc>
+                  <S.ImgA src={aspas} alt="Aspas" />
+                  <S.TextContentA>Ator</S.TextContentA>
+                  <S.TextContentA>Diretor</S.TextContentA>
+                  <S.TextContentA>Produtor Cinematrografico</S.TextContentA>
+                </S.TextContentDesc>
               </S.TextSection>
             </S.OverlayContent>
           </S.OverlayContainer>
@@ -139,12 +143,17 @@ const CooperativaCurriculo: React.FC = () => {
             <S.NewTextContainerText>
               • <strong>MOSAICO</strong>
               <br />
-                texto
+              O Mosaico é um espaço dedicado a exibir projetos inspiradores,
+              conectando ideias a pessoas. O projeto nasceu com o propósito de
+              ser uma vitrine para projetos sociais e culturais de todas as
+              áreas. Acreditamos no poder da VISIBILIDADE, para promover
+              MUDANÇAS e valorizar IDEIAS QUE TRANSFORMAM O MUNDO.
               <br />
-              <br />•{" "}
-              <strong>Luz,Câmera,EcoAção</strong>
+              <br />• <strong>Luz,Câmera,EcoAção</strong>
               <br />
-                texto
+              Exploramos interconexão entre arte, meio ambiente e saúde mental,
+              promovendo práticas sustentáveis e criando espaços para troca de
+              conhecimento e colaboração.
               <br />
               <br />
             </S.NewTextContainerText>
@@ -153,9 +162,10 @@ const CooperativaCurriculo: React.FC = () => {
             </S.NewTextContainerTitleText>
             <S.Line />
             <S.NewTextContainerText>
-              • <strong>Produtor do longa metragem</strong>
-              <br />
-              <strong>“ A FRENTE FRIA QUE A CHUVA TRAZ ”</strong>
+              •{" "}
+              <strong>
+                Produtor do longa metragem: “ A FRENTE FRIA QUE A CHUVA TRAZ ”
+              </strong>
               <br />
               Texto de Mário Bortolotto
               <br />
@@ -169,24 +179,21 @@ const CooperativaCurriculo: React.FC = () => {
               <br />
               <br />•{" "}
               <strong>
-                Produtor e diretor documentário
-                <br />" A DANÇA DE SÃO GONÇALO "
+                Produtor e diretor documentário: " A DANÇA DE SÃO GONÇALO "
               </strong>
               <br />
               52 min, color, digital. Finalizado.
               <br />
-              <br />•{" "}
-              <strong>
-                Parceiro projeto Filmjoin{" "}
-                <a
-                  href="http://filmjoin.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ color: "#ffffff", textDecoration: "underline" }}
-                >
-                  http://filmjoin.com
-                </a>
-              </strong>
+              <br />• <strong>Parceiro projeto “ Filmjoin ”: </strong>
+              <br />
+              <a
+                href="http://filmjoin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: "#ffffff", textDecoration: "underline" }}
+              >
+                http://filmjoin.com
+              </a>
               , uma plataforma digital inteligente, cuja rede de pessoas
               disponibilizam de forma colaborativa suas experiências, dados,
               informações, conhecimento e sabedoria para construir uma
@@ -196,24 +203,26 @@ const CooperativaCurriculo: React.FC = () => {
               idealização é do parceiro produtor Johnny DiBartolo: o LaB ao cubo
               ou Lab3.
               <br />
-              <br />• <strong>Executivo projeto IDENTIDADE</strong> – campos
-              Gerais do Paraná – mostra/circulação de documentários, que vai
-              passar por mais de 25 cidades paranaenses entre 2017 e 2018. Além
-              das mostras, cada local visitado receberá o box com os três
-              títulos de documentários. Uma proposta que resgata e reapresenta
-              ao Paraná sua identidade.
+              <br />• <strong>Executivo projeto “ IDENTIDADE ”:</strong>
+              <br /> campos Gerais do Paraná – mostra/circulação de
+              documentários, que vai passar por mais de 25 cidades paranaenses
+              entre 2017 e 2018. Além das mostras, cada local visitado receberá
+              o box com os três títulos de documentários. Uma proposta que
+              resgata e reapresenta ao Paraná sua identidade.
               <br />
               <br />•{" "}
-              <strong>Produtor longa metragem Sumiços Delirantes</strong>, que
-              terá 90 minutos finais, rodado basicamente em Curitiba e Rio de
-              Janeiro, com uma equipe quase cem por cento paranaense, que traz
-              uma proposta de linguagem inovadora (na fronteira entre ficção e
-              documentário) com um cronograma de execução ágil, dinâmico e de
-              baixo orçamento. A proposta é a direção compartilhada entre um
-              diretor e ator de teatro e um diretor de cinema. Em
-              desenvolvimento / captação de recursos.
+              <strong>Produtor longa metragem “ SUMIÇOS DELIRANTES ”:</strong>
+              <br /> que terá 90 minutos finais, rodado basicamente em Curitiba
+              e Rio de Janeiro, com uma equipe quase cem por cento paranaense,
+              que traz uma proposta de linguagem inovadora (na fronteira entre
+              ficção e documentário) com um cronograma de execução ágil,
+              dinâmico e de baixo orçamento. A proposta é a direção
+              compartilhada entre um diretor e ator de teatro e um diretor de
+              cinema. Em desenvolvimento / captação de recursos.
               <br />
-              <br />• <strong>Produtor documentário Visões do Porto</strong> –
+              <br />•{" "}
+              <strong>Produtor documentário “ VISÕES DO PORTO ”:</strong>
+              <br />
               história e estórias, 52 min, de autoria e direção de Silvana
               Fontana, sobre a vai falar da enorme riqueza histórico-cultural
               existente ao redor do Porto de Paranaguá, a partir de narrativas
@@ -224,16 +233,17 @@ const CooperativaCurriculo: React.FC = () => {
               Paraná
               <br />
               <br />•{" "}
-              <strong>Desenvolvimento projeto - produtor projeto</strong>
-              <br />
-              <strong>“ SOBRE TOUROS E HOMENS ”</strong>
+              <strong>
+                Desenvolvimento projeto - produtor projeto “ SOBRE TOUROS E
+                HOMENS ”:{" "}
+              </strong>
               <br />
               a saga brasileira do zebu, Direção Werner
               <br />
               <br />•{" "}
-              <strong>Roteiro em desenvolvimento - Longa metragem</strong>
-              <br />
-              <strong>“ Eça de Queiroz ”</strong>
+              <strong>
+                Roteiro em desenvolvimento - Longa metragem “ EÇA DE QUEIROZ ”:
+              </strong>
               <br />
               Em desenvolvimento a ser rodado em Portugal
               <br />
@@ -370,6 +380,9 @@ const CooperativaCurriculo: React.FC = () => {
               • <strong>Produtor do longa metragem Olhos de Vampa</strong>, 35
               mm, 80 min, Direção Walter Rogério.
             </S.NewTextContainerText>
+            <S.NewTextContainerText>
+              • <strong>Cassiopeia</strong>, também conhecido como Cassiopeia O Filme, é um filme de animação digital produzido e realizado pela NDR filmes e lançado no ano de 1996 pela ArtePlay, dirigido pelo animador Clóvis Vieira.
+            </S.NewTextContainerText>
             <S.LineA />
 
             <S.NewTextContainerTitleText>
@@ -378,7 +391,7 @@ const CooperativaCurriculo: React.FC = () => {
             <S.Line />
             <S.NewTextContainerText>
               • <strong>Produtor do Longa metragem “Gianni, o amico”</strong>.
-              Direção Saldanha.
+              Direção Saldanha e Pedro Anísio.
             </S.NewTextContainerText>
             <S.LineA />
             <S.NewTextContainerTitleText>
@@ -558,6 +571,22 @@ eventos/documentario-discute-ponto-polemico-dos-transgenicos-
               https://www.tribunapr.com.br/noticias/parana/criancas-conhecem-o-mundo-do-cinema/
             </S.FlexTempleCardLInk>
           </S.FlexTempleCard>
+          <S.ImgCardFlex>
+            <S.ImgCardFlexImgContainerB>
+              <S.ImgCardFlexImg src={navalha} />
+            </S.ImgCardFlexImgContainerB>
+            <S.ImgCardFlexTextContainerA>
+              <S.ImgCardFlexTitleA>"Navalha na Carne"</S.ImgCardFlexTitleA>
+            </S.ImgCardFlexTextContainerA>
+          </S.ImgCardFlex>
+          <S.ImgCardFlex>
+            <S.ImgCardFlexImgContainerB width="15%">
+              <S.ImgCardFlexImg src={vampa} />
+            </S.ImgCardFlexImgContainerB>
+            <S.ImgCardFlexTextContainerA>
+              <S.ImgCardFlexTitleA>"Navalha na Carne"</S.ImgCardFlexTitleA>
+            </S.ImgCardFlexTextContainerA>
+          </S.ImgCardFlex>
           <S.ImgCardFlex>
             <S.ImgCardFlexTextContainer>
               <div>

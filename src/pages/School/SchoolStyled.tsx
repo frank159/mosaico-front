@@ -1,37 +1,37 @@
-import PlaceIcon from '@mui/icons-material/Place';
-import styled from 'styled-components';
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import PlaceIcon from "@mui/icons-material/Place";
+import styled from "styled-components";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 
 interface QuinSecaoProps {
   width: string;
 }
 
 export const Container = styled.div`
-    background: #E4EBDD;;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: auto;
-    overflow: hidden
+  background: #e4ebdd;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  overflow: hidden;
+  width: 100%;
 `;
 
-export const TESTE = styled.div`
-
-`;
+export const TESTE = styled.div``;
 
 export const MosaicoWrapper = styled.div`
   position: relative;
-  
+
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
     height: 150px;
-    background: linear-gradient(to top,
+    background: linear-gradient(
+      to top,
       rgba(0, 0, 0, 0.5) 0%,
       rgba(0, 0, 0, 0.3) 50%,
       rgba(0, 0, 0, 0) 100%
@@ -44,7 +44,7 @@ export const MosaicoWrapper = styled.div`
 export const Hr = styled.hr`
   margin-top: 7vh;
   width: 97%;
-  border: 1px solid #1a3f136c
+  border: 1px solid #1a3f136c;
 `;
 
 export const ImgBuner = styled.img`
@@ -58,11 +58,9 @@ export const LocalIcon = styled.img`
 
 export const ImgBuner2 = styled.img`
   width: 100%;
-
 `;
 
-export const FinalTextContainer = styled.div`
-`;
+export const FinalTextContainer = styled.div``;
 
 export const FinalContainer = styled.div`
   display: flex;
@@ -80,7 +78,7 @@ export const ImgContainer2 = styled.div<Props>`
   height: 100%;
   width: 100%;
   height: 100vh; /* ou a altura desejada */
-  background-image: url(${props => props.src});
+  background-image: url(${(props) => props.src});
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -152,8 +150,8 @@ export const BodyListCard = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column; 
-  `;
+  flex-direction: column;
+`;
 
 export const Card = styled.div`
   width: 50vw;
@@ -170,7 +168,6 @@ export const Card = styled.div`
     width: 90vw;
     height: auto;
   }
-  
 `;
 
 export const Line = styled.div`
@@ -180,7 +177,6 @@ export const Line = styled.div`
 `;
 
 export const LineFinal = styled.div`
-  
   transform: translateX(-50%);
   top: 50%;
   left: 30%;
@@ -190,16 +186,13 @@ export const LineFinal = styled.div`
   background-color: #a71c13; /* Cor da linha */
 `;
 
-export const CardTitleContainer = styled.div`
-
-`;
+export const CardTitleContainer = styled.div``;
 
 export const TitleCard = styled.h1`
   font-weight: bolder;
 `;
 
-export const SUbText = styled.p`
-`;
+export const SUbText = styled.p``;
 
 export const CardContent = styled.div`
   display: flex;
@@ -208,10 +201,9 @@ export const CardContent = styled.div`
   align-items: center;
   margin-top: 1.5rem;
   width: 100%;
-  
+
   @media (max-width: 1224px) {
     margin-top: 2rem;
-
   }
   @media (max-width: 768px) {
     margin-top: 2rem;
@@ -233,8 +225,8 @@ export const CardIconImg = styled.img`
 `;
 
 export const CardText = styled.div`
-margin-left: 1rem;
-width: 100% !important;
+  margin-left: 1rem;
+  width: 100% !important;
 `;
 
 export const Faixa = styled.div`
@@ -249,7 +241,7 @@ export const Faixa = styled.div`
 `;
 
 export const FaixaText = styled.div`
-  color: #141C16;
+  color: #141c16;
   font-size: 1.3rem;
   padding-left: 3rem;
   padding-right: 3rem;
@@ -259,11 +251,11 @@ export const FaixaText = styled.div`
 `;
 
 export const Esclamacao = styled.img`
- height: 14rem;
- position: absolute;
- left: 50%;
+  height: 14rem;
+  position: absolute;
+  left: 50%;
   z-index: 1;
- transform: translateX(-50%)
+  transform: translateX(-50%);
 `;
 
 export const TitleFinalContainer = styled.div`
@@ -284,13 +276,12 @@ export const Galeria = styled.div`
   width: 70%; // Alterado para 70% da largura
   margin: 0 auto; // Centraliza o container
   padding: 2rem 0; // Ajuste no padding
-  background-color: #E4EBDD;
+  background-color: #e4ebdd;
   margin-bottom: 5rem;
 
   @media (max-width: 1224px) {
     width: 85%; // Aumenta a porcentagem em telas menores
     grid-template-columns: repeat(2, 1fr);
-    
   }
 
   @media (max-width: 768px) {
@@ -308,7 +299,7 @@ export const Img = styled.img`
   object-fit: cover;
   transition: transform 0.3s ease;
   aspect-ratio: 1/1; /* Mantém proporção quadrada */
-  
+
   &:hover {
     transform: scale(1.03);
     z-index: 2;
@@ -322,7 +313,7 @@ export const Img = styled.img`
 export const ImgContainer = styled.div`
   position: relative;
   overflow: hidden;
-  
+
   &:hover {
     img {
       transform: scale(1.05);
@@ -336,6 +327,16 @@ export const VideoContainer = styled.div`
   display: flex;
   justify-content: center;
   margin-bottom: 5rem;
+`;
+
+export const VideoContainerB = styled.div`
+  padding-left: 12rem;
+  display: flex;
+  width: 100%;
+  @media (max-width: 1224px) {
+    justify-content: center;
+    padding-left: 0;
+  }
 `;
 
 export const VideoGrid = styled.div`
@@ -356,9 +357,15 @@ export const VideoCard = styled.div`
   cursor: pointer;
   transition: transform 0.3s ease;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 
   &:hover {
     transform: translateY(-5px);
+  }
+  @media (max-width: 1224px) {
+    justify-content: center;
+    align-items: start;
   }
 `;
 
@@ -366,9 +373,22 @@ export const VideoThumbnail = styled.div`
   position: relative;
   background: #000;
   height: 50vh;
-
   iframe {
     pointer-events: none;
+  }
+`;
+
+export const VideoThumbnailB = styled.div`
+  position: relative;
+  background: #000;
+  height: 50vh;
+  width: 40vw;
+  iframe {
+    pointer-events: none;
+  }
+
+  @media (max-width: 1224px) {
+    width: 100%;
   }
 `;
 
@@ -377,7 +397,6 @@ export const VideoCardTitle = styled.div`
   font-size: 2rem;
   font-weight: bold;
   color: #000000;
-  
 `;
 
 export const CloseButton = styled.button`
@@ -405,7 +424,7 @@ export const VideoWrapper = styled.div`
   align-items: center;
   justify-content: center;
   margin-top: 2rem;
-  background-color: #E4EBDD;
+  background-color: #e4ebdd;
   z-index: 10 !important;
 `;
 
@@ -427,7 +446,6 @@ export const ButtonContainer = styled.div`
   align-items: center;
 `;
 
-
 export const NavButton = styled.button`
   pointer-events: all; /* Habilita cliques nos botões */
   background-color: rgba(225, 225, 225, 0);
@@ -446,7 +464,6 @@ export const NavButton = styled.button`
     transition: 0.3s;
     transform: scale(1.2);
   }
-
 `;
 
 export const VideoWrapperA = styled.div`
@@ -458,134 +475,129 @@ export const VideoWrapperA = styled.div`
   justify-content: center;
 `;
 
-
 export const ArrowLeft = styled(ArrowBackIosIcon)`
-margin-left: 3rem;
-
+  margin-left: 3rem;
 `;
 
 export const ArrowRight = styled(ArrowBackIosIcon)`
-transform: rotate(-180deg);
+  transform: rotate(-180deg);
 
-margin-right: 3rem;
+  margin-right: 3rem;
 `;
 
 export const TitleSection1 = styled.div`
   font-size: 1.5rem;
   font-weight: bolder;
   font-style: italic;
-  color: #323D09;
-  font-family: 'Montserrat', sans-serif;
-  `;
+  color: #323d09;
+  font-family: "Montserrat", sans-serif;
+`;
 
 export const ProjectoSectionContainer = styled.div`
-  background-color: #C2CFB4;
+  background-color: #c2cfb4;
   width: 100%;
-`
+`;
 
 export const ProjectoSection = styled.div`
-  background-color: #C2CFB4;
+  background-color: #c2cfb4;
   padding-top: 3vh;
   padding-bottom: 3vh;
-  color: #141C16;
+  color: #141c16;
   padding-left: 7rem;
   padding-right: 7rem;
   padding-bottom: 7rem;
-`
+`;
 
 export const CardProjeto = styled.div`
-    background-color: #4E5C2C;
-    display: flex;
-    margin-top: 3vh;
-    justify-content: start;
-    align-items: start;
-    margin-right: 1vw;
-    flex-direction: column;
-    height: auto;
-    width: 100%;
-    transition: 0.3s;
-    border-radius: 10px;
-    padding-bottom: 2rem;
-    &:hover  {
-      border: 1px solid #C2CFB4;
-        cursor: pointer;
-        transition: 0.6s;
-        transform: scale(1.05);
-    }
+  background-color: #4e5c2c;
+  display: flex;
+  margin-top: 3vh;
+  justify-content: start;
+  align-items: start;
+  margin-right: 1vw;
+  flex-direction: column;
+  height: auto;
+  width: 100%;
+  transition: 0.3s;
+  border-radius: 10px;
+  padding-bottom: 2rem;
+  &:hover {
+    border: 1px solid #c2cfb4;
+    cursor: pointer;
+    transition: 0.6s;
+    transform: scale(1.05);
+  }
 `;
-
 
 export const CardMainContainer = styled.div`
-    background-color: #4E5C2C;
-    display: flex;
-    border-radius: 10px;
+  background-color: #4e5c2c;
+  display: flex;
+  border-radius: 10px;
 
-    justify-content: start;
-    align-items: start;
-    margin-right: 1vw;
-    flex-direction: row;
-    height: auto;
-    width: 100%;
+  justify-content: start;
+  align-items: start;
+  margin-right: 1vw;
+  flex-direction: row;
+  height: auto;
+  width: 100%;
 `;
 
-
 export const CardImgFremeProjetoA = styled.div<Props>`
-    height: auto;
-    width: 10rem;
-    left: 85%;
-    bottom: 0;
-    overflow: hidden;
-    position: absolute;
+  height: auto;
+  width: 10rem;
+  left: 85%;
+  bottom: 0;
+  overflow: hidden;
+  position: absolute;
 `;
 
 export const CardImgProjetoA = styled.img<Props>`
-    height: 100%; /* Faz com que a imagem preencha a altura do contêiner */
-    width: 100%; /* Faz com que a imagem preencha a largura do contêiner */
-    object-fit: cover; /* Garante que a imagem mantenha proporções e preencha o contêiner */
-    object-position: center; /* Centraliza a imagem dentro do contêiner */
+  height: 100%; /* Faz com que a imagem preencha a altura do contêiner */
+  width: 100%; /* Faz com que a imagem preencha a largura do contêiner */
+  object-fit: cover; /* Garante que a imagem mantenha proporções e preencha o contêiner */
+  object-position: center; /* Centraliza a imagem dentro do contêiner */
 `;
 
 export const CardImgProjetoB = styled.img<Props>`
-    height: 100%; /* Faz com que a imagem preencha a altura do contêiner */
-    width: 100%; /* Faz com que a imagem preencha a largura do contêiner */
-    object-fit: cover; /* Garante que a imagem mantenha proporções e preencha o contêiner */
-    object-position: center; /* Centraliza a imagem dentro do contêiner */
-    z-index: 0;
+  height: 100%; /* Faz com que a imagem preencha a altura do contêiner */
+  width: 100%; /* Faz com que a imagem preencha a largura do contêiner */
+  object-fit: cover; /* Garante que a imagem mantenha proporções e preencha o contêiner */
+  object-position: center; /* Centraliza a imagem dentro do contêiner */
+  z-index: 0;
 `;
 
-
 export const CardImgProjeto = styled.img<Props>`
-    height: 100%; /* Faz com que a imagem preencha a altura do contêiner */
-    width: 100%; /* Faz com que a imagem preencha a largura do contêiner */
-    object-fit: cover; /* Garante que a imagem mantenha proporções e preencha o contêiner */
-    object-position: center; /* Centraliza a imagem dentro do contêiner */
+  height: 100%; /* Faz com que a imagem preencha a altura do contêiner */
+  width: 100%; /* Faz com que a imagem preencha a largura do contêiner */
+  object-fit: cover; /* Garante que a imagem mantenha proporções e preencha o contêiner */
+  object-position: center; /* Centraliza a imagem dentro do contêiner */
 `;
 
 export const CardTextContainerProjeto = styled.div`
-    height: 100%;
-    margin-left: 1rem;
-    width: auto;
-    display: flex;
-    flex-direction: column;
-    padding-top: 2rem;
+  height: 100%;
+  margin-left: 1rem;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  padding-top: 2rem;
 `;
 
 export const CardTitleProjeto = styled.div`
-    font-size: 1.3rem;
-    margin-top: 0.5rem;
-    color: #C2CFB4;
-    font-family: 'Montserrat', sans-serif;
+  font-size: 1.3rem;
+  margin-top: 0.5rem;
+  color: #c2cfb4;
+  font-family: "Montserrat", sans-serif;
 `;
 
 export const CardTextProjeto = styled.div`
-    color: #ffffff;
-    margin-top: 0.5rem;
-    font-size: 1.3rem;
-    word-spacing: 10px;
+  color: #ffffff;
+  margin-top: 0.5rem;
+  font-size: 1.3rem;
+  word-spacing: 10px;
 `;
 
 export const InicialSecao = styled.div`
-  background-color: #E4EBDD;
+  background-color: #e4ebdd;
   width: 100%;
   min-height: 100vh;
   display: flex;
@@ -594,18 +606,17 @@ export const InicialSecao = styled.div`
   flex-direction: column;
 `;
 
-
 export const LogoEcoacao = styled.img`
   width: 17rem;
   margin-bottom: 5vh;
 `;
 
 export const TitleSectio = styled.h1`
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: end;
-    position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: end;
+  position: relative;
 `;
 
 export const TitleInicial = styled.h1`
@@ -619,14 +630,13 @@ export const TitleInicial = styled.h1`
 `;
 
 export const CardImgFremeProjeto = styled.div<Props>`
-    height: 26vh;
-    width: 100% !important;
-    padding-top: 2rem;
-    margin-left: 1rem;
-    overflow: hidden; /* Corta o conteúdo que exceder os limites do contêiner */
-    position: relative; /* Garante que o posicionamento seja relativo ao contêiner */
+  height: 26vh;
+  width: 100% !important;
+  padding-top: 2rem;
+  margin-left: 1rem;
+  overflow: hidden; /* Corta o conteúdo que exceder os limites do contêiner */
+  position: relative; /* Garante que o posicionamento seja relativo ao contêiner */
 `;
-
 
 export const TextoSubInicial = styled.p`
   color: #000000;
@@ -650,7 +660,6 @@ export const TextoSubInicialA = styled.p`
   display: flex;
   flex-direction: row;
   text-align: center;
-
 `;
 
 export const PlaceIconA = styled(PlaceIcon)`
@@ -672,7 +681,7 @@ export const TextImgCard = styled.div`
   position: relative; /* Necessário para que os pseudo-elementos se posicionem em relação a esse container */
   width: 96%;
   height: 97%;
-    padding-right: 3%;
+  padding-right: 3%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -681,7 +690,6 @@ export const TextImgCard = styled.div`
 
   @media (max-width: 1224px) {
     flex-direction: column-reverse;
-
   }
 
   /* Borda de cima: 96% da largura, alinhada à direita */
@@ -691,10 +699,9 @@ export const TextImgCard = styled.div`
     top: 0;
     right: 0;
     width: 98%;
-    border-top: 2px solid #C6BAAF;
+    border-top: 2px solid #c6baaf;
     z-index: 0;
   }
-
 
   @media (min-width: 768px) {
     &::before {
@@ -703,12 +710,12 @@ export const TextImgCard = styled.div`
       bottom: 0;
       right: 0;
       width: 70%;
-      border-bottom: 2px solid #C6BAAF;
+      border-bottom: 2px solid #c6baaf;
       z-index: 0;
-  
+
       @media (max-width: 1224px) {
-      width: 100%;
-    }
+        width: 100%;
+      }
     }
   }
 `;
@@ -727,7 +734,7 @@ export const ImgCard = styled.div`
     top: -100px; /* Faz a borda "vazar" um pouco para cima */
     height: 140%; /* Ocupa a altura total da viewport */
     width: 2px;
-    background: #C6BAAF;
+    background: #c6baaf;
     z-index: 0; /* Garante que fique sobre outros elementos, se necessário */
   }
 
@@ -740,24 +747,22 @@ export const ImgCard = styled.div`
     height: 120vh; /* Ocupa a altura total da viewport */
 
     width: 2px;
-    background: #C6BAAF;
+    background: #c6baaf;
     z-index: 0; /* Garante que fique sobre outros elementos, se necessário */
   }
 `;
 
-
 export const TextCard = styled.p`
-width: 70%;
-font-size: 1.4rem !important;
-padding-left: 10rem !important;
-padding-right: 4rem !important;
-padding-bottom: 2rem !important;
-padding-top: 1rem !important;
+  width: 70%;
+  font-size: 1.4rem !important;
+  padding-left: 10rem !important;
+  padding-right: 4rem !important;
+  padding-bottom: 2rem !important;
+  padding-top: 1rem !important;
 
-@media (max-width: 1224px) {
-
-  padding-left: 2rem !important;
-  padding-right: 5rem !important;
+  @media (max-width: 1224px) {
+    padding-left: 2rem !important;
+    padding-right: 5rem !important;
   }
 `;
 
@@ -779,9 +784,8 @@ export const StyledListItem = styled.p`
 export const ReportVideoContainer = styled.div`
   width: 100%;
   padding: 4rem;
-  background-color: #E4EBDD;
+  background-color: #e4ebdd;
   margin-bottom: 5rem;
-
 `;
 
 export const ReportVideoGrid = styled.div`
@@ -802,7 +806,6 @@ export const ReportVideoCard = styled.div`
     transform: translateY(-5px);
   }
 
-
   &:hover {
     transform: translateY(-5px);
   }
@@ -811,30 +814,68 @@ export const ReportVideoCard = styled.div`
 export const MainTitle = styled.h1`
   width: 100%;
   text-align: left;
-  padding-left: 12rem;
+  padding-left: 2rem;
   padding-bottom: 3rem;
 
-  @media (max-width: 1224px) {
-    padding-left: 3rem !important;
+  @media (max-width: 768px) {
+  padding-left: 1rem;
   }
 `;
 
 export const OrganisationCard = styled.ul`
   width: 100%;
   text-align: left;
-  padding-left: 17rem;
+  padding-left: 5rem;
   padding-bottom: 3rem;
-  
+
   @media (max-width: 1224px) {
     width: 85%;
-    padding-left: 1rem !important;
+  }
+
+  @media (max-width: 768px) {
+  padding-left: 2rem;
   }
 `;
 
 export const LinhaHorizontal = styled.div`
   width: 90%;
   height: 2px;
-  background-color: #C6BAAF; /* Cor da linha */
+  background-color: #c6baaf; /* Cor da linha */
   margin: 1rem 0;
   margin-bottom: 5rem;
+`;
+
+export const CreditosTitle = styled.h2``;
+export const CreditosList = styled.ul``;
+export const CreditosItem = styled.li`
+  font-size: 1.2rem;
+`;
+
+export const CreditosContainer = styled.div`
+  background-color: #b8c5aa;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  padding-top: 5vh;
+  padding: 80px;
+  position: relative;
+
+  @media (max-width: 768px) {
+    padding: 20px !important; /* Ajuste de padding para mobile */
+  }
+`;
+
+export const Organizacao = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  width: 100%;
+  @media (max-width: 1224px) {
+    align-items: center;
+    flex-direction: column;
+  }
+`;
+
+export const OrganizacaoCard = styled.div`
+  width: 100%;
 `;

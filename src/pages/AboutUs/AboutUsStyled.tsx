@@ -9,6 +9,25 @@ interface Props {
   isMobile?: boolean;
 }
 
+export const CreditosTitle = styled.h2``
+export const CreditosList = styled.ul``
+export const CreditosItem = styled.li`
+  font-size: 1.2rem;
+`
+export const CreditosContainer = styled.div`
+  background-color: rgba(102, 112, 77, 0.10);
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  padding-top: 5vh;
+  padding: 80px;
+  position: relative;
+
+  @media (max-width: 768px) {
+    padding: 20px !important; /* Ajuste de padding para mobile */
+  }
+`;
+
 export const MainContainer = styled.div`
   background: #c2cfb4;
   display: flex;
@@ -350,7 +369,6 @@ export const CheckCardsContainer = styled.div`
 
 export const ButtonContainer = styled.div`
   width: 100%;
-  background-color: rgba(102, 112, 77, 0.10);
   height: 20vh;
   display: flex;
   flex-direction: column;
@@ -367,6 +385,22 @@ export const FinalButton = styled(Button)`
   padding-right: 1rem !important;
   color: white !important;
   font-family: 'Arsenal', sans-serif !important;
+  animation: pulse 1.2s infinite alternate;
+  transition: transform 0.2s ease;
+
+  @keyframes pulse {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.07);
+    }
+  }
+
+  &:hover {
+    animation-play-state: paused;
+    transform: scale(1.07);
+  }
 
   @media (max-width: 768px) {
     font-size: 0.8rem !important;

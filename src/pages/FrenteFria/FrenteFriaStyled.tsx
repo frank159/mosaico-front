@@ -99,6 +99,14 @@ export const TextoB = styled.p`
   }
 `;
 
+export const TextoC = styled.p`
+    margin-top: 2rem !important;
+    font-size: 1.2rem !important;
+    @media (max-width: 1224px) {
+    font-size: 1rem !important;
+  }
+`;
+
 export const Stro = styled.strong``;
 
 export const ContainerRightA = styled.div`
@@ -414,4 +422,36 @@ export const Gallery = styled.div`
       grid-column: span 1 !important;
     }
   }
+`;
+
+export const ModalOverlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+`;
+
+export const CloseButton = styled.button`
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 1001;
+  border-radius: 50%;
+  background-color: #2b2b2b;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;

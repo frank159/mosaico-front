@@ -292,7 +292,7 @@ export const SmallImageContainer = styled.div`
     height: auto;
   }
   @media (max-width: 768px) {
-    width: 80%;
+    width: 100%;
     gap: 3.5vw;
     height: auto;
   }
@@ -441,6 +441,37 @@ export const TextContent = styled.p`
   @media (max-width: 768px) {
     font-size: 1.4rem !important;
   }
+`;
+
+export const TextContentA = styled.p`
+  color: white;
+  line-height: 1;
+  margin: 0 !important;
+  @media (max-width: 768px) {
+    font-size: 1.4rem !important;
+  }
+`;
+
+export const TextContentDes = styled.p`
+  color: white;
+  line-height: 1;
+  gap: 1rem;
+  margin: 0 !important;
+  padding-right: 7rem !important;
+  @media (max-width: 768px) {
+    font-size: 1.4rem !important;
+  }
+`;
+
+export const TextContentDesc = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 2rem;
 `;
 
 export const SaibaMaisButton = styled(Button)`
@@ -695,6 +726,10 @@ export const ImgCardFlexTitle = styled.h1`
     }
 `;
 
+export const ImgCardFlexTitleA = styled.h1`
+  color: white;
+`;
+
 export const ImgCardFlexSubTitle = styled.p`
   color: white;
   font-weight: bolder;
@@ -720,6 +755,20 @@ export const ImgCardFlexImgContainer = styled.div`
     }
 `;
 
+export const ImgCardFlexImgContainerB = styled.div<{ width?: string }>`
+  background-color: #d9d9d967;
+  height: auto;
+  width: ${({ width }) => width || '20%'};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+`;
+
 export const ImgCardFlexImgContainerA = styled(ImgCardFlexImgContainer)`
   width: 60%;
   @media (max-width: 768px) {
@@ -734,6 +783,14 @@ export const ImgCardFlexImg = styled.img`
   object-position: center;
 `;
 
+
+export const ImgA = styled.img`
+  width: 1.5rem;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+  margin-bottom: 1rem;
+`;
 
 export const Img = styled.img`
   width: 100%;

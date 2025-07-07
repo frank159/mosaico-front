@@ -48,6 +48,7 @@ export const MainDivICons = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  color: white;
 `;
 
 export const SubDiv = styled.div`

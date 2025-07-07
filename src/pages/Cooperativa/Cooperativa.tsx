@@ -171,7 +171,11 @@ const Cooperativa: React.FC = () => {
         <S.MoviesGrid>
           {defaultSlides.map((movie, index) => (
             <S.MovieCard key={index}>
-              <S.MovieImage src={movie.imageSrc} alt={movie.title} />
+              <S.MovieImage
+                src={movie.imageSrc}
+                alt={movie.title}
+                style={movie.title === "A FRENTE FRIA QUE A CHUVA TRAZ" ? { objectPosition: 'left' } : {}}
+              />
               <S.MovieTitle>{movie.title}</S.MovieTitle>
               <S.MovieDescription>{movie.text}</S.MovieDescription>
               <S.ButtonContainer>
