@@ -21,15 +21,7 @@ const Footer: React.FC<FooterProps> = ({
             <S.FooterDiv>
                 <S.MainDiv>
                     <S.MainDivICons>
-                        <S.MainIcon>
-                            <S.Img iconWidth="60px" iconHeight="60px" src={mosaico} alt="logo" />
-                        </S.MainIcon>
-                        {isMosaico && (
-                        <S.Subscribe>
-                            <S.Logo onClick={() => window.open("https://www.graciosapictures.com", "_blank")} height={"7vh"} src={graciosa} />
-                        </S.Subscribe>
-                        )}
-
+                        {/* espaço para arrumar identação */}
                     </S.MainDivICons>
                     <S.SubDiv>
                         <S.Text>

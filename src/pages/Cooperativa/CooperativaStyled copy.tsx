@@ -2,8 +2,13 @@ import { Button } from '@mui/material';
 import { motion } from 'motion/react';
 import styled from 'styled-components';
 
-// Containers principais
+export interface Props {
+  height?: string;
+}
+
+// Containers
 export const MainContainer = styled.div`
+  background: #000;
   overflow-x: hidden;
   overflow-y: hidden;
   position: relative;
@@ -48,8 +53,7 @@ export const LogoImg = styled.img`
   }
 `;
 
-// Texto de apresentação
-export const SecaoTexto = styled.div`
+export const Body = styled.div`
   width: auto;
   height: auto;
   padding: 0 7rem;
@@ -58,7 +62,10 @@ export const SecaoTexto = styled.div`
   }
 `;
 
-export const SecaoTextoCard = styled.div`
+export const Stro = styled.strong``;
+
+// Seções principais
+export const ContainerA = styled.div`
   width: 100%;
   height: 100vh;
   display: flex;
@@ -70,7 +77,7 @@ export const SecaoTextoCard = styled.div`
   }
 `;
 
-export const cardTextoImg = styled.div`
+export const ContainerSubA = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
@@ -141,48 +148,43 @@ export const RightTextA = styled.h1`
   }
 `;
 
-export const Stro = styled.strong``;
-
-// Apresentação Homero
-export const SecaoApresentacao = styled.div`
+export const BodyB = styled.div`
   width: auto;
-  height: auto;
-  position: relative;
   margin-top: 15vh;
-  margin-bottom: 5vh;
-  padding-left: 7rem;
   @media (max-width: 1224px) {
     padding: 0 2rem;
   }
 `;
 
+// Imagem e overlay Homero
 export const ImageWrapper = styled.div`
-  position: absolute;
-  top: -5%;
-  left: 7rem;
+  position: relative;
   width: 100%;
-  z-index: -1;
   display: flex;
   justify-content: flex-end;
   border-top: 1px solid #3b3b3b78;
   border-bottom: 1px solid #3b3b3b78;
   @media (max-width: 1224px) {
-    display: block;
     border: none;
   }
 `;
 
 export const HomeroFullImgFrame = styled.div`
-  position: relative;
   width: 75%;
   height: 80vh;
   overflow: hidden;
+  position: relative;
   margin-bottom: 8rem;
-  z-index: 1;
+`;
+
+export const HomeroFullImg = styled.img`
+  width: 100%;
+  height: 80vh;
+  object-fit: cover;
+  object-position: 50% 30%;
+  opacity: 0.2;
   @media (max-width: 1224px) {
-    width: 100%;
-    height: auto;
-    margin-bottom: 2rem;
+    opacity: 0.1;
   }
 `;
 
@@ -196,25 +198,18 @@ export const GradientOverlay = styled.div`
   pointer-events: none;
 `;
 
-export const ImgStyled = styled.img<{ isMobile: boolean }>`
-  width: 100%;
-  height: 80vh;
-  object-fit: cover;
-  object-position: 50% 30%;
-  opacity: 0.2;
-  z-index: 1;
-  ${props => props.isMobile && `
-    opacity: 0.1;
-    object-position: right center;
-  `}
-`;
-
-// Overlay Homero
 export const OverlayContainer = styled.div<{ $isMobile?: boolean }>`
+  position: ${props => props.$isMobile ? 'relative' : 'absolute'};
+  top: ${props => props.$isMobile ? 'unset' : '-5%'};
+  left: ${props => props.$isMobile ? 'unset' : '7rem'};
   display: flex;
   align-items: center;
-  z-index: 1000;
-  width: auto;
+  z-index: 1;
+  width: ${props => props.$isMobile ? '100%' : 'auto'};
+  @media (max-width: 1224px) {
+    width: 100vw;
+    left: 0;
+  }
 `;
 
 export const OverlayContent = styled.div`
@@ -223,7 +218,6 @@ export const OverlayContent = styled.div`
   align-items: center;
   width: 100%;
   @media (max-width: 1224px) {
-    padding-left: 0;
     gap: 4vw;
     flex-direction: column;
     align-items: flex-start;
@@ -241,7 +235,6 @@ export const SmallImageContainer = styled.div`
   margin-top: -1%;
   border-right: 1px solid #3b3b3b78;
   @media (max-width: 1224px) {
-    border-right: none;
     width: 50%;
     gap: 3.5vw;
     height: auto;
@@ -298,7 +291,6 @@ export const TextContent = styled.p`
   margin: 0 !important;
   padding-right: 7rem !important;
   @media (max-width: 768px) {
-    padding-right: 0 !important;
     font-size: 1.4rem !important;
   }
 `;
@@ -413,6 +405,7 @@ export const MovieButton = styled(Button)`
 export const LinhaHorizontal = styled.div`
   width: auto;
   height: 1px;
+  background-color: #3b3b3b78;
   margin: 0 5rem 5rem 5rem;
 `;
 
