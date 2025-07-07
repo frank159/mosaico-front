@@ -21,19 +21,35 @@ const EstadoResistencia: React.FC = () => {
                 Mudanças climáticas, mudanças de vidas.
               </S.TextoA>
             </div>
-            <S.TextoB>
-              Duração: 52 min<br />
-              Ano: 2007<br />
-              Direção: Berenice Mendes<br />
-              Co-produção: Berenice Mendes / C.H.G /<br />
-              Paraná Educativa / Fundação Padre Anchieta - TV Cultura
-            </S.TextoB>
+            <S.TextoC>
+              <strong>Roteiro e Direção:</strong> Berenice Mendes
+              <br />
+              <strong>Produção:</strong> Homero Camargo
+              <br />
+              <strong>Produção Executiva:</strong> Silvana Fontana e Lu Rufalco
+              <br />
+              <strong>Direção de Fotografia:</strong> Peter Lorenzo
+              <br />
+              <strong>Cinegrafista:</strong> Raul Custódio
+              <br />
+              <strong>Assistente de Produção:</strong> Jovana Cestille
+              <br />
+              <strong>Edição:</strong> Frank Castro
+              <br />
+              <strong>Web Pesquisa:</strong> Rudlaine Schwertner
+              <br />
+              <strong>Arte:</strong> Foca
+              <br />
+              <strong>Exibição:</strong> DOCTV – Circuito da Rede Pública de Televisão – 2007
+              <br />
+              <strong>Mostra:</strong> Mostra de Filmes na Cúpula dos Povos – Rio+20 – 2012
+            </S.TextoC>
           </S.TextoAContinerBigCard>
         </S.TopSectionCard>
       </S.Body>
       <S.BodyC>
         <S.TitleC>
-          • assista o teaser:
+          • assista o trailer:
         </S.TitleC>
         <S.VideoWrapper>
           <ReactPlayer

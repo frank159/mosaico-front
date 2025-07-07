@@ -7,7 +7,6 @@ export interface Props {
 }
 
 export const MainContainer = styled.div`
-  background: #000000;
   overflow-x: hidden;
   position: relative;
   overflow-y: hidden;
@@ -203,25 +202,33 @@ export const ContainerB = styled.div`
 //////
 
 export const ImageWrapper = styled.div`
-    position: relative;
-    width: 100%;
-    display: flex;
-    justify-content: end;
-    border-top: 1px solid #3B3B3B;
-    @media (max-width: 1224px) {
-      border-bottom: 1px solid #3B3B3B;
-        border-bottom: none;
-        border-top: none;
-    }
+  position: absolute;
+  top: -5%;
+  left: 7rem;
+  width: 100%;
+  z-index: -1;
+  display: flex;
+  justify-content: flex-end;
+  border-top: 1px solid #3b3b3b78;
+  border-bottom: 1px solid #3b3b3b78;
+  @media (max-width: 1224px) {
+    display: block;
+    border: none;
+  }
 `;
 
 export const HomeroFullImgFrame = styled.div`
+  position: relative;
   width: 75%;
   height: 80vh;
   overflow: hidden;
-  position: relative; /* Necessário para o posicionamento absoluto do pseudo-elemento */
   margin-bottom: 8rem;
-
+  z-index: 1;
+  @media (max-width: 1224px) {
+    width: 100%;
+    height: auto;
+    margin-bottom: 2rem;
+  }
 `;
 
 /* Imagem */
@@ -241,80 +248,56 @@ export const GradientOverlay = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  width: 50%; /* Largura do gradiente */
+  width: 50%;
   height: 100%;
   background: linear-gradient(to left, rgba(0, 0, 0, 0) 0%, black 100%);
-  pointer-events: none; /* Permite interações através do gradiente */
+  pointer-events: none;
 `;
 
 
 export const OverlayContainer = styled.div`
-  position: absolute;
-  top: -5%;
-  left: 7rem;
   display: flex;
   align-items: center;
-  z-index: 1;
-
-  @media (max-width: 1224px) {
-    width: 100vw;
-    left: 0;
-  }
-
+  z-index: 1000;
+  width: auto;
 `;
 
 export const OverlayContent = styled.div`
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
   align-items: center;
-  justify-content: center;
   width: 100%;
-
   @media (max-width: 1224px) {
+    padding-left: 0;
     gap: 4vw;
     flex-direction: column;
+    align-items: flex-start;
   }
 `;
 
 export const SmallImageContainer = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: start;
-  justify-content: start;
+  align-items: flex-start;
   margin-right: 3vw;
   width: 30%;
   height: 100vh;
   padding-right: 3vw;
   margin-top: -1%;
-  margin-bottom: 3rem;
-  position: relative;
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: 3px;
-    z-index: 1;
-    height: 780vh;
-    background-color: #3b3b3b5c;
-  }
-  
+  border-right: 1px solid #3b3b3b78;
   @media (max-width: 1224px) {
+    border-right: none;
     width: 50%;
     gap: 3.5vw;
     height: auto;
-    flex-direction: row;
   }
-
   @media (max-width: 768px) {
-    width: 80%;
+    width: 100%;
     gap: 3.5vw;
     height: auto;
-    flex-direction: column;
   }
 `;
+
 
 export const NewTextSection = styled.div`
   width: 100%;
@@ -412,37 +395,27 @@ export const TxtCardIten = styled.p`
 
 export const SmallImage = styled.img`
   width: 100%;
-  height: auto;
   margin-top: 1rem;
-  @media (max-width: 768px) {
-    margin-top: 1rem;
-  }
 `;
 
 export const SmallImageText = styled.h1`
   font-weight: lighter;
   margin-top: 2rem;
   width: 100%;
-  color: #2f2f2f;
+  color: #ffffff57;
   text-align: start;
   line-height: 1;
-
-  @media (max-width: 1224px) {
-    margin-top: 3rem !important;
-  }
-  
-  @media (max-width: 768px) {
+  @media (max-width: 1224px), (max-width: 768px) {
     margin-top: 1rem !important;
   }
 `;
 
+
 export const TextSection = styled.div`
   width: 70%;
-  z-index: 999;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: start;
+  align-items: flex-start;
   margin-top: -5vh;
   @media (max-width: 1224px) {
     margin-top: 0;
@@ -458,7 +431,6 @@ export const TextTitle = styled.h2`
   line-height: 1;
   margin: 0 !important;
   padding: 0 !important;
-
 `;
 
 export const TextContent = styled.p`
@@ -471,21 +443,50 @@ export const TextContent = styled.p`
   }
 `;
 
+export const TextContentA = styled.p`
+  color: white;
+  line-height: 1;
+  margin: 0 !important;
+  @media (max-width: 768px) {
+    font-size: 1.4rem !important;
+  }
+`;
+
+export const TextContentDes = styled.p`
+  color: white;
+  line-height: 1;
+  gap: 1rem;
+  margin: 0 !important;
+  padding-right: 7rem !important;
+  @media (max-width: 768px) {
+    font-size: 1.4rem !important;
+  }
+`;
+
+export const TextContentDesc = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 2rem;
+`;
+
 export const SaibaMaisButton = styled(Button)`
-    background-color: #1F1D1D !important;
-    color: white !important;
-    text-transform: none !important;
-    font-weight: lighter !important;
-    margin-top: 3vw !important;
-    width: 15vw !important;
-   
-    @media (max-width: 1224px) {
-        width: 20vw !important;
-    }
-  
-    @media (max-width: 768px) {
-        width: 50vw !important;
-    }
+  background-color: #1f1d1d !important;
+  color: white !important;
+  text-transform: none !important;
+  font-weight: lighter !important;
+  margin-top: 3vw !important;
+  width: 15vw !important;
+  @media (max-width: 1224px) {
+    width: 20vw !important;
+  }
+  @media (max-width: 768px) {
+    width: 50vw !important;
+  }
 `;
 
 
@@ -725,6 +726,10 @@ export const ImgCardFlexTitle = styled.h1`
     }
 `;
 
+export const ImgCardFlexTitleA = styled.h1`
+  color: white;
+`;
+
 export const ImgCardFlexSubTitle = styled.p`
   color: white;
   font-weight: bolder;
@@ -750,6 +755,20 @@ export const ImgCardFlexImgContainer = styled.div`
     }
 `;
 
+export const ImgCardFlexImgContainerB = styled.div<{ width?: string }>`
+  background-color: #d9d9d967;
+  height: auto;
+  width: ${({ width }) => width || '20%'};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+`;
+
 export const ImgCardFlexImgContainerA = styled(ImgCardFlexImgContainer)`
   width: 60%;
   @media (max-width: 768px) {
@@ -764,6 +783,14 @@ export const ImgCardFlexImg = styled.img`
   object-position: center;
 `;
 
+
+export const ImgA = styled.img`
+  width: 1.5rem;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+  margin-bottom: 1rem;
+`;
 
 export const Img = styled.img`
   width: 100%;
@@ -816,3 +843,28 @@ export const ImgContainerA = styled(ImgContainer)`
       height: auto;
     }
   `;
+
+export const SecaoApresentacao = styled.div`
+  width: auto;
+  height: auto;
+  position: relative;
+  margin-top: 15vh;
+  margin-bottom: 5vh;
+  padding-left: 7rem;
+  @media (max-width: 1224px) {
+    padding: 0 2rem;
+  }
+`;
+
+export const ImgStyled = styled.img<{ isMobile: boolean }>`
+  width: 100%;
+  height: 80vh;
+  object-fit: cover;
+  object-position: 50% 30%;
+  opacity: 0.2;
+  z-index: 1;
+  ${props => props.isMobile && `
+    opacity: 0.1;
+    object-position: right center;
+  `}
+`;

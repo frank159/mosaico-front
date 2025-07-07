@@ -1,15 +1,22 @@
-import { useEffect, useState, useRef } from 'react';
-import * as S from './AboutUsStyled';
-import TextComponent from '../text/text';
-import Footer from '../../components/footer/footer';
+import { useEffect, useState, useRef } from "react";
+import * as S from "./AboutUsStyled";
+import TextComponent from "../text/text";
+import Footer from "../../components/footer/footer";
 
-const mosaicoLogo = "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324712/mosaicoLogo1_ch206u.png";
-const missao = "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324732/missao_esc_cbj8c2.png";
-const visao = "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324740/visao_esc_mkssot.png";
-const valores = "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324742/valores_esc_ctntpz.png"
-const pinheiro = "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324653/pinheiro_ygxzo0.png";
-const aspas = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324725/aspasPreta_khaua6.png';
-const estrutura = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324726/estrutura_esc_b3kqfd.png';
+const mosaicoLogo =
+  "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324712/mosaicoLogo1_ch206u.png";
+const missao =
+  "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324732/missao_esc_cbj8c2.png";
+const visao =
+  "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324740/visao_esc_mkssot.png";
+const valores =
+  "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324742/valores_esc_ctntpz.png";
+const pinheiro =
+  "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324653/pinheiro_ygxzo0.png";
+const aspas =
+  "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324725/aspasPreta_khaua6.png";
+const estrutura =
+  "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324729/LOTUS_PRETO_gdyvta.png";
 
 const AboutUs: React.FC = () => {
   const handleProjetoClick = (route: string) => {
@@ -26,28 +33,25 @@ const AboutUs: React.FC = () => {
   const checkCardARef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    console.log("window.innerWidth <= 768", window.innerWidth <= 768)
+    console.log("window.innerWidth <= 768", window.innerWidth <= 768);
     setIsMobile(window.innerWidth <= 768);
-  }, [])
+  }, []);
 
   useEffect(() => {
-    console.log("window.innerWidth <= 1880", window.innerWidth <= 1880)
+    console.log("window.innerWidth <= 1880", window.innerWidth <= 1880);
     setOpacityPin(window.innerWidth <= 1880);
-  }, [])
+  }, []);
 
   useEffect(() => {
-    const heights = midCardRefs.current.map(ref => ref.clientHeight);
-    let maxHeights = (Math.max(...heights))
-    maxHeights = Number((maxHeights + (maxHeights / 3)));
-    console.log('maxHeights: ', maxHeights)
-    console.log('------------------')
+    const heights = midCardRefs.current.map((ref) => ref.clientHeight);
+    let maxHeights = Math.max(...heights);
+    maxHeights = Number(maxHeights + maxHeights / 3);
 
     setMaxHeight(maxHeights);
   }, [midCardRefs]);
 
   useEffect(() => {
     if (checkCardRef.current) {
-      console.log('checkCardRef.current', checkCardRef.current.clientWidth)
       setCheckCardHeight(checkCardRef.current.clientHeight);
       setCheckCardWidth(checkCardRef.current.clientWidth);
     }
@@ -59,47 +63,58 @@ const AboutUs: React.FC = () => {
 
   const getWidth = () => {
     if (window.innerWidth <= 768) {
-      return '60vw';
+      return "60vw";
     } else if (window.innerWidth <= 820) {
-      return '50vw';
+      return "50vw";
     } else {
-      return '40vw';
+      return "40vw";
     }
   };
 
   const getWidthA = () => {
     if (window.innerWidth <= 768) {
-      return '80vw';
+      return "80vw";
     } else if (window.innerWidth <= 820) {
-      return '70vw';
+      return "70vw";
     } else {
-      return '70vw';
+      return "70vw";
     }
   };
 
   return (
-    <div style={{ backgroundColor: '#C2CFB4' }}>
+    <div style={{ backgroundColor: "#C2CFB4" }}>
       <S.MainContainer>
         <S.VectorImage isMobile={OpacityPin} src={pinheiro} alt="pinheiro" />
         <S.SubTitleContainer>
           <S.ContainerTitleA>
             <S.SecaoInicialIcon src={aspas} />
             <S.SubTitleText>
-              <TextComponent children={'O Mosaico é uma vitrine para expor'} type={'h1'} />
+              <TextComponent
+                children={"O Mosaico é uma vitrine para expor"}
+                type={"h1"}
+              />
             </S.SubTitleText>
           </S.ContainerTitleA>
           <S.SubTitleText>
-            <TextComponent children={'projetos sociais e culturais'} type={'h1'} />
-            <TextComponent children={'de todas as áreas!'} type={'h1'} />
-
+            <TextComponent
+              children={"projetos sociais e culturais"}
+              type={"h1"}
+            />
+            <TextComponent children={"de todas as áreas!"} type={"h1"} />
           </S.SubTitleText>
         </S.SubTitleContainer>
         <S.InitialTextContainer>
           <S.Line />
           <S.InitialText>
-            O <strong style={{ fontStyle: 'italic' }}>Mosaico</strong> é um espaço dedicado a exibir projetos inspiradores, conectando ideias a pessoas. <br />
-            O projeto nasceu com o propósito de ser uma vitrine para projetos sociais e culturais de todas as áreas.<br />
-            Acreditamos no poder da VISIBILIDADE, para promover MUDANÇAS e valorizar<br />
+            O <strong style={{ fontStyle: "italic" }}>Mosaico</strong> é um
+            espaço dedicado a exibir projetos inspiradores, conectando ideias a
+            pessoas. <br />
+            O projeto nasceu com o propósito de ser uma vitrine para projetos
+            sociais e culturais de todas as áreas.
+            <br />
+            Acreditamos no poder da VISIBILIDADE, para promover MUDANÇAS e
+            valorizar
+            <br />
             IDEIAS QUE TRANSFORMAM O MUNDO.
           </S.InitialText>
         </S.InitialTextContainer>
@@ -108,7 +123,8 @@ const AboutUs: React.FC = () => {
             <S.IconInicialCard src={estrutura} />
             <S.CardText>
               <p>
-                <strong>AQUI</strong>, você encontra histórias que merecem ser contadas e projetos que estão mudando realidades.
+                <strong>AQUI</strong>, você encontra histórias que merecem ser
+                contadas e projetos que estão mudando realidades.
               </p>
             </S.CardText>
           </S.Card>
@@ -119,12 +135,17 @@ const AboutUs: React.FC = () => {
               <S.LogoImg src={mosaicoLogo} alt="mosaicoLogo" />
             </S.TitleLogo1>
             <S.TitleText2>
-              <TextComponent children={'CRIAMOS UM ESPAÇO ONDE PROJETOS PODEM BRILHAR!'} type={'h1'} />
+              <TextComponent
+                children={"CRIAMOS UM ESPAÇO ONDE PROJETOS PODEM BRILHAR!"}
+                type={"h1"}
+              />
             </S.TitleText2>
           </S.TitleContainer1>
           <S.SubTextContainer>
             <S.SubTextText>
-              alcançando públicos diversos e celebrando a diversidade de vozes e histórias que fazem<br />
+              alcançando públicos diversos e celebrando a diversidade de vozes e
+              histórias que fazem
+              <br />
               parte do nosso mundo.
             </S.SubTextText>
           </S.SubTextContainer>
@@ -134,61 +155,78 @@ const AboutUs: React.FC = () => {
           <S.PilaresListItensContainer>
             <S.PilaresCard>
               <S.PilaresTitleContainer>
-                <S.PilaresTitleIcon src={missao} height='2.5rem' alt="missao" />
-                <S.PilaresTitleText>
-                  MISSÃO
-                </S.PilaresTitleText>
+                <S.PilaresTitleIcon src={missao} height="2.5rem" alt="missao" />
+                <S.PilaresTitleText>MISSÃO</S.PilaresTitleText>
               </S.PilaresTitleContainer>
               <S.PilaresTextContainer>
                 <S.PilaresText>
-                  Mostrar e valorizar projetos que inspiram.<br />
-                  Destacar e valorizar projetos que promovem impacto positivo na sociedade, inspirando mudanças, preservação cultural e inovação.
+                  Mostrar e valorizar projetos que inspiram.
+                  <br />
+                  Destacar e valorizar projetos que promovem impacto positivo na
+                  sociedade, inspirando mudanças, preservação cultural e
+                  inovação.
                 </S.PilaresText>
               </S.PilaresTextContainer>
             </S.PilaresCard>
             <S.PilaresCard>
               <S.PilaresTitleContainer>
-                <S.PilaresTitleIcon src={visao} height='2.5rem' alt="missao" />
-                <S.PilaresTitleText>
-                  VISÃO
-                </S.PilaresTitleText>
+                <S.PilaresTitleIcon src={visao} height="2.5rem" alt="missao" />
+                <S.PilaresTitleText>VISÃO</S.PilaresTitleText>
               </S.PilaresTitleContainer>
               <S.PilaresTextContainer>
                 <S.PilaresText>
-                  Ser a principal plataforma de projetos sociais e culturais.<br />
-                  Transformar o Mosaico na plataforma de referência para projetos sociais, culturais, ambientais e educacionais, conectando iniciativas a um público amplo e diversificado,
+                  Ser a principal plataforma de projetos sociais e culturais.
+                  <br />
+                  Transformar o Mosaico na plataforma de referência para
+                  projetos sociais, culturais, ambientais e educacionais,
+                  conectando iniciativas a um público amplo e diversificado,
                   inspirando mudanças, colaborações e inovações.
                 </S.PilaresText>
               </S.PilaresTextContainer>
             </S.PilaresCard>
             <S.PilaresCard>
               <S.PilaresTitleContainer>
-                <S.PilaresTitleIcon src={valores} height='2.5rem' alt="missao" />
-                <S.PilaresTitleText>
-                  VALORES
-                </S.PilaresTitleText>
+                <S.PilaresTitleIcon
+                  src={valores}
+                  height="2.5rem"
+                  alt="missao"
+                />
+                <S.PilaresTitleText>VALORES</S.PilaresTitleText>
               </S.PilaresTitleContainer>
               <S.PilaresTextContainer>
                 <S.PilaresText>
                   <S.PilaresList>
                     <S.SubItenList>Inclusão:</S.SubItenList>
                     <S.PilaresText>
-                      Todos os projetos, independentemente de tamanho, localidade ou tema, são bem-vindos no Mosaico.<br />
-                      A plataforma busca representar a diversidade, abrindo espaço para vozes que frequentemente não têm visibilidade.
+                      Todos os projetos, independentemente de tamanho,
+                      localidade ou tema, são bem-vindos no Mosaico.
+                      <br />A plataforma busca representar a diversidade,
+                      abrindo espaço para vozes que frequentemente não têm
+                      visibilidade.
                     </S.PilaresText>
                     <br />
                     <S.SubItenList>Diversidade:</S.SubItenList>
                     <S.PilaresText>
-                      Promover iniciativas que representem a riqueza cultural, ambiental e social.<br />
-                      Valorizar tradições, práticas locais e inovações que destacam a pluralidade do país.<br />
-                      Priorizar projetos de diferentes regiões e contextos (ex.: comunidades indígenas, rurais e urbanas).
+                      Promover iniciativas que representem a riqueza cultural,
+                      ambiental e social.
+                      <br />
+                      Valorizar tradições, práticas locais e inovações que
+                      destacam a pluralidade do país.
+                      <br />
+                      Priorizar projetos de diferentes regiões e contextos (ex.:
+                      comunidades indígenas, rurais e urbanas).
                     </S.PilaresText>
                     <br />
                     <S.SubItenList>Inspiração:</S.SubItenList>
                     <S.PilaresText>
-                      Motivar novas ideias e iniciativas, mostrando histórias de sucesso e impacto social real.<br />
-                      Criar um ciclo de inovação social ao expor projetos que transformam.<br />
-                      Ter uma seção de “Histórias que Inspiram” para compartilhar o impacto concreto de projetos cadastrados.
+                      Motivar novas ideias e iniciativas, mostrando histórias de
+                      sucesso e impacto social real.
+                      <br />
+                      Criar um ciclo de inovação social ao expor projetos que
+                      transformam.
+                      <br />
+                      Ter uma seção de “Histórias que Inspiram” para
+                      compartilhar o impacto concreto de projetos cadastrados.
                     </S.PilaresText>
                   </S.PilaresList>
                 </S.PilaresText>
@@ -196,47 +234,41 @@ const AboutUs: React.FC = () => {
             </S.PilaresCard>
           </S.PilaresListItensContainer>
         </S.PilaresListContainer>
-
       </S.MainContainer>
       <S.BigIconCardContainer>
         <S.BigIconCard>
           <S.BigIconCardTitle>
             <S.BigIconImgCard>
-              <S.BigIconTextCard>
-                !
-              </S.BigIconTextCard>
+              <S.BigIconTextCard>!</S.BigIconTextCard>
             </S.BigIconImgCard>
             NOSSA MISSÃO É SIMPLES!
           </S.BigIconCardTitle>
           <S.BigIconText>
-            Mostrar ao mundo iniciativas que <strong>inspiram, educam e conectam.</strong>
+            Mostrar ao mundo iniciativas que{" "}
+            <strong>inspiram, educam e conectam.</strong>
           </S.BigIconText>
         </S.BigIconCard>
       </S.BigIconCardContainer>
       <S.FinalContainer>
-
         <S.CheckCardsContainerTitle>
-          No Brasil, projetos sociais e culturais frequentemente enfrentam barreiras como:
+          No Brasil, projetos sociais e culturais frequentemente enfrentam
+          barreiras como:
         </S.CheckCardsContainerTitle>
         <S.CheckCardsContainer>
           <S.CheckCard width={`${checkCardAWidth}px`}>
-
-            <S.CheckCard1 style={{ height: `${checkCardHeight}px` }}  >
+            <S.CheckCard1 style={{ height: `${checkCardHeight}px` }}>
               <S.CheckCardTitleContainer>
                 <S.CheckCardIcon />
-                <S.CheckCardTextTitle>
-                  Baixa visibilidade
-                </S.CheckCardTextTitle>
+                <S.CheckCardTextTitle>Baixa visibilidade</S.CheckCardTextTitle>
               </S.CheckCardTitleContainer>
               <S.CheckCardText>
-                Muitas iniciativas incríveis permanecem
-                desconhecidas devido à falta de plataformas
-                adequadas para divulgação.
+                Muitas iniciativas incríveis permanecem desconhecidas devido à
+                falta de plataformas adequadas para divulgação.
               </S.CheckCardText>
             </S.CheckCard1>
           </S.CheckCard>
-          <S.CheckCard width={`${checkCardAWidth}px`} >
-            <S.CheckCard1 style={{ height: `${checkCardHeight}px` }} >
+          <S.CheckCard width={`${checkCardAWidth}px`}>
+            <S.CheckCard1 style={{ height: `${checkCardHeight}px` }}>
               <S.CheckCardTitleContainer>
                 <S.CheckCardIcon />
                 <S.CheckCardTextTitle>
@@ -244,9 +276,8 @@ const AboutUs: React.FC = () => {
                 </S.CheckCardTextTitle>
               </S.CheckCardTitleContainer>
               <S.CheckCardText>
-                Sem uma vitrine confiável, os projetos
-                têm dificuldade de demonstrar credibilidade
-                e atrair apoiadores.
+                Sem uma vitrine confiável, os projetos têm dificuldade de
+                demonstrar credibilidade e atrair apoiadores.
               </S.CheckCardText>
             </S.CheckCard1>
           </S.CheckCard>
@@ -259,26 +290,24 @@ const AboutUs: React.FC = () => {
                 </S.CheckCardTextTitle>
               </S.CheckCardTitleContainer>
               <S.CheckCardText>
-                Projetos transformadores não alcançam
-                as comunidades ou audiências que poderiam se
-                beneficiar diretamente de suas ações.
+                Projetos transformadores não alcançam as comunidades ou
+                audiências que poderiam se beneficiar diretamente de suas ações.
               </S.CheckCardText>
             </S.CheckCard1>
           </S.CheckCard>
         </S.CheckCardsContainer>
         <S.TitleContainer>
-          <S.TitleText1>
-            !
-          </S.TitleText1>
-          <S.TitleText>
-            com o mosaico
-          </S.TitleText>
+          <S.TitleText1>!</S.TitleText1>
+          <S.TitleText>com o mosaico</S.TitleText>
         </S.TitleContainer>
       </S.FinalContainer>
 
       <S.MidCardSection>
         <S.MidCard style={{ height: `${maxHeight}px`, width: getWidthA() }}>
-          <S.MidCardTextContainer ref={el => midCardRefs.current[0] = el!} style={{ width: getWidth() }}>
+          <S.MidCardTextContainer
+            ref={(el) => (midCardRefs.current[0] = el!)}
+            style={{ width: getWidth() }}
+          >
             <S.CheckCardTitleContainer>
               <S.CheckCardIcon2 />
               <S.CheckCardTextTitleA>
@@ -286,9 +315,8 @@ const AboutUs: React.FC = () => {
               </S.CheckCardTextTitleA>
             </S.CheckCardTitleContainer>
             <S.CheckCardText>
-              O Mosaico funciona como uma vitrine
-              confiável e profissional, ajudando
-              projetos a ganharem reconhecimento.
+              O Mosaico funciona como uma vitrine confiável e profissional,
+              ajudando projetos a ganharem reconhecimento.
             </S.CheckCardText>
           </S.MidCardTextContainer>
         </S.MidCard>
@@ -296,41 +324,44 @@ const AboutUs: React.FC = () => {
 
       <S.MidCardSection1>
         <S.MidCard1 style={{ height: `${maxHeight}px`, width: getWidthA() }}>
-          <S.MidCardTextContainer ref={el => midCardRefs.current[1] = el!} style={{ width: getWidth() }}>
+          <S.MidCardTextContainer
+            ref={(el) => (midCardRefs.current[1] = el!)}
+            style={{ width: getWidth() }}
+          >
             <S.CheckCardTitleContainer>
               <S.CheckCardIcon2 />
-              <S.CheckCardTextTitleA>
-                Amplo Alcance
-              </S.CheckCardTextTitleA>
+              <S.CheckCardTextTitleA>Amplo Alcance</S.CheckCardTextTitleA>
             </S.CheckCardTitleContainer>
             <S.CheckCardText>
-              Oferece um espaço digital para conectar iniciativas
-              a pessoas e organizações interessadas em apoiá-las
-              ou promovê-las.
+              Oferece um espaço digital para conectar iniciativas a pessoas e
+              organizações interessadas em apoiá-las ou promovê-las.
             </S.CheckCardText>
           </S.MidCardTextContainer>
         </S.MidCard1>
       </S.MidCardSection1>
       <S.MidCardSection>
         <S.MidCard style={{ height: `${maxHeight}px`, width: getWidthA() }}>
-          <S.MidCardTextContainer ref={el => midCardRefs.current[2] = el!} style={{ width: getWidth() }}>
+          <S.MidCardTextContainer
+            ref={(el) => (midCardRefs.current[2] = el!)}
+            style={{ width: getWidth() }}
+          >
             <S.CheckCardTitleContainer>
               <S.CheckCardIcon2 />
-              <S.CheckCardTextTitleA>
-                Inspiração
-              </S.CheckCardTextTitleA>
+              <S.CheckCardTextTitleA>Inspiração</S.CheckCardTextTitleA>
             </S.CheckCardTitleContainer>
             <S.CheckCardText>
-              Projetos exibidos no Mosaico incentivam outros
-              criadores e organizações a se envolverem em
-              ações transformadoras.
+              Projetos exibidos no Mosaico incentivam outros criadores e
+              organizações a se envolverem em ações transformadoras.
             </S.CheckCardText>
           </S.MidCardTextContainer>
         </S.MidCard>
       </S.MidCardSection>
       <S.MidCardSection1>
         <S.MidCard1 style={{ height: `${maxHeight}px`, width: getWidthA() }}>
-          <S.MidCardTextContainer ref={el => midCardRefs.current[3] = el!} style={{ width: getWidth() }}>
+          <S.MidCardTextContainer
+            ref={(el) => (midCardRefs.current[3] = el!)}
+            style={{ width: getWidth() }}
+          >
             <S.CheckCardTitleContainer>
               <S.CheckCardIcon2 />
               <S.CheckCardTextTitleA>
@@ -338,11 +369,9 @@ const AboutUs: React.FC = () => {
               </S.CheckCardTextTitleA>
             </S.CheckCardTitleContainer>
             <S.CheckCardText>
-              Por meio da divulgação de projetos
-              culturais e ambientais, a plataforma
-              contribui para a preservação de
-              tradições, histórias e práticas que
-              refletem a diversidade.
+              Por meio da divulgação de projetos culturais e ambientais, a
+              plataforma contribui para a preservação de tradições, histórias e
+              práticas que refletem a diversidade.
             </S.CheckCardText>
           </S.MidCardTextContainer>
         </S.MidCard1>
@@ -364,45 +393,67 @@ const AboutUs: React.FC = () => {
               </S.PilaresTitleContainer>
               <S.PilaresTextContainer>
                 <S.PilaresText>
-                  Projetos que ganham visibilidade têm maior alcance, aumentando sua capacidade de promover mudanças em comunidades e grupos beneficiados.
+                  Projetos que ganham visibilidade têm maior alcance, aumentando
+                  sua capacidade de promover mudanças em comunidades e grupos
+                  beneficiados.
                 </S.PilaresText>
               </S.PilaresTextContainer>
             </S.PilaresCard1>
             <S.PilaresCard1>
               <S.PilaresTitleContainer>
-                <S.PilaresTitleText1>
-                  • Reconhecimento:
-                </S.PilaresTitleText1>
+                <S.PilaresTitleText1>• Reconhecimento:</S.PilaresTitleText1>
               </S.PilaresTitleContainer>
               <S.PilaresTextContainer>
                 <S.PilaresText>
-                  A exposição ajuda iniciativas a serem valorizadas e legitimadas, abrindo portas para colaborações, financiamentos ou apoios institucionais.
+                  A exposição ajuda iniciativas a serem valorizadas e
+                  legitimadas, abrindo portas para colaborações, financiamentos
+                  ou apoios institucionais.
                 </S.PilaresText>
               </S.PilaresTextContainer>
             </S.PilaresCard1>
             <S.PilaresCard1>
               <S.PilaresTitleContainer>
-                <S.PilaresTitleText1>
-                  • Inspiração:
-                </S.PilaresTitleText1>
+                <S.PilaresTitleText1>• Inspiração:</S.PilaresTitleText1>
               </S.PilaresTitleContainer>
               <S.PilaresTextContainer>
                 <S.PilaresText>
-                  Projetos bem-sucedidos servem como exemplos motivadores para outras iniciativas, criando um ciclo virtuoso de ações transformadoras.
+                  Projetos bem-sucedidos servem como exemplos motivadores para
+                  outras iniciativas, criando um ciclo virtuoso de ações
+                  transformadoras.
                 </S.PilaresText>
               </S.PilaresTextContainer>
             </S.PilaresCard1>
           </S.PilaresListItensContainer>
         </S.PilaresListContainer1>
       </S.MainContainer>
-      <S.ButtonContainer onClick={() => handleProjetoClick('/Projetos')}>
-        <S.FinalButton>
-          Conheça nossos Projetos
-        </S.FinalButton>
+      <S.ButtonContainer onClick={() => handleProjetoClick("/Projetos")}>
+        <S.FinalButton>Conheça nossos Projetos</S.FinalButton>
       </S.ButtonContainer>
-      {!isMobile && (
-        <Footer isMosaico={true}/>
-      )}
+      <S.CreditosContainer>
+        <S.CreditosTitle>Créditos</S.CreditosTitle>
+        <S.CreditosList>
+          <S.CreditosItem>
+            <strong>Marylena Bukowski</strong> – Direção de Arte
+          </S.CreditosItem>
+          <S.CreditosItem>
+            <strong>Pedro Fontana</strong> – Prod. Vz1Pr / Sound Designer
+          </S.CreditosItem>
+          <S.CreditosItem>
+            <strong>Guará Estúdio</strong> – Design e Website
+          </S.CreditosItem>
+          <S.CreditosItem>
+            <strong>Vitória Carvalho</strong> – Design
+          </S.CreditosItem>
+          <S.CreditosItem>
+            <strong>Frank Castro Filho</strong> – Desenvolvimento de Código
+          </S.CreditosItem>
+          <S.CreditosItem>
+            <strong>Agnes Schumacker</strong> – Assistente de Produção
+          </S.CreditosItem>
+        </S.CreditosList>
+      </S.CreditosContainer>
+
+      {!isMobile && <Footer isMosaico={true} />}
     </div>
   );
 };

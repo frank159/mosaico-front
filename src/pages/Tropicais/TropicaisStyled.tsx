@@ -99,6 +99,14 @@ export const TextoB = styled.p`
   }
 `;
 
+export const TextoC = styled.p`
+    margin-top: 2rem !important;
+    font-size: 1.2rem !important;
+    @media (max-width: 1224px) {
+    font-size: 1rem !important;
+  }
+`;
+
 export const Stro = styled.strong``;
 
 export const ContainerRightA = styled.div`
@@ -368,39 +376,28 @@ export const GalleryCard = styled.div`
 
 export const Gallery = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, auto);
+  grid-template-columns: repeat(4, 0.6fr); /* 40% smaller */
+  grid-template-rows: auto;
   gap: 6px; /* Adjust gap if needed */
   width: 60vw;
-
   & > div:nth-child(1) {
-    grid-column: span 2;
-    grid-row: span 2;
+    grid-column: span 4;
   }
 
-  & > div:nth-child(2) {
-    grid-column: 3 / 4;
-    grid-row: 1 / 2;
-  }
-
+  & > div:nth-child(2),
   & > div:nth-child(3) {
-    grid-column: 3 / 4;
-    grid-row: 2 / 3;
+    grid-column: span 2;
   }
 
   & > div:nth-child(4) {
-    grid-column: 1 / 2;
-    grid-row: 3 / 4;
+    grid-column: span 1;
   }
 
   & > div:nth-child(5) {
-    grid-column: 2 / 3;
-    grid-row: 3 / 4;
+    grid-column: span 1;
   }
-
   & > div:nth-child(6) {
-    grid-column: 3 / 4;
-    grid-row: 3 / 4;
+    grid-column: span 1;
   }
 
   img {
@@ -408,4 +405,55 @@ export const Gallery = styled.div`
     height: 100%;
     object-fit: cover;
   }
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    gap: 12px;
+    & > div {
+      width: 100%;
+      aspect-ratio: 1/1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+`;
+
+export const ModalOverlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+`;
+
+export const CloseButton = styled.button`
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 1001;
+  border-radius: 50%;
+  background-color: #2b2b2b;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;

@@ -14,18 +14,6 @@ const projetoID = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324654
 const sonhosTrop = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324659/sonhosTrop_tgylrk.jpg'
 const estadoDressis = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324647/estadoDressis_guhvqm.png'
 
-const SonhosTropicaisImg = styled.img<{ isMobile: boolean }>`
-  width: 100%;
-  height: 80vh;
-  object-fit: cover;
-  object-position: 50% 30%;
-  opacity: 0.2;
-  ${props => props.isMobile && `
-    opacity: 0.1;
-    object-position: right center;
-  `}
-`;
-
 interface SlideItem {
   id: number;
   title: string;
@@ -126,9 +114,9 @@ const Cooperativa: React.FC = () => {
           </S.TitleLogo>
         </S.TitleOverlayContainer>
       </S.FullImgFrame>
-      <S.Body>
-        <S.ContainerA>
-          <S.ContainerSubA>
+      <S.SecaoTexto>
+        <S.SecaoTextoCard>
+          <S.cardTextoImg>
             <S.ContainerLeftA>
               <S.TitleA>Histórias que Conectam</S.TitleA>
               <S.TextoA>
@@ -138,54 +126,56 @@ const Cooperativa: React.FC = () => {
             <S.ContainerRightA >
               <S.ImgFotoA src={cameraCoop} />
             </S.ContainerRightA>
-          </S.ContainerSubA>
+          </S.cardTextoImg>
           <S.RightTextA>
             há mais de 24 anos<br />
             criada em Castro<br />
             paraná, brasil
           </S.RightTextA>
-        </S.ContainerA>
-      </S.Body>
-      <S.BodyB >
+        </S.SecaoTextoCard>
+      </S.SecaoTexto>
+      <S.SecaoApresentacao >
         <S.ImageWrapper>
           <S.HomeroFullImgFrame >
-            <SonhosTropicaisImg
+            <S.ImgStyled
               src={HomeroFoto}
               alt="Homero"
               isMobile={isMobile}
             />
             <S.GradientOverlay />
           </S.HomeroFullImgFrame >
-          <S.OverlayContainer >
-            <S.OverlayContent >
-              <S.SmallImageContainer>
-                <S.SmallImage src={HomeroFoto} alt="Homero" />
-                <S.SmallImageText ref={overlayRefA}>
-                  fundador da<br />
-                  cooperativa de cinema<br />
-                  & mídias siciais
-                </S.SmallImageText>
-              </S.SmallImageContainer>
-              <S.TextSection ref={overlayRef}>
-                <S.TextTitle>Homero Camargo</S.TextTitle>
-                <S.TextContent>
-                  Responsável por fundar a Cooperativa de Cinema & Mídias Digitais e com mais de 35 anos no cinema, tem experiência na produção de longas-metragens, captação de recursos e consultoria. Participa ativamente de debates políticos sobre a indústria audiovisual e tem ampla experiência em marketing cinematográfico. Foi cofundador do SIAPAR e articulador do Prêmio Estadual de Cinema e Vídeo do Paraná. Já trabalhou com diretores renomados como Neville D’Almeida, Mauro Lima e Michael Ruman. Atua no desenvolvimento de estratégias para o mercado, além de projetos socioculturais e de regionalização do audiovisual.                </S.TextContent>
-                <S.SaibaMaisButton onClick={() => window.location.href = 'CooperativaCurriculo'}>
-                  Saiba Mais
-                </S.SaibaMaisButton>
-              </S.TextSection>
-            </S.OverlayContent>
-          </S.OverlayContainer>
         </S.ImageWrapper>
-      </S.BodyB>
-      {isMobile && <S.MargemCoo height={`${overlayHeight}px`} />}
-      <S.LinhaHorizontal />
+        <S.OverlayContainer $isMobile={isMobile}>
+          <S.OverlayContent >
+            <S.SmallImageContainer>
+              <S.SmallImage src={HomeroFoto} alt="Homero" />
+              <S.SmallImageText ref={overlayRefA}>
+                fundador da<br />
+                cooperativa de cinema<br />
+                & mídias siciais
+              </S.SmallImageText>
+            </S.SmallImageContainer>
+            <S.TextSection ref={overlayRef}>
+              <S.TextTitle>Homero Camargo</S.TextTitle>
+              <S.TextContent>
+                Responsável por fundar a Cooperativa de Cinema & Mídias Digitais e com mais de 35 anos no cinema, tem experiência na produção de longas-metragens, captação de recursos e consultoria. Participa ativamente de debates políticos sobre a indústria audiovisual e tem ampla experiência em marketing cinematográfico. Foi cofundador do SIAPAR e articulador do Prêmio Estadual de Cinema e Vídeo do Paraná. Já trabalhou com diretores renomados como Neville D’Almeida, Mauro Lima e Michael Ruman. Atua no desenvolvimento de estratégias para o mercado, além de projetos socioculturais e de regionalização do audiovisual.                </S.TextContent>
+              <S.SaibaMaisButton onClick={() => window.location.href = 'CooperativaCurriculo'}>
+                Saiba Mais
+              </S.SaibaMaisButton>
+            </S.TextSection>
+          </S.OverlayContent>
+        </S.OverlayContainer>
+      </S.SecaoApresentacao>
       <S.MoviesContainer>
         <S.Title>nossas produções</S.Title>
         <S.MoviesGrid>
           {defaultSlides.map((movie, index) => (
             <S.MovieCard key={index}>
-              <S.MovieImage src={movie.imageSrc} alt={movie.title} />
+              <S.MovieImage
+                src={movie.imageSrc}
+                alt={movie.title}
+                style={movie.title === "A FRENTE FRIA QUE A CHUVA TRAZ" ? { objectPosition: 'left' } : {}}
+              />
               <S.MovieTitle>{movie.title}</S.MovieTitle>
               <S.MovieDescription>{movie.text}</S.MovieDescription>
               <S.ButtonContainer>
