@@ -24,13 +24,6 @@ const AboutUs: React.FC = () => {
   };
   const [isMobile, setIsMobile] = useState(false);
   const [OpacityPin, setOpacityPin] = useState(false);
-  const [maxHeight, setMaxHeight] = useState(0);
-  const midCardRefs = useRef<HTMLDivElement[]>([]);
-  const [checkCardHeight, setCheckCardHeight] = useState(0);
-  const [checkCardWidth, setCheckCardWidth] = useState(0);
-  const [checkCardAWidth, setCheckCardAWidth] = useState(0);
-  const checkCardRef = useRef<HTMLDivElement>(null);
-  const checkCardARef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     console.log("window.innerWidth <= 768", window.innerWidth <= 768);
@@ -40,25 +33,6 @@ const AboutUs: React.FC = () => {
   useEffect(() => {
     console.log("window.innerWidth <= 1880", window.innerWidth <= 1880);
     setOpacityPin(window.innerWidth <= 1880);
-  }, []);
-
-  useEffect(() => {
-    const heights = midCardRefs.current.map((ref) => ref.clientHeight);
-    let maxHeights = Math.max(...heights);
-    maxHeights = Number(maxHeights + maxHeights / 3);
-
-    setMaxHeight(maxHeights);
-  }, [midCardRefs]);
-
-  useEffect(() => {
-    if (checkCardRef.current) {
-      setCheckCardHeight(checkCardRef.current.clientHeight);
-      setCheckCardWidth(checkCardRef.current.clientWidth);
-    }
-
-    if (checkCardARef.current) {
-      setCheckCardAWidth(checkCardARef.current.clientWidth);
-    }
   }, []);
 
   const getWidth = () => {
@@ -255,8 +229,8 @@ const AboutUs: React.FC = () => {
           barreiras como:
         </S.CheckCardsContainerTitle>
         <S.CheckCardsContainer>
-          <S.CheckCard width={`${checkCardAWidth}px`}>
-            <S.CheckCard1 style={{ height: `${checkCardHeight}px` }}>
+          <S.CheckCard>
+            <S.CheckCard1>
               <S.CheckCardTitleContainer>
                 <S.CheckCardIcon />
                 <S.CheckCardTextTitle>Baixa visibilidade</S.CheckCardTextTitle>
@@ -267,8 +241,8 @@ const AboutUs: React.FC = () => {
               </S.CheckCardText>
             </S.CheckCard1>
           </S.CheckCard>
-          <S.CheckCard width={`${checkCardAWidth}px`}>
-            <S.CheckCard1 style={{ height: `${checkCardHeight}px` }}>
+          <S.CheckCard>
+            <S.CheckCard1>
               <S.CheckCardTitleContainer>
                 <S.CheckCardIcon />
                 <S.CheckCardTextTitle>
@@ -281,8 +255,8 @@ const AboutUs: React.FC = () => {
               </S.CheckCardText>
             </S.CheckCard1>
           </S.CheckCard>
-          <S.CheckCard ref={checkCardARef}>
-            <S.CheckCard1 ref={checkCardRef}>
+          <S.CheckCard>
+            <S.CheckCard1>
               <S.CheckCardTitleContainer>
                 <S.CheckCardIcon />
                 <S.CheckCardTextTitle>
@@ -302,80 +276,71 @@ const AboutUs: React.FC = () => {
         </S.TitleContainer>
       </S.FinalContainer>
 
-      <S.MidCardSection>
-        <S.MidCard style={{ height: `${maxHeight}px`, width: getWidthA() }}>
-          <S.MidCardTextContainer
-            ref={(el) => (midCardRefs.current[0] = el!)}
-            style={{ width: getWidth() }}
-          >
-            <S.CheckCardTitleContainer>
-              <S.CheckCardIcon2 />
-              <S.CheckCardTextTitleA>
-                Exposição e Credibilidade
-              </S.CheckCardTextTitleA>
-            </S.CheckCardTitleContainer>
-            <S.CheckCardText>
-              O Mosaico funciona como uma vitrine confiável e profissional,
-              ajudando projetos a ganharem reconhecimento.
-            </S.CheckCardText>
-          </S.MidCardTextContainer>
-        </S.MidCard>
-      </S.MidCardSection>
+      <S.MidContainer>
+        <S.MidCardSection>
+          <S.MidCard style={{ width: getWidthA() }}>
+            <S.MidCardTextContainer style={{ width: getWidth() }}>
+              <S.CheckCardTitleContainer>
+                <S.CheckCardIcon2 />
+                <S.CheckCardTextTitleA>
+                  Exposição e Credibilidade
+                </S.CheckCardTextTitleA>
+              </S.CheckCardTitleContainer>
+              <S.CheckCardText>
+                O Mosaico funciona como uma vitrine confiável e profissional,
+                ajudando projetos a ganharem reconhecimento.
+              </S.CheckCardText>
+            </S.MidCardTextContainer>
+          </S.MidCard>
+        </S.MidCardSection>
 
-      <S.MidCardSection1>
-        <S.MidCard1 style={{ height: `${maxHeight}px`, width: getWidthA() }}>
-          <S.MidCardTextContainer
-            ref={(el) => (midCardRefs.current[1] = el!)}
-            style={{ width: getWidth() }}
-          >
-            <S.CheckCardTitleContainer>
-              <S.CheckCardIcon2 />
-              <S.CheckCardTextTitleA>Amplo Alcance</S.CheckCardTextTitleA>
-            </S.CheckCardTitleContainer>
-            <S.CheckCardText>
-              Oferece um espaço digital para conectar iniciativas a pessoas e
-              organizações interessadas em apoiá-las ou promovê-las.
-            </S.CheckCardText>
-          </S.MidCardTextContainer>
-        </S.MidCard1>
-      </S.MidCardSection1>
-      <S.MidCardSection>
-        <S.MidCard style={{ height: `${maxHeight}px`, width: getWidthA() }}>
-          <S.MidCardTextContainer
-            ref={(el) => (midCardRefs.current[2] = el!)}
-            style={{ width: getWidth() }}
-          >
-            <S.CheckCardTitleContainer>
-              <S.CheckCardIcon2 />
-              <S.CheckCardTextTitleA>Inspiração</S.CheckCardTextTitleA>
-            </S.CheckCardTitleContainer>
-            <S.CheckCardText>
-              Projetos exibidos no Mosaico incentivam outros criadores e
-              organizações a se envolverem em ações transformadoras.
-            </S.CheckCardText>
-          </S.MidCardTextContainer>
-        </S.MidCard>
-      </S.MidCardSection>
-      <S.MidCardSection1>
-        <S.MidCard1 style={{ height: `${maxHeight}px`, width: getWidthA() }}>
-          <S.MidCardTextContainer
-            ref={(el) => (midCardRefs.current[3] = el!)}
-            style={{ width: getWidth() }}
-          >
-            <S.CheckCardTitleContainer>
-              <S.CheckCardIcon2 />
-              <S.CheckCardTextTitleA>
-                Fortalecimento de Identidades Locais
-              </S.CheckCardTextTitleA>
-            </S.CheckCardTitleContainer>
-            <S.CheckCardText>
-              Por meio da divulgação de projetos culturais e ambientais, a
-              plataforma contribui para a preservação de tradições, histórias e
-              práticas que refletem a diversidade.
-            </S.CheckCardText>
-          </S.MidCardTextContainer>
-        </S.MidCard1>
-      </S.MidCardSection1>
+        <S.MidCardSection1>
+          <S.MidCard1 style={{ width: getWidthA() }}>
+            <S.MidCardTextContainer style={{ width: getWidth() }}>
+              <S.CheckCardTitleContainer>
+                <S.CheckCardIcon2 />
+                <S.CheckCardTextTitleA>Amplo Alcance</S.CheckCardTextTitleA>
+              </S.CheckCardTitleContainer>
+              <S.CheckCardText>
+                Oferece um espaço digital para conectar iniciativas a pessoas e
+                organizações interessadas em apoiá-las ou promovê-las.
+              </S.CheckCardText>
+            </S.MidCardTextContainer>
+          </S.MidCard1>
+        </S.MidCardSection1>
+        <S.MidCardSection>
+          <S.MidCard style={{ width: getWidthA() }}>
+            <S.MidCardTextContainer style={{ width: getWidth() }}>
+              <S.CheckCardTitleContainer>
+                <S.CheckCardIcon2 />
+                <S.CheckCardTextTitleA>Inspiração</S.CheckCardTextTitleA>
+              </S.CheckCardTitleContainer>
+              <S.CheckCardText>
+                Projetos exibidos no Mosaico incentivam outros criadores e
+                organizações a se envolverem em ações transformadoras.
+              </S.CheckCardText>
+            </S.MidCardTextContainer>
+          </S.MidCard>
+        </S.MidCardSection>
+        <S.MidCardSection1>
+          <S.MidCard1 style={{ width: getWidthA() }}>
+            <S.MidCardTextContainer style={{ width: getWidth() }}>
+              <S.CheckCardTitleContainer>
+                <S.CheckCardIcon2 />
+                <S.CheckCardTextTitleA>
+                  Fortalecimento de Identidades Locais
+                </S.CheckCardTextTitleA>
+              </S.CheckCardTitleContainer>
+              <S.CheckCardText>
+                Por meio da divulgação de projetos culturais e ambientais, a
+                plataforma contribui para a preservação de tradições, histórias
+                e práticas que refletem a diversidade.
+              </S.CheckCardText>
+            </S.MidCardTextContainer>
+          </S.MidCard1>
+        </S.MidCardSection1>
+      </S.MidContainer>
+
       <S.MainContainer>
         <S.PilaresListContainer1>
           <S.PilaresListLine1 />

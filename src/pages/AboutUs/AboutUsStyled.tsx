@@ -9,13 +9,13 @@ interface Props {
   isMobile?: boolean;
 }
 
-export const CreditosTitle = styled.h2``
-export const CreditosList = styled.ul``
+export const CreditosTitle = styled.h2``;
+export const CreditosList = styled.ul``;
 export const CreditosItem = styled.li`
   font-size: 1.2rem;
-`
+`;
 export const CreditosContainer = styled.div`
-  background-color: rgba(102, 112, 77, 0.10);
+  background-color: rgba(102, 112, 77, 0.1);
   display: flex;
   flex-direction: column;
   height: auto;
@@ -288,7 +288,7 @@ export const FinalContainer = styled.div`
   padding-top: 6vh;
   z-index: 1;
   padding: 80px 80px 0 80px;
-
+  min-height: 80vh;
   @media (max-width: 768px) {
     padding: 20px !important;
   }
@@ -351,22 +351,6 @@ export const BigIconCardTextContainer = styled.div`
   top: -80px;
 `;
 
-export const CheckCardsContainer = styled.div`
-  width: 100%;
-  z-index: 111;
-  height: auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 3vw;
-  align-items: center;
-  padding-top: 1vh;
-
-  @media (max-width: 768px) {
-    flex-direction: column !important;
-  }
-`;
-
 export const ButtonContainer = styled.div`
   width: 100%;
   height: 20vh;
@@ -378,13 +362,13 @@ export const ButtonContainer = styled.div`
 
 export const FinalButton = styled(Button)`
   font-size: 1.2rem !important;
-  background-color: #4E5C2C !important;
+  background-color: #4e5c2c !important;
   border-radius: 70px !important;
   padding: 0.5rem !important;
   padding-left: 1rem !important;
   padding-right: 1rem !important;
   color: white !important;
-  font-family: 'Arsenal', sans-serif !important;
+  font-family: "Arsenal", sans-serif !important;
   animation: pulse 1.2s infinite alternate;
   transition: transform 0.2s ease;
 
@@ -404,6 +388,22 @@ export const FinalButton = styled(Button)`
 
   @media (max-width: 768px) {
     font-size: 0.8rem !important;
+  }
+`;
+
+export const CheckCardsContainer = styled.div`
+  width: 100%;
+  z-index: 111;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 3vw;
+  align-items: stretch; /* ESTICA os filhos */
+  padding-top: 1vh;
+
+  @media (max-width: 768px) {
+    flex-direction: column !important;
+    align-items: center;
   }
 `;
 
@@ -431,21 +431,21 @@ export const CheckCardsContainerSubTitle = styled.div`
   font-size: 23px;
   padding-top: 8px;
 `;
-export const CheckCard = styled.div<Props>`
-  position: relative;
+
+export const CheckCard = styled.div`
   border: 1px solid #8f1919;
   border-radius: 7px;
-
-  flex-grow: 1;
-  @media (max-width: 768px) {
-    width: ${(prop) => (prop.width ? prop.width : "fit-content")};
-  }
+  flex: 1; /* Ocupa o mesmo espaço */
+  display: flex;
+  flex-direction: column; /* Permite crescimento vertical */
 `;
 
 export const CheckCard1 = styled.div`
-  position: relative;
-  margin-left: 20px;
-  margin-right: 20px;
+  flex: 1; /* Preenche a altura do CheckCard */
+  display: flex;
+  flex-direction: column;
+  justify-content: start; /* Distribui conteúdo */
+  padding: 0 20px;
 `;
 
 export const CheckCardIcon = styled(ClearIcon)`
@@ -469,15 +469,15 @@ export const CheckCardTitleContainer = styled.div`
 `;
 
 export const MidCardTextContainer = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: start;
-  width: 30vw;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 40rem;
+  margin: 0 2rem;
+  padding: 1rem 0;
+  box-sizing: border-box;
 `;
 
 export const CheckCardTextTitle = styled.h2`
@@ -547,11 +547,11 @@ export const VectorImage = styled.img<Props>`
   margin-top: 3vw;
   right: 0;
   top: 100%;
-  width: 36%; /* 30% da largura do carrossel */
+  width: 36%;
   height: auto;
   opacity: 0.2;
-  z-index: 0; /* Coloca a imagem por trás do carrossel */
-  pointer-events: none; /* Evita que a imagem interfira em interações do usuário */
+  z-index: 0;
+  pointer-events: none;
   transform: translateY(-100%);
 `;
 
@@ -566,7 +566,7 @@ export const SecaoInicialContainer = styled.div`
 `;
 
 export const SecaoInicialIcon = styled.img`
-  height: 2rem; /* 30% da largura do carrossel */
+  height: 2rem;
   padding-right: 1rem;
   padding-left: 1rem;
 `;
@@ -619,7 +619,7 @@ export const Card = styled.div`
   width: 50vw;
 
   @media (max-width: 768px) {
-    width: 90vw; /* Ajuste de fonte para mobile */
+    width: 90vw;
   }
 `;
 
@@ -630,7 +630,6 @@ export const IconInicialCard = styled.img`
 `;
 
 export const MidCardSection = styled.div`
-  margin-bottom: 6vh;
   background-color: #c2cfb4;
   display: flex;
   flex-direction: column;
@@ -638,18 +637,12 @@ export const MidCardSection = styled.div`
   width: 100%;
   z-index: 100000;
   position: relative;
+  flex: 1;
+  align-items: stretch;
 `;
 
-export const MidCardSection1 = styled.div`
-  margin-bottom: 6vh;
-  background-color: #c2cfb4;
-  display: flex;
-  flex-direction: column;
-  gap: 4vh;
+export const MidCardSection1 = styled(MidCardSection)`
   align-items: end;
-  width: 100%;
-  z-index: 100000;
-  position: relative;
 `;
 
 export const MidCard = styled.div`
@@ -661,8 +654,17 @@ export const MidCard = styled.div`
   align-items: end;
   justify-content: center;
   padding-right: 2rem;
+  overflow: hidden;
+  box-sizing: border-box;
 `;
 
 export const MidCard1 = styled(MidCard)`
   align-items: start;
+`;
+
+export const MidContainer = styled.div`
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 `;
