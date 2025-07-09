@@ -6,74 +6,50 @@ export const Container = styled.div<{ isVisible: boolean }>`
   left: 0;
   width: 100%;
   height: 8vh;
-  background-color: #141C16;
-  z-index: 9999999 !important;
+  background-color: #141c16;
+  z-index: 211;
   display: flex;
   justify-content: center;
   align-items: center;
-
-  /* Adiciona a transição para suavizar o efeito de esconder/mostrar */
+  overflow: hidden;
   transition: transform 0.3s ease-in-out;
-
-  /* Estilo para visibilidade do header */
-  transform: ${(props) => (props.isVisible ? "translateY(0)" : "translateY(-100%)")};
+  transform: ${({ isVisible }) =>
+    isVisible ? "translateY(0)" : "translateY(-100%)"};
 
   @media (max-width: 768px) {
     height: 10vh;
   }
 `;
 
-//teste
 export const Element = styled.div<{ isActive: boolean }>`
   position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
-  font-size: 20px;
-  font-weight: bold;
-  border-radius: 8px;
+
+  /* Altura proporcional ao header: ativo maior, inativo menor */
+  height: ${({ isActive }) => (isActive ? "80%" : "60%")};
+  width: auto;       /* largura fica automática para respeitar proporção da img */
+  overflow: hidden;  /* garante que nada vaze */
+
+  transition: height 0.3s ease;
   cursor: pointer;
-  transition: all 0.3s ease;
-  
-  /* Ajuste da altura e tamanho da fonte em telas pequenas */
+
   @media (max-width: 768px) {
-    font-size: 16px;
-    height: 6vh;
+    height: ${({ isActive }) => (isActive ? "85%" : "65%")};
   }
 
   &:hover {
-    height: 4vh;
+    height: ${({ isActive }) => (isActive ? "85%" : "65%")};
   }
 `;
 
-export const Img = styled.img`
-  height: 3.9vh;
-  transition: all 0.3s ease;
+export const StyledImg = styled.img<{ isActive: boolean }>`
+  height: 100%;      /* preenche a altura do Element */
+  width: auto;       /* largura ajusta para manter proporção */
+  object-fit: contain;
+  transition: filter 0.3s ease;
 
-  &:hover {
-        cursor: pointer;
-        transition: 0.3s;
-        transform: scale(1.1);
-  }
-
-  @media (max-width: 768px) {
-    height: 5vh; /* Ajusta o tamanho da imagem em telas pequenas */
-  }
-`;
-
-export const ShadowDiv = styled.div`
-  position: fixed; /* Mantém a sombra fixa abaixo do Header */
-  top: 5vh; /* Posiciona logo abaixo do Header */
-  left: 0;
-  right: 0;
-  height: 10px; /* Altura da sombra */
-  background: linear-gradient(
-    to bottom, /* Gradiente para baixo */
-    rgba(0, 0, 0, 0.5) 10%, /* Parte mais escura no topo */
-    rgba(0, 0, 0, 0.048) 70%,
-    rgba(0, 0, 0, 0) 90% /* Parte transparente no final */
-  );
-  pointer-events: none; /* Impede que a sombra interfira na interação do usuário */
-  z-index: 999; /* Coloca a sombra acima de outros elementos, mas abaixo do header */
+  filter: ${({ isActive }) =>
+    isActive ? "none" : "grayscale(100%) brightness(60%)"};
 `;

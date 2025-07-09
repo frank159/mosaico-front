@@ -6,19 +6,19 @@ const xeretas1 =
   "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324660/xeretas1_yk9fxp.png";
 
 const ft1 =
-  "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324660/xeretas-1_m0ifdv.png";
+  "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1752102913/WhatsApp_Image_2025-07-09_at_19.03.51_2_nixkhu.jpg";
 const ft2 =
-  "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324660/xeretas-2_f24uk2.png";
+  "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1752102913/WhatsApp_Image_2025-07-09_at_19.03.51_1_nl2xuc.jpg";
 const ft3 =
-  "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324660/xeretas-3_yerm3i.png";
+  "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1752102913/WhatsApp_Image_2025-07-09_at_19.03.51_teeo8d.jpg";
 const ft4 =
   "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324660/xeretas-4_c8fg1r.png";
 const ft5 =
-  "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324661/xeretas-5_fpntt6.png";
+  "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1752102914/WhatsApp_Image_2025-07-09_at_19.03.50_1_pjm5ay.jpg";
 const ft6 =
-  "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324661/xeretas-6_cgbmrj.png";
+  "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1752102913/WhatsApp_Image_2025-07-09_at_19.03.50_mdeic7.jpg";
 const ft7 =
-  "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324661/xeretas-7_av5nog.png";
+  "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1752102913/WhatsApp_Image_2025-07-09_at_19.03.49_ucgeuf.jpg";
 
 const OsXeretas: React.FC = () => {
   const [fullScreenImage, setFullScreenImage] = useState<string | null>(null);

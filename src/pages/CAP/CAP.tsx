@@ -4,13 +4,20 @@ import Footer from "../../components/footer/footer";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 
-const maoGlobo = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324729/maoGlobo_z4x1lr.png'
-const ong = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324731/ong_jnyizk.png'
-const calendario = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324726/calendario_gu2st4.png'
-const localPreto = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324728/local_preto_eqchee.png'
-const esclamacao = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324726/esclamacao_vvi7db.png'
-const filmeJoin = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324712/image_29_zvw9lo.png'
-const capLogo = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324712/logotipo_5_nmfrhi.png'
+const maoGlobo =
+  "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324729/maoGlobo_z4x1lr.png";
+const ong =
+  "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324731/ong_jnyizk.png";
+const calendario =
+  "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324726/calendario_gu2st4.png";
+const localPreto =
+  "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324728/local_preto_eqchee.png";
+const esclamacao =
+  "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324726/esclamacao_vvi7db.png";
+const filmeJoin =
+  "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324712/image_29_zvw9lo.png";
+const capLogo =
+  "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324712/logotipo_5_nmfrhi.png";
 
 const School: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -289,7 +296,7 @@ const School: React.FC = () => {
           </S.CapLogoList>
         </S.ProjetosContainer>
       </S.Body>
-      {!isMobile && <Footer />}
+      <Footer />
     </S.Container>
   );
 };

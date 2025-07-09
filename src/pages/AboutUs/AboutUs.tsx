@@ -278,25 +278,27 @@ const AboutUs: React.FC = () => {
 
       <S.MidContainer>
         <S.MidCardSection>
-          <S.MidCard style={{ width: getWidthA() }}>
-            <S.MidCardTextContainer style={{ width: getWidth() }}>
+          <S.MidCard>
+            <S.MidCardTextContainerA>
               <S.CheckCardTitleContainer>
                 <S.CheckCardIcon2 />
                 <S.CheckCardTextTitleA>
-                  Exposição e Credibilidade
+                  Exposição e Credibi
+                  <wbr />
+                  lidade
                 </S.CheckCardTextTitleA>
               </S.CheckCardTitleContainer>
               <S.CheckCardText>
                 O Mosaico funciona como uma vitrine confiável e profissional,
                 ajudando projetos a ganharem reconhecimento.
               </S.CheckCardText>
-            </S.MidCardTextContainer>
+            </S.MidCardTextContainerA>
           </S.MidCard>
         </S.MidCardSection>
 
         <S.MidCardSection1>
-          <S.MidCard1 style={{ width: getWidthA() }}>
-            <S.MidCardTextContainer style={{ width: getWidth() }}>
+          <S.MidCard1>
+            <S.MidCardTextContainer>
               <S.CheckCardTitleContainer>
                 <S.CheckCardIcon2 />
                 <S.CheckCardTextTitleA>Amplo Alcance</S.CheckCardTextTitleA>
@@ -309,8 +311,8 @@ const AboutUs: React.FC = () => {
           </S.MidCard1>
         </S.MidCardSection1>
         <S.MidCardSection>
-          <S.MidCard style={{ width: getWidthA() }}>
-            <S.MidCardTextContainer style={{ width: getWidth() }}>
+          <S.MidCard>
+            <S.MidCardTextContainerA>
               <S.CheckCardTitleContainer>
                 <S.CheckCardIcon2 />
                 <S.CheckCardTextTitleA>Inspiração</S.CheckCardTextTitleA>
@@ -319,16 +321,18 @@ const AboutUs: React.FC = () => {
                 Projetos exibidos no Mosaico incentivam outros criadores e
                 organizações a se envolverem em ações transformadoras.
               </S.CheckCardText>
-            </S.MidCardTextContainer>
+            </S.MidCardTextContainerA>
           </S.MidCard>
         </S.MidCardSection>
         <S.MidCardSection1>
-          <S.MidCard1 style={{ width: getWidthA() }}>
-            <S.MidCardTextContainer style={{ width: getWidth() }}>
+          <S.MidCard1>
+            <S.MidCardTextContainer>
               <S.CheckCardTitleContainer>
                 <S.CheckCardIcon2 />
                 <S.CheckCardTextTitleA>
-                  Fortalecimento de Identidades Locais
+                  Fortaleci
+                  <wbr />
+                  mento de Identidades Locais
                 </S.CheckCardTextTitleA>
               </S.CheckCardTitleContainer>
               <S.CheckCardText>

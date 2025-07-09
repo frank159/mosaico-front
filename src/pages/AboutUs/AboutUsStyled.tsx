@@ -79,7 +79,7 @@ export const LogoImg = styled.img`
 
 export const IconEsclamacaoCard = styled.div`
   position: absolute;
-  z-index: 1111;
+  z-index: 111;
   left: 20.5vw;
   top: 0px;
 `;
@@ -180,7 +180,7 @@ export const IconImgCard = styled.img<Props>`
 
 export const PilaresListContainer = styled.div`
   display: flex;
-  z-index: 1111111;
+  z-index: 111;
   flex-direction: row;
   align-items: center;
   justify-content: start;
@@ -193,7 +193,7 @@ export const PilaresListContainer = styled.div`
 
 export const PilaresListContainer1 = styled.div`
   display: flex;
-  z-index: 1111111;
+  z-index: 111;
   flex-direction: row;
   align-items: center;
   justify-content: start;
@@ -473,11 +473,22 @@ export const MidCardTextContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  width: 100%;
+  width: 40vw;
   max-width: 40rem;
   margin: 0 2rem;
   padding: 1rem 0;
   box-sizing: border-box;
+
+  @media (max-width: 768px) {
+    width: 60vw;
+  }
+  @media (max-width: 820px) {
+    width: 50vw;
+  }
+`;
+
+export const MidCardTextContainerA = styled(MidCardTextContainer)`
+  margin-left: 1rem;
 `;
 
 export const CheckCardTextTitle = styled.h2`
@@ -562,7 +573,7 @@ export const SecaoInicialContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  z-index: 111110;
+  z-index: 111;
 `;
 
 export const SecaoInicialIcon = styled.img`
@@ -589,7 +600,7 @@ export const InitialTextContainer = styled.div`
   flex-direction: row;
   align-items: center;
   margin-top: 15vh;
-  z-index: 1111111;
+  z-index: 111;
 `;
 
 export const Line = styled.div`
@@ -602,7 +613,7 @@ export const Line = styled.div`
 export const CardTextContainer = styled.div`
   width: 100%;
   margin-top: 17vh;
-  z-index: 1111111;
+  z-index: 111;
 `;
 
 export const CardText = styled.div`
@@ -635,7 +646,7 @@ export const MidCardSection = styled.div`
   flex-direction: column;
   gap: 4vh;
   width: 100%;
-  z-index: 100000;
+  z-index: 111;
   position: relative;
   flex: 1;
   align-items: stretch;
@@ -648,14 +659,21 @@ export const MidCardSection1 = styled(MidCardSection)`
 export const MidCard = styled.div`
   background-color: rgba(102, 112, 77, 0.19);
   border: 1px solid #6d9621;
-  width: 65%;
+  width: 70vw;
   display: flex;
   flex-direction: column;
   align-items: end;
   justify-content: center;
-  padding-right: 2rem;
+  padding-right: 0;
   overflow: hidden;
   box-sizing: border-box;
+
+  @media (max-width: 768px) {
+    width: 60vw;
+  }
+  @media (max-width: 820px) {
+    width: 70vw;
+  }
 `;
 
 export const MidCard1 = styled(MidCard)`
