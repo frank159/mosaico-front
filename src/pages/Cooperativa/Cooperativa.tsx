@@ -1,7 +1,6 @@
 import * as S from "./CooperativaStyled";
 import React, { useState, useRef, useEffect } from "react";
 import Footer from "../../components/footer/footer";
-import styled from "styled-components";
 
 const HomeroFoto =
   "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324650/homero_bmcqqj.png";
