@@ -14,7 +14,7 @@ interface ColorProps {
 export const FooterContainer = styled.div<ColorProps>`
   height: 13vh;
   width: 100%;
-  background-color: ${props => props.isBlackBg ? "#000" : "#374120"};
+  background-color: ${(props) => (props.isBlackBg ? "#000" : "#374120")};
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -62,6 +62,10 @@ export const SubDiv = styled.div`
 
 export const Text = styled.p`
   font-size: 1rem !important;
+  color: white !important;
+  @media (max-width: 768px) {
+    font-size: 0.7rem !important;
+  }
 `;
 
 export const IconsDiv = styled.div`
@@ -73,10 +77,10 @@ export const IconsDiv = styled.div`
 `;
 
 export const Img = styled.img<ColorProps>`
-  width: ${props => props.iconWidth || "24px"};
-  height: ${props => props.iconWidth || "24px"};
+  width: ${(props) => props.iconWidth || "24px"};
+  height: ${(props) => props.iconWidth || "24px"};
   margin-left: 15px;
-  filter: ${props => (props.iconInvert ? "invert(1)" : "none")};
+  filter: ${(props) => (props.iconInvert ? "invert(1)" : "none")};
   transition: opacity 0.2s;
 
   &:hover {
@@ -165,7 +169,7 @@ export const Subscribe = styled.div`
 `;
 
 export const SubscribeHeader = styled.div<ColorProps>`
-  font-size: ${props => props.textSize || "16px"};
+  font-size: ${(props) => props.textSize || "16px"};
   font-weight: bold;
   padding-bottom: 15px;
 
@@ -218,9 +222,9 @@ export const SubscribeInputButton = styled.button`
 `;
 
 export const SubscribeText = styled.div<ColorProps>`
-  font-size: ${props => props.textSize || "16px"};
+  font-size: ${(props) => props.textSize || "16px"};
   padding-bottom: 15px;
-  padding-top: ${props => props.paddingTop || "none"};
+  padding-top: ${(props) => props.paddingTop || "none"};
 
   @media (max-width: 768px) {
     text-align: center;
