@@ -1,6 +1,6 @@
 import * as S from "./FrenteFriaStyled";
 import React, { useState, useEffect } from "react";
-import ReactPlayer from "react-player";
+import { motion, AnimatePresence } from "framer-motion";
 
 const frentefria =
   "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324648/frentefria_gamxjz.png";
@@ -23,9 +23,53 @@ const f7 =
 const f8 =
   "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324642/9_oic2ml.png";
 
+interface Video {
+  id: number;
+  title: string;
+  src: string;
+}
+
 const FrenteFria: React.FC = () => {
   const [fullScreenImage, setFullScreenImage] = useState<string | null>(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [selectedVideo, setSelectedVideo] = useState<Video | null>(null);
+
+  const getEmbedUrl = (src: string) => {
+    const ytMatch = src.match(
+      /(?:youtu\.be\/|youtube\.com\/watch\?v=)([^?&]+)/i
+    );
+    if (ytMatch && ytMatch[1]) {
+      return `https://www.youtube.com/embed/${ytMatch[1]}`;
+    }
+    if (src.includes("drive.google.com")) {
+      return src.replace("/view?usp=drive_link", "/preview");
+    }
+    return src;
+  };
+
+  const frenteFria = {
+    id: 1,
+    title: "Trailer A FRENTE FRIA QUE A CHUVA TRAZ",
+    src: "https://youtu.be/1QPSot-Ot-Y",
+  };
+
+  const renderVideoSection = () => (
+    <S.VideoGrid>
+      <S.VideoCard onClick={() => setSelectedVideo(frenteFria)}>
+        <S.VideoThumbnail>
+          <iframe
+            src={getEmbedUrl(frenteFria.src)}
+            width="100%"
+            height="100%"
+            allow="autoplay; encrypted-media"
+            allowFullScreen
+            style={{ border: 0 }}
+            title={frenteFria.title}
+          />
+        </S.VideoThumbnail>
+      </S.VideoCard>
+    </S.VideoGrid>
+  );
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 768);
@@ -198,14 +242,55 @@ const FrenteFria: React.FC = () => {
       </S.GalleryContainer>
       <S.BodyC>
         <S.TitleC>• assista o trailer:</S.TitleC>
-        <S.VideoWrapper>
-          <ReactPlayer
-            url="https://www.facebook.com/100050233255888/videos/a-frente-fria-que-a-chuva-traz/472630300260914/?rdid=RcQ5gQFkxaSKKzYl"
-            width="100%"
-            height="100%"
-            controls
-          />
-        </S.VideoWrapper>
+        <S.VideoContainer>{renderVideoSection()}</S.VideoContainer>
+
+        <AnimatePresence>
+          {selectedVideo && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              style={{
+                position: "fixed",
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                backgroundColor: "rgba(0,0,0,0.9)",
+                zIndex: 999,
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+              onClick={() => setSelectedVideo(null)}
+            >
+              <motion.div
+                initial={{ scale: 0.8 }}
+                animate={{ scale: 1 }}
+                exit={{ scale: 0.8 }}
+                style={{
+                  width: "80%",
+                  maxWidth: "1200px",
+                  position: "relative",
+                }}
+                onClick={(e) => e.stopPropagation()}
+              >
+                <iframe
+                  src={getEmbedUrl(selectedVideo.src)}
+                  width="100%"
+                  height="500px"
+                  allow="autoplay; encrypted-media"
+                  allowFullScreen
+                  style={{ border: 0 }}
+                  title={selectedVideo.title}
+                />
+                <S.CloseButton onClick={() => setSelectedVideo(null)}>
+                  ×
+                </S.CloseButton>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </S.BodyC>
       {fullScreenImage && !isMobile && (
         <S.ModalOverlay onClick={handleClose}>
