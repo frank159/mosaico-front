@@ -361,7 +361,7 @@ export const GalleryCard = styled.div`
   transition: 0.5s;
   z-index: 10;
   &:hover {
-    z-index: 400;
+    z-index: 11;
     transition: 0.5s;
     transform: scale(1.1);
   }
@@ -414,4 +414,76 @@ export const Gallery = styled.div`
       grid-column: span 1 !important;
     }
   }
+`;
+
+export const CloseButton = styled.button`
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 1001;
+  border-radius: 50%;
+  background-color: #2b2b2b;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const VideoGrid = styled.div`
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 2rem;
+  margin: 0 auto;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+export const VideoCard = styled.div`
+  grid-column: 2;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  @media (max-width: 768px) {
+    grid-column: auto;
+  }
+
+  @media (max-width: 1224px) {
+    justify-content: center;
+    align-items: start;
+  }
+`;
+
+export const VideoThumbnail = styled.div`
+  position: relative;
+  background: #000;
+  height: 50vh;
+  iframe {
+    pointer-events: none;
+  }
+`;
+
+export const VideoContainer = styled.div`
+  width: 100%;
+  padding: 4rem;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5rem;
 `;

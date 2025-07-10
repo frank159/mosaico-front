@@ -1,6 +1,6 @@
 import * as S from "./OsXeretasStyled";
 import React, { useState, useEffect } from "react";
-import ReactPlayer from "react-player";
+import { motion, AnimatePresence } from "framer-motion";
 
 const xeretas1 =
   "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324660/xeretas1_yk9fxp.png";
@@ -20,9 +20,35 @@ const ft6 =
 const ft7 =
   "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1752102913/WhatsApp_Image_2025-07-09_at_19.03.49_ucgeuf.jpg";
 
+interface Video {
+  id: number;
+  title: string;
+  src: string;
+}
+
 const OsXeretas: React.FC = () => {
   const [fullScreenImage, setFullScreenImage] = useState<string | null>(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [selectedVideo, setSelectedVideo] = useState<Video | null>(null);
+
+  const getEmbedUrl = (src: string) => {
+    const ytMatch = src.match(
+      /(?:youtu\.be\/|youtube\.com\/watch\?v=)([^?&]+)/i
+    );
+    if (ytMatch && ytMatch[1]) {
+      return `https://www.youtube.com/embed/${ytMatch[1]}`;
+    }
+    if (src.includes("drive.google.com")) {
+      return src.replace("/view?usp=drive_link", "/preview");
+    }
+    return src;
+  };
+
+  const xeretas = {
+    id: 1,
+    title: "Trailer OS XERETAS",
+    src: "https://www.youtube.com/watch?v=m2NIJ-VwEOo",
+  };
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 768);
@@ -158,14 +184,71 @@ const OsXeretas: React.FC = () => {
       </S.Galeria>
       <S.BodyC>
         <S.TitleC>• assista o trailer:</S.TitleC>
-        <S.VideoWrapper>
-          <ReactPlayer
-            url="https://www.youtube.com/watch?v=m2NIJ-VwEOo"
-            width="100%"
-            height="100%"
-            controls
-          />
-        </S.VideoWrapper>
+        <S.VideoContainer>
+          <S.VideoGrid>
+            <S.VideoCard onClick={() => setSelectedVideo(xeretas)}>
+              <S.VideoThumbnail>
+                <iframe
+                  src={getEmbedUrl(xeretas.src)}
+                  width="100%"
+                  height="100%"
+                  allow="autoplay; encrypted-media"
+                  allowFullScreen
+                  style={{ border: 0 }}
+                  title={xeretas.title}
+                />
+              </S.VideoThumbnail>
+            </S.VideoCard>
+          </S.VideoGrid>
+        </S.VideoContainer>
+
+        <AnimatePresence>
+          {selectedVideo && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              style={{
+                position: "fixed",
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                backgroundColor: "rgba(0,0,0,0.9)",
+                zIndex: 999,
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+              onClick={() => setSelectedVideo(null)}
+            >
+              <motion.div
+                initial={{ scale: 0.8 }}
+                animate={{ scale: 1 }}
+                exit={{ scale: 0.8 }}
+                style={{
+                  width: "80%",
+                  maxWidth: "1200px",
+                  position: "relative",
+                }}
+                onClick={(e) => e.stopPropagation()}
+              >
+                <iframe
+                  src={getEmbedUrl(selectedVideo.src)}
+                  width="100%"
+                  height="500px"
+                  allow="autoplay; encrypted-media"
+                  allowFullScreen
+                  style={{ border: 0 }}
+                  title={selectedVideo.title}
+                />
+                <S.CloseButton onClick={() => setSelectedVideo(null)}>
+                  ×
+                </S.CloseButton>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </S.BodyC>
       {fullScreenImage && !isMobile && (
         <S.ModalOverlay onClick={handleClose}>

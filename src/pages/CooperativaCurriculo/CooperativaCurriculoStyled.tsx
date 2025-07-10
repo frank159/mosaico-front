@@ -402,7 +402,7 @@ export const SmallImageText = styled.h1`
   font-weight: lighter;
   margin-top: 2rem;
   width: 100%;
-  color: #ffffff57;
+  color: #ffffffb0;
   text-align: start;
   line-height: 1;
   @media (max-width: 1224px), (max-width: 768px) {

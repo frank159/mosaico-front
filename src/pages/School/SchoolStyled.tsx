@@ -818,7 +818,7 @@ export const MainTitle = styled.h1`
   padding-bottom: 3rem;
 
   @media (max-width: 768px) {
-  padding-left: 1rem;
+    padding-left: 1rem;
   }
 `;
 
@@ -833,7 +833,7 @@ export const OrganisationCard = styled.ul`
   }
 
   @media (max-width: 768px) {
-  padding-left: 2rem;
+    padding-left: 2rem;
   }
 `;
 
@@ -872,7 +872,7 @@ export const Organizacao = styled.div`
   width: 100%;
   @media (max-width: 1224px) {
     align-items: center;
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
 `;
 

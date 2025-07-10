@@ -1,6 +1,6 @@
 import * as S from "./TropicaisStyled";
 import React, { useState, useEffect } from "react";
-import ReactPlayer from "react-player";
+import { motion, AnimatePresence } from "framer-motion";
 
 const tropicais =
   "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324659/Tropicais_eiegoa.png";
@@ -17,9 +17,35 @@ const f5 =
 const f6 =
   "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324640/6p_d17jqg.png";
 
+interface Video {
+  id: number;
+  title: string;
+  src: string;
+}
+
 const Tropicais: React.FC = () => {
   const [fullScreenImage, setFullScreenImage] = useState<string | null>(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [selectedVideo, setSelectedVideo] = useState<Video | null>(null);
+
+  const getEmbedUrl = (src: string) => {
+    const ytMatch = src.match(
+      /(?:youtu\.be\/|youtube\.com\/watch\?v=)([^?&]+)/i
+    );
+    if (ytMatch && ytMatch[1]) {
+      return `https://www.youtube.com/embed/${ytMatch[1]}`;
+    }
+    if (src.includes("drive.google.com")) {
+      return src.replace("/view?usp=drive_link", "/preview");
+    }
+    return src;
+  };
+
+  const sonhosTropicais = {
+    id: 1,
+    title: "Trailer SONHOS TROPICAIS",
+    src: "https://www.youtube.com/watch?v=KAZZe831BJg",
+  };
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 768);
@@ -71,11 +97,14 @@ const Tropicais: React.FC = () => {
               <br />
               <strong>Produção:</strong> André Sturm, Flávio Chaves
               <br />
-              <strong>Roteiro:</strong> André Sturm, Fernando Bonassi, Victor Navas
+              <strong>Roteiro:</strong> André Sturm, Fernando Bonassi, Victor
+              Navas
               <br />
-              <strong>Baseado em:</strong> <em>Sonhos Tropicais</em>, de Moacyr, Scliar
+              <strong>Baseado em:</strong> <em>Sonhos Tropicais</em>, de Moacyr,
+              Scliar
               <br />
-              <strong>Elenco:</strong> Carolina Kasting, Bruno Giordano, Lu Grimaldi, Flávio Galvão,Celso Frateschi, Ingra Liberato
+              <strong>Elenco:</strong> Carolina Kasting, Bruno Giordano, Lu
+              Grimaldi, Flávio Galvão,Celso Frateschi, Ingra Liberato
               <br />
               <strong>Cinematografia:</strong> Jacob Solitrenick
               <br />
@@ -97,35 +126,122 @@ const Tropicais: React.FC = () => {
       <S.GalleryContainer>
         <S.Gallery>
           <S.GalleryCard>
-            <img src={f1} alt="Foto 1" onClick={() => handleExpand(f1)} style={{ cursor: isMobile ? "default" : "pointer" }} />
+            <img
+              src={f1}
+              alt="Foto 1"
+              onClick={() => handleExpand(f1)}
+              style={{ cursor: isMobile ? "default" : "pointer" }}
+            />
           </S.GalleryCard>
           <S.GalleryCard>
-            <img src={f2} alt="Foto 2" onClick={() => handleExpand(f2)} style={{ cursor: isMobile ? "default" : "pointer" }} />
+            <img
+              src={f2}
+              alt="Foto 2"
+              onClick={() => handleExpand(f2)}
+              style={{ cursor: isMobile ? "default" : "pointer" }}
+            />
           </S.GalleryCard>
           <S.GalleryCard>
-            <img src={f3} alt="Foto 3" onClick={() => handleExpand(f3)} style={{ cursor: isMobile ? "default" : "pointer" }} />
+            <img
+              src={f3}
+              alt="Foto 3"
+              onClick={() => handleExpand(f3)}
+              style={{ cursor: isMobile ? "default" : "pointer" }}
+            />
           </S.GalleryCard>
           <S.GalleryCard>
-            <img src={f4} alt="Foto 4" onClick={() => handleExpand(f4)} style={{ cursor: isMobile ? "default" : "pointer" }} />
+            <img
+              src={f4}
+              alt="Foto 4"
+              onClick={() => handleExpand(f4)}
+              style={{ cursor: isMobile ? "default" : "pointer" }}
+            />
           </S.GalleryCard>
           <S.GalleryCard>
-            <img src={f5} alt="Foto 5" onClick={() => handleExpand(f5)} style={{ cursor: isMobile ? "default" : "pointer" }} />
+            <img
+              src={f5}
+              alt="Foto 5"
+              onClick={() => handleExpand(f5)}
+              style={{ cursor: isMobile ? "default" : "pointer" }}
+            />
           </S.GalleryCard>
           <S.GalleryCard>
-            <img src={f6} alt="Foto 6" onClick={() => handleExpand(f6)} style={{ cursor: isMobile ? "default" : "pointer" }} />
+            <img
+              src={f6}
+              alt="Foto 6"
+              onClick={() => handleExpand(f6)}
+              style={{ cursor: isMobile ? "default" : "pointer" }}
+            />
           </S.GalleryCard>
         </S.Gallery>
       </S.GalleryContainer>
       <S.BodyC>
-        <S.TitleC>• assista o trailer:</S.TitleC>
-        <S.VideoWrapper>
-          <ReactPlayer
-            url="https://www.youtube.com/watch?v=KAZZe831BJg"
-            width="100%"
-            height="100%"
-            controls
-          />
-        </S.VideoWrapper>
+        <S.TitleC>• assista:</S.TitleC>
+        <S.VideoContainer>
+          <S.VideoGrid>
+            <S.VideoCard onClick={() => setSelectedVideo(sonhosTropicais)}>
+              <S.VideoThumbnail>
+                <iframe
+                  src={getEmbedUrl(sonhosTropicais.src)}
+                  width="100%"
+                  height="100%"
+                  allow="autoplay; encrypted-media"
+                  allowFullScreen
+                  style={{ border: 0 }}
+                  title={sonhosTropicais.title}
+                />
+              </S.VideoThumbnail>
+            </S.VideoCard>
+          </S.VideoGrid>
+        </S.VideoContainer>
+
+        <AnimatePresence>
+          {selectedVideo && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              style={{
+                position: "fixed",
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                backgroundColor: "rgba(0,0,0,0.9)",
+                zIndex: 999,
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+              onClick={() => setSelectedVideo(null)}
+            >
+              <motion.div
+                initial={{ scale: 0.8 }}
+                animate={{ scale: 1 }}
+                exit={{ scale: 0.8 }}
+                style={{
+                  width: "80%",
+                  maxWidth: "1200px",
+                  position: "relative",
+                }}
+                onClick={(e) => e.stopPropagation()}
+              >
+                <iframe
+                  src={getEmbedUrl(selectedVideo.src)}
+                  width="100%"
+                  height="500px"
+                  allow="autoplay; encrypted-media"
+                  allowFullScreen
+                  style={{ border: 0 }}
+                  title={selectedVideo.title}
+                />
+                <S.CloseButton onClick={() => setSelectedVideo(null)}>
+                  ×
+                </S.CloseButton>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </S.BodyC>
       {fullScreenImage && !isMobile && (
         <S.ModalOverlay onClick={handleClose}>
@@ -138,7 +254,7 @@ const Tropicais: React.FC = () => {
               height: "100%",
               objectFit: "contain",
             }}
-            onClick={e => {
+            onClick={(e) => {
               e.stopPropagation();
               handleClose();
             }}

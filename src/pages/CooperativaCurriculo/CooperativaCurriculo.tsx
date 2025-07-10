@@ -59,7 +59,7 @@ const CooperativaCurriculo: React.FC = () => {
                   fundador da
                   <br />
                   cooperativa de cinema
-                  <br />& mídias siciais
+                  <br />& mídias sociais
                 </S.SmallImageText>
               </S.SmallImageContainer>
               <S.TextSection ref={overlayRef}>
@@ -381,7 +381,10 @@ const CooperativaCurriculo: React.FC = () => {
               mm, 80 min, Direção Walter Rogério.
             </S.NewTextContainerText>
             <S.NewTextContainerText>
-              • <strong>Cassiopeia</strong>, também conhecido como Cassiopeia O Filme, é um filme de animação digital produzido e realizado pela NDR filmes e lançado no ano de 1996 pela ArtePlay, dirigido pelo animador Clóvis Vieira.
+              • <strong>Cassiopeia</strong>, também conhecido como Cassiopeia O
+              Filme, é um filme de animação digital produzido e realizado pela
+              NDR filmes e lançado no ano de 1996 pela ArtePlay, dirigido pelo
+              animador Clóvis Vieira.
             </S.NewTextContainerText>
             <S.LineA />
 
@@ -584,7 +587,7 @@ eventos/documentario-discute-ponto-polemico-dos-transgenicos-
               <S.ImgCardFlexImg src={vampa} />
             </S.ImgCardFlexImgContainerB>
             <S.ImgCardFlexTextContainerA>
-              <S.ImgCardFlexTitleA>"Navalha na Carne"</S.ImgCardFlexTitleA>
+              <S.ImgCardFlexTitleA>"Os Olhos da Vampa"</S.ImgCardFlexTitleA>
             </S.ImgCardFlexTextContainerA>
           </S.ImgCardFlex>
           <S.ImgCardFlex>
