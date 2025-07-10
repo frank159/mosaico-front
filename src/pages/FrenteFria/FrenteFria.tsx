@@ -53,24 +53,6 @@ const FrenteFria: React.FC = () => {
     src: "https://youtu.be/1QPSot-Ot-Y",
   };
 
-  const renderVideoSection = () => (
-    <S.VideoGrid>
-      <S.VideoCard onClick={() => setSelectedVideo(frenteFria)}>
-        <S.VideoThumbnail>
-          <iframe
-            src={getEmbedUrl(frenteFria.src)}
-            width="100%"
-            height="100%"
-            allow="autoplay; encrypted-media"
-            allowFullScreen
-            style={{ border: 0 }}
-            title={frenteFria.title}
-          />
-        </S.VideoThumbnail>
-      </S.VideoCard>
-    </S.VideoGrid>
-  );
-
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 768);
     window.addEventListener("resize", handleResize);
@@ -242,7 +224,23 @@ const FrenteFria: React.FC = () => {
       </S.GalleryContainer>
       <S.BodyC>
         <S.TitleC>• assista o trailer:</S.TitleC>
-        <S.VideoContainer>{renderVideoSection()}</S.VideoContainer>
+        <S.VideoContainer>
+          <S.VideoGrid>
+            <S.VideoCard onClick={() => setSelectedVideo(frenteFria)}>
+              <S.VideoThumbnail>
+                <iframe
+                  src={getEmbedUrl(frenteFria.src)}
+                  width="100%"
+                  height="100%"
+                  allow="autoplay; encrypted-media"
+                  allowFullScreen
+                  style={{ border: 0 }}
+                  title={frenteFria.title}
+                />
+              </S.VideoThumbnail>
+            </S.VideoCard>
+          </S.VideoGrid>
+        </S.VideoContainer>
 
         <AnimatePresence>
           {selectedVideo && (

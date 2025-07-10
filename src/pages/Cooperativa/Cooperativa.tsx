@@ -169,7 +169,7 @@ const Cooperativa: React.FC = () => {
                 fundador da
                 <br />
                 cooperativa de cinema
-                <br />& mídias siciais
+                <br />& mídias sociais
               </S.SmallImageText>
             </S.SmallImageContainer>
             <S.TextSection ref={overlayRef}>

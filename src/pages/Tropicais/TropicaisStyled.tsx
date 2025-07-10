@@ -1,5 +1,5 @@
-import { Button } from '@mui/material';
-import styled from 'styled-components';
+import { Button } from "@mui/material";
+import styled from "styled-components";
 
 interface Props {
   height?: string;
@@ -32,14 +32,12 @@ export const ContainerSubA = styled.div`
   flex-direction: row;
   justify-content: center;
   margin-bottom: 10vh;
-  
-  
+
   @media (max-width: 1224px) {
     margin-bottom: 0;
     margin-top: 10vh;
     width: auto;
     height: auto;
-
   }
 
   @media (max-width: 768px) {
@@ -70,7 +68,7 @@ export const ContainerLeftA = styled.div`
 
 export const TitleA = styled.h1`
   line-height: 1;
-  color: #B6687C;
+  color: #b6687c;
   margin: 0 !important;
   padding: 0 !important;
 `;
@@ -93,16 +91,16 @@ export const TextoA = styled.p`
 `;
 
 export const TextoB = styled.p`
-    margin-top: 2rem !important;
-    @media (max-width: 1224px) {
+  margin-top: 2rem !important;
+  @media (max-width: 1224px) {
     font-size: 1.2rem !important;
   }
 `;
 
 export const TextoC = styled.p`
-    margin-top: 2rem !important;
-    font-size: 1.2rem !important;
-    @media (max-width: 1224px) {
+  margin-top: 2rem !important;
+  font-size: 1.2rem !important;
+  @media (max-width: 1224px) {
     font-size: 1rem !important;
   }
 `;
@@ -114,7 +112,7 @@ export const ContainerRightA = styled.div`
   height: 100%;
   display: flex;
   justify-content: center;
-  
+
   @media (max-width: 1224px) {
     height: auto;
   }
@@ -160,7 +158,6 @@ export const SecaoInicialIcon = styled.img`
   padding-left: 1rem;
 `;
 
-
 export const SubTextContainer = styled.p`
   width: 100%;
   text-align: center;
@@ -174,7 +171,7 @@ export const SubTextContainerB = styled.p`
   width: 100%;
   margin-top: 3vh !important;
   text-align: center;
-  color: #ABFA16;
+  color: #abfa16;
   @media (max-width: 1224px) {
     width: auto;
   }
@@ -208,7 +205,7 @@ export const TitleC = styled.h1`
 `;
 
 export const BigCard = styled.div<Props>`
-  height: ${(props)=> props.height || '80vh'};
+  height: ${(props) => props.height || "80vh"};
   width: 60vw;
   margin-bottom: 10vh;
   background-color: black;
@@ -257,7 +254,8 @@ export const TopSectionCard = styled.div<Props>`
   flex-direction: row;
 
   @media (max-width: 1224px) {
-    flex-direction: ${(props)=> props.InvertCard ? 'column-reverse' : 'column'};
+    flex-direction: ${(props) =>
+      props.InvertCard ? "column-reverse" : "column"};
     gap: 1vh;
   }
 `;
@@ -272,13 +270,13 @@ export const TopSectionCardB = styled.div`
   align-items: center;
   flex-direction: row;
   gap: 10px;
-`
+`;
 
 export const CardlindText = styled.div<Props>`
-  height: ${(props)=> props.height || '100%'};
+  height: ${(props) => props.height || "100%"};
   width: 1px;
 
-    border: solid 2px #2F2E29;
+  border: solid 2px #2f2e29;
 `;
 
 export const TextoAContinerBigCard = styled.div`
@@ -301,25 +299,19 @@ export const TextoBigCardSection = styled.div`
   flex-direction: column;
 `;
 
-
-
-export const TitleBigcardB = styled.h1`
-
-`;
-
-
+export const TitleBigcardB = styled.h1``;
 
 export const CardButton = styled(Button)`
-    background-color: #2F2E29 !important;
-    color: white !important;
-    border-radius: 40px !important;
-    text-transform: none !important;
-    font-weight: lighter !important;
-    width: 20vw;
-    font-size: 1.5rem !important;
+  background-color: #2f2e29 !important;
+  color: white !important;
+  border-radius: 40px !important;
+  text-transform: none !important;
+  font-weight: lighter !important;
+  width: 20vw;
+  font-size: 1.5rem !important;
 
-    @media (max-width: 1224px) {
-      width: 100%;
+  @media (max-width: 1224px) {
+    width: 100%;
   }
 `;
 
@@ -364,40 +356,34 @@ export const GalleryContainer = styled.div`
 `;
 
 export const GalleryCard = styled.div`
-    transition: 0.5s;
-    z-index: 10;
+  transition: 0.5s;
+  z-index: 10;
   &:hover {
-    z-index: 400;
+    z-index: 11;
     transition: 0.5s;
     transform: scale(1.1);
   }
 `;
 
-
 export const Gallery = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 0.6fr); /* 40% smaller */
+  grid-template-columns: repeat(6, 0.6fr); /* 40% smaller */
   grid-template-rows: auto;
   gap: 6px; /* Adjust gap if needed */
   width: 60vw;
   & > div:nth-child(1) {
-    grid-column: span 4;
+    grid-column: span 6;
   }
 
   & > div:nth-child(2),
   & > div:nth-child(3) {
-    grid-column: span 2;
+    grid-column: span 3;
   }
 
-  & > div:nth-child(4) {
-    grid-column: span 1;
-  }
-
-  & > div:nth-child(5) {
-    grid-column: span 1;
-  }
+  & > div:nth-child(4),
+  & > div:nth-child(5),
   & > div:nth-child(6) {
-    grid-column: span 1;
+    grid-column: span 2;
   }
 
   img {
@@ -456,4 +442,57 @@ export const CloseButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+export const VideoGrid = styled.div`
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 2rem;
+  margin: 0 auto;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+export const VideoCard = styled.div`
+  grid-column: 2;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  @media (max-width: 768px) {
+    grid-column: auto;
+  }
+
+  @media (max-width: 1224px) {
+    justify-content: center;
+    align-items: start;
+  }
+`;
+
+export const VideoThumbnail = styled.div`
+  position: relative;
+  background: #000;
+  height: 50vh;
+  iframe {
+    pointer-events: none;
+  }
+`;
+
+export const VideoContainer = styled.div`
+  width: 100%;
+  padding: 4rem;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5rem;
 `;
