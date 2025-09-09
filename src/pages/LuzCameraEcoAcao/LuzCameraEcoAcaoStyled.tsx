@@ -22,6 +22,10 @@ export const InicialSecao = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
+  @media (max-height: 820px) {
+    margin-top: 7vh;
+  }
 `;
 
 export const InicialSecao1 = styled.div`
@@ -34,6 +38,10 @@ export const InicialSecao1 = styled.div`
   flex-direction: row;
   /* min-height: 100vh;  */
   margin-bottom: 15vh;
+  padding: 3rem;
+  @media (max-height: 820px) {
+    margin-top: 15vh;
+  }
 
   @media (max-width: 768px) {
     justify-content: center;
@@ -57,6 +65,11 @@ export const TituloVertical = styled.h1`
   white-space: nowrap;
   font-size: 20rem !important;
   color: rgba(228, 235, 221, 1);
+
+  @media (max-height: 820px) {
+    font-size: 15rem !important;
+  }
+
   @media (max-width: 768px) {
     opacity: 0;
   }
@@ -86,7 +99,7 @@ export const Texto2 = styled.h1`
   align-items: center;
   @media (max-width: 1224px) {
     font-size: 2.5rem !important;
-}
+  }
 `;
 
 export const TextoSub1 = styled.div`
@@ -142,26 +155,45 @@ export const QuinSecaoContainer = styled.div`
   }
 `;
 
-export const Card3 = styled.div`
+export const Card3 = styled.div<{
+  height?: number;
+}>`
   background-color: black;
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: center;
-  height: auto;
-  flex: 1; /* Make cards take equal space */
-  max-width: 33%; /* Ensure three cards fit within 100% width */
-  padding: 7rem ;
+  height: ${({ height }) => (height ? `${height}px` : "auto")};
+  flex: 1;
+  max-width: 33%;
+  padding: 4rem 2rem; // Reduzido o padding
   box-sizing: border-box;
 
   &:not(:last-child) {
-    border-right: 2px solid #323232; /* Add vertical line between cards */
+    border-right: 2px solid #323232;
   }
 
+  @media (max-width: 1220px) {
+    padding: 1.5rem 1rem;
+    max-width: 100%;
+    border-right: none;
+  }
+`;
+
+export const Card3Text = styled.p`
+  color: white;
+  font-size: 1.1rem !important; // Reduzido o tamanho da fonte
+  text-align: start !important;
+  width: 100% !important;
+  height: auto;
+  box-sizing: border-box;
+  word-break: break-word; // Garante quebra de linha
+
+  @media (max-width: 1220px) {
+    font-size: 1rem !important;
+  }
   @media (max-width: 768px) {
-    padding: 2rem ;
-    max-width: 100%; /* Stack cards vertically on smaller screens */
-    border-right: none; /* Remove border for stacked layout */
+    font-size: 0.95rem !important;
   }
 `;
 
@@ -185,9 +217,9 @@ export const TextLink = styled.span`
 `;
 
 export const ButtonCard = styled(Button)`
-margin-top: 2vh !important;
+  margin-top: 2vh !important;
   background-color: #253529 !important;
-  color: #C2CFB4 !important;
+  color: #c2cfb4 !important;
   border-radius: 25px !important;
   margin-top: 0.5rem 1rem !important;
   padding: 0.5rem 1rem !important;
@@ -195,7 +227,7 @@ margin-top: 2vh !important;
   text-transform: none !important;
   width: 40%;
   font-weight: bolder !important;
-  font-family: 'Arsenal', sans-serif !important;
+  font-family: "Arsenal", sans-serif !important;
   &:hover {
     background-color: #1e2e23 !important; /* Slightly darker shade for hover */
     transition: 0.3s ease-in-out;
@@ -282,16 +314,20 @@ interface PropCard {
 
 export const Card4LogoImg = styled.img<PropCard>`
   width: ${(props) => props.width || "10vw"};
+
+  @media (max-width: 1220px) and (min-width: 861px) {
+    width: 15% !important;
+  }
 `;
 
-export const Card3Text = styled.p`
-  color: white;
-  font-size: 1.2rem !important;
-  text-align: start !important;
-  width: 100% !important;
-  height: auto;
-  box-sizing: border-box;
-`;
+// export const Card3Text = styled.p`
+//   color: white;
+//   font-size: 1.2rem !important;
+//   text-align: start !important;
+//   width: 100% !important;
+//   height: auto;
+//   box-sizing: border-box;
+// `;
 
 export const SubTitleCard3 = styled.div`
   color: white;
@@ -309,7 +345,7 @@ export const SubTextCard3 = styled.div`
   font-size: 1.2rem;
   width: 100%;
   padding-bottom: 2rem;
-  box-sizing: border-box; 
+  box-sizing: border-box;
 `;
 
 export const Card3Title = styled.h2`
@@ -416,7 +452,9 @@ export const Card = styled.div`
   }
 `;
 
-export const Card2 = styled.div`
+export const Card2 = styled.div<{
+  height?: number;
+}>`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -426,6 +464,7 @@ export const Card2 = styled.div`
   border-radius: 6px;
   min-height: 20vh;
   width: 17vw;
+  height: ${({ height }) => (height ? `${height}px` : "auto")};
 
   @media (max-width: 1224px) {
     margin-right: 0;
@@ -451,17 +490,13 @@ export const LogoEcoacao = styled.img`
 
 export const Plantinha = styled.img`
   position: absolute;
-  height: 100vh;
+  top: 0;
+  left: 0;
   width: 100%;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  height: 100%;
+  object-fit: cover;
   opacity: 0.2;
-
-  @media (max-width: 1224px) {
-    object-fit: contain;
-    width: auto;
-  }
+  z-index: 0;
 `;
 
 export const Aspas = styled.img`
@@ -527,11 +562,20 @@ export const MiniCardSection = styled.div`
 
 export const MinCardText = styled.p`
   font-weight: bolder;
-  padding-left: 7rem;
+  padding-left: 6rem;
+  padding-right: 1rem;
   color: #ffffff;
-  white-space: nowrap; /* Prevents text from breaking */
-  @media (max-width: 768px) {
-    padding: 6rem;
+  white-space: normal; /* Permite quebra de linha */
+  word-break: break-word; /* Quebra palavras longas */
+  font-size: 1.1rem !important;
+
+  @media (max-width: 1720px) {
+    font-size: 1rem !important;
+  }
+
+  @media (max-width: 720px) {
+    font-size: 0.95rem !important;
+    padding-right: 0.5rem;
   }
 `;
 
@@ -716,7 +760,7 @@ export const BigCardTextContainer = styled.div`
   padding-left: 4rem;
   padding-right: 4rem;
   box-sizing: border-box;
-  
+
   @media (max-width: 1224px) {
     padding-left: 1rem;
     padding-right: 1rem;
@@ -828,8 +872,8 @@ export const Divider = styled.div`
 `;
 
 export const ContactInfoContainer = styled.div`
-margin-top: 3vh;
-margin-bottom: 3vh;
+  margin-top: 3vh;
+  margin-bottom: 3vh;
   color: white;
   font-size: 1.2rem !important;
   padding-left: 2rem !important;
@@ -840,8 +884,7 @@ margin-bottom: 3vh;
   box-sizing: border-box;
 `;
 
-export const ContactInfo = styled.div`
-`;
+export const ContactInfo = styled.div``;
 
 export const Icon = styled.img`
   width: 1.5rem;

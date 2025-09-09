@@ -31,41 +31,29 @@ const LuzCameraEcoAcaoPage: React.FC = () => {
     window.open("https://www.dbkv-berlin.com/", "_blank");
   };
   const Card3Ref = useRef<HTMLDivElement>(null);
-  const checkCardRef = useRef<HTMLDivElement>(null);
   const checkCard2Ref = useRef<HTMLDivElement>(null);
-  const CardRef = useRef<HTMLDivElement>(null);
 
   const [isMobile, setIsMobile] = useState(false);
-  const [checkCardWidth, setCheckCardWidth] = useState(0);
-  const [checkCard2Width, setCheckCard2Width] = useState(0);
-  const [cardWidth, setCardWidth] = useState(0);
-  const [Card3Width, setCard3Width] = useState(0);
-
-
-  const handleImageLoad = () => {
-    if (Card3Ref.current) {
-      setCard3Width(Card3Ref.current.clientHeight);
-    }
-  };
+  const [dimensions, setDimensions] = useState({
+    card3Height: 0,
+    card3Width: 0,
+    card2Height: 0,
+    card2Width: 0,
+  });
 
   useEffect(() => {
-    console.log("window.innerWidth <= 768", window.innerWidth <= 768)
     setIsMobile(window.innerWidth <= 768);
-  }, [])
-
-  useEffect(() => {
-    if (checkCardRef.current) {
-      setCheckCardWidth(checkCardRef.current.clientWidth);
-    }
-    if (checkCard2Ref.current) {
-      setCheckCard2Width(checkCard2Ref.current.clientHeight);
-    }
-    if (CardRef.current) {
-      setCardWidth(CardRef.current.clientWidth);
-    }
-    if (Card3Ref.current) {
-      setCard3Width(Card3Ref.current.clientWidth);
-    }
+    const updateDimensions = () => {
+      setDimensions({
+        card3Height: Card3Ref.current?.clientHeight || 0,
+        card3Width: Card3Ref.current?.clientWidth || 0,
+        card2Height: checkCard2Ref.current?.clientHeight || 0,
+        card2Width: checkCard2Ref.current?.clientWidth || 0,
+      });
+    };
+    updateDimensions();
+    window.addEventListener('resize', updateDimensions);
+    return () => window.removeEventListener('resize', updateDimensions);
   }, []);
 
   return (
@@ -119,7 +107,7 @@ const LuzCameraEcoAcaoPage: React.FC = () => {
       <S.SecSecao>
         <S.Texto2>NOSSO PÚBLICO ALVO</S.Texto2>
         <S.CardSection2>
-          <S.Card2 style={{ height: `${checkCard2Width}px` }}>
+          <S.Card2 height={dimensions.card2Height}>
             <S.CardTitle2>Participantes da COP30</S.CardTitle2>
             <S.TextCard2>
               <p>
@@ -130,7 +118,7 @@ const LuzCameraEcoAcaoPage: React.FC = () => {
               </p>
             </S.TextCard2>
           </S.Card2>
-          <S.Card2 style={{ height: `${checkCard2Width}px` }}>
+          <S.Card2 height={dimensions.card2Height}>
             <S.CardTitle2>Artistas e Ativistas</S.CardTitle2>
             <S.TextCard2>
               <p>
@@ -140,7 +128,7 @@ const LuzCameraEcoAcaoPage: React.FC = () => {
               </p>
             </S.TextCard2>
           </S.Card2>
-          <S.Card2 style={{ paddingBottom: "3rem" }} ref={checkCard2Ref}>
+          <S.Card2 ref={checkCard2Ref} style={{ paddingBottom: "3rem" }}>
             <S.CardTitle2>Comunidade Local</S.CardTitle2>
             <S.TextCard2>
               <p>
@@ -151,7 +139,7 @@ const LuzCameraEcoAcaoPage: React.FC = () => {
               </p>
             </S.TextCard2>
           </S.Card2>
-          <S.Card2 style={{ height: `${checkCard2Width}px` }}>
+          <S.Card2 height={dimensions.card2Height}>
             <S.CardTitle2>Mídia Global</S.CardTitle2>
             <S.TextCard2>
               <p>
@@ -233,8 +221,8 @@ const LuzCameraEcoAcaoPage: React.FC = () => {
       </S.QuarSecao>
       <S.QuinSecao>
         <S.QuinSecaoContainer>
-          <S.Card3 ref={Card3Ref}>
-            <S.Card3Img src={homero} onLoad={handleImageLoad} />
+          <S.Card3 ref={Card3Ref} height={dimensions.card3Height}>
+            <S.Card3Img src={homero} />
             <S.Card3Title>Homero Camargo</S.Card3Title>
             <S.Card3Text>
               Homero Camargo é um produtor de cinema brasileiro com mais de 35
@@ -295,7 +283,7 @@ const LuzCameraEcoAcaoPage: React.FC = () => {
               <br />
             </S.Card4Section>
           </S.Card3>
-          <S.Card3 style={{ height: `${Card3Width}px` }}>
+          <S.Card3 height={dimensions.card3Height}>
             <S.Card3Img src={bruna} />
             <S.Card3Title>Bruna Madsen</S.Card3Title>
             <S.Card3Text>
@@ -308,7 +296,7 @@ const LuzCameraEcoAcaoPage: React.FC = () => {
               Sua carreira é marcada pela paixão pela inovação e pela excelência na execução de projetos de impacto cultural e social.
               Conversas com a jovem Isabella Camargo, sua filha, foram fundamentais para a criação deste projeto, somando a sua expertise em desenvolver soluções criativas contribuíram para a criação do evento “Luz, Câmera, EcoAÇÃO” elaborando ações que combinem arte, natureza e bem-estar, promovendo a conexão com o meio ambiente e o impacto positivo nas pessoas, estimulando a saúde mental por meio de práticas artísticas sustentáveis.            </S.Card3Text>
           </S.Card3>
-          <S.Card3 style={{ height: `${Card3Width}px` }}>
+          <S.Card3 height={dimensions.card3Height}>
             <S.Card3Img src={PalomaFoto} />
             <S.Card3Title>Paloma Vogt</S.Card3Title>
             <S.Card3Text>
