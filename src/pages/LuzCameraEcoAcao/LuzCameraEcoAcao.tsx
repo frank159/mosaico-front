@@ -40,7 +40,7 @@ const LuzCameraEcoAcaoPage: React.FC = () => {
     card2Height: 0,
     card2Width: 0,
   });
-
+  //teste
   useEffect(() => {
     setIsMobile(window.innerWidth <= 768);
     const updateDimensions = () => {
