@@ -393,7 +393,7 @@ export const CardSection2 = styled.div`
   justify-content: space-between;
   align-items: center;
   gap: 6vh;
-  margin-top: 3vh;
+  margin: 2rem 2rem 0 2rem;
 
   @media (max-width: 1224px) {
     flex-direction: column;
@@ -418,6 +418,9 @@ export const CardTitle2 = styled.div`
   font-weight: bolder;
   color: #ffffff;
   font-size: 1.5rem !important;
+
+  margin: 2rem 2rem 0 2rem;
+
 
   @media (max-width: 1224px) {
     font-size: 1.6rem !important;
@@ -463,7 +466,7 @@ export const Card2 = styled.div<{
   background-color: #141c16;
   border-radius: 6px;
   min-height: 20vh;
-  width: 17vw;
+  width: 100%;
   height: ${({ height }) => (height ? `${height}px` : "auto")};
 
   @media (max-width: 1224px) {
@@ -618,7 +621,7 @@ export const MiniCard = styled.div`
   flex-direction: row;
   justify-content: start;
   align-items: center;
-  height: 7vh;
+  height: 3rem;
   width: 20vw;
   background-color: #141c16;
   position: relative;

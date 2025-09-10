@@ -197,7 +197,7 @@ export const PilaresListContainer1 = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: start;
-  height: 70vh;
+  min-height: 35rem;
   position: relative; /* Necessário para o tamanho máximo da linha */
   @media (max-width: 768px) {
     height: 100%;
@@ -211,6 +211,7 @@ export const PilaresListItensContainer = styled.div`
   margin-left: 2rem;
   justify-content: start;
   height: auto;
+  padding: 1rem 0 1rem 0;
 `;
 
 export const PilaresListLine = styled.div`

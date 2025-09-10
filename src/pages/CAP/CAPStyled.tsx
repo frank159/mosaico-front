@@ -236,7 +236,7 @@ export const BodyListCardContainer = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  z-index: 11111;
+  z-index: 11;
 `;
 
 export const BodyListCard = styled.div``;
@@ -630,8 +630,9 @@ export const TextBigImgContainer = styled.div`
 `;
 
 export const TextBigImg = styled.p`
-  @media (max-width: 1224px) {
-    padding-left: 1rem;
+
+  @media (max-width: 768px) {
+    padding-left: 2rem;
     padding-right: 1rem;
   }
 `;
@@ -640,14 +641,14 @@ export const IconTextBigImgContainerList = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
-  height: 20vh;
+  height: 8rem;
   align-items: center;
   justify-content: center;
   padding-right: 1rem;
 
   @media (max-width: 768px) {
     justify-content: start;
-    padding-left: 1rem;
+    padding-left: 2rem;
   }
 `;
 
@@ -656,7 +657,7 @@ export const IconTextBigImgContainerListB = styled.div`
   align-items: start;
   justify-content: space-between;
   flex-direction: column;
-  height: 20vh;
+  height: 8rem;
 `;
 
 export const IconTextBigImgContainer = styled.div`
