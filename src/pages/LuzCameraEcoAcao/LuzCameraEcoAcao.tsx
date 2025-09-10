@@ -23,6 +23,7 @@ const aspasPreta = 'https://res.cloudinary.com/djg8c78mb/image/upload/v174632472
 const plantinha = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324654/plantinha_i9kjos.jpg'
 const cooperativa = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324713/cooperativaLogo_yycsv7.png'
 
+//teste
 const LuzCameraEcoAcaoPage: React.FC = () => {
   const handleClick = () => {
     window.open("https://www.graciosapictures.com", "_blank");
