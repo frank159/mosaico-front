@@ -139,18 +139,18 @@ export const QuinSecao = styled.div`
 `;
 
 export const QuinSecaoContainer = styled.div`
-  display: flex;
+  display: grid;
   width: 100%;
-  flex-direction: row;
-  flex-wrap: nowrap;
+  background-color: red;
+  grid-template-columns: repeat(3, 1fr);
   gap: 0; /* Remove gap to use borders for separation */
-  justify-content: center;
+  justify-items: center;
   align-items: start;
   margin-top: 15vh;
   margin-bottom: 15vh;
 
   @media (max-width: 1224px) {
-    flex-direction: column; /* Stack items vertically on smaller screens */
+    grid-template-columns: 1fr; /* Stack items vertically on smaller screens */
     align-items: center; /* Center items in the column layout */
   }
 `;
@@ -163,9 +163,9 @@ export const Card3 = styled.div<{
   flex-direction: column;
   justify-content: start;
   align-items: center;
-  height: ${({ height }) => (height ? `${height}px` : "auto")};
+  height: 100%;
   flex: 1;
-  max-width: 33%;
+  width: 100%;
   padding: 4rem 2rem; // Reduzido o padding
   box-sizing: border-box;
 
