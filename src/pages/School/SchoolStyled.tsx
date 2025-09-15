@@ -16,6 +16,7 @@ export const Container = styled.div`
   width: auto;
   overflow: hidden;
   width: 100%;
+  margin-top: 5rem;
 `;
 
 export const TESTE = styled.div``;
@@ -542,13 +543,38 @@ export const CardMainContainer = styled.div`
   width: 100%;
 `;
 
-export const CardImgFremeProjetoA = styled.div<Props>`
+export const InicialSecao = styled.section`
+  width: 100%;
+  min-height: 100vh;
   height: auto;
-  width: 10rem;
-  left: 85%;
-  bottom: 0;
-  overflow: hidden;
-  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 0;
+  box-sizing: border-box;
+
+  @media (max-width: 600px) {
+    padding: 1rem 0;
+  }
+`;
+
+export const CardImgFremeProjetoA = styled.div`
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    max-width: 10rem;
+    height: auto;
+    display: block;
+  }
+
+  @media (max-width: 600px) {
+    max-width: 180px;
+  }
 `;
 
 export const CardImgProjetoA = styled.img<Props>`
@@ -594,16 +620,6 @@ export const CardTextProjeto = styled.div`
   margin-top: 0.5rem;
   font-size: 1.3rem;
   word-spacing: 10px;
-`;
-
-export const InicialSecao = styled.div`
-  background-color: #e4ebdd;
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
 `;
 
 export const LogoEcoacao = styled.img`
@@ -675,6 +691,7 @@ export const TextImgCardMain = styled.div`
   justify-content: end;
   align-items: center;
   margin-bottom: 25vh;
+  margin-top: 1rem;
 `;
 
 export const TextImgCard = styled.div`

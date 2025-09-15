@@ -11,7 +11,7 @@ export const MainContainer = styled.div`
   overflow-x: hidden;
   position: relative;
   overflow-y: hidden;
-  margin-top: 10vh;
+  margin-top: 5rem;
 `;
 
 export const Body = styled.div`
@@ -136,7 +136,7 @@ export const ImgFotoB = styled.img`
 
 export const SubContainer = styled.div`
   width: 100%;
-  height: 25vh;
+  height: 20vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -149,7 +149,6 @@ export const SubTextContainer = styled.p`
   
   @media (max-width: 1224px) {
     width: auto;
-    text-align: start;
   }
 `;
 
@@ -197,13 +196,17 @@ export const BigCard = styled.div<Props>`
   border-radius: 21px;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: start;
   flex-direction: column;
   padding: 4rem;
 
   @media (max-width: 1224px) {
-    padding: 1rem;
+    padding: 2rem;
     width: 80vw;
+  }
+
+  @media (max-width: 768px) {
+    width: 70vw;
   }
 `;
 
@@ -214,7 +217,6 @@ export const ContainerBigCardFoto = styled.div`
 
   @media (max-width: 1224px) {
     width: 100%;
-    margin-bottom: 3vh;
   }
 `;
 
@@ -236,10 +238,10 @@ export const TopSectionCard = styled.div<Props>`
   justify-content: center;
   align-items: center;
   flex-direction: row;
+  gap: 1rem;
 
   @media (max-width: 1224px) {
     flex-direction: ${(props)=> props.InvertCard ? 'column-reverse' : 'column'};
-    gap: 1vh;
   }
 `;
 
@@ -277,7 +279,6 @@ export const TextoAContinerBigCard = styled.div`
   flex-direction: column;
   justify-content: start;
   align-items: start;
-  padding-left: 1rem;
 `;
 
 export const TextoBigCardSection = styled.div`

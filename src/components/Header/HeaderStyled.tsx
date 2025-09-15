@@ -5,7 +5,7 @@ export const Container = styled.div<{ isVisible: boolean }>`
   top: 0;
   left: 0;
   width: 100%;
-  height: 8vh;
+  height: 5rem;
   background-color: #141c16;
   z-index: 211;
   display: flex;
@@ -17,7 +17,7 @@ export const Container = styled.div<{ isVisible: boolean }>`
     isVisible ? "translateY(0)" : "translateY(-100%)"};
 
   @media (max-width: 768px) {
-    height: 10vh;
+    height: 6rem;
   }
 `;
 

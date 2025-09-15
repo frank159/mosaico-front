@@ -11,7 +11,7 @@ export const MainContainer = styled.div`
   overflow-x: hidden;
   position: relative;
   overflow-y: hidden;
-  margin-top: 5vh;
+  margin-top: 5rem;
 `;
 
 export const Body = styled.div`
@@ -247,7 +247,7 @@ export const ImgBigCard = styled.img`
 export const TopSectionCard = styled.div<Props>`
   width: 100%;
   min-height: auto;
-  padding-bottom: 14rem;
+  padding-bottom: 3rem;
   padding-top: 4rem;
   display: flex;
   justify-content: center;
@@ -435,55 +435,37 @@ export const CloseButton = styled.button`
   align-items: center;
 `;
 
-export const VideoGrid = styled.div`
-  display: grid;
-  width: 100%;
-  grid-template-columns: 1fr 2fr 1fr;
-  gap: 2rem;
-  margin: 0 auto;
-  margin-left: 1.5rem;
-  margin-right: 1.5rem;
 
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-  }
+export const VideoContainer = styled.div`
+  width: 100%;
+  height: 30rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+`;
+
+export const VideoGrid = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const VideoCard = styled.div`
-  grid-column: 2;
   cursor: pointer;
-  transition: transform 0.3s ease;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
-
+  transition: transform 0.2s;
+  height: 100%;
+  width: 100%;
   &:hover {
-    transform: translateY(-5px);
-  }
-
-  @media (max-width: 768px) {
-    grid-column: auto;
-  }
-
-  @media (max-width: 1224px) {
-    justify-content: center;
-    align-items: start;
+    transform: scale(1.03);
   }
 `;
 
 export const VideoThumbnail = styled.div`
-  position: relative;
-  background: #000;
-  height: 50vh;
-  iframe {
-    pointer-events: none;
-  }
-`;
-
-export const VideoContainer = styled.div`
-  width: 100%;
-  padding: 4rem;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 5rem;
+  height: 100%;
 `;

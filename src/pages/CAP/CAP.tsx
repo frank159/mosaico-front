@@ -110,11 +110,6 @@ const School: React.FC = () => {
         <S.TitleBigImg>Sobre nós:</S.TitleBigImg>
 
         <S.BigImgContainerA>
-          {isMobile && (
-            <S.LineDescriptionA
-              style={{ height: `calc(${lineHeight} * 1.05)` }}
-            />
-          )}
           <S.BigImgContainer ref={bigImgContainerRef}>
             <S.TextBigImgContainer>
               <S.TextBigImg>
@@ -126,7 +121,7 @@ const School: React.FC = () => {
               </S.TextBigImg>
             </S.TextBigImgContainer>
             <S.IconTextBigImgContainerList>
-              {!isMobile && <S.LineDescription />}
+              <S.LineDescription />
               <S.IconTextBigImgContainerListB>
                 <S.IconTextBigImgContainer>
                   <S.IconBigImgCard src={ong} />

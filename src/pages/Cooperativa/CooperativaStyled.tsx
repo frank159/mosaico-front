@@ -11,7 +11,7 @@ export const MainContainer = styled.div`
 
 export const FullImgFrame = styled.div`
   position: relative;
-  margin-top: 5vh;
+  margin-top: 5rem;
   height: 100vh;
   width: 100%;
   @media (max-width: 1224px) {
@@ -347,14 +347,20 @@ export const MoviesGrid = styled.div`
 `;
 
 export const MovieCard = styled.div`
+  display: grid;
+  grid-template-areas:
+    "image"
+    "title"
+    "desc"
+    "button";
+  grid-template-rows: auto auto 1fr auto;
   background-color: #222020d8;
   padding: 1rem;
   color: white;
-  display: flex;
-  flex-direction: column;
   position: relative;
   z-index: 1;
   overflow: hidden;
+  align-items: start;
   &:before {
     content: "";
     position: absolute;
@@ -369,17 +375,20 @@ export const MovieCard = styled.div`
 `;
 
 export const MovieImage = styled.img`
+  grid-area: image;
   width: 100%;
   object-fit: cover;
   margin-bottom: 1.5rem;
 `;
 
 export const MovieTitle = styled.h2`
+  grid-area: title;
   margin-bottom: 2rem !important;
   text-align: center;
 `;
 
 export const MovieDescription = styled.p`
+  grid-area: desc;
   font-size: 1rem;
   margin-bottom: 1.5rem !important;
   border-left: 4px solid #00000034;
@@ -387,6 +396,7 @@ export const MovieDescription = styled.p`
 `;
 
 export const ButtonContainer = styled.div`
+  grid-area: button;
   width: 100%;
   display: flex;
   justify-content: center;
