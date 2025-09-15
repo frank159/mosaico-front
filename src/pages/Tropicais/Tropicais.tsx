@@ -22,7 +22,7 @@ interface Video {
   title: string;
   src: string;
 }
-
+//teste
 const Tropicais: React.FC = () => {
   const [fullScreenImage, setFullScreenImage] = useState<string | null>(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
