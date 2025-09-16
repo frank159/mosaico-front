@@ -1,7 +1,7 @@
-import { useEffect, useState, useRef } from "react";
-import * as S from "./AboutUsStyled";
-import TextComponent from "../text/text";
-import Footer from "../../components/footer/footer";
+import { useEffect, useState } from "react";
+import * as S from "./MosaicoPageStyled";
+import TextComponent from "../../text/text";
+import Footer from "../../../components/footer/footer";
 
 const mosaicoLogo =
   "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324712/mosaicoLogo1_ch206u.png";
@@ -18,42 +18,21 @@ const aspas =
 const estrutura =
   "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324729/LOTUS_PRETO_gdyvta.png";
 
-const AboutUs: React.FC = () => {
+const MosaicoPage: React.FC = () => {
   const handleProjetoClick = (route: string) => {
-    window.location.href = route; // Abre a rota em uma nova aba
+    window.location.href = route;
   };
   const [isMobile, setIsMobile] = useState(false);
   const [OpacityPin, setOpacityPin] = useState(false);
 
   useEffect(() => {
-    console.log("window.innerWidth <= 768", window.innerWidth <= 768);
     setIsMobile(window.innerWidth <= 768);
   }, []);
 
   useEffect(() => {
-    console.log("window.innerWidth <= 1880", window.innerWidth <= 1880);
     setOpacityPin(window.innerWidth <= 1880);
   }, []);
 
-  const getWidth = () => {
-    if (window.innerWidth <= 768) {
-      return "60vw";
-    } else if (window.innerWidth <= 820) {
-      return "50vw";
-    } else {
-      return "40vw";
-    }
-  };
-
-  const getWidthA = () => {
-    if (window.innerWidth <= 768) {
-      return "80vw";
-    } else if (window.innerWidth <= 820) {
-      return "70vw";
-    } else {
-      return "70vw";
-    }
-  };
 
   return (
     <div style={{ backgroundColor: "#C2CFB4" }}>
@@ -427,4 +406,4 @@ const AboutUs: React.FC = () => {
   );
 };
 
-export default AboutUs;
+export default MosaicoPage;

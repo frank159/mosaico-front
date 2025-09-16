@@ -29,7 +29,6 @@ const CooperativaCurriculo: React.FC = () => {
   const overlayRefA = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    console.log("window.innerWidth <= 820", window.innerWidth <= 820);
     setIsMobile(window.innerWidth <= 820);
   }, []);
 

@@ -49,10 +49,6 @@ const SectionPicture: React.FC<SectionPictureProps> = ({
   mainText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.',
   imageSrc
 }) => {
-  
-  useEffect(()=> {
-    console.log('isMobile', isMobile)
-  }, [isMobile])
 
   return (
     <Container 

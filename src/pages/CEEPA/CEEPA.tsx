@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import * as S from "./SchoolStyled";
+import * as S from "./CEEPAStyled";
 import { motion, AnimatePresence } from "framer-motion";
 
 // Icon imports

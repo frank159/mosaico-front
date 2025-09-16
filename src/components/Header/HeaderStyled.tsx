@@ -15,7 +15,7 @@ export const Container = styled.div<{ isVisible: boolean }>`
   transition: transform 0.3s ease-in-out;
 
   @media (max-width: 768px) {
-    height: 6rem;
+    height: 4.5rem;
   }
 `;
 

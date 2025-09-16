@@ -2,14 +2,11 @@ import React, { useRef, useEffect, useState } from "react";
 import * as S from "./MosaicoStyled";
 import { motion } from 'framer-motion';
 
-// Assets
-// import video from "../../assets/videos/voo.mp4";
-// import videoMobile from "../../assets/videos/vooMobile.mp4";
 import audioFile from "../../assets/musica.mp3";
 import PauseIcon from '@mui/icons-material/Pause';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import ScrollToTop from "../../components/ScrollToTop/ScrollToTop";
-import AboutUs from "../AboutUs/AboutUs";
+import Mosaico from "./MosaicoPage/MosaicoPage";
 
 // Logos and icons
 const mosaicoLogo = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746325589/MOSAICO_n2quff.png';
@@ -162,7 +159,7 @@ const MosaicoPage: React.FC = () => {
       </S.FullScreenVideo>
     </S.VideoWrapper>
     <S.SectionBelowVideo id="section-below">
-        <AboutUs />
+        <Mosaico />
       </S.SectionBelowVideo>
   </S.Container>
 

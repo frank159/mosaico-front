@@ -330,11 +330,11 @@ export const NewTextContainerTitleText = styled.div`
 `;
 
 export const NewTextContainerTitleSub = styled.h2`
-  color: #4D1408;
+  color: #ce0000;
 
   width: 36vw;
   text-align: end;
-  @media (max-width: 768px) {
+  @media (max-width: 390px) {
     text-align: start;
     font-size: 1.8rem !important ;
   }
@@ -355,7 +355,7 @@ export const NewTextContainerText = styled.p`
 `;
 
 export const LineTitle = styled.h2`
-  color: #4D1408;
+  color: #ce0000;
   width: 36vw;
   text-align: end;
   white-space: nowrap;
@@ -375,7 +375,7 @@ display: flex;
 `;
 
 export const DataCardIten = styled.p`
-  color: #4D1408;
+  color: #ce0000;
   font-weight: bolder;
   padding-right: 1rem;
   width: 6rem !important;
