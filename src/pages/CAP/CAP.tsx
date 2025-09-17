@@ -159,116 +159,25 @@ const School: React.FC = () => {
         <S.FloatingCard>
           <S.TextFloatingCard>
             <S.FloatingCardLogo src={filmeJoin} alt="FilmeJoin Logo" />
-            Em parceria com a plataforma Filmjoin
           </S.TextFloatingCard>
-          <S.LinkFloatingCard
+          {/* <S.LinkFloatingCard
             href="https://www.filmjoin.com.br"
             target="_blank"
             rel="noopener noreferrer"
           >
             www.filmjoin.com.br
-          </S.LinkFloatingCard>
-          <S.TextFloatingCard>
-            passamos a adotar temática ambiental, com estimulo para produção e
-            exibição destes conteúdos.
-          </S.TextFloatingCard>
-          <S.TitleFloatingCard isExpanded={isExpanded}>
-            CONHEÇA NOSSA TRAGETÓRIA
-          </S.TitleFloatingCard>
-          {isExpanded && (
-            <>
-              <S.ListItem>
-                <h2>2024</h2>
-                <p>
-                  A Filmjoin foi player nos eventos: CINEPITCHING, rodada de
-                  negócios de audiovisual, em agosto, São Paulo DOC-SP – Rodada
-                  de negócios audiovisual, em outubro, São Paulo
-                </p>
-              </S.ListItem>
-              <S.ListItemLinkCard>
-                <S.ListItemLink
-                  href="https://www.filmjoin.com.br"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  https://www.filmjoin.com.br/
-                </S.ListItemLink>
-              </S.ListItemLinkCard>
-              <S.ListFloatingCard>
-                {listItems.map((item, index) => (
-                  <S.ListItem key={index}>
-                    <h2>{item.title}</h2>
-                    <p>{item.text}</p>
-                  </S.ListItem>
-                ))}
-              </S.ListFloatingCard>
-              <S.ListItemA>
-                <h2>2024</h2>
-                <p>
-                  <strong>
-                    • Parceiro do projeto FILMJOIN http://filmjoin.com,
-                  </strong>{" "}
-                  uma plataforma digital inteligente, cuja rede de pessoas
-                  disponibilizam de forma colaborativa suas experiências, dados,
-                  informações, conhecimento e sabedoria para construir uma
-                  inteligência audiovisual! O JOIN é essa inteligência
-                  artificial que vai produzir resultados para que produtores
-                  façam filmes, séries e games cada vez mais do jeito que os fãs
-                  querem ver. A idealização é do parceiro produtor Johnny
-                  DiBartolo: o LaB ao cubo ou Lab3.
-                </p>
-                <br />
-                <br />
-                <p>
-                  <strong>
-                    • Em desenvolvimento – executivo do projeto IDENTIDADE –
-                  </strong>{" "}
-                  campos Gerais do Paraná – mostra/circulação de documentários,
-                  que vai passar por mais de 25 cidades paranaenses entre 2017 e
-                  2018. Além das mostras, cada local visitado receberá o box com
-                  os três títulos de documentários. Uma proposta que resgata e
-                  reapresenta ao Paraná sua identidade.
-                </p>
-                <br />
-                <br />
-                <p>
-                  <strong>
-                    • Produtora do longa-metragem Sumiços Delirantes,
-                  </strong>{" "}
-                  que terá 90 minutos finais, rodado basicamente em Curitiba e
-                  Rio de Janeiro, com uma equipe quase cem por cento paranaense,
-                  que traz uma proposta de linguagem inovadora (na fronteira
-                  entre ficção e documentário) com um cronograma de execução
-                  ágil, dinâmico e de baixo orçamento. A proposta é a direção
-                  compartilhada entre um diretor e ator de teatro e um diretor
-                  de cinema. Em desenvolvimento / captação de recursos.
-                </p>
-                <br />
-                <br />
-                <p>
-                  <strong>• Produtor do documentário Visões do Porto –</strong>{" "}
-                  história e estórias, 52 min, de autoria e direção de Silvana
-                  Fontana, sobre a vai falar da enorme riqueza
-                  histórico-cultural existente ao redor do Porto de Paranaguá, a
-                  partir de narrativas dos caiçaras, descendentes de índios,
-                  pescadores, dos trabalhadores, em contraste com os
-                  empresários, marinheiros, caminhoneiros. Gente de todo o modo,
-                  de toda a fala. Em desenvolvimento; Fará parte da proposta
-                  IDENTIDADE – litoral do Paraná
-                </p>
-                <br />
-                <br />
-                <p>
-                  <strong>• Desenvolvimento de projeto -</strong> Produtor do
-                  projeto longa-metragem Sobre Touros e Homens: a saga
-                  brasileira do zebu, Direção Werner Schumann.
-                </p>
-              </S.ListItemA>
-            </>
-          )}
-          <S.ExpandButton onClick={toggleExpand}>
-            {isExpanded ? <ArrowUpwardIcon /> : <ArrowDownwardIcon />}
-          </S.ExpandButton>
+          </S.LinkFloatingCard> */}
+          <S.FilmeJoinButton
+            onClick={() =>
+              window.open(
+                "https://www.filmjoin.com.br",
+                "_blank",
+                "noopener,noreferrer"
+              )
+            }
+          >
+            Saiba Mais
+          </S.FilmeJoinButton>
         </S.FloatingCard>
         <S.LinhaH />
         <S.TitlePage>PROJETOS:</S.TitlePage>

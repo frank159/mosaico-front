@@ -1,6 +1,6 @@
 import styled, { keyframes } from "styled-components";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
-import { Button } from "@mui/material";
+import { Button, ButtonBase } from "@mui/material";
 
 interface QuinSecaoProps {
   width: string;
@@ -867,28 +867,32 @@ export const VideoWrapperA = styled.div`
 
 export const FloatingCard = styled.div`
   background-color: #c8deeb;
-  padding: 5rem 7rem 2rem 7rem;
+  padding: 2rem;
   border-radius: 10px;
   margin: 10vh auto;
   width: 70%;
   display: flex;
   flex-direction: column;
-
+  align-items: center;
   @media (max-width: 768px) {
-    padding: 2rem 1rem 0;
     width: 80%;
   }
 `;
 
+export const FilmeJoinButton = styled(ButtonBase)`
+  width: 7rem;
+  font-size: 1rem;
+  margin-top: 2rem !important;
+  background-color: #0894dc !important;
+  padding: 0.5rem 1rem !important;
+  border-radius: 20px !important;
+  color: white !important;
+`;
+
 export const FloatingCardLogo = styled.img`
-  position: absolute;
-  top: -8.5rem;
-  left: -3rem;
   height: 10vh;
 
   @media (max-width: 768px) {
-    top: -4rem;
-    left: 1rem;
     height: 7vh;
   }
 `;

@@ -13,11 +13,9 @@ export const Container = styled.div<{ isVisible: boolean }>`
   align-items: center;
   overflow: hidden;
   transition: transform 0.3s ease-in-out;
-  transform: ${({ isVisible }) =>
-    isVisible ? "translateY(0)" : "translateY(-100%)"};
 
   @media (max-width: 768px) {
-    height: 6rem;
+    height: 4.5rem;
   }
 `;
 
