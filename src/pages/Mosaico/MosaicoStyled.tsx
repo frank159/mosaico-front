@@ -1,5 +1,5 @@
-import styled, { keyframes, css } from 'styled-components'; // Adicione a importação do css
-import { motion } from 'framer-motion';
+import styled, { keyframes, css } from "styled-components"; // Adicione a importação do css
+import { motion } from "framer-motion";
 
 interface Props {
   backgroundImage?: string;
@@ -17,21 +17,38 @@ export const VideoWrapper = styled.div`
   height: 100vh;
   overflow: hidden;
   z-index: 1;
+  background-color: white;
 `;
 
 export const Seta = styled.div`
   position: absolute;
   top: 33%;
   left: 50%;
-  transform: translateX(-50%); /* Isso vai garantir que a seta fique centralizada horizontalmente */
+  transform: translateX(
+    -50%
+  ); /* Isso vai garantir que a seta fique centralizada horizontalmente */
   z-index: 1111; /* Define a camada acima do vídeo */
 `;
 
-export const FullScreenVideo = styled.video`
-  opacity: 0.7;
+export const FullScreenVideo = styled.video<{ $isLoaded: boolean }>`
   width: 100%;
   height: 100vh;
   object-fit: cover;
+  transition: filter 1s ease, transform 2s ease, opacity 1s ease;
+  opacity: 0.7;
+
+  ${({ $isLoaded }) =>
+    $isLoaded
+      ? `
+        filter: blur(0px);
+        transform: scale(1);
+        opacity: 1;
+      `
+      : `
+        filter: blur(10px);
+        transform: scale(1.05);
+        opacity: 0.6;
+      `}
 `;
 
 export const ColorOverlay = styled.div`
@@ -88,7 +105,7 @@ export const TitleOverlayContainer = styled.div`
   width: auto;
   transform: translate(-50%, -50%);
   z-index: 112;
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   color: white;
 
   display: flex;
@@ -103,7 +120,8 @@ export const TextOverlay = styled.div`
   color: #000000;
   letter-spacing: 0.6em;
   text-align: center;
-  @media (max-width: 768px) { /* Define o tamanho máximo da tela (por exemplo, 768px) */
+  @media (max-width: 768px) {
+    /* Define o tamanho máximo da tela (por exemplo, 768px) */
     font-size: 1rem;
     font-weight: 900;
     color: #000000;
@@ -117,7 +135,7 @@ export const TextOverlay = styled.div`
 
 export const SectionBelowVideo = styled.div`
   height: 170vh; /* Ocupa a altura da tela */
-  background-color: #C2CFB4; /* Cor de fundo (pode ser alterada) */
+  background-color: #c2cfb4; /* Cor de fundo (pode ser alterada) */
 `;
 
 export const BackgroundImage = styled.div<Props>`
@@ -128,22 +146,22 @@ export const BackgroundImage = styled.div<Props>`
   width: 60vw; /* Ajuste a largura da imagem */
   height: 130vh; /* Altura da imagem 100vh */
   opacity: 0.1; /* Opacidade da imagem */
-  background-image: url(${props => props.backgroundImage});
+  background-image: url(${(props) => props.backgroundImage});
   background-size: cover; /* Garantir que a imagem ocupe a área sem se repetir */
   background-position: center; /* Posiciona a imagem centralizada */
   z-index: 0; /* Garante que a imagem fique atrás dos outros conteúdos */
 `;
 
 export const SectionTextCard = styled.div`
-  color: #C2CFB4;
-  font-family: 'Montserrat', sans-serif;
+  color: #c2cfb4;
+  font-family: "Montserrat", sans-serif;
   z-index: 110;
 
   margin-bottom: 4rem;
 `;
 
 export const IconContainer = styled.div`
-  color: #C2CFB4;
+  color: #c2cfb4;
   z-index: 110;
   display: flex;
   flex-direction: row;
@@ -151,7 +169,7 @@ export const IconContainer = styled.div`
   justify-content: center;
   align-items: center;
   background-color: #141c16;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   margin: 8rem 2rem 2rem 5rem;
   height: 10vh;
 `;
@@ -191,7 +209,9 @@ export const PageCardContainer = styled.div`
 
 export const SetaFaixa = styled.div`
   position: absolute;
-  transform: translateX(-50%); /* Isso vai garantir que a seta fique centralizada horizontalmente */
+  transform: translateX(
+    -50%
+  ); /* Isso vai garantir que a seta fique centralizada horizontalmente */
 
   left: 50%;
   bottom: 0%;
@@ -201,7 +221,7 @@ export const SetaFaixa = styled.div`
 export const FaixaTitle = styled.div`
   font-size: 1.6rem;
   font-weight: bolder;
-  color: #C2CFB4;
+  color: #c2cfb4;
   margin-left: 8rem;
 `;
 
@@ -233,7 +253,7 @@ export const FaixaContainer = styled.div<FaixaProps>`
   position: relative;
   display: flex;
   flex-direction: column;
-  height: ${props => props.isExpanded ? '90vh' : '16vh'};
+  height: ${(props) => (props.isExpanded ? "90vh" : "16vh")};
   width: 100%;
   background-color: #0f1410a2;
   align-items: start;
@@ -249,13 +269,16 @@ export const SetaPlusImg = styled.img<SetaProps>`
   height: 40px;
   transition: all 0.3s ease-in-out;
   filter: invert(1);
-  transform: ${props => props.isExpanded ? 'rotate(180deg)' : 'rotate(0deg)'};
-  animation: ${props => !props.isExpanded && pulseAnimation} 2.5s ease-in-out infinite;
+  transform: ${(props) =>
+    props.isExpanded ? "rotate(180deg)" : "rotate(0deg)"};
+  animation: ${(props) => !props.isExpanded && pulseAnimation} 2.5s ease-in-out
+    infinite;
 
   &:hover {
     cursor: pointer;
     animation: none;
-    transform: ${props => props.isExpanded ? 'rotate(180deg) scale(1.3)' : 'scale(1.3)'};
+    transform: ${(props) =>
+      props.isExpanded ? "rotate(180deg) scale(1.3)" : "scale(1.3)"};
   }
 `;
 
@@ -286,7 +309,7 @@ export const FaixaBodyCardsContainer2 = styled.div`
 
 export const FaixaBodyCardsTitle = styled.div`
   margin-left: 8rem;
-  color: #C2CFB4;
+  color: #c2cfb4;
   margin-bottom: 2rem;
   display: flex;
   flex-direction: row;
@@ -295,7 +318,7 @@ export const FaixaBodyCardsTitle = styled.div`
 `;
 
 export const FaixaBodyCardsTitle2 = styled.div`
-  color: #C2CFB4;
+  color: #c2cfb4;
 
   display: flex;
   flex-direction: row;
@@ -315,7 +338,7 @@ export const FaixaBodyCards = styled.div`
 `;
 
 export const FaixaBodyCard = styled.div<Props>`
-  background-color: ${props => props.backgroundColor};
+  background-color: ${(props) => props.backgroundColor};
   height: 21vh;
   width: 20vw;
   border-radius: 10px;
@@ -329,7 +352,7 @@ export const SubTitle = styled.div`
   width: 100%;
   justify-content: start;
 
-  color: #C2CFB4;
+  color: #c2cfb4;
   margin-left: 1rem;
   margin-top: 1rem;
 `;
@@ -352,13 +375,13 @@ export const SubCardFaixaText = styled.div`
   margin-top: 0.1rem;
   font-size: 1.13rem;
   padding: 5px;
-  color: #C2CFB4;
+  color: #c2cfb4;
 `;
 
 export const FaixaTilteBigText = styled.div`
   font-size: 2rem;
   font-weight: bolder;
-  color: #C2CFB4;
+  color: #c2cfb4;
   margin-left: 8rem;
 
   z-index: 1000;
@@ -416,12 +439,16 @@ export const LogoImgA = styled.img<{ $isPlaying: boolean; $blur?: boolean }>`
   left: 27%;
   transition: filter 0.3s ease;
 
-  ${props => props.$isPlaying && css`
-    animation: ${spin} 5s linear infinite;
-  `}
-  ${props => props.$blur && css`
-    filter: blur(2px);
-  `}
+  ${(props) =>
+    props.$isPlaying &&
+    css`
+      animation: ${spin} 5s linear infinite;
+    `}
+  ${(props) =>
+    props.$blur &&
+    css`
+      filter: blur(2px);
+    `}
 
   @media (max-width: 768px) {
     width: 15vw;
@@ -439,15 +466,22 @@ export const LogoContainer = styled.div`
     filter: blur(2px);
   } */
 `;
-export const PlayPauseIcon = styled.div<{ $isVisible: boolean, isMobileVisible: boolean }>`
-  opacity: ${props => {
+export const PlayPauseIcon = styled.div<{
+  $isVisible: boolean;
+  isMobileVisible: boolean;
+}>`
+  opacity: ${(props) => {
     if (!props.isMobileVisible) {
       return props.$isVisible ? 1 : 0;
     }
-    return (props.$isVisible && props.isMobileVisible) ? 1 : 0;
+    return props.$isVisible && props.isMobileVisible ? 1 : 0;
   }};
-  transition: opacity ${props => props.isMobileVisible ? '1s' : '0.3s'} ease-in-out;
-  ${props => props.isMobileVisible && props.$isVisible && css`
-    animation: ${fadeIn} 1s ease-in-out, ${fadeOut} 1s ease-in-out 1s forwards;
-  `}
+  transition: opacity ${(props) => (props.isMobileVisible ? "1s" : "0.3s")}
+    ease-in-out;
+  ${(props) =>
+    props.isMobileVisible &&
+    props.$isVisible &&
+    css`
+      animation: ${fadeIn} 1s ease-in-out, ${fadeOut} 1s ease-in-out 1s forwards;
+    `}
 `;

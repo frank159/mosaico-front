@@ -51,6 +51,15 @@ export const MovieImage = styled.img`
   margin-bottom: 1.5rem;
 `;
 
+export const MovieImageAlt = styled.img`
+  grid-area: image;
+  width: 100%;
+  height: 16rem;
+  padding: 2rem 0;  
+  object-fit: contain;
+  margin-bottom: 1.5rem;
+`;
+
 export const MovieTitle = styled.h2`
   grid-area: title;
   margin-bottom: 2rem !important;

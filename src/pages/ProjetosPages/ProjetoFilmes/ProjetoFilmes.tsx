@@ -9,9 +9,11 @@ const ProjetoFilmes: React.FC = () => {
     img: string; // Adicionado campo para a imagem
   }
 
-  const FilmeDianaDoAsfalto = 'https://res.cloudinary.com/dzsj3kqi8/image/upload/v1745364593/sample.jpg'
-  const FilmeMataramZacarias = 'https://res.cloudinary.com/dzsj3kqi8/image/upload/v1745364593/sample.jpg'
-  const FilmeMentesArtificiais = 'https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758122815/mentes_srguun.jpg'
+  const FilmeDianaDoAsfalto = "/logo512.png";
+  const FilmeMataramZacarias =
+    "/logo512.png";
+  const FilmeMentesArtificiais =
+    "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758122815/mentes_srguun.jpg";
 
   const defaultSlides: SlideItem[] = [
     {
@@ -43,10 +45,19 @@ const ProjetoFilmes: React.FC = () => {
       <S.MoviesGrid>
         {defaultSlides.map((movie, index) => (
           <S.MovieCard key={index}>
-            <S.MovieImage
-              src={movie.img}
-              alt={movie.title}
-            />
+            {index === 0 || index === 1 ? (
+              <S.MovieImageAlt src={movie.img} alt={movie.title} />
+            ) : (
+              <S.MovieImage
+                src={movie.img}
+                alt={movie.title}
+                style={
+                  index === 2
+                    ? { objectFit: "contain", backgroundColor: "#000000" }
+                    : {}
+                }
+              />
+            )}
             <S.MovieTitle>{movie.title}</S.MovieTitle>
             <S.MovieDescription>{movie.text}</S.MovieDescription>
             <S.ButtonContainer>

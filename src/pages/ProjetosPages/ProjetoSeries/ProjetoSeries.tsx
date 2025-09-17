@@ -9,9 +9,9 @@ const ProjetoSeries: React.FC = () => {
     img: string; // Adicionado campo para a imagem
   }
 
-  const SeriePuruna = 'https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758056176/as_domadoras_ktkbp2.jpg'
-  const SeriePalcoDeRua = 'https://res.cloudinary.com/dzsj3kqi8/image/upload/v1745364593/sample.jpg'
-  const puruna = 'https://res.cloudinary.com/dzsj3kqi8/image/upload/v1745364593/sample.jpg'
+  const SeriePuruna =
+    "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758056176/as_domadoras_ktkbp2.jpg";
+  const SeriePalcoDeRua = "/logo512.png";
 
   const defaultSlides: SlideItem[] = [
     {
@@ -27,7 +27,7 @@ const ProjetoSeries: React.FC = () => {
       title: "Palco de Rua",
       text: "Palco de Rua é uma série documental em 12 episódios que percorre as cinco regiões do Brasil para revelar a arte vibrante e diversa dos artistas de rua.",
       rote: "SeriePalcoDeRua",
-    }
+    },
   ];
 
   return (
@@ -36,10 +36,14 @@ const ProjetoSeries: React.FC = () => {
       <S.MoviesGrid>
         {defaultSlides.map((movie, index) => (
           <S.MovieCard key={index}>
-            <S.MovieImage
-              src={movie.img}
-              alt={movie.title}
-            />
+            {index === 1 ? (
+              <S.MovieImageAlt src={movie.img} alt={movie.title} />
+            ) : (
+              <S.MovieImage
+                src={movie.img}
+                alt={movie.title}
+              />
+            )}
             <S.MovieTitle>{movie.title}</S.MovieTitle>
             <S.MovieDescription>{movie.text}</S.MovieDescription>
             <S.ButtonContainer>

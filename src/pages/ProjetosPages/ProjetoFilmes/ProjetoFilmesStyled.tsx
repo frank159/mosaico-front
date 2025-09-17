@@ -46,7 +46,17 @@ export const MovieCard = styled.div`
 export const MovieImage = styled.img`
   grid-area: image;
   width: 100%;
+  height: 20rem;
   object-fit: cover;
+  margin-bottom: 1.5rem;
+`;
+
+export const MovieImageAlt = styled.img`
+  grid-area: image;
+  width: 100%;
+  height: 16rem;
+  padding: 2rem 0;  
+  object-fit: contain;
   margin-bottom: 1.5rem;
 `;
 
