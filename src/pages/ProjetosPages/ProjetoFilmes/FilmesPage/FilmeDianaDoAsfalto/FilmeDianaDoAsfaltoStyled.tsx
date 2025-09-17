@@ -12,6 +12,7 @@ export const MainContainer = styled.div`
   position: relative;
   overflow-y: hidden;
   margin-top: 5rem;
+  padding-bottom: 5rem;
 `;
 
 export const Body = styled.div`
@@ -172,8 +173,9 @@ export const ButtonB = styled(ButtonBase)`
   background-color: #253529 !important;
   color: #c2cfb4 !important;
   border-radius: 30px !important;
-  padding: 0.5rem 1rem !important;
+  padding: 1rem 2rem !important;
   font-weight: bold !important;
+  font-size: 1.2rem;
   font-family: "Arsenal", sans-serif !important;
 `;
 

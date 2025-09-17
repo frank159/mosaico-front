@@ -9,32 +9,25 @@ const ProjetoSeries: React.FC = () => {
     img: string; // Adicionado campo para a imagem
   }
 
-  const chocolateEterno = 'https://res.cloudinary.com/dzsj3kqi8/image/upload/v1745364593/sample.jpg'
-  const domadoras = 'https://res.cloudinary.com/dzsj3kqi8/image/upload/v1745364593/sample.jpg'
+  const SeriePuruna = 'https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758056176/as_domadoras_ktkbp2.jpg'
+  const SeriePalcoDeRua = 'https://res.cloudinary.com/dzsj3kqi8/image/upload/v1745364593/sample.jpg'
   const puruna = 'https://res.cloudinary.com/dzsj3kqi8/image/upload/v1745364593/sample.jpg'
 
   const defaultSlides: SlideItem[] = [
     {
       id: 1,
-      img: chocolateEterno,
-      title: "chocolate: eterno cidadão do samba",
-      text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-      rote: "teste",
+      img: SeriePuruna,
+      title: "Purunã (As Domadoras)",
+      text: "O seriado conta as aventuras de Franco e Maloni, dois moradores da região dos Campos Gerais, que são os guardiões da bela região da serra de São Luiz do Purunã. Entre roubo de cavalos, maquinários agrícolas, assalto a bancos, a bandidagem não consegue se criar na região.",
+      rote: "SeriePuruna",
     },
     {
       id: 2,
-      img: domadoras,
-      title: "as domadoras",
-      text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-      rote: "teste",
-    },
-    {
-      id: 3,
-      img: puruna,
-      title: "purunã",
-      text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-      rote: "teste",
-    },
+      img: SeriePalcoDeRua,
+      title: "Palco de Rua",
+      text: "Palco de Rua é uma série documental em 12 episódios que percorre as cinco regiões do Brasil para revelar a arte vibrante e diversa dos artistas de rua.",
+      rote: "SeriePalcoDeRua",
+    }
   ];
 
   return (

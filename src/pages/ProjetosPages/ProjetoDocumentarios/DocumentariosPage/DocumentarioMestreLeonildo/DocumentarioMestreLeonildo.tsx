@@ -1,9 +1,9 @@
-import * as S from "./DocumentarioChocolateStyled";
+import * as S from "./DocumentarioMestreLeonildoStyled";
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const xeretas1 =
-  "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324660/xeretas1_yk9fxp.png";
+const foto =
+  "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758053387/6D63A1BC-275B-4DF7-B8BB-1C26FBACE5C0_shfsmv.png";
 
 interface Video {
   id: number;
@@ -11,7 +11,7 @@ interface Video {
   src: string;
 }
 
-const DocumentarioChocolate: React.FC = () => {
+const DocumentarioMestreLeonildo: React.FC = () => {
   const [fullScreenImage, setFullScreenImage] = useState<string | null>(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const [selectedVideo, setSelectedVideo] = useState<Video | null>(null);
@@ -19,7 +19,7 @@ const DocumentarioChocolate: React.FC = () => {
 
   useEffect(() => {
     setFotosList([
-      "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758040686/choco_der9fq.jpg"
+      "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758040686/choco_der9fq.jpg",
     ]);
   }, []);
 
@@ -39,7 +39,7 @@ const DocumentarioChocolate: React.FC = () => {
   const xeretas = {
     id: 1,
     title: "Trailer OS XERETAS",
-    src: "https://www.youtube.com/watch?v=m2NIJ-VwEOo",
+    src: "https://www.youtube.com/watch?v=MyoaMgpE5oc",
   };
 
   useEffect(() => {
@@ -49,77 +49,82 @@ const DocumentarioChocolate: React.FC = () => {
   }, []);
 
   const handleClose = () => setFullScreenImage(null);
+  // Nova versão pra imagem flutuante
 
   return (
     <S.MainContainer>
       <S.Body>
         <S.ContainerSubA>
-          <S.ContainerLeftA>
-            <S.ImgList>
-              {fotosList.map((foto, index) => (
-                <S.ImgFotoDiv key={index}>
-                  <S.ImgFoto src={foto}></S.ImgFoto>
-                </S.ImgFotoDiv>
-              ))}
-            </S.ImgList>
-          </S.ContainerLeftA>
-          <S.ContainerRightA>
-            <S.TitleA>chocolate: eterno cidadão do samba</S.TitleA>
-            <S.TextoAContiner>
-              <S.TextoA>
-                O Eterno Cidadão Samba é uma homenagem e também uma profunda
-                reflexão sobre a luta contra o preconceito racial e social. O
-                filme retrata com sensibilidade e autenticidade a história desse
-                homem que, apesar de todas as adversidades, manteve vivo o
-                espírito do samba e sua cultura, tornando-se uma referência e
-                inspiração para muitas gerações. Chocolate, cujo nome verdadeiro
-                era Mansueden dos Santos Prudente, foi muito mais do que um
-                sambista. Ele foi um símbolo de resistência e orgulho para a
-                comunidade negra em Curitiba, enfrentando o racismo e as
-                dificuldades econômicas com a alegria contagiante do samba. Sua
-                ddbddiãti Chocolate, cujo nome verdadeiro era Mansueden dos
-                Santos Prudente, foi muito mais do que um sambista. Ele foi um
-                símbolo de resistência e orgulho para a comunidade negra em
-                Curitiba, enfrentando o racismo e as dificuldades econômicas com
-                a alegria contagiante do samba. Sua presença nas rodas de samba
-                e sua dedicação em manter viva essa tradição cultural fizeram
-                dele uma figura amada e respeitada, não só no Paraná, mas em
-                todo o Brasil. O documentário mergulha na vida de Chocolate,
-                trazendo depoimentos de amigos, familiares e músicos que
-                compartilharam momentos inesquecíveis com ele. Bem como a
-                importância do samba como forma de expressão cultural e
-                resistência, destacando o papel que Chocolate desempenhou na
-                preservação e promoção dessa arte em Curitiba. Uma celebração da
-                vida e obra de Chocolate, o documentário é também uma reflexão
-                sobre a importância da luta contra o preconceito e a valorização
-                da cultura negra.
-              </S.TextoA>
-              <br />
-              <br />
-              <br />
-              <S.TextoC>
-                <strong>Direção:</strong> Nivaldo Lopes e Eduardo Prante
-              </S.TextoC>
-            </S.TextoAContiner>
-          </S.ContainerRightA>
+          <S.TextoWrap>
+            <S.FloatedImage src={foto} alt="Imagem do documentário" />
+            <S.TitleA>Mestre Leonildo sapateando e valseando a vida</S.TitleA>
+            <S.TextoA>
+              Mestre Leonildo sapateando e valseando a vida é um documentário de
+              longa metragem socio-antropológicocultural, captado e finalizado
+              em digital, ao longo de mais de 20 anos, que narra, através do
+              fandango, num dos biomas de mata atlântica mais preservadas do
+              Brasil, a relação de um autentico caiçara que preserva toda sua
+              ancestralidade, com seu modo de vida, sua relação com o meio
+              ambiente e a arte. O filme busca mostrar a realidade de Leonildo
+              Pereira, carismático tocador de rabeca, viola, conhecedor profundo
+              das modas fandangueiras, batidas e valsadas, morador de
+              Guaraqueçaba, litoral norte do Paraná, que alimenta o corpo com as
+              coisas da terra e do mar, e a alma com a arte de construir
+              instrumentos, com a dança e com a música.
+            </S.TextoA>
+          </S.TextoWrap>
         </S.ContainerSubA>
+        <S.TextoC>
+          <strong>Documentario:</strong> Mestre Leonildo sapateando e valseando
+          a vida
+          <br />
+          <strong>Gênero:</strong> documentário
+          <br />
+          <strong>Direção e Roteiro:</strong> Geraldo Pioli
+          <br />
+          <strong>Produção:</strong> Carla Pioli
+          <br />
+          <strong>Edição / montagem:</strong> Yanko del Pino e Frank de Castro
+          <br />
+          <strong>Edição de som e mixagem:</strong> Ulisses Galetto
+          <br />
+          <strong>Diretor musical:</strong> Oswaldo Rios
+          <br />
+          <strong>Trilha original:</strong> Rogério Gulin
+        </S.TextoC>
       </S.Body>
       <S.BodyB>
-        <S.TitleB>sobre o Diretor:</S.TitleB>
+        <S.TitleB>Geraldo Pioli</S.TitleB>
         <S.TextB>
-          Nivaldo Lopes – Cineasta, montador e produtor (nascido em 22/06/1957,
-          Itambaracá-PR). Atua no cinema desde 1980, com experiência em direção,
-          roteiro, fotografia, montagem e produção. É produtor cinematográfico
-          registrado na ANCINE (nº 2599) e tem DRT 14974. Filmografia própria:
-          realizou 8 curtas e 1 longa, além de documentários e médias-metragens.
-          Entre os destaques: Chocolate – O Eterno Cidadão Samba (2024),
-          Presença Negra em Curitiba (2018), Presos Comuns (2009), Mar Paraguayo
-          (2004) e o longa A Guerra do Pente (1986). Colaborações: atuou como
-          montador, roteirista, diretor de arte e produtor em diversos projetos
-          do cinema paranaense, trabalhando com cineastas como Geraldo Pioli,
-          Moacir David, Estevan Silveira e outros. Produções institucionais:
-          desenvolveu documentários para a Fundação Cultural de Curitiba, como
-          Hip Hop em Terra de Polaco e Projeto Arquivo Memória.
+          <strong>Cineasta paranaense</strong>
+          <br />
+          <strong>Atividades / Papéis:</strong>
+          <br />
+          • Diretor e roteirista de vários curtas-metragem.
+          <br />
+          • Produtor de documentários, ex: “Rádio Educativa do Paraná”.
+          <br />
+          • Coordenador ou instrutor de cursos, oficinas e práticas de cinema,
+          principalmente na Cinemateca de Curitiba.
+          <br />
+          • Mediador de debates sobre cinema brasileiro.
+          <br />
+          <br />
+          <strong>Obras de destaque:</strong>
+          <br />
+          • Curta “Aldeia”.
+          <br />
+          • Curta “Devoção”.
+          <br />
+          • Documentário sobre a Rádio Educativa do Paraná.
+          <br />
+          <br />
+          <strong>Reconhecimentos / Outros papéis:</strong>
+          <br />
+          •Ex-presidente da Associação de Vídeo e Cinema do Paraná. 
+          <br />
+          •Recebeu prêmios como Gralha Azul da Federação Paranaense de Cineclubes, pelo trabalho como programador de cinema, e “Talento do Paraná” em 2000.
+          <br />
         </S.TextB>
         <S.ButtonB>Saiba Mais</S.ButtonB>
       </S.BodyB>
@@ -213,4 +218,4 @@ const DocumentarioChocolate: React.FC = () => {
   );
 };
 
-export default DocumentarioChocolate;
+export default DocumentarioMestreLeonildo;
