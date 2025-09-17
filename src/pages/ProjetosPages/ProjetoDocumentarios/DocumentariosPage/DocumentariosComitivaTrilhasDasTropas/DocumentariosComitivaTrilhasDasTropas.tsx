@@ -123,6 +123,7 @@ const DocumentarioComitivaTrilhasDasTropas: React.FC = () => {
           experiência na área audiovisual e formação em Engenharia
           Cartográfica,cinema e pós-produção.
           <br />
+          <br />
           <strong>Experiência:</strong>
           <br />
           • Atuou na Cinemateca do Museu Guido Viaro (1979–1981).
@@ -134,7 +135,10 @@ const DocumentarioComitivaTrilhasDasTropas: React.FC = () => {
           Ltda., UFPR e FAP.
           <br />
           • Instrutor de oficinas de cinema (Festival Curta 8, Cinemateca de
-          Curitiba). Atuação no Cinema:
+          Curitiba).
+          <br />
+          <br />
+          <strong>Atuação no Cinema:</strong>
           <br />
           • Diretor, montador e roteirista de curtas, telefilmes e longas
           documentais e de ficção.
@@ -147,13 +151,12 @@ const DocumentarioComitivaTrilhasDasTropas: React.FC = () => {
           <br />• Obras premiadas incluem Mistérios, Está nas Escrituras,
           Esmarteza e outros curtas exibidos em diversos festivais
         </S.TextB>
-        <S.ButtonB>Saiba Mais</S.ButtonB>
       </S.BodyB>
       <S.Galeria>
         <S.GalleryContainer>
           <S.Gallery>
             {/* Vertical esquerda */}
-            <S.GalleryCard style={{ gridColumn: "1", gridRow: "2" }}>
+            <S.GalleryCard style={{ gridColumn: "3", gridRow: "1" }}>
               <S.Img
                 src={galeriaFotos[0].src}
                 alt={galeriaFotos[0].alt}
@@ -167,7 +170,7 @@ const DocumentarioComitivaTrilhasDasTropas: React.FC = () => {
               />
             </S.GalleryCard>
             {/* Vertical direita */}
-            <S.GalleryCard style={{ gridColumn: "2", gridRow: "2" }}>
+            <S.GalleryCard style={{ gridColumn: "6", gridRow: "1" }}>
               <S.Img
                 src={galeriaFotos[1].src}
                 alt={galeriaFotos[1].alt}
@@ -195,7 +198,7 @@ const DocumentarioComitivaTrilhasDasTropas: React.FC = () => {
               />
             </S.GalleryCard>
             {/* Horizontal centro baixo */}
-            <S.GalleryCard style={{ gridColumn: "1 / span 2", gridRow: "3" }}>
+            <S.GalleryCard style={{ gridColumn: "4 / 6 ", gridRow: "1" }}>
               <S.Img
                 src={galeriaFotos[3].src}
                 alt={galeriaFotos[3].alt}

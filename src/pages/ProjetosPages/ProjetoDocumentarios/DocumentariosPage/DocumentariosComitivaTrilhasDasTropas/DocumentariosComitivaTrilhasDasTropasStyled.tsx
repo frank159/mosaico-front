@@ -331,13 +331,12 @@ export const GalleryCard = styled.div`
 
 export const Gallery = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
   gap: 12px;
   width: 100%;
-  min-width: 320px;
-  max-width: 600px;
-
+  padding-left: 3rem;
+  padding-right: 3rem;
   @media (max-width: 768px) {
     display: flex;
     flex-direction: column;
