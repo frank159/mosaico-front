@@ -10,7 +10,7 @@ const ProjetoSeries: React.FC = () => {
   }
 
   const SeriePuruna =
-    "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758056176/as_domadoras_ktkbp2.jpg";
+    "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758221007/Purun%C3%A32_mlhabo.jpg";
   const SeriePalcoDeRua = "/logo512.png";
 
   const defaultSlides: SlideItem[] = [
@@ -39,10 +39,7 @@ const ProjetoSeries: React.FC = () => {
             {index === 1 ? (
               <S.MovieImageAlt src={movie.img} alt={movie.title} />
             ) : (
-              <S.MovieImage
-                src={movie.img}
-                alt={movie.title}
-              />
+              <S.MovieImage src={movie.img} alt={movie.title} />
             )}
             <S.MovieTitle>{movie.title}</S.MovieTitle>
             <S.MovieDescription>{movie.text}</S.MovieDescription>

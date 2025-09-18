@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const foto =
-  "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758056176/as_domadoras_ktkbp2.jpg";
+  "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758220017/Purun%C3%A3_wl6z3j.jpg";
 
 interface Video {
   id: number;
@@ -15,13 +15,6 @@ const DocumentarioPuruna: React.FC = () => {
   const [fullScreenImage, setFullScreenImage] = useState<string | null>(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const [selectedVideo, setSelectedVideo] = useState<Video | null>(null);
-  const [fotosList, setFotosList] = useState<string[]>([]);
-
-  useEffect(() => {
-    setFotosList([
-      "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758040686/choco_der9fq.jpg",
-    ]);
-  }, []);
 
   const getEmbedUrl = (src: string) => {
     const ytMatch = src.match(
@@ -55,31 +48,33 @@ const DocumentarioPuruna: React.FC = () => {
     <S.MainContainer>
       <S.Body>
         <S.ContainerSubA>
-          <S.TextoWrap>
-            <S.FloatedImage src={foto} alt="Imagem do documentário" />
-            <S.TitleA>Puruna (As Domadoras)</S.TitleA>
-            <S.TextoA>
-              O seriado conta as aventuras de Franco e Maloni, dois moradores da
-              região dos Campos Gerais, que são os guardiões da bela região da
-              serra de São Luiz do Purunã. Entre roubo de cavalos, maquinários
-              agrícolas, assalto a bancos, a bandidagem não consegue se criar na
-              região.
+          <S.FloatedImage src={foto} alt="Imagem do documentário" />
+          <S.TextContainer>
+            <S.TextoContainerB>
+              <S.TitleA>Puruna</S.TitleA>
+              <S.TextoA>
+                O seriado conta as aventuras de Franco e Maloni, dois moradores
+                da região dos Campos Gerais, que são os guardiões da bela região
+                da serra de São Luiz do Purunã. Entre roubo de cavalos,
+                maquinários agrícolas, assalto a bancos, a bandidagem não
+                consegue se criar na região.
+                <br />
+                Paolla, Mariana, Jeniffer e Karoliny Quatro mulheres e um
+                desafio: domar uma potra xucra da Cabanha São Rafael em apenas
+                15 dias. Enquanto a Cabanha se prepara para recebê-las, elas
+                aterrissam em Curitiba e logo seguem para São Luiz do Purunã,
+                onde o primeiro desafio as aguarda.
+              </S.TextoA>
+            </S.TextoContainerB>
+            <S.TextoC>
+              <strong>Direção e Roteiro:</strong> Willy Schuman
               <br />
-              Paolla, Mariana, Jeniffer e Karoliny Quatro mulheres e um desafio:
-              domar uma potra xucra da Cabanha São Rafael em apenas 15 dias.
-              Enquanto a Cabanha se prepara para recebê-las, elas aterrissam em
-              Curitiba e logo seguem para São Luiz do Purunã, onde o primeiro
-              desafio as aguarda.
-            </S.TextoA>
-          </S.TextoWrap>
+              <strong>Produção:</strong> Horse Filmes
+              <br />
+              <strong>Uma série original:</strong> Cabanha São Rafael.
+            </S.TextoC>
+          </S.TextContainer>
         </S.ContainerSubA>
-        <S.TextoC>
-          <strong>Direção e Roteiro:</strong> Willy Schuman
-          <br />
-          <strong>Produção:</strong> Horse Filmes
-          <br />
-          <strong>Uma série original:</strong> Cabanha São Rafael.
-        </S.TextoC>
       </S.Body>
       <S.BodyB>
         <S.TitleB>Willy Schumann</S.TitleB>

@@ -180,11 +180,13 @@ const School: React.FC = () => {
             </S.ImgCard>
           </S.TextImgCard>
         </S.TextImgCardMain>
-
-        <S.MainTitle>filmes produzidos pelos alunos</S.MainTitle>
+        <S.MainTitleContainer>
+          <S.MainTitle>filmes produzidos pelos alunos</S.MainTitle>
+        </S.MainTitleContainer>
         <S.VideoContainer>{renderVideoSection(videos)}</S.VideoContainer>
-
-        <S.MainTitle>fotos da pré e pós produção</S.MainTitle>
+        <S.MainTitleContainer>
+          <S.MainTitle>fotos da pré e pós produção</S.MainTitle>
+        </S.MainTitleContainer>
         <S.Galeria>
           {[ft2, ft3, ft4, ft5, ft6, ft7, ft8, ft9, ft10, ft11].map(
             (src, i) => (
@@ -194,10 +196,36 @@ const School: React.FC = () => {
             )
           )}
         </S.Galeria>
-
-        <S.MainTitle>Reportagens sobre o ceepa</S.MainTitle>
-        <S.VideoContainer>{renderVideoSection(reportVideos)}</S.VideoContainer>
-
+        <S.MainTitleContainer>
+          <S.MainTitle>Reportagens sobre o ceepa</S.MainTitle>
+        </S.MainTitleContainer>
+        <S.VideoContainerAlt>
+          <S.VideoCardAlt
+            key={9}
+            onClick={() =>
+              setSelectedVideo({
+                id: 9,
+                title: "Case Ceepa",
+                src: "https://youtu.be/XsQRllbukoM?si=FdA4IcOPnGNvUH5G",
+              })
+            }
+          >
+            <S.VideoThumbnailAlt>
+              <iframe
+                src={getEmbedUrl(
+                  "https://youtu.be/XsQRllbukoM?si=FdA4IcOPnGNvUH5G"
+                )}
+                width="100%"
+                height="100%"
+                allow="autoplay; encrypted-media"
+                allowFullScreen
+                style={{ border: 0 }}
+                title={"Globo Reporter"}
+              />
+            </S.VideoThumbnailAlt>
+            <S.VideoCardTitle>• {"Globo Reporter"}</S.VideoCardTitle>
+          </S.VideoCardAlt>
+        </S.VideoContainerAlt>
         <AnimatePresence>
           {selectedVideo && (
             <motion.div
@@ -248,8 +276,8 @@ const School: React.FC = () => {
 
         <S.LinhaHorizontal />
         <S.Organizacao>
-          <S.VideoContainerB>
-            <S.VideoCard
+          <S.VideoContainerAlt>
+            <S.VideoCardAlt
               key={9}
               onClick={() =>
                 setSelectedVideo({
@@ -259,7 +287,7 @@ const School: React.FC = () => {
                 })
               }
             >
-              <S.VideoThumbnailB>
+              <S.VideoThumbnail>
                 <iframe
                   src={getEmbedUrl(
                     "https://youtu.be/0m5YbDwTSSg?si=XcblAZA184FYhbkj"
@@ -271,12 +299,14 @@ const School: React.FC = () => {
                   style={{ border: 0 }}
                   title={"Entenda o que é o CEEPA"}
                 />
-              </S.VideoThumbnailB>
+              </S.VideoThumbnail>
               <S.VideoCardTitle>• {"Entenda o que é o CEEPA"}</S.VideoCardTitle>
-            </S.VideoCard>
-          </S.VideoContainerB>
+            </S.VideoCardAlt>
+          </S.VideoContainerAlt>
           <S.OrganizacaoCard>
-            <S.MainTitle>organização CEEPA</S.MainTitle>
+            <S.MainTitleContainer>
+              <S.MainTitle>organização CEEPA</S.MainTitle>
+            </S.MainTitleContainer>
             <S.OrganisationCard>
               <p>
                 <strong>Silvana Fontana</strong> – produtora

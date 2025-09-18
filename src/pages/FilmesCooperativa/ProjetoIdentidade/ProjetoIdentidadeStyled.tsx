@@ -1,5 +1,5 @@
-import { Button } from '@mui/material';
-import styled from 'styled-components';
+import { Button } from "@mui/material";
+import styled from "styled-components";
 
 interface Props {
   height?: string;
@@ -34,14 +34,12 @@ export const ContainerSubA = styled.div`
   flex-direction: row;
   justify-content: center;
   margin-bottom: 10vh;
-  
-  
+
   @media (max-width: 1224px) {
     margin-bottom: 0;
     margin-top: 10vh;
     width: auto;
     height: auto;
-
   }
 
   @media (max-width: 768px) {
@@ -96,7 +94,7 @@ export const TextoA = styled.p`
   line-height: 1;
 
   @media (max-width: 768px) {
-    font-size: 1.2rem !important; 
+    font-size: 1.2rem !important;
   }
 `;
 
@@ -107,7 +105,7 @@ export const ContainerRightA = styled.div`
   height: 100%;
   display: flex;
   justify-content: center;
-  
+
   @media (max-width: 1224px) {
     height: auto;
   }
@@ -146,7 +144,7 @@ export const SubContainer = styled.div`
 export const SubTextContainer = styled.p`
   width: 55%;
   text-align: center;
-  
+
   @media (max-width: 1224px) {
     width: auto;
   }
@@ -189,7 +187,7 @@ export const TitleC = styled.h1`
 `;
 
 export const BigCard = styled.div<Props>`
-  height: ${(props)=> props.height || '80vh'};
+  height: ${(props) => props.height || "80vh"};
   width: 60vw;
   margin-bottom: 10vh;
   background-color: black;
@@ -241,7 +239,8 @@ export const TopSectionCard = styled.div<Props>`
   gap: 1rem;
 
   @media (max-width: 1224px) {
-    flex-direction: ${(props)=> props.InvertCard ? 'column-reverse' : 'column'};
+    flex-direction: ${(props) =>
+      props.InvertCard ? "column-reverse" : "column"};
   }
 `;
 
@@ -256,9 +255,7 @@ export const TopSectionCardB = styled.div`
   flex-direction: row;
   gap: 10px;
   position: relative;
-`
-
-
+`;
 
 export const CardlindText = styled.div<Props>`
   width: 1px;
@@ -267,7 +264,7 @@ export const CardlindText = styled.div<Props>`
   height: 100%; /* Altura total ou personalizada */
   border-radius: 10px;
   background-color: #253529; /* Cor da linha */
-  position: absolute;  /* Necessário para o tamanho máximo da linha */
+  position: absolute; /* Necessário para o tamanho máximo da linha */
   top: 0;
   bottom: 0;
 `;
@@ -287,32 +284,28 @@ export const TextoBigCardSection = styled.div`
   flex-direction: column;
 `;
 
-
-
-export const TitleBigcardB = styled.h1`
-
-`;
+export const TitleBigcardB = styled.h1``;
 
 export const TextoB = styled.p`
   line-height: 1;
   width: 100%;
 
   @media (max-width: 768px) {
-    font-size: 1.2rem !important; 
+    font-size: 1.2rem !important;
   }
 `;
 
 export const CardButton = styled(Button)`
-    background-color: #2F2E29 !important;
-    color: white !important;
-    border-radius: 40px !important;
-    text-transform: none !important;
-    font-weight: lighter !important;
-    width: 20vw;
-    font-size: 1.2rem !important;
+  background-color: #2f2e29 !important;
+  color: white !important;
+  border-radius: 40px !important;
+  text-transform: none !important;
+  font-weight: lighter !important;
+  width: 20vw;
+  font-size: 1.2rem !important;
 
-    @media (max-width: 1224px) {
-      width: 100%;
+  @media (max-width: 1224px) {
+    width: 100%;
   }
 `;
 
@@ -343,13 +336,12 @@ export const BodyC = styled.div`
   }
 `;
 
-
 export const VideoWrapper = styled.div`
   width: 70%;
   margin-top: 2rem;
   display: flex;
   justify-content: center;
-  
+
   @media (max-width: 1224px) {
     width: 100%;
   }
@@ -416,4 +408,38 @@ export const CloseButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+export const VideoContainer = styled.div`
+  width: 100%;
+  height: 30rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+`;
+
+export const VideoGrid = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const VideoCard = styled.div`
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s;
+  height: 100%;
+  width: 100%;
+  &:hover {
+    transform: scale(1.03);
+  }
+`;
+
+export const VideoThumbnail = styled.div`
+  height: 100%;
 `;

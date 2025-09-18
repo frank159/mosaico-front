@@ -342,7 +342,7 @@ const CooperativaCurriculo: React.FC = () => {
             </S.NewTextContainerText>
             <S.LineA />
             <S.NewTextContainerTitleText>
-              <S.NewTextContainerTitleSub>1999</S.NewTextContainerTitleSub>
+              <S.NewTextContainerTitleSubAlt>1999</S.NewTextContainerTitleSubAlt>
             </S.NewTextContainerTitleText>
             <S.Line />
             <S.NewTextContainerText>
@@ -351,7 +351,7 @@ const CooperativaCurriculo: React.FC = () => {
             </S.NewTextContainerText>
             <S.LineA />
             <S.NewTextContainerTitleText>
-              <S.NewTextContainerTitleSub>1998</S.NewTextContainerTitleSub>
+              <S.NewTextContainerTitleSubAlt>1998</S.NewTextContainerTitleSubAlt>
             </S.NewTextContainerTitleText>
             <S.Line />
             <S.NewTextContainerText>
@@ -360,7 +360,7 @@ const CooperativaCurriculo: React.FC = () => {
             </S.NewTextContainerText>
             <S.LineA />
             <S.NewTextContainerTitleText>
-              <S.NewTextContainerTitleSub>1997</S.NewTextContainerTitleSub>
+              <S.NewTextContainerTitleSubAlt>1997</S.NewTextContainerTitleSubAlt>
             </S.NewTextContainerTitleText>
             <S.Line />
             <S.NewTextContainerText>
@@ -372,7 +372,7 @@ const CooperativaCurriculo: React.FC = () => {
             </S.NewTextContainerText>
             <S.LineA />
             <S.NewTextContainerTitleText>
-              <S.NewTextContainerTitleSub>1996</S.NewTextContainerTitleSub>
+              <S.NewTextContainerTitleSubAlt>1996</S.NewTextContainerTitleSubAlt>
             </S.NewTextContainerTitleText>
             <S.Line />
             <S.NewTextContainerText>
@@ -388,7 +388,7 @@ const CooperativaCurriculo: React.FC = () => {
             <S.LineA />
 
             <S.NewTextContainerTitleText>
-              <S.NewTextContainerTitleSub>1994</S.NewTextContainerTitleSub>
+              <S.NewTextContainerTitleSubAlt>1994</S.NewTextContainerTitleSubAlt>
             </S.NewTextContainerTitleText>
             <S.Line />
             <S.NewTextContainerText>

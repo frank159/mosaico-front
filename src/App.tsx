@@ -25,6 +25,7 @@ import FilmeDianaDoAsfalto from './pages/ProjetosPages/ProjetoFilmes/FilmesPage/
 import FilmeMataramZacarias from './pages/ProjetosPages/ProjetoFilmes/FilmesPage/FilmeMataramZacarias/FilmeMataramZacarias';
 import FilmeMentesArtificiais from './pages/ProjetosPages/ProjetoFilmes/FilmesPage/FilmeMentesArtificiais/FilmeMentesArtificiais';
 import SeriePalcoDeRua from './pages/ProjetosPages/ProjetoSeries/SeriesPages/SeriePalcoDeRua/SeriePalcoDeRua';
+import FilmeEçaDeQueiroz from './pages/ProjetosPages/ProjetoFilmes/FilmesPage/FilmeEçaDeQueiroz/FilmeEçaDeQueiroz';
 
 const App: React.FC = () => {
   return (
@@ -42,6 +43,8 @@ const App: React.FC = () => {
         <Route path="/FilmeDianaDoAsfalto" element={<FilmeDianaDoAsfalto />} />
         <Route path="/FilmeMataramZacarias" element={<FilmeMataramZacarias />} />
         <Route path="/FilmeMentesArtificiais" element={<FilmeMentesArtificiais />} />
+
+        <Route path="/FilmeEçaDeQueiroz" element={<FilmeEçaDeQueiroz />} />
 
         <Route path="/Series" element={<ProjetoSeries />} />
         <Route path="/SeriePuruna" element={<SeriePuruna />} />

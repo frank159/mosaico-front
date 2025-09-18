@@ -12,35 +12,46 @@ export const MainContainer = styled.div`
   position: relative;
   overflow-y: hidden;
   margin-top: 5rem;
+  padding-bottom: 5rem;
 `;
 
 export const Body = styled.div`
   width: auto;
   height: auto;
   padding-top: 5rem;
-  padding-bottom: 2rem;
-  padding: 5rem 3rem 2rem 3rem;
 `;
 
 export const ContainerSubA = styled.div`
+  width: auto;
+  height: auto;
   display: flex;
+  margin-bottom: 0;
+  align-items: start;
   flex-direction: row;
-  @media (max-width: 768px) {
+  justify-content: center;
+  padding-left: 3rem;
+
+  @media (max-width: 900px) {
+    width: 100%;
     flex-direction: column;
   }
 `;
 
 export const ContainerLeftA = styled.div`
-  padding-left: 3rem;
-  height: 100%;
+  width: 30%;
   display: flex;
   justify-content: center;
+
+  @media (max-width: 900px) {
+    width: 80%;
+    padding-bottom: 3rem;
+    flex-direction: column;
+  }
 `;
 
 export const TitleA = styled.h1`
   line-height: 1;
-  color: white;
-  margin-bottom: 1rem !important;
+  margin: 0 !important;
   padding: 0 !important;
 `;
 
@@ -54,7 +65,7 @@ export const TextoAContiner = styled.div`
 
 export const TextoA = styled.p`
   line-height: 1;
-  color: white;
+
   @media (max-width: 768px) {
     font-size: 1.5rem;
   }
@@ -67,19 +78,11 @@ export const TextoB = styled.p`
   }
 `;
 
-export const TextoContainerB = styled.div`
-  height: 100%;
-  padding-right: 0;
-  @media (min-width: 768px) {
-    padding-right: 2rem;
-  }
-`;
-
 export const TextoC = styled.p`
-  color: white;
-  margin-top: 0.5rem !important;
+  margin-top: 2rem !important;
   font-size: 1.2rem !important;
   @media (max-width: 1224px) {
+    margin-top: 0.5rem !important;
     font-size: 1rem !important;
   }
 `;
@@ -87,7 +90,7 @@ export const TextoC = styled.p`
 export const Stro = styled.strong``;
 
 export const ContainerRightA = styled.div`
-  height: auto !important;
+  width: 70%;
   color: white;
   display: flex;
   flex-direction: column;
@@ -97,16 +100,26 @@ export const ContainerRightA = styled.div`
   margin-bottom: 5rem;
   padding-left: 3rem;
   padding-right: 3rem;
+
+  @media (max-width: 900px) {
+    padding-left: 0;
+  }
 `;
 
-export const ImgList = styled.div``;
+export const ImgList = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+`;
 
 export const ImgFotoDiv = styled.div`
-  width: 40vw;
+  height: 17rem;
+  width: 30rem;
   overflow: hidden;
 
-  @media (max-width: 768px) {
-    width: 80vw;
+  @media (max-width: 720px) {
+    height: 9rem;
+    width: 16rem;
   }
 `;
 
@@ -168,8 +181,9 @@ export const ButtonB = styled(ButtonBase)`
   background-color: #253529 !important;
   color: #c2cfb4 !important;
   border-radius: 30px !important;
-  padding: 0.5rem 1rem !important;
+  padding: 1rem 2rem !important;
   font-weight: bold !important;
+  font-size: 1.2rem;
   font-family: "Arsenal", sans-serif !important;
 `;
 
@@ -311,16 +325,6 @@ export const Img = styled.img`
   }
 `;
 
-export const GalleryContainer = styled.div`
-  padding: 7rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  @media (max-width: 1224px) {
-    padding: 2rem;
-  }
-`;
-
 export const GalleryCard = styled.div`
   transition: 0.5s;
   z-index: 10;
@@ -417,75 +421,41 @@ export const CloseButton = styled.button`
   align-items: center;
 `;
 
-export const VideoContainer = styled.div`
-  padding-left: 3rem;
-  padding-right: 3rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 2rem;
-  @media (max-width: 768px) {
-    margin-bottom: 0;
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-`;
-
-export const VideoGrid = styled.div`
-  height: 40rem;
-  width: 60rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  @media (max-width: 768px) {
-    height: 20rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-`;
-
-export const VideoCard = styled.div`
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.2s;
-  height: 100%;
+export const GalleryContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: auto; /* altura base das células */
+  gap: 12px;
   width: 100%;
+  margin: 1rem 0;
+  
+  @media (max-width: 720px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+export const GalleryItem = styled.div`
+  display: flex;
+  margin: 0.5rem 0.5rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  overflow: hidden;
+  /* Definindo o estado inicial */
+  transform: scale(1);
+  transition: transform 0.3s ease-in-out; /* aplica para ambos os lados */
+  z-index: 90;
+
   &:hover {
-    transform: scale(1.03);
+    z-index: 99;
+    cursor: pointer;
+    transform: scale(1.01);
   }
 `;
 
-export const VideoThumbnail = styled.div`
-  height: 100%;
-`;
+export const GalleryImg = styled.img`
+  max-width: 100%;
+  max-height: 100%;
 
-export const TextContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-`;
-
-export const FloatedImage = styled.img`
-  float: left;
-  width: 30vw;
-  padding-right: 1rem;
-  @media (max-width: 768px) {
-    float: none;
-    display: block;
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    padding-left: 0;
-    margin-bottom: 2rem;
-  }
-`;
-
-// O container do texto vai fluir naturalmente ao redor
-export const TextoWrap = styled.div`
-  display: flex;
-  height: 100%;
-
-  flex-direction: row;
+  object-fit: contain; /* garante que a imagem inteira aparece */
 `;

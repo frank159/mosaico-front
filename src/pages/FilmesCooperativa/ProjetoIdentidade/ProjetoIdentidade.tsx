@@ -1,6 +1,6 @@
 import * as S from "./ProjetoIdentidadeStyled";
 import React, { useState } from "react";
-import { motion } from "motion/react"; // ou "framer-motion" conforme sua lib
+import { AnimatePresence, motion } from "motion/react"; // ou "framer-motion" conforme sua lib
 import ReactPlayer from "react-player";
 import { useSearchParams } from "react-router-dom";
 
@@ -56,15 +56,41 @@ const saint10 =
 const saint11 =
   "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324657/saint11_hsldnu.png";
 
+interface Video {
+  id: number;
+  title: string;
+  src: string;
+}
+
 const ProjetoIdentidade: React.FC = () => {
   const [search] = useSearchParams();
   const fromCooperativa = search.get("fromCooperativa") === "true";
   const mainImage = fromCooperativa ? idProgetoDefault : idProgeto;
+  const [selectedVideo, setSelectedVideo] = useState<Video | null>(null);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [galleryImages, setGalleryImages] = useState<string[]>([]);
   const [fullScreenImage, setFullScreenImage] = useState<string | null>(null);
   const isMobile = window.innerWidth <= 768;
+
+  const getEmbedUrl = (src: string) => {
+    const ytMatch = src.match(
+      /(?:youtu\.be\/|youtube\.com\/watch\?v=)([^?&]+)/i
+    );
+    if (ytMatch && ytMatch[1]) {
+      return `https://www.youtube.com/embed/${ytMatch[1]}`;
+    }
+    if (src.includes("drive.google.com")) {
+      return src.replace("/view?usp=drive_link", "/preview");
+    }
+    return src;
+  };
+
+  const frenteFria = {
+    id: 1,
+    title: "SÃO GONÇALO",
+    src: "https://www.youtube.com/watch?v=oYThW2vrqJ8",
+  };
 
   const openGallery = (images: string[]) => {
     setGalleryImages(images);
@@ -233,27 +259,27 @@ const ProjetoIdentidade: React.FC = () => {
               <S.TitleBigcardB>SOBRE:</S.TitleBigcardB>
               <S.TextoB>
                 Remexer a cultura popular significa encontrar momentos e
-                personagens reais fascinantes.De muito tempo e em várias
-                regiões brasileiras há os seguidores de São Gonçalo,santo
-                português que promovia a música e danças para aproximar os tidos
-                como “excluídos “.Depois de anos observando comunidades
-                regionais do Paraná, como Ventania, e realizando outros
-                trabalhos audiovisuais deresgate histórico e cultural,
-                percebemos que as romarias que avançam madrugada a dentro são
-                bastantes fortes .Os envolvidos pedem bênção,pagam promessas,
-                fazem oferendas ao santo, dançam e cantam por horas a fio em
-                filas emparelhadas de casais.O ritual faz parte do imaginário
-                dos mais velhos aos mais jovens.Este documentário tem como
-                olhar o resgate e preservação desta importante manifestação da
-                cultura popular, conhecida como Dança de São Gonçalo,realizada
-                há mais de um século em Ventania e região dos Campos Gerais do
-                Paraná.As cavalgadas fazem parte do universo destas comunidades
-                e por isso mesmo nesse trabalho ela será mais uma ferramenta
-                narrativa,ele é apresentada como uma forma de manter a dança de
-                São Gonçalo viva.Assim a câmera percorreu durante vários
-                momentos,estradas e romarias,histórias e causos,promessas e
-                conquistas,contando com a participação de uma gente forte e de
-                fé.Isso que o documentário experimentou fazer e imprimir.
+                personagens reais fascinantes.De muito tempo e em várias regiões
+                brasileiras há os seguidores de São Gonçalo,santo português que
+                promovia a música e danças para aproximar os tidos como
+                “excluídos “.Depois de anos observando comunidades regionais do
+                Paraná, como Ventania, e realizando outros trabalhos
+                audiovisuais deresgate histórico e cultural, percebemos que as
+                romarias que avançam madrugada a dentro são bastantes fortes .Os
+                envolvidos pedem bênção,pagam promessas, fazem oferendas ao
+                santo, dançam e cantam por horas a fio em filas emparelhadas de
+                casais.O ritual faz parte do imaginário dos mais velhos aos mais
+                jovens.Este documentário tem como olhar o resgate e preservação
+                desta importante manifestação da cultura popular, conhecida como
+                Dança de São Gonçalo,realizada há mais de um século em Ventania
+                e região dos Campos Gerais do Paraná.As cavalgadas fazem parte
+                do universo destas comunidades e por isso mesmo nesse trabalho
+                ela será mais uma ferramenta narrativa,ele é apresentada como
+                uma forma de manter a dança de São Gonçalo viva.Assim a câmera
+                percorreu durante vários momentos,estradas e romarias,histórias
+                e causos,promessas e conquistas,contando com a participação de
+                uma gente forte e de fé.Isso que o documentário experimentou
+                fazer e imprimir.
               </S.TextoB>
             </S.TextoBigCardSection>
           </S.TopSectionCardB>
@@ -320,12 +346,72 @@ const ProjetoIdentidade: React.FC = () => {
         </S.BigCard>
       </S.BodyB>
       <S.BodyC>
-        <S.TitleC>VEJA O TRAILER DOS FILMES:</S.TitleC>
-        <S.VideoWrapper>
-          <div style={{ width: "100%", height: "100%" }}>
-            <ReactPlayer url={video1} width="100%" height="100%" controls />
-          </div>
-        </S.VideoWrapper>
+        <S.TitleC>assista!</S.TitleC>
+        <S.VideoContainer>
+          <S.VideoGrid>
+            <S.VideoCard onClick={() => setSelectedVideo(frenteFria)}>
+              <S.VideoThumbnail>
+                <iframe
+                  src={getEmbedUrl(frenteFria.src)}
+                  width="100%"
+                  height="100%"
+                  allow="autoplay; encrypted-media"
+                  allowFullScreen
+                  style={{ border: 0 }}
+                  title={frenteFria.title}
+                />
+              </S.VideoThumbnail>
+            </S.VideoCard>
+          </S.VideoGrid>
+        </S.VideoContainer>
+
+        <AnimatePresence>
+          {selectedVideo && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              style={{
+                position: "fixed",
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                backgroundColor: "rgba(0,0,0,0.9)",
+                zIndex: 999,
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+              onClick={() => setSelectedVideo(null)}
+            >
+              <motion.div
+                initial={{ scale: 0.8 }}
+                animate={{ scale: 1 }}
+                exit={{ scale: 0.8 }}
+                style={{
+                  width: "80%",
+                  maxWidth: "1200px",
+                  position: "relative",
+                }}
+                onClick={(e) => e.stopPropagation()}
+              >
+                <iframe
+                  src={getEmbedUrl(selectedVideo.src)}
+                  width="100%"
+                  height="500px"
+                  allow="autoplay; encrypted-media"
+                  allowFullScreen
+                  style={{ border: 0 }}
+                  title={selectedVideo.title}
+                />
+                <S.CloseButton onClick={() => setSelectedVideo(null)}>
+                  ×
+                </S.CloseButton>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </S.BodyC>
       {isModalOpen && (
         <S.ModalOverlay onClick={closeGallery}>
