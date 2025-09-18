@@ -91,7 +91,6 @@ const FilmeMentesArtificiais: React.FC = () => {
           <br />• Recebeu prêmios em festivais de cinema por filmes como
           Tesouro.{" "}
         </S.TextB>
-        <S.ButtonB>Saiba Mais</S.ButtonB>
       </S.BodyB>
       <S.BodyC>
         <S.TitleC>Assista agora!</S.TitleC>

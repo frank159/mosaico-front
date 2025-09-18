@@ -1,6 +1,6 @@
-import { Button } from '@mui/material';
-import { motion } from 'motion/react';
-import styled, { keyframes } from 'styled-components';
+import { Button } from "@mui/material";
+import { motion } from "motion/react";
+import styled, { keyframes } from "styled-components";
 
 export interface Props {
   height?: string;
@@ -38,7 +38,7 @@ export const TitleOverlayContainer = styled.div`
   width: auto;
   transform: translate(-50%, -50%);
   z-index: 112;
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   color: white;
   display: flex;
   justify-content: center;
@@ -181,8 +181,8 @@ export const BodyB = styled.div`
 export const MargemCoo = styled.div<Props>`
   height: 0;
 
-@media (max-width: 1224px) {
-    height: ${(props) => props.height || 'auto'};
+  @media (max-width: 1224px) {
+    height: ${(props) => props.height || "auto"};
   }
 `;
 
@@ -254,7 +254,6 @@ export const GradientOverlay = styled.div`
   pointer-events: none;
 `;
 
-
 export const OverlayContainer = styled.div`
   display: flex;
   align-items: center;
@@ -298,13 +297,13 @@ export const SmallImageContainer = styled.div`
   }
 `;
 
-
 export const NewTextSection = styled.div`
   width: 100%;
   height: 100%;
+  align-items: center;
+  justify-content: center;
   display: flex;
   flex-direction: column;
-  position: relative;
   z-index: 2; /* Ensure it stays above the ::after pseudo-element */
 `;
 
@@ -317,8 +316,7 @@ export const NewTextContainer = styled.div`
 
 export const NewTextContainerTitle = styled.h1`
   color: white;
-  width: 36vw;
-  text-align: end;
+  padding-left: 10vw !important;
   z-index: 300;
   @media (max-width: 768px) {
     text-align: start;
@@ -327,46 +325,52 @@ export const NewTextContainerTitle = styled.h1`
 `;
 
 export const NewTextContainerTitleText = styled.div`
+  width: 100%;
 `;
 
 export const NewTextContainerTitleSub = styled.h2`
   color: #ce0000;
+  padding-left: 10vw !important;
+  @media (max-width: 900px) {
+    font-size: 1.8rem !important ;
+  }
 
-  width: 36vw;
-  text-align: end;
   @media (max-width: 390px) {
     text-align: start;
     font-size: 1.8rem !important ;
   }
 `;
 
-export const NewTextContainerContainerText = styled.div`
+export const NewTextContainerTitleSubAlt = styled(NewTextContainerTitleSub)`
+  padding-left: 13vw !important;
 `;
+
+export const NewTextContainerContainerText = styled.div``;
 
 export const NewTextContainerText = styled.p`
   color: white;
-  width: 64.5vw;
-  justify-self: end;
+  width: 45rem;
+  padding-left: 15vw !important;
   padding-right: 2vw;
-   /* Allows flexible horizontal positioning */
-  @media (max-width: 768px) {
+  /* Allows flexible horizontal positioning */
+  @media (max-width: 900px) {
+    width: 80vw;
     font-size: 1.4rem !important ;
   }
 `;
 
 export const LineTitle = styled.h2`
   color: #ce0000;
-  width: 36vw;
-  text-align: end;
+  padding-left: 10vw !important;
   white-space: nowrap;
 `;
 
 export const CardIten = styled.div`
-display: flex;
+  display: flex;
   flex-direction: row;
   color: white;
-  width: 64vw;
-  justify-self: end;
+  padding-left: 10vw !important;
+
   padding-right: 2vw;
 
   @media (max-width: 768px) {
@@ -409,7 +413,6 @@ export const SmallImageText = styled.h1`
     margin-top: 1rem !important;
   }
 `;
-
 
 export const TextSection = styled.div`
   width: 70%;
@@ -489,17 +492,14 @@ export const SaibaMaisButton = styled(Button)`
   }
 `;
 
-
 //////
 
 export const CarrocelSection = styled.div`
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
-
-
 
 export const CardCarrocelImg = styled.img`
   width: 90%;
@@ -521,81 +521,78 @@ export const CardCarrocelTitle = styled.h2`
 `;
 
 export const CardCarrocelText = styled.p`
-    font-size: 1rem !important;
+  font-size: 1rem !important;
 `;
 
 export const CardCarrocelLineContainer = styled.div`
-    height: 80%;
-    width: 1px;
+  height: 80%;
+  width: 1px;
 
-    border: solid 2px #2F2E29;
+  border: solid 2px #2f2e29;
 `;
 
 export const CardCarrocelTextContainer = styled.div`
-    display: flex;
-    width: 90%;
-    height: 37%;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: row;
-    gap: 10px;
+  display: flex;
+  width: 90%;
+  height: 37%;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  gap: 10px;
 `;
 
 export const ContainerCarrocelButton = styled.div`
-display: flex;
-justify-content: center;
-align-items: start;
+  display: flex;
+  justify-content: center;
+  align-items: start;
   height: 10%;
 `;
 
 export const CardCarrocelButton = styled(Button)`
-    background-color: #2F2E29 !important;
-    color: white !important;
-    border-radius: 40px !important;
-    text-transform: none !important;
-    font-weight: lighter !important;
-    width: 10vw !important;
+  background-color: #2f2e29 !important;
+  color: white !important;
+  border-radius: 40px !important;
+  text-transform: none !important;
+  font-weight: lighter !important;
+  width: 10vw !important;
 `;
-
-
 
 /////////////
 // Crie o componente motion baseado no CardCarrocel
 export const CardCarrocelMotion = styled(motion.div)`
-    width: 25vw;
-    height: 60vh !important;
-    background-color: #1F1D1D;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
-    color: white;
-    padding: 1vw;
-    border-radius: 21px;
+  width: 25vw;
+  height: 60vh !important;
+  background-color: #1f1d1d;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  color: white;
+  padding: 1vw;
+  border-radius: 21px;
 `;
 
 export const CardCarrocelContent = styled.div`
-    display: flex;
-    height: 90%;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
+  display: flex;
+  height: 90%;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
 `;
 
-
 export const CardCarrocel = styled.div`
-    width: 25vw;
-    height: 60vh !important;
-    background-color: #1F1D1D;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
-    color: white;
-    padding: 1vw;
-    border-radius: 21px;
+  width: 25vw;
+  height: 60vh !important;
+  background-color: #1f1d1d;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  color: white;
+  padding: 1vw;
+  border-radius: 21px;
 `;
 
 export const CarouselContainer = styled.div`
@@ -618,7 +615,6 @@ export const LineA = styled.div`
   justify-self: stretch; /* Stretch the line to fill the container */
   margin-bottom: 1rem; /* Add some space below the line */
 `;
-
 
 export const FlexTemple = styled.div`
   margin-top: 20vh;
@@ -651,7 +647,6 @@ export const FlexTempleTitleA = styled(FlexTempleTitle)`
 export const FlexTempleCardTitle = styled.p`
   font-weight: bolder;
   color: white;
-
 `;
 
 export const FlexTempleCardLInk = styled.a`
@@ -673,7 +668,7 @@ export const ImgCardFlex = styled.div`
   width: 80vw;
   max-height: 100%; /* Ensure the card adapts to its content without overflowing */
   margin-bottom: 20vh;
-  
+
   @media (max-width: 768px) {
     flex-direction: column-reverse;
     width: 100%;
@@ -690,7 +685,7 @@ export const ImgCardFlexTextContainer = styled.div`
   flex: 1;
   @media (max-width: 768px) {
     width: 100%;
-    }
+  }
 `;
 
 export const ImgCardFlexTextContainerA = styled(ImgCardFlexTextContainer)`
@@ -701,7 +696,7 @@ export const ImgCardFlexTextContainerA = styled(ImgCardFlexTextContainer)`
   @media (max-width: 768px) {
     padding-left: 0;
     padding-top: 2rem;
-    }
+  }
 `;
 
 export const ImgCardFlexA = styled(ImgCardFlex)`
@@ -714,8 +709,7 @@ export const ImgCardFlexA = styled(ImgCardFlex)`
   }
 `;
 
-export const ImgCardFlexText = styled.p`
-`;
+export const ImgCardFlexText = styled.p``;
 
 export const ImgCardFlexTitle = styled.h1`
   color: white;
@@ -723,7 +717,7 @@ export const ImgCardFlexTitle = styled.h1`
 
   @media (max-width: 768px) {
     width: 100%;
-    }
+  }
 `;
 
 export const ImgCardFlexTitleA = styled.h1`
@@ -752,13 +746,13 @@ export const ImgCardFlexImgContainer = styled.div`
 
   @media (max-width: 768px) {
     width: 100%;
-    }
+  }
 `;
 
 export const ImgCardFlexImgContainerB = styled.div<{ width?: string }>`
   background-color: #d9d9d967;
   height: auto;
-  width: ${({ width }) => width || '20%'};
+  width: ${({ width }) => width || "20%"};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -773,7 +767,7 @@ export const ImgCardFlexImgContainerA = styled(ImgCardFlexImgContainer)`
   width: 60%;
   @media (max-width: 768px) {
     width: 100%;
-    }
+  }
 `;
 
 export const ImgCardFlexImg = styled.img`
@@ -782,7 +776,6 @@ export const ImgCardFlexImg = styled.img`
   object-fit: cover;
   object-position: center;
 `;
-
 
 export const ImgA = styled.img`
   width: 1.5rem;
@@ -808,7 +801,7 @@ export const ImgContainer = styled.div`
   align-items: center;
   overflow: hidden;
   margin-bottom: 1rem;
-  
+
   @media (max-width: 768px) {
     width: 60vw;
   }
@@ -820,29 +813,28 @@ export const ImgContainerA = styled(ImgContainer)`
   @media (max-width: 768px) {
     width: 90%;
   }
-  `;
-  
+`;
 
-  export const ImgBig = styled.img`
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* Change from cover to contain */
-    object-position: center;
-  `;
+export const ImgBig = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Change from cover to contain */
+  object-position: center;
+`;
 
-  export const ImgBigContainer = styled.div`
-    height: 120vh;
-    width: 100%;
-    display: flex;
-    justify-content: start;
-    align-items: start;
-    overflow: hidden;
-    margin-bottom: 1rem;
+export const ImgBigContainer = styled.div`
+  height: 120vh;
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  overflow: hidden;
+  margin-bottom: 1rem;
 
-    @media (max-width: 768px) {
-      height: auto;
-    }
-  `;
+  @media (max-width: 768px) {
+    height: auto;
+  }
+`;
 
 export const SecaoApresentacao = styled.div`
   width: auto;
@@ -863,7 +855,9 @@ export const ImgStyled = styled.img<{ isMobile: boolean }>`
   object-position: 50% 30%;
   opacity: 0.2;
   z-index: 1;
-  ${props => props.isMobile && `
+  ${(props) =>
+    props.isMobile &&
+    `
     opacity: 0.1;
     object-position: right center;
   `}

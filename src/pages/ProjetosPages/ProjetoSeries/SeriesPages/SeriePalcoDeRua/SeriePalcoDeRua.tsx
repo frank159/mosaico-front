@@ -1,14 +1,6 @@
 import * as S from "./SeriePalcoDeRuaStyled";
 
 const SeriePalcoDeRua: React.FC = () => {
-  const handleDownload = () => {
-    const link = document.createElement("a");
-    link.href = "/arquivos/BETOCARMINATcurriculo.docx";
-    link.setAttribute("download", "BETO CARMINAT curriculo.docx");
-    document.body.appendChild(link);
-    link.click();
-    link.remove();
-  };
 
   return (
     <S.MainContainer>
@@ -46,7 +38,7 @@ const SeriePalcoDeRua: React.FC = () => {
         </S.ContainerSubA>
       </S.Body>
       <S.BodyB>
-        <S.TitleB>Carlos Homero Gonçalves Camargo Ribas</S.TitleB>
+        <S.TitleB>Homero Camargo</S.TitleB>
         <S.TextB>
           <strong>Naturalidade:</strong> Curitiba, Paraná, Brasil
           <br />

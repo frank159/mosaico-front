@@ -322,13 +322,13 @@ export const ImgContainer = styled.div`
   }
 `;
 
-export const VideoContainer = styled.div`
-  width: 100%;
-  padding: 4rem;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 5rem;
-`;
+// export const VideoContainer = styled.div`
+//   width: 100%;
+//   padding: 4rem;
+//   display: flex;
+//   justify-content: center;
+//   margin-bottom: 5rem;
+// `;
 
 export const VideoContainerB = styled.div`
   padding-left: 12rem;
@@ -340,42 +340,108 @@ export const VideoContainerB = styled.div`
   }
 `;
 
-export const VideoGrid = styled.div`
-  display: grid;
-  width: 80%;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-  margin: 0 auto;
-  margin-left: 1.5rem;
-  margin-right: 1.5rem;
+// export const VideoGrid = styled.div`
+//   display: grid;
+//   width: 80%;
+//   grid-template-columns: repeat(2, 1fr);
+//   gap: 2rem;
+//   margin: 0 auto;
+//   margin-left: 1.5rem;
+//   margin-right: 1.5rem;
 
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-  }
+//   @media (max-width: 768px) {
+//     grid-template-columns: 1fr;
+//   }
+// `;
+
+// export const VideoCard = styled.div`
+//   cursor: pointer;
+//   transition: transform 0.3s ease;
+//   overflow: hidden;
+//   display: flex;
+//   flex-direction: column;
+
+//   &:hover {
+//     transform: translateY(-5px);
+//   }
+//   @media (max-width: 1224px) {
+//     justify-content: center;
+//     align-items: start;
+//   }
+// `;
+
+// export const VideoThumbnail = styled.div`
+//   position: relative;
+//   background: #000;
+//   height: 50vh;
+//   iframe {
+//     pointer-events: none;
+//   }
+// `;
+
+export const VideoContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  padding: 0 3rem;
+  z-index: 99;
+`;
+
+export const VideoContainerAlt = styled(VideoContainer)`
+  width: 100%;
+`;
+
+export const VideoGrid = styled.div`
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
 `;
 
 export const VideoCard = styled.div`
+  flex: 0 1 calc(50% - 1rem); /* ocupa metade da linha */
   cursor: pointer;
-  transition: transform 0.3s ease;
-  overflow: hidden;
+  gap: 2rem;
   display: flex;
   flex-direction: column;
-
+  transition: transform 0.2s;
   &:hover {
-    transform: translateY(-5px);
+    transform: scale(1.03);
   }
-  @media (max-width: 1224px) {
-    justify-content: center;
-    align-items: start;
+
+  @media (max-width: 720px) {
+    flex: 0 1 90%; /* em telas menores: 1 por linha */
   }
 `;
 
+export const VideoCardAlt = styled(VideoCard)`
+  flex: 0 1 90%;
+  padding-left: 3rem;
+  padding-right: 3rem;
+`;
+
 export const VideoThumbnail = styled.div`
-  position: relative;
-  background: #000;
-  height: 50vh;
-  iframe {
-    pointer-events: none;
+  height: 30rem;
+  @media (max-width: 900px) {
+    height: 20rem;
+  }
+  @media (max-width: 720px) {
+    height: 18rem;
+  }
+`;
+
+export const VideoThumbnailAlt = styled.div`
+  height: 30rem;
+  width: 50%;
+  @media (max-width: 900px) {
+    width: 100%;
+    height: 20rem;
+  }
+  @media (max-width: 720px) {
+    height: 18rem;
   }
 `;
 
@@ -828,15 +894,13 @@ export const ReportVideoCard = styled.div`
   }
 `;
 
-export const MainTitle = styled.h1`
+export const MainTitleContainer = styled.div`
   width: 100%;
-  text-align: left;
-  padding-left: 2rem;
-  padding-bottom: 3rem;
+`;
 
-  @media (max-width: 768px) {
-    padding-left: 1rem;
-  }
+export const MainTitle = styled.h1`
+  padding-left: 3rem !important;
+  padding-right: 3rem !important;
 `;
 
 export const OrganisationCard = styled.ul`

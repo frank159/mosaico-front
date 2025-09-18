@@ -37,7 +37,6 @@ interface SlideItem {
 
 const Cooperativa: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
-  const [overlayHeight, setOverlayHeight] = useState(0);
 
   const overlayRef = useRef<HTMLDivElement>(null);
   const overlayRefA = useRef<HTMLDivElement>(null);
@@ -98,24 +97,6 @@ const Cooperativa: React.FC = () => {
   useEffect(() => {
     setIsMobile(window.innerWidth <= 768);
   }, []);
-
-  useEffect(() => {
-    if (overlayRef.current && overlayRefA.current) {
-      if (window.innerWidth > 1130) {
-        setOverlayHeight(overlayRef.current.clientHeight);
-      } else if (window.innerWidth <= 820) {
-        setOverlayHeight(
-          overlayRef.current.clientHeight -
-            overlayRefA.current.clientHeight / 10
-        );
-      } else if (window.innerWidth <= 1130) {
-        setOverlayHeight(
-          overlayRef.current.clientHeight -
-            overlayRefA.current.clientHeight / 10
-        );
-      }
-    }
-  }, [overlayRef, isMobile]);
 
   return (
     <S.MainContainer>
