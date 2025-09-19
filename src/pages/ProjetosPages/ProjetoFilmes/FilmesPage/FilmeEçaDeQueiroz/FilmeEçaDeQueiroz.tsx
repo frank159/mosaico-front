@@ -16,19 +16,19 @@ const FilmeEçaDeQueiroz: React.FC = () => {
   const img2 =
     "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758222389/1_1_qoxe7q.png";
   const img3 =
-    "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758222389/1_1_qoxe7q.png";
-  const img4 =
     "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758223215/4_zbvxxn.png";
+  const img4 =
+  "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758222371/5_np0thz.png";
   const img5 =
-    "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758222371/5_np0thz.png";
+  "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758222376/6_vvhq9o.png";
   const img6 =
-    "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758222376/6_vvhq9o.png";
+  "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758222381/7_hfjmx7.png";
   const img7 =
-    "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758222381/7_hfjmx7.png";
+  "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758222385/8_x3xhnj.png";
   const img8 =
-    "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758222385/8_x3xhnj.png";
+  "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758223276/9_v3dwml.png";
   const img9 =
-    "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758223276/9_v3dwml.png";
+  "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758222379/10_czaldo.png";
 
   const imagens = [img2, img3, img4, img5, img6, img7, img8, img9];
 
