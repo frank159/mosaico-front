@@ -1,4 +1,14 @@
+import { useEffect, useState } from "react";
 import * as S from "./ProjetoFilmesStyled";
+import useImagesLoaded from "../../../hooks/useImagesLoaded";
+import LoadingOverlay from "../../../components/LoadingComponente/Loading";
+
+const FilmeDianaDoAsfalto =
+  "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758300013/logo512_vv996q.png";
+const FilmeMataramZacarias =
+  "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758300013/logo512_vv996q.png";
+const FilmeMentesArtificiais =
+  "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758122815/mentes_srguun.jpg";
 
 const ProjetoFilmes: React.FC = () => {
   interface SlideItem {
@@ -9,11 +19,25 @@ const ProjetoFilmes: React.FC = () => {
     img: string; // Adicionado campo para a imagem
   }
 
-  const FilmeDianaDoAsfalto = "/logo512.png";
-  const FilmeMataramZacarias =
-    "/logo512.png";
-  const FilmeMentesArtificiais =
-    "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758122815/mentes_srguun.jpg";
+  const [onLoading, setOnLoading] = useState(true);
+
+  const imageUrls = [
+    FilmeDianaDoAsfalto,
+    FilmeMataramZacarias,
+    FilmeMentesArtificiais,
+  ];
+  const allImagesLoaded = useImagesLoaded(imageUrls);
+
+  useEffect(() => {
+    if (allImagesLoaded) {
+      const timer = setTimeout(() => {
+        setOnLoading(false);
+        
+      }, 500);
+
+      return () => clearTimeout(timer);
+    }
+  }, [allImagesLoaded]);
 
   const defaultSlides: SlideItem[] = [
     {
@@ -41,6 +65,8 @@ const ProjetoFilmes: React.FC = () => {
 
   return (
     <S.MoviesContainer>
+      {onLoading && <LoadingOverlay />}
+
       <S.Title>FILMES:</S.Title>
       <S.MoviesGrid>
         {defaultSlides.map((movie, index) => (

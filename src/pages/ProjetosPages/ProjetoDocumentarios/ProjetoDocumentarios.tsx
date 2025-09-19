@@ -1,4 +1,14 @@
+import { useEffect, useState } from "react";
 import * as S from "./ProjetoDocumentariosStyled";
+import useImagesLoaded from "../../../hooks/useImagesLoaded";
+import LoadingOverlay from "../../../components/LoadingComponente/Loading";
+
+const chocolateEterno =
+  "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758040686/choco_der9fq.jpg";
+const ComitivaTrilhasDasTropas =
+  "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758049779/trilha_e_tropas_xpsqyc.jpg";
+const MestreLeonildo =
+  "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758053387/6D63A1BC-275B-4DF7-B8BB-1C26FBACE5C0_shfsmv.png";
 
 const ProjetoDocumentarios: React.FC = () => {
   interface SlideItem {
@@ -9,9 +19,21 @@ const ProjetoDocumentarios: React.FC = () => {
     img: string; // Adicionado campo para a imagem
   }
 
-  const chocolateEterno = 'https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758040686/choco_der9fq.jpg'
-  const ComitivaTrilhasDasTropas = 'https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758049779/trilha_e_tropas_xpsqyc.jpg'
-  const MestreLeonildo = 'https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758053387/6D63A1BC-275B-4DF7-B8BB-1C26FBACE5C0_shfsmv.png'
+  const [onLoading, setOnLoading] = useState(true);
+
+  const imageUrls = [chocolateEterno, ComitivaTrilhasDasTropas, MestreLeonildo];
+  const allImagesLoaded = useImagesLoaded(imageUrls);
+
+  useEffect(() => {
+    if (allImagesLoaded) {
+      const timer = setTimeout(() => {
+        setOnLoading(false);
+        
+      }, 500);
+
+      return () => clearTimeout(timer);
+    }
+  }, [allImagesLoaded]);
 
   const defaultSlides: SlideItem[] = [
     {
@@ -39,14 +61,18 @@ const ProjetoDocumentarios: React.FC = () => {
 
   return (
     <S.MoviesContainer>
+      {onLoading && <LoadingOverlay />}
+
       <S.Title>documentários:</S.Title>
       <S.MoviesGrid>
         {defaultSlides.map((movie, index) => (
-            <S.MovieCard key={index}>
+          <S.MovieCard key={index}>
             <S.MovieImage
               src={movie.img}
               alt={movie.title}
-              style={index === 1 || index === 2  ? { objectPosition: "top" } : {}}
+              style={
+                index === 1 || index === 2 ? { objectPosition: "top" } : {}
+              }
             />
             <S.MovieTitle>{movie.title}</S.MovieTitle>
             <S.MovieDescription>{movie.text}</S.MovieDescription>

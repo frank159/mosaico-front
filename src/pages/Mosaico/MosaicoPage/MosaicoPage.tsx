@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import * as S from "./MosaicoPageStyled";
 import TextComponent from "../../text/text";
 import Footer from "../../../components/footer/footer";
+import useImagesLoaded from "../../../hooks/useImagesLoaded";
+import LoadingOverlay from "../../../components/LoadingComponente/Loading";
 
 const mosaicoLogo =
   "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324712/mosaicoLogo1_ch206u.png";
@@ -24,6 +26,7 @@ const MosaicoPage: React.FC = () => {
   };
   const [isMobile, setIsMobile] = useState(false);
   const [OpacityPin, setOpacityPin] = useState(false);
+  const [onLoading, setOnLoading] = useState(true);
 
   useEffect(() => {
     setIsMobile(window.innerWidth <= 768);
@@ -33,9 +36,33 @@ const MosaicoPage: React.FC = () => {
     setOpacityPin(window.innerWidth <= 1880);
   }, []);
 
+  const imageUrls = [
+    mosaicoLogo,
+    missao,
+    visao,
+    valores,
+    pinheiro,
+    aspas,
+    estrutura,
+  ];
+
+  const allImagesLoaded = useImagesLoaded(imageUrls);
+
+  useEffect(() => {
+    if (allImagesLoaded) {
+      const timer = setTimeout(() => {
+        setOnLoading(false);
+        
+      }, 500);
+
+      return () => clearTimeout(timer);
+    }
+  }, [allImagesLoaded]);
 
   return (
     <div style={{ backgroundColor: "#C2CFB4" }}>
+      {onLoading && <LoadingOverlay />}
+
       <S.MainContainer>
         <S.VectorImage isMobile={OpacityPin} src={pinheiro} alt="pinheiro" />
         <S.SubTitleContainer>

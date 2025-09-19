@@ -1,6 +1,8 @@
 import * as S from "./FilmeMentesArtificiaisStyled";
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import useImagesLoaded from "../../../../../hooks/useImagesLoaded";
+import LoadingOverlay from "../../../../../components/LoadingComponente/Loading";
 
 const foto =
   "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758122815/mentes_srguun.jpg";
@@ -15,6 +17,21 @@ const FilmeMentesArtificiais: React.FC = () => {
   const [fullScreenImage, setFullScreenImage] = useState<string | null>(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const [selectedVideo, setSelectedVideo] = useState<Video | null>(null);
+  const [onLoading, setOnLoading] = useState(true);
+
+  const imageUrls = [foto];
+  const allImagesLoaded = useImagesLoaded(imageUrls);
+
+  useEffect(() => {
+    if (allImagesLoaded) {
+      const timer = setTimeout(() => {
+        setOnLoading(false);
+        
+      }, 500);
+
+      return () => clearTimeout(timer);
+    }
+  }, [allImagesLoaded]);
 
   const getEmbedUrl = (src: string) => {
     const ytMatch = src.match(
@@ -46,6 +63,8 @@ const FilmeMentesArtificiais: React.FC = () => {
 
   return (
     <S.MainContainer>
+      {onLoading && <LoadingOverlay />}
+
       <S.Body>
         <S.ContainerSubA>
           <S.TextoWrap>

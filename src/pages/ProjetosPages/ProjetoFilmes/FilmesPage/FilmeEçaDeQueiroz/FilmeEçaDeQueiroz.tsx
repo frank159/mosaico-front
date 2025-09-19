@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import * as S from "./FilmeEçaDeQueirozStyled";
+import useImagesLoaded from "../../../../../hooks/useImagesLoaded";
+import LoadingOverlay from "../../../../../components/LoadingComponente/Loading";
 
 const FilmeEçaDeQueiroz: React.FC = () => {
   const [fullScreenImage, setFullScreenImage] = useState<string | null>(null);
+  const [onLoading, setOnLoading] = useState(true);
 
   const handleExpand = (src: string) => {
     setFullScreenImage(src);
@@ -18,10 +21,27 @@ const FilmeEçaDeQueiroz: React.FC = () => {
     "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758223276/9_v3dwml.png",
     "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758222379/10_czaldo.png",
   ];
+
+  const imageUrls = imagens;
+  const allImagesLoaded = useImagesLoaded(imageUrls);
+
+  useEffect(() => {
+    if (allImagesLoaded) {
+      const timer = setTimeout(() => {
+        setOnLoading(false);
+        
+      }, 500);
+
+      return () => clearTimeout(timer);
+    }
+  }, [allImagesLoaded]);
+
   const handleClose = () => setFullScreenImage(null);
 
   return (
     <S.MainContainer>
+      {onLoading && <LoadingOverlay />}
+
       <S.Body>
         <S.ContainerSubA>
           <S.ContainerLeftA>

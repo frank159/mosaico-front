@@ -166,6 +166,7 @@ export const CardImgFremeProjeto = styled.div<Props>`
   overflow: hidden;
 
   @media (max-width: 720px) {
+    width: 80%;
   }
 `;
 
@@ -218,7 +219,6 @@ export const ProjetosListContainer1 = styled.div`
 export const CardTextContainerProjeto = styled.div`
   margin-left: 1rem;
   width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -227,7 +227,7 @@ export const CardTextContainerProjeto = styled.div`
 
   @media (max-width: 720px) {
     margin-left: 0;
-    height: 80%;
+    height: auto;
     padding-top: 1rem;
   }
 `;

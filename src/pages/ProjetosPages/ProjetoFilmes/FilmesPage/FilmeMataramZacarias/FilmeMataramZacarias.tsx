@@ -1,9 +1,23 @@
+import { useEffect, useState } from "react";
 import * as S from "./FilmeMataramZacariasStyled";
+import LoadingOverlay from "../../../../../components/LoadingComponente/Loading";
 
 const FilmeMataramZacarias: React.FC = () => {
+  const [onLoading, setOnLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setOnLoading(false);
+      
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <S.MainContainer>
+      {onLoading && <LoadingOverlay />}
+
       <S.Body>
         <S.ContainerSubA>
           <S.ContainerRightA>

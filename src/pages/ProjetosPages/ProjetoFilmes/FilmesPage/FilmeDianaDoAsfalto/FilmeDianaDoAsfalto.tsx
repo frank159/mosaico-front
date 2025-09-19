@@ -1,6 +1,19 @@
+import { useEffect, useState } from "react";
 import * as S from "./FilmeDianaDoAsfaltoStyled";
+import LoadingOverlay from "../../../../../components/LoadingComponente/Loading";
 
 const FilmeDianaDoAsfalto: React.FC = () => {
+  const [onLoading, setOnLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setOnLoading(false);
+      
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   const handleDownload = () => {
     const link = document.createElement("a");
     link.href = "/arquivos/BETOCARMINATcurriculo.docx";
@@ -12,6 +25,8 @@ const FilmeDianaDoAsfalto: React.FC = () => {
 
   return (
     <S.MainContainer>
+      {onLoading && <LoadingOverlay />}
+
       <S.Body>
         <S.ContainerSubA>
           <S.ContainerRightA>
