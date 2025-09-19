@@ -1,3 +1,5 @@
+import LoadingOverlay from "../../components/LoadingComponente/Loading";
+import useImagesLoaded from "../../hooks/useImagesLoaded";
 import * as S from "./CooperativaCurriculoStyled";
 import React, { useState, useRef, useEffect } from "react";
 const HomeroFoto =
@@ -24,7 +26,31 @@ const vampa =
 
 const CooperativaCurriculo: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
-  const [overlayHeight, setOverlayHeight] = useState(0);
+  const [onLoading, setOnLoading] = useState(true);
+
+  const imageUrls = [
+    HomeroFoto,
+    coopCuri1,
+    coopCuri2,
+    coopCuri3,
+    coopCuri4,
+    coopCuri5,
+    aspas,
+    navalha,
+    vampa,
+  ];
+  const allImagesLoaded = useImagesLoaded(imageUrls);
+
+  useEffect(() => {
+    if (allImagesLoaded) {
+      const timer = setTimeout(() => {
+        setOnLoading(false);
+      }, 500);
+
+      return () => clearTimeout(timer);
+    }
+  }, [allImagesLoaded]);
+
   const overlayRef = useRef<HTMLDivElement>(null);
   const overlayRefA = useRef<HTMLDivElement>(null);
 
@@ -32,16 +58,9 @@ const CooperativaCurriculo: React.FC = () => {
     setIsMobile(window.innerWidth <= 820);
   }, []);
 
-  useEffect(() => {
-    if (overlayRef.current && overlayRefA.current) {
-      setOverlayHeight(
-        overlayRef.current.clientHeight + overlayRef.current.clientHeight / 1000
-      );
-    }
-  }, [overlayRef]);
-
   return (
     <S.MainContainer>
+      {onLoading && <LoadingOverlay />}
       <S.BodyB>
         <S.SecaoApresentacao>
           <S.ImageWrapper>
@@ -342,7 +361,9 @@ const CooperativaCurriculo: React.FC = () => {
             </S.NewTextContainerText>
             <S.LineA />
             <S.NewTextContainerTitleText>
-              <S.NewTextContainerTitleSubAlt>1999</S.NewTextContainerTitleSubAlt>
+              <S.NewTextContainerTitleSubAlt>
+                1999
+              </S.NewTextContainerTitleSubAlt>
             </S.NewTextContainerTitleText>
             <S.Line />
             <S.NewTextContainerText>
@@ -351,7 +372,9 @@ const CooperativaCurriculo: React.FC = () => {
             </S.NewTextContainerText>
             <S.LineA />
             <S.NewTextContainerTitleText>
-              <S.NewTextContainerTitleSubAlt>1998</S.NewTextContainerTitleSubAlt>
+              <S.NewTextContainerTitleSubAlt>
+                1998
+              </S.NewTextContainerTitleSubAlt>
             </S.NewTextContainerTitleText>
             <S.Line />
             <S.NewTextContainerText>
@@ -360,7 +383,9 @@ const CooperativaCurriculo: React.FC = () => {
             </S.NewTextContainerText>
             <S.LineA />
             <S.NewTextContainerTitleText>
-              <S.NewTextContainerTitleSubAlt>1997</S.NewTextContainerTitleSubAlt>
+              <S.NewTextContainerTitleSubAlt>
+                1997
+              </S.NewTextContainerTitleSubAlt>
             </S.NewTextContainerTitleText>
             <S.Line />
             <S.NewTextContainerText>
@@ -372,7 +397,9 @@ const CooperativaCurriculo: React.FC = () => {
             </S.NewTextContainerText>
             <S.LineA />
             <S.NewTextContainerTitleText>
-              <S.NewTextContainerTitleSubAlt>1996</S.NewTextContainerTitleSubAlt>
+              <S.NewTextContainerTitleSubAlt>
+                1996
+              </S.NewTextContainerTitleSubAlt>
             </S.NewTextContainerTitleText>
             <S.Line />
             <S.NewTextContainerText>
@@ -388,7 +415,9 @@ const CooperativaCurriculo: React.FC = () => {
             <S.LineA />
 
             <S.NewTextContainerTitleText>
-              <S.NewTextContainerTitleSubAlt>1994</S.NewTextContainerTitleSubAlt>
+              <S.NewTextContainerTitleSubAlt>
+                1994
+              </S.NewTextContainerTitleSubAlt>
             </S.NewTextContainerTitleText>
             <S.Line />
             <S.NewTextContainerText>

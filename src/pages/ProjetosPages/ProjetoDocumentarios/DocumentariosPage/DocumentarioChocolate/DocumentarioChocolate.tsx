@@ -1,6 +1,8 @@
 import * as S from "./DocumentarioChocolateStyled";
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import useImagesLoaded from "../../../../../hooks/useImagesLoaded";
+import LoadingOverlay from "../../../../../components/LoadingComponente/Loading";
 
 const foto =
   "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758040686/choco_der9fq.jpg";
@@ -15,13 +17,20 @@ const DocumentarioChocolate: React.FC = () => {
   const [fullScreenImage, setFullScreenImage] = useState<string | null>(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const [selectedVideo, setSelectedVideo] = useState<Video | null>(null);
-  const [fotosList, setFotosList] = useState<string[]>([]);
+  const [onLoading, setOnLoading] = useState(true);
+
+  const imageUrls = [foto];
+  const allImagesLoaded = useImagesLoaded(imageUrls);
 
   useEffect(() => {
-    setFotosList([
-      "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758040686/choco_der9fq.jpg",
-    ]);
-  }, []);
+    if (allImagesLoaded) {
+      const timer = setTimeout(() => {
+        setOnLoading(false);
+      }, 500);
+
+      return () => clearTimeout(timer);
+    }
+  }, [allImagesLoaded]);
 
   const getEmbedUrl = (src: string) => {
     const ytMatch = src.match(
@@ -53,6 +62,8 @@ const DocumentarioChocolate: React.FC = () => {
 
   return (
     <S.MainContainer>
+      {onLoading && <LoadingOverlay />}
+
       <S.Body>
         <S.ContainerSubA>
           <S.TextoWrap>

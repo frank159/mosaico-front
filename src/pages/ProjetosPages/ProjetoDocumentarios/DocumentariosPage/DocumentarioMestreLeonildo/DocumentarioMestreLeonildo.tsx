@@ -1,6 +1,8 @@
 import * as S from "./DocumentarioMestreLeonildoStyled";
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import useImagesLoaded from "../../../../../hooks/useImagesLoaded";
+import LoadingOverlay from "../../../../../components/LoadingComponente/Loading";
 
 const foto =
   "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758053387/6D63A1BC-275B-4DF7-B8BB-1C26FBACE5C0_shfsmv.png";
@@ -15,13 +17,20 @@ const DocumentarioMestreLeonildo: React.FC = () => {
   const [fullScreenImage, setFullScreenImage] = useState<string | null>(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const [selectedVideo, setSelectedVideo] = useState<Video | null>(null);
-  const [fotosList, setFotosList] = useState<string[]>([]);
+  const [onLoading, setOnLoading] = useState(true);
+
+  const imageUrls = [foto];
+  const allImagesLoaded = useImagesLoaded(imageUrls);
 
   useEffect(() => {
-    setFotosList([
-      "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758040686/choco_der9fq.jpg",
-    ]);
-  }, []);
+    if (allImagesLoaded) {
+      const timer = setTimeout(() => {
+        setOnLoading(false);
+      }, 500);
+
+      return () => clearTimeout(timer);
+    }
+  }, [allImagesLoaded]);
 
   const getEmbedUrl = (src: string) => {
     const ytMatch = src.match(
@@ -53,6 +62,8 @@ const DocumentarioMestreLeonildo: React.FC = () => {
 
   return (
     <S.MainContainer>
+      {onLoading && <LoadingOverlay />}
+
       <S.Body>
         <S.ContainerSubA>
           <S.TextoWrap>
@@ -121,9 +132,11 @@ const DocumentarioMestreLeonildo: React.FC = () => {
           <br />
           <strong>Reconhecimentos / Outros papéis:</strong>
           <br />
-          •Ex-presidente da Associação de Vídeo e Cinema do Paraná. 
+          •Ex-presidente da Associação de Vídeo e Cinema do Paraná.
           <br />
-          •Recebeu prêmios como Gralha Azul da Federação Paranaense de Cineclubes, pelo trabalho como programador de cinema, e “Talento do Paraná” em 2000.
+          •Recebeu prêmios como Gralha Azul da Federação Paranaense de
+          Cineclubes, pelo trabalho como programador de cinema, e “Talento do
+          Paraná” em 2000.
           <br />
         </S.TextB>
         <S.ButtonB>Saiba Mais</S.ButtonB>

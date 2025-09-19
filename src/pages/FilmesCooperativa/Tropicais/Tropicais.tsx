@@ -1,6 +1,8 @@
 import * as S from "./TropicaisStyled";
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import useImagesLoaded from "../../../hooks/useImagesLoaded";
+import LoadingOverlay from "../../../components/LoadingComponente/Loading";
 
 const tropicais =
   "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324659/Tropicais_eiegoa.png";
@@ -27,6 +29,20 @@ const Tropicais: React.FC = () => {
   const [fullScreenImage, setFullScreenImage] = useState<string | null>(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const [selectedVideo, setSelectedVideo] = useState<Video | null>(null);
+  const [onLoading, setOnLoading] = useState(true);
+
+  const imageUrls = [tropicais, f1, f2, f3, f4, f5, f6];
+  const allImagesLoaded = useImagesLoaded(imageUrls);
+
+  useEffect(() => {
+    if (allImagesLoaded) {
+      const timer = setTimeout(() => {
+        setOnLoading(false);
+      }, 500);
+
+      return () => clearTimeout(timer);
+    }
+  }, [allImagesLoaded]);
 
   const getEmbedUrl = (src: string) => {
     const ytMatch = src.match(
@@ -60,6 +76,8 @@ const Tropicais: React.FC = () => {
 
   return (
     <S.MainContainer>
+      {onLoading && <LoadingOverlay />}
+
       <S.Body>
         <S.TopSectionCard>
           <S.ContainerBigCardFoto>

@@ -3,6 +3,8 @@ import * as S from "./CAPStyled";
 import Footer from "../../components/footer/footer";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
+import useImagesLoaded from "../../hooks/useImagesLoaded";
+import LoadingOverlay from "../../components/LoadingComponente/Loading";
 
 const maoGlobo =
   "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324729/maoGlobo_z4x1lr.png";
@@ -21,64 +23,37 @@ const capLogo =
 
 const School: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
-  const [isExpanded, setIsExpanded] = useState(false);
-  const [lineHeight, setLineHeight] = useState("0px");
   const bigImgContainerRef = useRef<HTMLDivElement>(null);
+  const [onLoading, setOnLoading] = useState(true);
 
-  const listItems = [
-    {
-      title: "2023",
-      text: "A Filmjoin foi player nos eventos: RIO2C, evento de economia criativa, realizada em abril, Rio de Janeiro CINEPITCHING, rodada de negócios de audiovisual, em agosto, São Paulo FAM – Festival de Florianópolis, em setembro, Santa Catarina DOC-SP – Rodada de negócios audiovisual, em outubro, São Paulo.",
-    },
-    {
-      title: "2022",
-      text: "Incubação no EIT – Escritório de Inovação Tecnológica da UFMT. A Filmjoin foi player nos eventos: CINEPITCHING, rodada de negócios de audiovisual, em agosto DOC-SP – Rodada de negócios audiovisual, em outubro, São Paulo",
-    },
-    {
-      title: "2021",
-      text: "Em 25 de janeiro foi formalizada como empresa de pequeno porte, CNPJ: 40.550.704/0001-52 Incubação no EIT – Escritório de Inovação Tecnológica da UFMT.",
-    },
-    {
-      title: "2020",
-      text: "Incubação no EIT – Escritório de Inovação Tecnológica da UFMT. Em 07 de abril, a marca Filmjoin é registrada no INPI.",
-    },
-    {
-      title: "2019",
-      text: "Incubação na Faster Capital, fundo de investimento de Dubai, Emirados Árabes. Incubação no EIT – Escritório de Inovação Tecnológica da UFMT. Contrato de consultoria com Camila Santo da Rizhoma LLC, do Vale do Silício, EUA. Recebe o apoio da Secretaria de Cultura e Economia Criativa do Estado de São Paulo. Participa do coworking do Sebrae-SP, no Palácio Campos Elíseos, em São Paulo. Recebe apoio da Fundação Cassiano Ricardo de São José dos Campos, Estado de Sâo Paulo. Selecionada como Startup convidada na Innovation Zone – da feira SET EXPO, em São Paulo, SP, pela participação foi premiada pela Amazon/AWS, com uma aceleração de 1 ano.",
-    },
-    {
-      title: "2018",
-      text: "Incubação no EIT – Escritório de Inovação Tecnológica da UFMT. Selecionada para o MIC-BR, mercado da indústria criativa do Brasil, realizada na cidade de São Paulo, com apoio da APEX - Agência Brasileira de Promoção de Exportações e Investimentos e Sebrae SP.",
-    },
-    {
-      title: "2017",
-      text: "O projeto “Cinema do bem”, é selecionado para o IDEAÇÃO, do MT Criativo, EIT – Escritório de Inovação Tecnológica da UFMT – Universidade Federal do Mato Grosso e Sebrae MT, programa de aceleração de ideia criativas, com duração de setembro a dezembro, onde nasceu a Filmjoin, uma plataforma TVOD-Transational Video On Demand, independente e interativa, de produção e exibição de filmes, séries e documentários. Em dezembro o site da plataforma é lançado no endereço https://www.filmjoin.com.br/",
-    },
-    {
-      title: "2016",
-      text: "Eu tinha acabado de produzir o longa-metragem “Meu Amigo Hindu”, do Hector Babenco, e todas as previsões do lançamento foram frustradas e muito pouca gente viu o filme, e mais uma vez a sensação era de perda, perda da possibilidade de se conectar com o público e com isso poder ter recursos para continuar a produzir filmes. Essa frustação me fez partir para um ano sabático, porque eu precisava encontrar uma saída para a distribuição dos filmes que produzimos. De julho a outubro, ministrei o curso “Cinema é Inovação”, em Cuiabá-MT, onde discuto com os participantes a importância da inovação no processo produção audiovisual para obter sucesso de público e renda, depois segui para Brasília e para Alto Paraíso de Goiás, onde nasceu o projeto “Cinema do Bem”, o projeto era pensar uma formula de acabar com a dor da distribuição, e se comunicar direto com o público, uma forma de disponibilizar o conhecimento dos produtores, para todos e para o benefício de todos.",
-    },
+  const imageUrls = [
+    maoGlobo,
+    ong,
+    calendario,
+    localPreto,
+    esclamacao,
+    filmeJoin,
+    capLogo,
   ];
+  const allImagesLoaded = useImagesLoaded(imageUrls);
+
+  useEffect(() => {
+    if (allImagesLoaded) {
+      const timer = setTimeout(() => {
+        setOnLoading(false);
+      }, 500);
+
+      return () => clearTimeout(timer);
+    }
+  }, [allImagesLoaded]);
 
   useEffect(() => {
     setIsMobile(window.innerWidth <= 768);
-    const updateLineHeight = () => {
-      if (bigImgContainerRef.current) {
-        const height = bigImgContainerRef.current.offsetHeight;
-        setLineHeight(`${height * 1.1}px`); // 110% of the container height
-      }
-    };
-    updateLineHeight();
-    window.addEventListener("resize", updateLineHeight);
-    return () => window.removeEventListener("resize", updateLineHeight);
   }, []);
-
-  const toggleExpand = () => {
-    setIsExpanded(!isExpanded);
-  };
 
   return (
     <S.Container>
+      {onLoading && <LoadingOverlay />}
       <S.TitleContainer>
         <S.TitleContant>
           <S.ImgLogo src={capLogo} />

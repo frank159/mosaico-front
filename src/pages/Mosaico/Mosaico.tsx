@@ -37,7 +37,6 @@ const MosaicoPage: React.FC = () => {
     if (allImagesLoaded) {
       const timer = setTimeout(() => {
         setOnLoading(false);
-        
       }, 500);
 
       return () => clearTimeout(timer);

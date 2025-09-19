@@ -1,6 +1,8 @@
 import * as S from "./EstadoResistenciaStyled";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import useImagesLoaded from "../../../hooks/useImagesLoaded";
+import LoadingOverlay from "../../../components/LoadingComponente/Loading";
 
 interface Video {
   id: number;
@@ -12,6 +14,20 @@ const estadoDressis =
   "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324647/estadoDressis_guhvqm.png";
 const EstadoResistencia: React.FC = () => {
   const [selectedVideo, setSelectedVideo] = useState<Video | null>(null);
+  const [onLoading, setOnLoading] = useState(true);
+
+  const imageUrls = [estadoDressis];
+  const allImagesLoaded = useImagesLoaded(imageUrls);
+
+  useEffect(() => {
+    if (allImagesLoaded) {
+      const timer = setTimeout(() => {
+        setOnLoading(false);
+      }, 500);
+
+      return () => clearTimeout(timer);
+    }
+  }, [allImagesLoaded]);
 
   const getEmbedUrl = (src: string) => {
     const ytMatch = src.match(
@@ -34,6 +50,8 @@ const EstadoResistencia: React.FC = () => {
 
   return (
     <S.MainContainer>
+      {onLoading && <LoadingOverlay />}
+
       <S.Body>
         <S.TopSectionCard>
           <S.ContainerBigCardFoto>

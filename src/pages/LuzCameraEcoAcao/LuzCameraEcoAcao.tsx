@@ -2,26 +2,47 @@ import React, { useEffect, useRef, useState } from "react";
 import * as S from "./LuzCameraEcoAcaoStyled";
 import Footer from "../../components/footer/footer";
 import ContactSection from "../../components/contactComponente/contactComponente";
+import useImagesLoaded from "../../hooks/useImagesLoaded";
+import LoadingOverlay from "../../components/LoadingComponente/Loading";
 
-const logoEcoacao = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324711/ecoa%C3%A7%C3%A3o_k7uwq9.png'
-const logoFuncao = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324712/logoFuncao_bz0zbs.png'
-const localizacao = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324728/localizacao_wiy5ig.png'
-const barco = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324725/barco_lbioib.png'
-const folha = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324726/folha_aquzrk.png'
-const podcastIcon = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324731/podcast_l7xtrb.png'
-const expoIcon = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324739/quadro_tfkmsk.png'
-const painelIcon = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324725/balao_de_conversa_uppr8i.png'
-const oficinaIcon = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324731/pessoa_com_lampada_na_mao_do5701.png'
-const mundoConectado = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324730/mundin_dmjw3s.png'
-const homero = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324650/homero_bmcqqj.png'
-const bruna = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324651/image_4_vuw6kf.png'
-const PalomaFoto = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324652/paloma_idbr4j.png'
-const graciosa1 = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324712/graciosaa_r3kmct.png'
-const capFundoBranco = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324721/capFundoBranco_x1dlmt.png'
-const baquinho = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324643/baquinho_dzqgfy.png'
-const aspasPreta = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324725/aspasPreta_khaua6.png'
-const plantinha = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324654/plantinha_i9kjos.jpg'
-const cooperativa = 'https://res.cloudinary.com/djg8c78mb/image/upload/v1746324713/cooperativaLogo_yycsv7.png'
+const logoEcoacao =
+  "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324711/ecoa%C3%A7%C3%A3o_k7uwq9.png";
+const logoFuncao =
+  "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324712/logoFuncao_bz0zbs.png";
+const localizacao =
+  "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324728/localizacao_wiy5ig.png";
+const barco =
+  "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324725/barco_lbioib.png";
+const folha =
+  "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324726/folha_aquzrk.png";
+const podcastIcon =
+  "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324731/podcast_l7xtrb.png";
+const expoIcon =
+  "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324739/quadro_tfkmsk.png";
+const painelIcon =
+  "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324725/balao_de_conversa_uppr8i.png";
+const oficinaIcon =
+  "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324731/pessoa_com_lampada_na_mao_do5701.png";
+const mundoConectado =
+  "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324730/mundin_dmjw3s.png";
+const homero =
+  "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324650/homero_bmcqqj.png";
+const bruna =
+  "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324651/image_4_vuw6kf.png";
+const PalomaFoto =
+  "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324652/paloma_idbr4j.png";
+const graciosa1 =
+  "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324712/graciosaa_r3kmct.png";
+const capFundoBranco =
+  "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324721/capFundoBranco_x1dlmt.png";
+const baquinho =
+  "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324643/baquinho_dzqgfy.png";
+const aspasPreta =
+  "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324725/aspasPreta_khaua6.png";
+const plantinha =
+  "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324654/plantinha_i9kjos.jpg";
+const cooperativa =
+  "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324713/cooperativaLogo_yycsv7.png";
 
 //teste
 const LuzCameraEcoAcaoPage: React.FC = () => {
@@ -41,6 +62,42 @@ const LuzCameraEcoAcaoPage: React.FC = () => {
     card2Height: 0,
     card2Width: 0,
   });
+
+  const [onLoading, setOnLoading] = useState(true);
+
+  const imageUrls = [
+    logoEcoacao,
+    logoFuncao,
+    localizacao,
+    barco,
+    folha,
+    podcastIcon,
+    expoIcon,
+    painelIcon,
+    oficinaIcon,
+    mundoConectado,
+    homero,
+    bruna,
+    PalomaFoto,
+    graciosa1,
+    capFundoBranco,
+    baquinho,
+    aspasPreta,
+    plantinha,
+    cooperativa,
+  ];
+  const allImagesLoaded = useImagesLoaded(imageUrls);
+
+  useEffect(() => {
+    if (allImagesLoaded) {
+      const timer = setTimeout(() => {
+        setOnLoading(false);
+      }, 500);
+
+      return () => clearTimeout(timer);
+    }
+  }, [allImagesLoaded]);
+
   //teste
   useEffect(() => {
     setIsMobile(window.innerWidth <= 768);
@@ -53,12 +110,13 @@ const LuzCameraEcoAcaoPage: React.FC = () => {
       });
     };
     updateDimensions();
-    window.addEventListener('resize', updateDimensions);
-    return () => window.removeEventListener('resize', updateDimensions);
+    window.addEventListener("resize", updateDimensions);
+    return () => window.removeEventListener("resize", updateDimensions);
   }, []);
 
   return (
     <S.MainContainer>
+      {onLoading && <LoadingOverlay />}
       <S.InicialSecao>
         <S.LogoEcoacao src={logoEcoacao} alt="logoEcoacao" />
         <S.TitleInicial>Projeto Luz, Câmera, EcoAção!</S.TitleInicial>
@@ -80,26 +138,24 @@ const LuzCameraEcoAcaoPage: React.FC = () => {
             <S.Card>
               <S.IconCard src={localizacao} />
               <S.TextCard>
-                uma iniciativa inovadora que acontecerá
-                durante a COP 30, de 10 a 21 de novembro de
-                2025, em Belém, Pará, Brasil
+                uma iniciativa inovadora que acontecerá durante a COP 30, de 10
+                a 21 de novembro de 2025, em Belém, Pará, Brasil
               </S.TextCard>
             </S.Card>
             <S.Card>
               <S.IconCard src={barco} />
               <S.TextCard>
-                Sediado em um barco ancorado no rio Guamá, o
-                projeto combina arte e sustentabilidade para
-                explorar como as mudanças ambientais
-                impactam nosso bem-estar psicológico.
+                Sediado em um barco ancorado no rio Guamá, o projeto combina
+                arte e sustentabilidade para explorar como as mudanças
+                ambientais impactam nosso bem-estar psicológico.
               </S.TextCard>
             </S.Card>
             <S.Card>
               <S.IconCard src={folha} />
               <S.TextCard>
-                Ele apresentará soluções ambientais já
-                implementadas globalmente e fomentará a
-                discussão de novas ideias para enfrentar desafios futuros.
+                Ele apresentará soluções ambientais já implementadas globalmente
+                e fomentará a discussão de novas ideias para enfrentar desafios
+                futuros.
               </S.TextCard>
             </S.Card>
           </S.CardSection>
@@ -239,15 +295,11 @@ const LuzCameraEcoAcaoPage: React.FC = () => {
             </S.Card3Text>
             <S.SubTitleCard3>Principais Trabalhos:</S.SubTitleCard3>
             <S.SubTextCard3>
-              <li>
-                Os Xeretas (Direção: Michael Ruman)
-              </li>
+              <li>Os Xeretas (Direção: Michael Ruman)</li>
               <li>
                 A Frente Fria que a Chuva Traz (Direção: Neville D’Almeida)
               </li>
-              <li>
-                Navalha na Carne
-              </li>
+              <li>Navalha na Carne</li>
             </S.SubTextCard3>
             <S.Card3Text>
               No projeto “Luz, Câmera, EcoAção! – Arte e Sustentabilidade”,
@@ -278,7 +330,9 @@ const LuzCameraEcoAcaoPage: React.FC = () => {
               <S.Card4Logo>
                 <S.Card4LogoImg width="25%" src={cooperativa} />
               </S.Card4Logo>
-              <S.ButtonCard onClick={() => (window.location.href = "/Cooperativa")}>
+              <S.ButtonCard
+                onClick={() => (window.location.href = "/Cooperativa")}
+              >
                 Saiba Mais
               </S.ButtonCard>
               <br />
@@ -288,14 +342,39 @@ const LuzCameraEcoAcaoPage: React.FC = () => {
             <S.Card3Img src={bruna} />
             <S.Card3Title>Bruna Madsen</S.Card3Title>
             <S.Card3Text>
-              Bruna Madsen é uma profissional com ampla experiência em gestão de projetos e produção executiva, especialmente nas áreas de mídia, entretenimento e cultura.
-              Ao longo de sua carreira, tem se destacado pela coordenação de equipes e pelo gerenciamento de recursos, com forte expertise nas Leis de Incentivo à Cultura, incluindo MinC e Ancine.
-              Com um olhar estratégico para o planejamento e a organização, ela tem se destacado no mercado pela habilidade em gerenciar recursos e desenvolver soluções criativas, especialmente em projetos de grande escala.
-              Atualmente, ocupa a posição de produtora de locação na ELOCS, empresa de renome em São Paulo, e possui experiência anterior em diversas funções de destaque, como na Pano Social, onde foi responsável por estratégias de marketing com a criação e realizaçoes de eventos.
-              Sua trajetória inclui passagens por grandes agências e empresas, como Agência New Contet, Futuri Comunicação e AktuellMix, onde atuou em importantes ações estratégicas, como o lançamento de produtos para o Banco Itaú e o Banco Bradesco.
-              Além disso, desempenhou papéis fundamentais em eventos significativos para o mercado audiovisual, como o DIA DA MÚSICA, CLIPES E BANDAS e BIG FRSTIVAL, e na produção de projetos culturais, como o longametragem de animação "Tito e os Pássaros." Com formação em Turismo pela Universidade Positivo - PR e uma série de cursos de especialização em Produção Executiva e Gestão de Projetos.
-              Sua carreira é marcada pela paixão pela inovação e pela excelência na execução de projetos de impacto cultural e social.
-              Conversas com a jovem Isabella Camargo, sua filha, foram fundamentais para a criação deste projeto, somando a sua expertise em desenvolver soluções criativas contribuíram para a criação do evento “Luz, Câmera, EcoAÇÃO” elaborando ações que combinem arte, natureza e bem-estar, promovendo a conexão com o meio ambiente e o impacto positivo nas pessoas, estimulando a saúde mental por meio de práticas artísticas sustentáveis.            </S.Card3Text>
+              Bruna Madsen é uma profissional com ampla experiência em gestão de
+              projetos e produção executiva, especialmente nas áreas de mídia,
+              entretenimento e cultura. Ao longo de sua carreira, tem se
+              destacado pela coordenação de equipes e pelo gerenciamento de
+              recursos, com forte expertise nas Leis de Incentivo à Cultura,
+              incluindo MinC e Ancine. Com um olhar estratégico para o
+              planejamento e a organização, ela tem se destacado no mercado pela
+              habilidade em gerenciar recursos e desenvolver soluções criativas,
+              especialmente em projetos de grande escala. Atualmente, ocupa a
+              posição de produtora de locação na ELOCS, empresa de renome em São
+              Paulo, e possui experiência anterior em diversas funções de
+              destaque, como na Pano Social, onde foi responsável por
+              estratégias de marketing com a criação e realizaçoes de eventos.
+              Sua trajetória inclui passagens por grandes agências e empresas,
+              como Agência New Contet, Futuri Comunicação e AktuellMix, onde
+              atuou em importantes ações estratégicas, como o lançamento de
+              produtos para o Banco Itaú e o Banco Bradesco. Além disso,
+              desempenhou papéis fundamentais em eventos significativos para o
+              mercado audiovisual, como o DIA DA MÚSICA, CLIPES E BANDAS e BIG
+              FRSTIVAL, e na produção de projetos culturais, como o
+              longametragem de animação "Tito e os Pássaros." Com formação em
+              Turismo pela Universidade Positivo - PR e uma série de cursos de
+              especialização em Produção Executiva e Gestão de Projetos. Sua
+              carreira é marcada pela paixão pela inovação e pela excelência na
+              execução de projetos de impacto cultural e social. Conversas com a
+              jovem Isabella Camargo, sua filha, foram fundamentais para a
+              criação deste projeto, somando a sua expertise em desenvolver
+              soluções criativas contribuíram para a criação do evento “Luz,
+              Câmera, EcoAÇÃO” elaborando ações que combinem arte, natureza e
+              bem-estar, promovendo a conexão com o meio ambiente e o impacto
+              positivo nas pessoas, estimulando a saúde mental por meio de
+              práticas artísticas sustentáveis.{" "}
+            </S.Card3Text>
           </S.Card3>
           <S.Card3 height={dimensions.card3Height}>
             <S.Card3Img src={PalomaFoto} />
@@ -338,15 +417,11 @@ const LuzCameraEcoAcaoPage: React.FC = () => {
               <S.Card4Logo>
                 <S.Card4LogoImg width="35%" src={graciosa1} />
               </S.Card4Logo>
-              <S.ButtonCard onClick={handleClick}>
-                Saiba Mais
-              </S.ButtonCard>
+              <S.ButtonCard onClick={handleClick}>Saiba Mais</S.ButtonCard>
               <S.Card4Logo>
                 <S.Card4LogoImg width="35%" src={logoFuncao} />
               </S.Card4Logo>
-              <S.ButtonCard onClick={handleClickA}>
-                Saiba Mais
-              </S.ButtonCard>
+              <S.ButtonCard onClick={handleClickA}>Saiba Mais</S.ButtonCard>
               <br />
             </S.Card4Section>
           </S.Card3>
@@ -359,9 +434,7 @@ const LuzCameraEcoAcaoPage: React.FC = () => {
         buttonColor="#141c16"
         imageUrl={baquinho} // Substitua pela sua imagem
       />
-      {!isMobile && (
-        <Footer />
-      )}
+      {!isMobile && <Footer />}
     </S.MainContainer>
   );
 };

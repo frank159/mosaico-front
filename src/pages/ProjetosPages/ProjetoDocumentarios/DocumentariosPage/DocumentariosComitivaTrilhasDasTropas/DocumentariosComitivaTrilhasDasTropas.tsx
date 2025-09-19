@@ -1,6 +1,8 @@
 import * as S from "./DocumentariosComitivaTrilhasDasTropasStyled";
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import useImagesLoaded from "../../../../../hooks/useImagesLoaded";
+import LoadingOverlay from "../../../../../components/LoadingComponente/Loading";
 
 const foto =
   "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758049779/trilha_e_tropas_xpsqyc.jpg";
@@ -11,20 +13,39 @@ interface Video {
   src: string;
 }
 
+const horizontalImg1 =
+  "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758049782/trilha_xv0pdz.jpg";
+const horizontalImg2 =
+  "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758049779/mero_vsgf2p.jpg";
+const verticalImg1 =
+  "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758049779/trilhas_e_tropa_n0tx0j.jpg";
+const verticalImg2 =
+  "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758049779/trilhas_e_tropas_zxijk9.jpg";
+
 const DocumentarioComitivaTrilhasDasTropas: React.FC = () => {
   const [fullScreenImage, setFullScreenImage] = useState<string | null>(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const [selectedVideo, setSelectedVideo] = useState<Video | null>(null);
-  const [fotosList, setFotosList] = useState<string[]>([]);
+  const [onLoading, setOnLoading] = useState(true);
+
+  const imageUrls = [
+    foto,
+    horizontalImg1,
+    horizontalImg2,
+    verticalImg1,
+    verticalImg2,
+  ];
+  const allImagesLoaded = useImagesLoaded(imageUrls);
 
   useEffect(() => {
-    setFotosList([
-      "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758049782/trilha_xv0pdz.jpg",
-      "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758049779/trilhas_e_tropas_zxijk9.jpg",
-      "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758049779/mero_vsgf2p.jpg",
-      "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758049779/trilhas_e_tropa_n0tx0j.jpg",
-    ]);
-  }, []);
+    if (allImagesLoaded) {
+      const timer = setTimeout(() => {
+        setOnLoading(false);
+      }, 500);
+
+      return () => clearTimeout(timer);
+    }
+  }, [allImagesLoaded]);
 
   const getEmbedUrl = (src: string) => {
     const ytMatch = src.match(
@@ -62,22 +83,22 @@ const DocumentarioComitivaTrilhasDasTropas: React.FC = () => {
 
   const galeriaFotos = [
     {
-      src: "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758049779/trilhas_e_tropa_n0tx0j.jpg",
+      src: verticalImg1,
       alt: "Foto vertical 1",
       orientation: "vertical",
     },
     {
-      src: "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758049779/trilhas_e_tropas_zxijk9.jpg",
+      src: verticalImg2,
       alt: "Foto vertical 2",
       orientation: "vertical",
     },
     {
-      src: "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758049782/trilha_xv0pdz.jpg",
+      src: horizontalImg1,
       alt: "Foto horizontal 1",
       orientation: "horizontal",
     },
     {
-      src: "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758049779/mero_vsgf2p.jpg",
+      src: horizontalImg2,
       alt: "Foto horizontal 2",
       orientation: "horizontal",
     },
@@ -85,6 +106,8 @@ const DocumentarioComitivaTrilhasDasTropas: React.FC = () => {
 
   return (
     <S.MainContainer>
+      {onLoading && <LoadingOverlay />}
+
       <S.Body>
         <S.ContainerSubA>
           <S.TextoWrap>
