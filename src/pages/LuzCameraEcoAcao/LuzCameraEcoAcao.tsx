@@ -295,11 +295,10 @@ const LuzCameraEcoAcaoPage: React.FC = () => {
             </S.Card3Text>
             <S.SubTitleCard3>Principais Trabalhos:</S.SubTitleCard3>
             <S.SubTextCard3>
-              <li>Os Xeretas (Direção: Michael Ruman)</li>
-              <li>
-                A Frente Fria que a Chuva Traz (Direção: Neville D’Almeida)
-              </li>
-              <li>Navalha na Carne</li>
+              • Os Xeretas (Direção: Michael Ruman)
+              <br />
+              • A Frente Fria que a Chuva Traz (Direção: Neville D’Almeida)
+              <br />• Navalha na Carne
             </S.SubTextCard3>
             <S.Card3Text>
               No projeto “Luz, Câmera, EcoAção! – Arte e Sustentabilidade”,
@@ -312,11 +311,9 @@ const LuzCameraEcoAcaoPage: React.FC = () => {
             </S.Card3Text>
             <S.ContactInfoContainer>
               <S.ContactInfo>
-                {/* <S.Icon src={emailIcon} alt="Email Icon" /> */}
                 <S.BoldText underline>cooperativacm@uol.com.br</S.BoldText>
               </S.ContactInfo>
               <S.ContactInfo>
-                {/* <S.Icon src={whatsAppIcon} alt="WhatsApp Icon" /> */}
                 <S.BoldText>(42)9 9102-4351</S.BoldText>
               </S.ContactInfo>
             </S.ContactInfoContainer>
@@ -405,11 +402,9 @@ const LuzCameraEcoAcaoPage: React.FC = () => {
             </S.Card3Text>
             <S.ContactInfoContainer>
               <S.ContactInfo>
-                {/* <S.Icon src={emailIcon} alt="Email Icon" /> */}
                 <S.BoldText underline>p.vogt@graciosa-pictures.com</S.BoldText>
               </S.ContactInfo>
               <S.ContactInfo>
-                {/* <S.Icon src={whatsAppIcon} alt="WhatsApp Icon" /> */}
                 <S.BoldText>(176) 31258861</S.BoldText>
               </S.ContactInfo>
             </S.ContactInfoContainer>
@@ -429,10 +424,10 @@ const LuzCameraEcoAcaoPage: React.FC = () => {
       </S.QuinSecao>
 
       <ContactSection
-        backgroundColor="#bbc7af" // Cor de fundo do container
-        textColor="#141c16" // Cor do texto
+        backgroundColor="#bbc7af"
+        textColor="#141c16"
         buttonColor="#141c16"
-        imageUrl={baquinho} // Substitua pela sua imagem
+        imageUrl={baquinho}
       />
       {!isMobile && <Footer />}
     </S.MainContainer>
