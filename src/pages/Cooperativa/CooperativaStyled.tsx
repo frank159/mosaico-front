@@ -1,6 +1,6 @@
-import { Button } from '@mui/material';
-import { motion } from 'motion/react';
-import styled from 'styled-components';
+import { Button } from "@mui/material";
+import { motion } from "motion/react";
+import styled from "styled-components";
 
 // Containers principais
 export const MainContainer = styled.div`
@@ -17,6 +17,10 @@ export const FullImgFrame = styled.div`
   @media (max-width: 1224px) {
     height: 50vh;
   }
+
+  @media (max-width: 768px) {
+    margin-top: 4.5rem;
+  }
 `;
 
 export const FullImg = styled.img`
@@ -32,7 +36,7 @@ export const TitleOverlayContainer = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 112;
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   color: white;
   display: flex;
   flex-direction: column;
@@ -203,7 +207,9 @@ export const ImgStyled = styled.img<{ isMobile: boolean }>`
   object-position: 50% 30%;
   opacity: 0.2;
   z-index: 1;
-  ${props => props.isMobile && `
+  ${(props) =>
+    props.isMobile &&
+    `
     opacity: 0.1;
     object-position: right center;
   `}
@@ -324,7 +330,7 @@ export const MoviesContainer = styled.div`
   background-repeat: repeat-y;
   background-size: contain;
   background-position: center;
-  background-image: url('https://res.cloudinary.com/djg8c78mb/image/upload/v1746324645/camerafundohomero_i3yjmv.png');
+  background-image: url("https://res.cloudinary.com/djg8c78mb/image/upload/v1746324645/camerafundohomero_i3yjmv.png");
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -368,7 +374,7 @@ export const MovieCard = styled.div`
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('https://res.cloudinary.com/djg8c78mb/image/upload/v1746324645/camerafundohomero_i3yjmv.png');
+    background-image: url("https://res.cloudinary.com/djg8c78mb/image/upload/v1746324645/camerafundohomero_i3yjmv.png");
     opacity: 0.1;
     z-index: -1;
   }
@@ -413,7 +419,7 @@ export const MovieButton = styled(Button)`
   text-transform: none !important;
   width: 30% !important;
   margin-top: auto !important;
-  font-family: 'Arsenal', sans-serif !important;
+  font-family: "Arsenal", sans-serif !important;
   @media (max-width: 1224px) {
     width: 40% !important;
   }
