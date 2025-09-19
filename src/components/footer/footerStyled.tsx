@@ -19,7 +19,7 @@ export const FooterContainer = styled.div<ColorProps>`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  z-index: 11000;
+  z-index: 998;
 `;
 
 export const FooterDiv = styled.div`

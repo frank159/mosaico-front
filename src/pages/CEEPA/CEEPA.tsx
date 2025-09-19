@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as S from "./CEEPAStyled";
 import { motion, AnimatePresence } from "framer-motion";
+import useImagesLoaded from "../../hooks/useImagesLoaded";
+import LoadingOverlay from "../../components/LoadingComponente/Loading";
 
 // Icon imports
 const impactoS =
@@ -63,6 +65,39 @@ const getEmbedUrl = (src: string) => {
 
 const School: React.FC = () => {
   const [selectedVideo, setSelectedVideo] = useState<Video | null>(null);
+  const [onLoading, setOnLoading] = useState(true);
+
+  const imageUrls = [
+    impactoS,
+    impactoM,
+    producao,
+    reconhecimento,
+    estrutura,
+    ft1,
+    ft2,
+    ft3,
+    ft4,
+    ft5,
+    ft6,
+    ft7,
+    ft8,
+    ft9,
+    ft10,
+    ft11,
+    img88,
+    coruja,
+  ];
+  const allImagesLoaded = useImagesLoaded(imageUrls);
+
+  useEffect(() => {
+    if (allImagesLoaded) {
+      const timer = setTimeout(() => {
+        setOnLoading(false);
+      }, 500);
+
+      return () => clearTimeout(timer);
+    }
+  }, [allImagesLoaded]);
 
   const videos: Video[] = [
     {
@@ -107,20 +142,6 @@ const School: React.FC = () => {
     },
   ];
 
-  const reportVideos: Video[] = [
-    // {
-    //   id: 9,
-    //   title: "Case Ceepa",
-    //   src: "https://youtu.be/0m5YbDwTSSg?si=XcblAZA184FYhbkj",
-    // },
-    {
-      id: 10,
-      title: "Globo Reporter",
-      src: "https://youtu.be/XsQRllbukoM?si=FdA4IcOPnGNvUH5G",
-    },
-  ];
-
-  // Generic renderer for a video grid
   const renderVideoSection = (list: Video[]) => (
     <S.VideoGrid>
       {list.map((video) => (
@@ -144,6 +165,8 @@ const School: React.FC = () => {
 
   return (
     <div>
+      {onLoading && <LoadingOverlay />}
+
       <S.Container>
         <S.InicialSecao>
           <S.TitleSectio>

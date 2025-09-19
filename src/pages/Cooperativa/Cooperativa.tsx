@@ -1,6 +1,8 @@
 import * as S from "./CooperativaStyled";
 import React, { useState, useRef, useEffect } from "react";
 import Footer from "../../components/footer/footer";
+import LoadingOverlay from "../../components/LoadingComponente/Loading";
+import useImagesLoaded from "../../hooks/useImagesLoaded";
 
 const HomeroFoto =
   "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324650/homero_bmcqqj.png";
@@ -32,11 +34,35 @@ interface SlideItem {
   content?: React.ReactNode;
   backgroundColor2?: string;
   rote?: string;
-  imageSrc: string; // Adicionado campo para a imagem
+  imageSrc: string;
 }
 
 const Cooperativa: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
+  const [onLoading, setOnLoading] = useState(true);
+
+  const imageUrls = [
+    HomeroFoto,
+    cameraCoop,
+    pinheiroCoop,
+    cooperativaLogo,
+    xeretas,
+    Afrente,
+    projetoID,
+    sonhosTrop,
+    estadoDressis,
+  ];
+  const allImagesLoaded = useImagesLoaded(imageUrls);
+
+  useEffect(() => {
+    if (allImagesLoaded) {
+      const timer = setTimeout(() => {
+        setOnLoading(false);
+      }, 500);
+
+      return () => clearTimeout(timer);
+    }
+  }, [allImagesLoaded]);
 
   const overlayRef = useRef<HTMLDivElement>(null);
   const overlayRefA = useRef<HTMLDivElement>(null);
@@ -100,6 +126,8 @@ const Cooperativa: React.FC = () => {
 
   return (
     <S.MainContainer>
+      {onLoading && <LoadingOverlay />}
+
       <S.FullImgFrame>
         <S.FullImg src={pinheiroCoop}></S.FullImg>
         <S.TitleOverlayContainer>

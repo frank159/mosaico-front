@@ -1,34 +1,60 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import * as S from "./FilmeEçaDeQueirozStyled";
+import useImagesLoaded from "../../../../../hooks/useImagesLoaded";
+import LoadingOverlay from "../../../../../components/LoadingComponente/Loading";
 
 const FilmeEçaDeQueiroz: React.FC = () => {
   const [fullScreenImage, setFullScreenImage] = useState<string | null>(null);
+  const [onLoading, setOnLoading] = useState(true);
 
   const handleExpand = (src: string) => {
     setFullScreenImage(src);
   };
 
-  const imagens = [
-    "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758222389/1_1_qoxe7q.png",
-    "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758223215/4_zbvxxn.png",
-    "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758222371/5_np0thz.png",
-    "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758222376/6_vvhq9o.png",
-    "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758222381/7_hfjmx7.png",
-    "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758222385/8_x3xhnj.png",
-    "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758223276/9_v3dwml.png",
-    "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758222379/10_czaldo.png",
-  ];
+  const img1 =
+    "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758223385/3_1_bkkh9q.png";
+  const img2 =
+    "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758222389/1_1_qoxe7q.png";
+  const img3 =
+    "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758222389/1_1_qoxe7q.png";
+  const img4 =
+    "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758223215/4_zbvxxn.png";
+  const img5 =
+    "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758222371/5_np0thz.png";
+  const img6 =
+    "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758222376/6_vvhq9o.png";
+  const img7 =
+    "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758222381/7_hfjmx7.png";
+  const img8 =
+    "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758222385/8_x3xhnj.png";
+  const img9 =
+    "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758223276/9_v3dwml.png";
+
+  const imagens = [img2, img3, img4, img5, img6, img7, img8, img9];
+
+  const imageUrls = [...imagens, img1];
+  const allImagesLoaded = useImagesLoaded(imageUrls);
+
+  useEffect(() => {
+    if (allImagesLoaded) {
+      const timer = setTimeout(() => {
+        setOnLoading(false);
+      }, 500);
+
+      return () => clearTimeout(timer);
+    }
+  }, [allImagesLoaded]);
+
   const handleClose = () => setFullScreenImage(null);
 
   return (
     <S.MainContainer>
+      {onLoading && <LoadingOverlay />}
+
       <S.Body>
         <S.ContainerSubA>
           <S.ContainerLeftA>
-            <S.ImgFoto
-              src="https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758223385/3_1_bkkh9q.png"
-              alt="Imagem do filme"
-            />
+            <S.ImgFoto src={img1} alt="Imagem do filme" />
           </S.ContainerLeftA>
           <S.ContainerRightA>
             <S.TextoAContiner>

@@ -1,8 +1,10 @@
 import * as S from "./ProjetoIdentidadeStyled";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react"; // ou "framer-motion" conforme sua lib
 import ReactPlayer from "react-player";
 import { useSearchParams } from "react-router-dom";
+import useImagesLoaded from "../../../hooks/useImagesLoaded";
+import LoadingOverlay from "../../../components/LoadingComponente/Loading";
 
 const idProgeto =
   "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324651/idIMg_jgfzt2.jpg";
@@ -71,6 +73,46 @@ const ProjetoIdentidade: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [galleryImages, setGalleryImages] = useState<string[]>([]);
   const [fullScreenImage, setFullScreenImage] = useState<string | null>(null);
+  const [onLoading, setOnLoading] = useState(true);
+
+  const imageUrls = [
+    idProgeto,
+    idProgetoDefault,
+    BRASILDeSAINT,
+    cooperativa111,
+    tropeiro,
+    SAO_GONÇALO1,
+    SAO_GONÇALO2,
+    SAO_GONÇALO3,
+    SAO_GONÇALO4,
+    SAO_GONÇALO5,
+    SAO_GONÇALO6,
+    SAO_GONÇALO7,
+    SAO_GONÇALO8,
+    saint1,
+    saint2,
+    saint3,
+    saint4,
+    saint5,
+    saint6,
+    saint7,
+    saint8,
+    saint9,
+    saint10,
+    saint11,
+    video1,
+  ];
+  const allImagesLoaded = useImagesLoaded(imageUrls);
+
+  useEffect(() => {
+    if (allImagesLoaded) {
+      const timer = setTimeout(() => {
+        setOnLoading(false);
+      }, 500);
+
+      return () => clearTimeout(timer);
+    }
+  }, [allImagesLoaded]);
   const isMobile = window.innerWidth <= 768;
 
   const getEmbedUrl = (src: string) => {
@@ -135,6 +177,7 @@ const ProjetoIdentidade: React.FC = () => {
 
   return (
     <S.MainContainer>
+      {onLoading && <LoadingOverlay />}
       <S.Body>
         <S.ContainerSubA>
           <S.ContainerLeftA>

@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import * as S from "./ProjetoListStyled";
+import useImagesLoaded from "../../hooks/useImagesLoaded";
+import LoadingOverlay from "../../components/LoadingComponente/Loading";
 
 interface Projeto {
   img: string;
@@ -24,6 +26,22 @@ const img4 =
 
 const Projetos: React.FC = () => {
   const [projetos, setProjetos] = useState<Projeto[]>([]);
+  const [onLoading, setOnLoading] = useState(true);
+
+  const imageUrls = [faixaMosaico, img0, img1, img2, img3, img4];
+  const allImagesLoaded = useImagesLoaded(imageUrls);
+
+  useEffect(() => {
+    if (allImagesLoaded) {
+      const timer = setTimeout(() => {
+        setOnLoading(false);
+        
+      }, 500);
+
+      return () => clearTimeout(timer);
+    }
+  }, [allImagesLoaded]);
+
   const handleProjetoClick = (route: string) => {
     window.location.href = route; // Redireciona a página para a rota especificada
   };
@@ -48,21 +66,21 @@ const Projetos: React.FC = () => {
         img: img2,
         imgAlt: "FILMES",
         titulo: "PRODUÇÃO AUDIO VISUAL - FILMES",
-        texto: `Diana no Asfalto, Mataram Zacarias, Mentes artificiais`,
+        texto: ``,
         link: "/Filmes",
       },
       {
         img: img3,
         imgAlt: "SÉRIES",
         titulo: "PRODUÇÃO AUDIO VISUAL - SÉRIES",
-        texto: `As domadoras, Purunã`,
+        texto: ``,
         link: "/Series",
       },
       {
         img: img4,
         imgAlt: "DOCUMENTÁRIOS",
         titulo: "PRODUÇÃO AUDIO VISUAL - DOCUMENTÁRIOS",
-        texto: `As trilhas das tropas`,
+        texto: ``,
         link: "/Documentarios",
       },
     ]);
@@ -70,6 +88,8 @@ const Projetos: React.FC = () => {
 
   return (
     <S.MainContainer>
+      {onLoading && <LoadingOverlay />}
+
       <S.TopContainer>
         <S.MosaicoWrapper>
           <S.MosaicoImgContainer>

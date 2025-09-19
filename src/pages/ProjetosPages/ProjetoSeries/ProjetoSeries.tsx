@@ -1,4 +1,12 @@
+import { useEffect, useState } from "react";
 import * as S from "./ProjetoSeriesStyled";
+import useImagesLoaded from "../../../hooks/useImagesLoaded";
+import LoadingOverlay from "../../../components/LoadingComponente/Loading";
+
+const SeriePuruna =
+  "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758221007/Purun%C3%A32_mlhabo.jpg";
+const SeriePalcoDeRua =
+  "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758300013/logo512_vv996q.png";
 
 const ProjetoSeries: React.FC = () => {
   interface SlideItem {
@@ -9,15 +17,27 @@ const ProjetoSeries: React.FC = () => {
     img: string; // Adicionado campo para a imagem
   }
 
-  const SeriePuruna =
-    "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758221007/Purun%C3%A32_mlhabo.jpg";
-  const SeriePalcoDeRua = "/logo512.png";
+  const [onLoading, setOnLoading] = useState(true);
+
+  const imageUrls = [SeriePuruna, SeriePalcoDeRua];
+  const allImagesLoaded = useImagesLoaded(imageUrls);
+
+  useEffect(() => {
+    if (allImagesLoaded) {
+      const timer = setTimeout(() => {
+        setOnLoading(false);
+        
+      }, 500);
+
+      return () => clearTimeout(timer);
+    }
+  }, [allImagesLoaded]);
 
   const defaultSlides: SlideItem[] = [
     {
       id: 1,
       img: SeriePuruna,
-      title: "Purunã (As Domadoras)",
+      title: "Purunã",
       text: "O seriado conta as aventuras de Franco e Maloni, dois moradores da região dos Campos Gerais, que são os guardiões da bela região da serra de São Luiz do Purunã. Entre roubo de cavalos, maquinários agrícolas, assalto a bancos, a bandidagem não consegue se criar na região.",
       rote: "SeriePuruna",
     },
@@ -32,6 +52,8 @@ const ProjetoSeries: React.FC = () => {
 
   return (
     <S.MoviesContainer>
+      {onLoading && <LoadingOverlay />}
+
       <S.Title>SÉRIES:</S.Title>
       <S.MoviesGrid>
         {defaultSlides.map((movie, index) => (

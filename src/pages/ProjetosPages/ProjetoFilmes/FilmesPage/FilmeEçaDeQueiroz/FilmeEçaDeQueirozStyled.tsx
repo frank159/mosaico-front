@@ -399,7 +399,7 @@ export const ModalOverlay = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  z-index: 100;
 `;
 
 export const CloseButton = styled.button`
@@ -411,7 +411,7 @@ export const CloseButton = styled.button`
   color: white;
   font-size: 2rem;
   cursor: pointer;
-  z-index: 1001;
+  z-index: 101;
   border-radius: 50%;
   background-color: #2b2b2b;
   width: 3rem;

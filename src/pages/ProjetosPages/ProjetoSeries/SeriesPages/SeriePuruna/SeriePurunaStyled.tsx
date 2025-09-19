@@ -12,6 +12,7 @@ export const MainContainer = styled.div`
   position: relative;
   overflow-y: hidden;
   margin-top: 5rem;
+  margin-bottom: 5rem;
 `;
 
 export const Body = styled.div`

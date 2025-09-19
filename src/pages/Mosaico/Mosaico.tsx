@@ -7,6 +7,8 @@ import PauseIcon from "@mui/icons-material/Pause";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import ScrollToTop from "../../components/ScrollToTop/ScrollToTop";
 import Mosaico from "./MosaicoPage/MosaicoPage";
+import useImagesLoaded from "../../hooks/useImagesLoaded";
+import LoadingOverlay from "../../components/LoadingComponente/Loading";
 
 // Logos and icons
 const mosaicoLogo =
@@ -26,6 +28,20 @@ const MosaicoPage: React.FC = () => {
   const [blurValue, setBlurValue] = useState(0);
   const [showIconMobile, setShowIconMobile] = useState(false);
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+  const [onLoading, setOnLoading] = useState(true);
+
+  const imageUrls = [mosaicoLogo, mosaicoCirculoLogo];
+  const allImagesLoaded = useImagesLoaded(imageUrls);
+
+  useEffect(() => {
+    if (allImagesLoaded) {
+      const timer = setTimeout(() => {
+        setOnLoading(false);
+      }, 500);
+
+      return () => clearTimeout(timer);
+    }
+  }, [allImagesLoaded]);
 
   const isMobile = window.innerWidth <= 768;
 
@@ -84,6 +100,8 @@ const MosaicoPage: React.FC = () => {
 
   return (
     <S.Container>
+      {onLoading && <LoadingOverlay />}
+
       <audio ref={audioRef} src={audioFile} loop />
       <ScrollToTop />
       <S.TitleOverlayContainer>
