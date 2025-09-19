@@ -323,7 +323,7 @@ const DocumentarioComitivaTrilhasDasTropas: React.FC = () => {
           )}
         </AnimatePresence>
       </S.BodyC>
-      {fullScreenImage && !isMobile && (
+      {fullScreenImage && (
         <S.ModalOverlay onClick={handleClose}>
           <S.CloseButton onClick={handleClose}>×</S.CloseButton>
           <img

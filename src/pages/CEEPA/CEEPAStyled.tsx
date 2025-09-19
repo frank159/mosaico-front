@@ -16,7 +16,6 @@ export const Container = styled.div`
   width: auto;
   overflow: hidden;
   width: 100%;
-  margin-top: 5rem;
 `;
 
 export const TESTE = styled.div``;

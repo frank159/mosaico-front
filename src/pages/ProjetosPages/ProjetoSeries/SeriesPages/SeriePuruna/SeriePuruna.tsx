@@ -97,7 +97,7 @@ const DocumentarioPuruna: React.FC = () => {
           Tesouro.
         </S.TextB>
       </S.BodyB>
-      {fullScreenImage && !isMobile && (
+      {fullScreenImage && (
         <S.ModalOverlay onClick={handleClose}>
           <S.CloseButton onClick={handleClose}>×</S.CloseButton>
           <img
