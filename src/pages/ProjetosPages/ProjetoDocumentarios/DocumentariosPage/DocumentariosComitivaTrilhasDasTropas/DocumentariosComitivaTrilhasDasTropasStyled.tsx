@@ -387,16 +387,12 @@ export const CloseButton = styled.button`
 `;
 
 export const VideoContainer = styled.div`
-  padding-left: 3rem;
-  padding-right: 3rem;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 2rem;
   @media (max-width: 768px) {
     margin-bottom: 0;
-    padding-left: 1rem;
-    padding-right: 1rem;
   }
 `;
 
@@ -409,8 +405,6 @@ export const VideoGrid = styled.div`
 
   @media (max-width: 768px) {
     height: 20rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
   }
 `;
 
