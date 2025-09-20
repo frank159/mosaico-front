@@ -11,12 +11,29 @@ export const Container = styled.div<{ isVisible: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
   transition: transform 0.3s ease-in-out;
 
   @media (max-width: 768px) {
     height: 4.5rem;
   }
+`;
+
+export const ElementsWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+`;
+
+export const ContainerContato = styled.div`
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  text-decoration: underline;
 `;
 
 export const Element = styled.div<{ isActive: boolean }>`
@@ -25,10 +42,8 @@ export const Element = styled.div<{ isActive: boolean }>`
   justify-content: center;
   align-items: center;
 
-  /* Altura proporcional ao header: ativo maior, inativo menor */
   height: ${({ isActive }) => (isActive ? "80%" : "60%")};
-  width: auto;       /* largura fica automática para respeitar proporção da img */
-  overflow: hidden;  /* garante que nada vaze */
+  width: auto;
 
   transition: height 0.3s ease;
   cursor: pointer;
@@ -43,8 +58,8 @@ export const Element = styled.div<{ isActive: boolean }>`
 `;
 
 export const StyledImg = styled.img<{ isActive: boolean }>`
-  height: 100%;      /* preenche a altura do Element */
-  width: auto;       /* largura ajusta para manter proporção */
+  height: 100%;
+  width: auto;
   object-fit: contain;
   transition: filter 0.3s ease;
 
