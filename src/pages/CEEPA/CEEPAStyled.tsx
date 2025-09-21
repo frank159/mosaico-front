@@ -244,10 +244,15 @@ export const FaixaText = styled.div`
   color: #141c16;
   font-size: 1.3rem;
   padding-left: 3rem;
-  padding-right: 3rem;
+  padding-right: 3rem;  
   z-index: 2;
   text-align: center;
   font-weight: bolder;
+
+  @media (max-width: 900px) {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 `;
 
 export const Esclamacao = styled.img`
@@ -384,7 +389,7 @@ export const VideoContainer = styled.div`
   align-items: center;
   margin-top: 1rem;
   margin-bottom: 2rem;
-  padding: 0 3rem;
+  padding: 0 1rem;
   z-index: 99;
 `;
 
@@ -396,14 +401,13 @@ export const VideoGrid = styled.div`
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 2rem;
   justify-content: center;
 `;
 
 export const VideoCard = styled.div`
-  flex: 0 1 calc(50% - 1rem); /* ocupa metade da linha */
+  flex: 0 1 calc(45% - 1rem); /* ocupa metade da linha */
   cursor: pointer;
-  gap: 2rem;
   display: flex;
   flex-direction: column;
   transition: transform 0.2s;
@@ -412,7 +416,7 @@ export const VideoCard = styled.div`
   }
 
   @media (max-width: 720px) {
-    flex: 0 1 90%; /* em telas menores: 1 por linha */
+    flex: 0 1 100%; /* em telas menores: 1 por linha */
   }
 `;
 
@@ -420,15 +424,21 @@ export const VideoCardAlt = styled(VideoCard)`
   flex: 0 1 90%;
   padding-left: 3rem;
   padding-right: 3rem;
+  
+  @media (max-width: 900px) {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 `;
 
 export const VideoThumbnail = styled.div`
   height: 30rem;
+  width: 100%;
   @media (max-width: 900px) {
-    height: 20rem;
+    height: 15rem;
   }
   @media (max-width: 720px) {
-    height: 18rem;
+    height: 15rem;
   }
 `;
 
@@ -460,7 +470,7 @@ export const VideoThumbnailB = styled.div`
 
 export const VideoCardTitle = styled.div`
   padding-bottom: 1.5rem;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
   color: #000000;
 `;
@@ -898,8 +908,13 @@ export const MainTitleContainer = styled.div`
 `;
 
 export const MainTitle = styled.h1`
-  padding-left: 3rem !important;
-  padding-right: 3rem !important;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  
+  @media (max-width: 900px) {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 `;
 
 export const OrganisationCard = styled.ul`

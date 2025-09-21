@@ -101,10 +101,17 @@ export const TextoA = styled.p`
 export const Stro = styled.strong``;
 
 export const ContainerRightA = styled.div`
-  width: 50%;
+  width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
+`;
+
+export const ImgFoto = styled.img`
+  width: 100%;
+  object-fit: contain;
+  object-position: end;
 
   @media (max-width: 1224px) {
     height: auto;
@@ -112,12 +119,6 @@ export const ContainerRightA = styled.div`
   @media (max-width: 768px) {
     width: 70%;
   }
-`;
-
-export const ImgFoto = styled.img`
-  width: 100%;
-  object-fit: contain;
-  object-position: end;
 `;
 
 export const ImgFotoA = styled.img`
