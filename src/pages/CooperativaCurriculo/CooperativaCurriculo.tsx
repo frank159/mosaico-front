@@ -603,7 +603,7 @@ eventos/documentario-discute-ponto-polemico-dos-transgenicos-
             </S.FlexTempleCardLInk>
           </S.FlexTempleCard>
           <S.ImgCardFlex>
-            <S.ImgCardFlexImgContainerB>
+            <S.ImgCardFlexImgContainerB widthAlt="70%">
               <S.ImgCardFlexImg src={navalha} />
             </S.ImgCardFlexImgContainerB>
             <S.ImgCardFlexTextContainerA>
@@ -611,7 +611,7 @@ eventos/documentario-discute-ponto-polemico-dos-transgenicos-
             </S.ImgCardFlexTextContainerA>
           </S.ImgCardFlex>
           <S.ImgCardFlex>
-            <S.ImgCardFlexImgContainerB width="15%">
+            <S.ImgCardFlexImgContainerB width="15%"  widthAlt="70%">
               <S.ImgCardFlexImg src={vampa} />
             </S.ImgCardFlexImgContainerB>
             <S.ImgCardFlexTextContainerA>

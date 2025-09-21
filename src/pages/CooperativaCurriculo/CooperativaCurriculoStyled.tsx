@@ -174,7 +174,6 @@ export const BodyB = styled.div`
   margin-top: 15vh;
 
   @media (max-width: 1224px) {
-    padding: 0 2rem; /* Reduz o padding lateral para telas pequenas */
   }
 `;
 
@@ -360,7 +359,7 @@ export const NewTextContainerText = styled.p`
 `;
 
 export const LineTitle = styled.h2`
-  color: #ce0000;
+  color: #ffffff;
   padding-left: 10vw !important;
   white-space: nowrap;
 `;
@@ -667,7 +666,7 @@ export const ImgCardFlex = styled.div`
   align-items: stretch;
   width: 80vw;
   max-height: 100%; /* Ensure the card adapts to its content without overflowing */
-  margin-bottom: 20vh;
+  margin-bottom: 10vh;
 
   @media (max-width: 768px) {
     flex-direction: column-reverse;
@@ -689,7 +688,6 @@ export const ImgCardFlexTextContainer = styled.div`
 `;
 
 export const ImgCardFlexTextContainerA = styled(ImgCardFlexTextContainer)`
-  width: 40%;
   height: 100%;
   justify-content: center;
   padding-left: 2rem;
@@ -722,21 +720,19 @@ export const ImgCardFlexTitle = styled.h1`
 
 export const ImgCardFlexTitleA = styled.h1`
   color: white;
+  width: 40%;
 `;
 
 export const ImgCardFlexSubTitle = styled.p`
   color: white;
   font-weight: bolder;
   font-style: italic;
-  margin-bottom: 15vh !important;
 `;
 
 export const ImgCardFlexSubTitleA = styled(ImgCardFlexSubTitle)`
-  margin-bottom: 5vh !important;
 `;
 
 export const ImgCardFlexImgContainer = styled.div`
-  background-color: #d9d9d967;
   height: auto;
   width: 40%;
   display: flex;
@@ -749,8 +745,7 @@ export const ImgCardFlexImgContainer = styled.div`
   }
 `;
 
-export const ImgCardFlexImgContainerB = styled.div<{ width?: string }>`
-  background-color: #d9d9d967;
+export const ImgCardFlexImgContainerB = styled.div<{ width?: string, widthAlt?: string }>`
   height: auto;
   width: ${({ width }) => width || "20%"};
   display: flex;
@@ -759,7 +754,7 @@ export const ImgCardFlexImgContainerB = styled.div<{ width?: string }>`
   overflow: hidden;
 
   @media (max-width: 768px) {
-    width: 100%;
+    width: ${({ widthAlt }) => widthAlt || "100%"};
   }
 `;
 
