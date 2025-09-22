@@ -49,21 +49,8 @@ const DocumentarioPuruna: React.FC = () => {
                 da serra de São Luiz do Purunã. Entre roubo de cavalos,
                 maquinários agrícolas, assalto a bancos, a bandidagem não
                 consegue se criar na região.
-                <br />
-                Paolla, Mariana, Jeniffer e Karoliny Quatro mulheres e um
-                desafio: domar uma potra xucra da Cabanha São Rafael em apenas
-                15 dias. Enquanto a Cabanha se prepara para recebê-las, elas
-                aterrissam em Curitiba e logo seguem para São Luiz do Purunã,
-                onde o primeiro desafio as aguarda.
               </S.TextoA>
             </S.TextoContainerB>
-            <S.TextoC>
-              <strong>Direção e Roteiro:</strong> Willy Schuman
-              <br />
-              <strong>Produção:</strong> Horse Filmes
-              <br />
-              <strong>Uma série original:</strong> Cabanha São Rafael.
-            </S.TextoC>
           </S.TextContainer>
         </S.ContainerSubA>
       </S.Body>
