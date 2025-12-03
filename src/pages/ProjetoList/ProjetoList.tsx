@@ -49,20 +49,6 @@ const Projetos: React.FC = () => {
   useEffect(() => {
     setProjetos([
       {
-        img: img0,
-        imgAlt: "",
-        titulo: "Luz, Câmera, EcoAção! ",
-        texto: `O projeto Luz, Câmera, EcoAção! Arte e Sustentabilidade propõe um espaço cultural inovador e interativo durante a COP 30, em novembro de 2025, em Belém/PA, ancorado em um barco no rio Guamá. O objetivo é explorar como as mudanças ambientais impactam o bem-estar psicológico, promovendo soluções sustentáveis e fomentando novas ideias. `,
-        link: "/EcoAcao",
-      },
-      {
-        img: img1,
-        imgAlt: "",
-        titulo: "Ultimo Endereço de Eça de Queiroz ",
-        texto: `Rodrigo, um boêmio de 25 anos, parte de Curitiba a Lisboa em busca de se tornar escritor. Ele nunca escreve uma única frase, mas sua vida inteira se transforma em um fragmento inacabado.`,
-        link: "/FilmeEçaDeQueiroz",
-      },
-      {
         img: img2,
         imgAlt: "FILMES",
         titulo: "PRODUÇÃO AUDIO VISUAL - FILMES",

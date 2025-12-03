@@ -1,7 +1,6 @@
 import * as S from "./ProjetoIdentidadeStyled";
 import React, { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "motion/react"; // ou "framer-motion" conforme sua lib
-import ReactPlayer from "react-player";
+import { AnimatePresence, motion } from "motion/react";
 import { useSearchParams } from "react-router-dom";
 import useImagesLoaded from "../../../hooks/useImagesLoaded";
 import LoadingOverlay from "../../../components/LoadingComponente/Loading";
@@ -15,8 +14,10 @@ const BRASILDeSAINT =
 const cooperativa111 =
   "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324647/cooperativa111_jvefqh.png";
 const tropeiro =
-  "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324659/tropeiro_cyabii.png";
+  "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1764782800/Tropeiro_Cartaz_1_zlbewb.jpg";
 const video1 = "/videos/filme1.webm";
+const videoSãoGonçalo = "https://youtu.be/ezcxKpE_cg4";
+const SaintHilaire = "https://youtu.be/T0aHsezbPjs";
 
 const SAO_GONÇALO1 =
   "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324657/SAO_GON%C3%87ALO1_jrlyra.png";
@@ -64,6 +65,11 @@ interface Video {
   src: string;
 }
 
+interface Gallery {
+  images: string[];
+  video?: Video | null;
+}
+
 const ProjetoIdentidade: React.FC = () => {
   const [search] = useSearchParams();
   const fromCooperativa = search.get("fromCooperativa") === "true";
@@ -71,7 +77,7 @@ const ProjetoIdentidade: React.FC = () => {
   const [selectedVideo, setSelectedVideo] = useState<Video | null>(null);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [galleryImages, setGalleryImages] = useState<string[]>([]);
+  const [currentGallery, setCurrentGallery] = useState<Gallery | null>(null);
   const [fullScreenImage, setFullScreenImage] = useState<string | null>(null);
   const [onLoading, setOnLoading] = useState(true);
 
@@ -113,6 +119,7 @@ const ProjetoIdentidade: React.FC = () => {
       return () => clearTimeout(timer);
     }
   }, [allImagesLoaded]);
+
   const isMobile = window.innerWidth <= 768;
 
   const getEmbedUrl = (src: string) => {
@@ -134,14 +141,72 @@ const ProjetoIdentidade: React.FC = () => {
     src: "https://www.youtube.com/watch?v=oYThW2vrqJ8",
   };
 
-  const openGallery = (images: string[]) => {
-    setGalleryImages(images);
+  const saoGoncaloVideo = {
+    id: 2,
+    title: "SÃO GONÇALO",
+    src: videoSãoGonçalo,
+  };
+
+  const SaintHilaireVideo = {
+    id: 2,
+    title: "O Brasil de Saint Hilaire",
+    src: SaintHilaire,
+  };
+
+  // Galerias com seus respectivos vídeos
+  const saintGallery: Gallery = {
+    images: [
+      saint1,
+      saint2,
+      saint3,
+      saint4,
+      saint5,
+      saint6,
+      saint7,
+      saint8,
+      saint9,
+      saint10,
+      saint11,
+    ],
+    video: SaintHilaireVideo, // Esta galeria não tem vídeo específico
+  };
+
+  const saoGoncaloGallery: Gallery = {
+    images: [
+      SAO_GONÇALO1,
+      SAO_GONÇALO2,
+      SAO_GONÇALO3,
+      SAO_GONÇALO4,
+      SAO_GONÇALO5,
+      SAO_GONÇALO6,
+      SAO_GONÇALO7,
+      SAO_GONÇALO8,
+    ],
+    video: saoGoncaloVideo, // Esta galeria tem vídeo específico
+  };
+
+  // Função para bloquear a rolagem
+  const blockScroll = () => {
+    document.body.style.overflow = "hidden";
+    document.body.style.paddingRight = "17px";
+  };
+
+  // Função para liberar a rolagem
+  const allowScroll = () => {
+    document.body.style.overflow = "auto";
+    document.body.style.paddingRight = "0";
+  };
+
+  const openGallery = (gallery: Gallery) => {
+    setCurrentGallery(gallery);
     setIsModalOpen(true);
+    blockScroll();
   };
 
   const closeGallery = () => {
     setIsModalOpen(false);
-    setGalleryImages([]);
+    setCurrentGallery(null);
+    allowScroll();
   };
 
   const toggleFullScreen = (src: string) => {
@@ -150,30 +215,28 @@ const ProjetoIdentidade: React.FC = () => {
     }
   };
 
-  const sao_goncal = [
-    SAO_GONÇALO1,
-    SAO_GONÇALO2,
-    SAO_GONÇALO3,
-    SAO_GONÇALO4,
-    SAO_GONÇALO5,
-    SAO_GONÇALO6,
-    SAO_GONÇALO7,
-    SAO_GONÇALO8,
-  ];
+  // Efeito para bloquear/liberar rolagem quando o modal/vídeo abrir/fechar
+  useEffect(() => {
+    if (isModalOpen || selectedVideo || fullScreenImage) {
+      blockScroll();
+    } else {
+      allowScroll();
+    }
 
-  const saint = [
-    saint1,
-    saint2,
-    saint3,
-    saint4,
-    saint5,
-    saint6,
-    saint7,
-    saint8,
-    saint9,
-    saint10,
-    saint11,
-  ];
+    return () => {
+      allowScroll();
+    };
+  }, [isModalOpen, selectedVideo, fullScreenImage]);
+
+  // Função para fechar vídeo
+  const closeVideo = () => {
+    setSelectedVideo(null);
+  };
+
+  // Função para fechar tela cheia
+  const closeFullScreen = () => {
+    setFullScreenImage(null);
+  };
 
   return (
     <S.MainContainer>
@@ -264,7 +327,7 @@ const ProjetoIdentidade: React.FC = () => {
             </S.TextoBigCardSection>
           </S.TopSectionCardB>
           <S.TopSectionCardC>
-            <S.CardButton onClick={() => openGallery(saint)}>
+            <S.CardButton onClick={() => openGallery(saintGallery)}>
               Veja as fotos da produção
             </S.CardButton>
           </S.TopSectionCardC>
@@ -305,7 +368,7 @@ const ProjetoIdentidade: React.FC = () => {
                 personagens reais fascinantes.De muito tempo e em várias regiões
                 brasileiras há os seguidores de São Gonçalo,santo português que
                 promovia a música e danças para aproximar os tidos como
-                “excluídos “.Depois de anos observando comunidades regionais do
+                "excluídos ".Depois de anos observando comunidades regionais do
                 Paraná, como Ventania, e realizando outros trabalhos
                 audiovisuais deresgate histórico e cultural, percebemos que as
                 romarias que avançam madrugada a dentro são bastantes fortes .Os
@@ -327,17 +390,18 @@ const ProjetoIdentidade: React.FC = () => {
             </S.TextoBigCardSection>
           </S.TopSectionCardB>
           <S.TopSectionCardC>
-            <S.CardButton onClick={() => openGallery(sao_goncal)}>
+            <S.CardButton onClick={() => openGallery(saoGoncaloGallery)}>
               Veja as fotos da produção
             </S.CardButton>
           </S.TopSectionCardC>
         </S.BigCard>
         <S.BigCard height="auto">
           <S.TopSectionCard>
-            <S.ContainerBigCardFoto>
-              <S.ImgFotoA src={tropeiro} />
-            </S.ContainerBigCardFoto>
-            <S.TextoAContinerBigCard>
+            <S.TextoAContinerBigCardZ>
+              <S.ContainerBigCardFotoZ>
+                <S.ImgFotoZ src={tropeiro} />
+              </S.ContainerBigCardFotoZ>
+
               <S.TitleA>Tropeiro: @lma sem fronteira</S.TitleA>
               <S.TextoA>
                 Direção: Berenice Mendes.
@@ -362,11 +426,9 @@ const ProjetoIdentidade: React.FC = () => {
                 <br />
                 Assessoria de imprensa: Silvana Fontana.
               </S.TextoA>
-            </S.TextoAContinerBigCard>
-          </S.TopSectionCard>
-          <S.TopSectionCardB>
-            <S.CardlindText height="50vh" />
-            <S.TextoBigCardSection>
+                <br />
+                <br />
+                <br />
               <S.TitleBigcardB>SOBRE:</S.TitleBigcardB>
               <S.TextoB>
                 O tropeirismo como  movimento iniciador de uma importante
@@ -384,9 +446,14 @@ const ProjetoIdentidade: React.FC = () => {
                 material importantíssimo para preservação da memória do
                 tropeirismo e da nossa história .
               </S.TextoB>
-            </S.TextoBigCardSection>
+            </S.TextoAContinerBigCardZ>
+          </S.TopSectionCard>
+
+          <S.TopSectionCardB>
+            <S.CardlindText height="50vh" />
+            <S.TextoBigCardSection></S.TextoBigCardSection>
           </S.TopSectionCardB>
-        </S.BigCard>
+        </S.BigCard>{" "}
       </S.BodyB>
       <S.BodyC>
         <S.TitleC>assista!</S.TitleC>
@@ -426,7 +493,7 @@ const ProjetoIdentidade: React.FC = () => {
                 justifyContent: "center",
                 alignItems: "center",
               }}
-              onClick={() => setSelectedVideo(null)}
+              onClick={closeVideo}
             >
               <motion.div
                 initial={{ scale: 0.8 }}
@@ -448,19 +515,17 @@ const ProjetoIdentidade: React.FC = () => {
                   style={{ border: 0 }}
                   title={selectedVideo.title}
                 />
-                <S.CloseButton onClick={() => setSelectedVideo(null)}>
-                  ×
-                </S.CloseButton>
+                <S.CloseButton onClick={closeVideo}>×</S.CloseButton>
               </motion.div>
             </motion.div>
           )}
         </AnimatePresence>
       </S.BodyC>
-      {isModalOpen && (
+      {isModalOpen && currentGallery && (
         <S.ModalOverlay onClick={closeGallery}>
           <S.CloseButton onClick={closeGallery}>×</S.CloseButton>
           <S.GalleryContainer onClick={(e) => e.stopPropagation()}>
-            {galleryImages.map((src, index) => (
+            {currentGallery.images.map((src, index) => (
               <S.GalleryImage
                 key={index}
                 src={src}
@@ -468,11 +533,36 @@ const ProjetoIdentidade: React.FC = () => {
                 onClick={() => toggleFullScreen(src)}
               />
             ))}
+
+            {/* Exibir vídeo específico da galeria se existir */}
+            {currentGallery.video && (
+              <S.VideoContainer>
+                <S.VideoGrid>
+                  <S.VideoCard
+                    onClick={() => setSelectedVideo(currentGallery.video!)}
+                  >
+                    <S.VideoThumbnail
+                      style={{ display: "flex", justifyContent: "center" }}
+                    >
+                      <iframe
+                        src={getEmbedUrl(currentGallery.video.src)}
+                        width="70%"
+                        height="100%"
+                        allow="autoplay; encrypted-media"
+                        allowFullScreen
+                        style={{ border: 0 }}
+                        title={currentGallery.video.title}
+                      />
+                    </S.VideoThumbnail>
+                  </S.VideoCard>
+                </S.VideoGrid>
+              </S.VideoContainer>
+            )}
           </S.GalleryContainer>
         </S.ModalOverlay>
       )}
       {fullScreenImage && (
-        <S.ModalOverlay onClick={() => toggleFullScreen("")}>
+        <S.ModalOverlay onClick={closeFullScreen}>
           <motion.img
             src={fullScreenImage}
             alt="Full screen"

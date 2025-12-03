@@ -62,8 +62,8 @@ const OsXeretas: React.FC = () => {
 
   const xeretas = {
     id: 1,
-    title: "Trailer OS XERETAS",
-    src: "https://www.youtube.com/watch?v=m2NIJ-VwEOo",
+    title: "OS XERETAS",
+    src: "https://www.youtube.com/watch?v=8ZvHMU-JLuA",
   };
 
   useEffect(() => {

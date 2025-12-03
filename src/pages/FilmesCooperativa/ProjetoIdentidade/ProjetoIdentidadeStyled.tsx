@@ -27,15 +27,15 @@ export const Body = styled.div`
 `;
 
 export const ContainerSubA = styled.div`
-  width: 100%;
-  height: 55vh;
+  width: auto;
+  height: auto;
   display: flex;
   align-items: start;
   flex-direction: row;
-  justify-content: center;
+  justify-content: start;
   margin-bottom: 10vh;
-
   @media (max-width: 1224px) {
+    justify-content: center;
     margin-bottom: 0;
     margin-top: 10vh;
     width: auto;
@@ -43,8 +43,10 @@ export const ContainerSubA = styled.div`
   }
 
   @media (max-width: 768px) {
+    justify-content: center;
+    align-items: center;
     margin-top: 10vh;
-    width: 100%;
+    width: auto;
     flex-direction: column;
   }
 `;
@@ -101,23 +103,24 @@ export const TextoA = styled.p`
 export const Stro = styled.strong``;
 
 export const ContainerRightA = styled.div`
-  width: 100%;
-  height: 100%;
+  height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
 `;
 
 export const ImgFoto = styled.img`
-  width: 100%;
+  height: auto;
+  width: 70%;
   object-fit: contain;
   object-position: end;
 
   @media (max-width: 1224px) {
     height: auto;
+    width: 80%;
   }
   @media (max-width: 768px) {
-    width: 70%;
+    width: 90%;
   }
 `;
 
@@ -125,6 +128,7 @@ export const ImgFotoA = styled.img`
   width: 100%;
   object-fit: cover;
   object-position: end;
+  float: left;
 `;
 
 export const ImgFotoB = styled.img`
@@ -213,7 +217,7 @@ export const ContainerBigCardFoto = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-
+  margin-right: 1rem;
   @media (max-width: 1224px) {
     width: 100%;
   }
@@ -237,7 +241,6 @@ export const TopSectionCard = styled.div<Props>`
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  gap: 1rem;
 
   @media (max-width: 1224px) {
     flex-direction: ${(props) =>
@@ -277,6 +280,10 @@ export const TextoAContinerBigCard = styled.div`
   flex-direction: column;
   justify-content: start;
   align-items: start;
+
+  @media (max-width: 1224px) {
+    margin-top: 1rem;
+  }
 `;
 
 export const TextoBigCardSection = styled.div`
@@ -443,4 +450,42 @@ export const VideoCard = styled.div`
 
 export const VideoThumbnail = styled.div`
   height: 100%;
+`;
+
+// styled-components
+export const ContainerBigCardFotoZ = styled.div`
+  width: 50%;
+  float: left; /* Adiciona float aqui também */
+  margin-right: 1rem;
+
+  @media (max-width: 768px) {
+    float: none;
+    margin-right: 0;
+    margin-bottom: 2rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+`;
+
+export const ImgFotoZ = styled.img`
+  width: 100%; /* Define uma largura fixa */
+  height: auto;
+  object-fit: cover;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    max-width: 400px;
+  }
+`;
+
+export const TextoAContinerBigCardZ = styled.div`
+  width: 100%;
+  display: block; /* Muda de flex para block para funcionar com float */
+
+  &::after {
+    content: "";
+    display: table;
+    clear: both; /* Limpa o float */
+  }
 `;

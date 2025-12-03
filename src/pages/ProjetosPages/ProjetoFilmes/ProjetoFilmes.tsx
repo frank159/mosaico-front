@@ -9,6 +9,8 @@ const FilmeMataramZacarias =
   "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758300013/logo512_vv996q.png";
 const FilmeMentesArtificiais =
   "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758122815/mentes_srguun.jpg";
+const Queiroz =
+  "https://res.cloudinary.com/dzsj3kqi8/image/upload/v1758207231/55_nbgil7.png";
 
 const ProjetoFilmes: React.FC = () => {
   interface SlideItem {
@@ -32,7 +34,6 @@ const ProjetoFilmes: React.FC = () => {
     if (allImagesLoaded) {
       const timer = setTimeout(() => {
         setOnLoading(false);
-        
       }, 500);
 
       return () => clearTimeout(timer);
@@ -42,24 +43,31 @@ const ProjetoFilmes: React.FC = () => {
   const defaultSlides: SlideItem[] = [
     {
       id: 1,
+      img: Queiroz,
+      title: "Ultimo Endereço de Eça de Queiroz",
+      text: "Rodrigo, um boêmio de 25 anos, parte de Curitiba a Lisboa em busca de se tornar escritor. Ele nunca escreve uma única frase, mas sua vida inteira se transforma em um fragmento inacabado.",
+      rote: "FilmeEçaDeQueiroz",
+    },
+    {
+      id: 2,
+      img: FilmeMentesArtificiais,
+      title: "Mentes Artificiais",
+      text: "Dois neurocientistas dão os primeiros passos na inserção de implantes neurais em seres humanos, criando uma interface cérebro-máquina, o que possibilita a manipulação das funções cognitivas de seus pacientes, eliminando as suas razões e dores existenciais.  O filme longa-metragem mostra uma discreta perversidade dos personagens que estão à frente do audacioso projeto, que é financiado por um suposto fazendeiro excêntrico.",
+      rote: "FilmeMentesArtificiais",
+    },
+    {
+      id: 2,
       img: FilmeDianaDoAsfalto,
       title: "Diana do Asfalto",
       text: "O projeto “Diana do Asfalto”, roteiro de Pedro Merege, acompanha a trajetória de Diana, uma mulher independente, que vive entre viagens, relações passageiras e trabalhos como acompanhante.",
       rote: "FilmeDianaDoAsfalto",
     },
     {
-      id: 2,
+      id: 3,
       img: FilmeMataramZacarias,
       title: "Mataram Zacarias",
       text: "Mataram João Zacaria é uma tragédia rural. Será um filme de setenta minutos, ambientado no interior do Paraná, na metade do século XX. A história se desenvolve em torno de uma grande fazenda numa comunidade rural. É uma livre interpretação do episódio bíblico da morte de João Batista, transposto para o universo rural do Brasil no século passado.",
       rote: "FilmeMataramZacarias",
-    },
-    {
-      id: 3,
-      img: FilmeMentesArtificiais,
-      title: "Mentes Artificiais",
-      text: "Dois neurocientistas dão os primeiros passos na inserção de implantes neurais em seres humanos, criando uma interface cérebro-máquina, o que possibilita a manipulação das funções cognitivas de seus pacientes, eliminando as suas razões e dores existenciais.  O filme longa-metragem mostra uma discreta perversidade dos personagens que estão à frente do audacioso projeto, que é financiado por um suposto fazendeiro excêntrico.",
-      rote: "FilmeMentesArtificiais",
     },
   ];
 
@@ -71,18 +79,18 @@ const ProjetoFilmes: React.FC = () => {
       <S.MoviesGrid>
         {defaultSlides.map((movie, index) => (
           <S.MovieCard key={index}>
-            {index === 0 || index === 1 ? (
-              <S.MovieImageAlt src={movie.img} alt={movie.title} />
-            ) : (
+            {index === 1 || index === 0 ? (
               <S.MovieImage
                 src={movie.img}
                 alt={movie.title}
                 style={
-                  index === 2
+                  index === 1 || index === 0
                     ? { objectFit: "contain", backgroundColor: "#000000" }
                     : {}
                 }
               />
+            ) : (
+              <S.MovieImageAlt src={movie.img} alt={movie.title} />
             )}
             <S.MovieTitle>{movie.title}</S.MovieTitle>
             <S.MovieDescription>{movie.text}</S.MovieDescription>

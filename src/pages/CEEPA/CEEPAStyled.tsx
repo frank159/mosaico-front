@@ -2,10 +2,6 @@ import PlaceIcon from "@mui/icons-material/Place";
 import styled from "styled-components";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 
-interface QuinSecaoProps {
-  width: string;
-}
-
 export const Container = styled.div`
   background: #e4ebdd;
   position: relative;
