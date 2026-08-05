@@ -1,7 +1,7 @@
 // LoadingOverlay.tsx
 import styled, { keyframes } from "styled-components";
 
-export const FullScreenLoader = styled.div`
+const FullScreenLoader = styled.div`
   position: fixed;
   top: 0;
   left: 0;
@@ -23,7 +23,7 @@ const rotate = keyframes`
   }
 `;
 
-export const Img = styled.img`
+const Img = styled.img`
   width: 5rem;
   animation: ${rotate} 4s linear infinite;
   /* 4s = duração da rotação, linear = velocidade constante, infinite = nunca para */

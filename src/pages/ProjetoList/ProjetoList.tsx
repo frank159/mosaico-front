@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import * as S from "./ProjetoListStyled";
 import useImagesLoaded from "../../hooks/useImagesLoaded";
 import LoadingOverlay from "../../components/LoadingComponente/Loading";
+import ScrollToTop from "../../components/ScrollToTop/ScrollToTop";
 
 interface Projeto {
   img: string;
@@ -35,7 +36,7 @@ const Projetos: React.FC = () => {
     if (allImagesLoaded) {
       const timer = setTimeout(() => {
         setOnLoading(false);
-        
+
       }, 500);
 
       return () => clearTimeout(timer);
@@ -74,6 +75,7 @@ const Projetos: React.FC = () => {
 
   return (
     <S.MainContainer>
+      <ScrollToTop />
       {onLoading && <LoadingOverlay />}
 
       <S.TopContainer>

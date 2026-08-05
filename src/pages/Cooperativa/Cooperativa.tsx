@@ -3,6 +3,7 @@ import React, { useState, useRef, useEffect } from "react";
 import Footer from "../../components/footer/footer";
 import LoadingOverlay from "../../components/LoadingComponente/Loading";
 import useImagesLoaded from "../../hooks/useImagesLoaded";
+import ScrollToTop from "../../components/ScrollToTop/ScrollToTop";
 
 const HomeroFoto =
   "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324650/homero_bmcqqj.png";
@@ -126,6 +127,7 @@ const Cooperativa: React.FC = () => {
 
   return (
     <S.MainContainer>
+      <ScrollToTop />
       {onLoading && <LoadingOverlay />}
 
       <S.FullImgFrame>

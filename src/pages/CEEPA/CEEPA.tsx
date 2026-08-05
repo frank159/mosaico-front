@@ -3,6 +3,7 @@ import * as S from "./CEEPAStyled";
 import { motion, AnimatePresence } from "framer-motion";
 import useImagesLoaded from "../../hooks/useImagesLoaded";
 import LoadingOverlay from "../../components/LoadingComponente/Loading";
+import ScrollToTop from "../../components/ScrollToTop/ScrollToTop";
 
 // Icon imports
 const impactoS =
@@ -165,6 +166,7 @@ const School: React.FC = () => {
 
   return (
     <div>
+      <ScrollToTop />
       {onLoading && <LoadingOverlay />}
 
       <S.Container>

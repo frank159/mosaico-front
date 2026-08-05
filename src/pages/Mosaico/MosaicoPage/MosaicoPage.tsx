@@ -4,6 +4,7 @@ import TextComponent from "../../text/text";
 import Footer from "../../../components/footer/footer";
 import useImagesLoaded from "../../../hooks/useImagesLoaded";
 import LoadingOverlay from "../../../components/LoadingComponente/Loading";
+import { useNavigate } from "react-router-dom";
 
 const mosaicoLogo =
   "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324712/mosaicoLogo1_ch206u.png";
@@ -21,9 +22,12 @@ const estrutura =
   "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324729/LOTUS_PRETO_gdyvta.png";
 
 const MosaicoPage: React.FC = () => {
+  const navigate = useNavigate();
+
   const handleProjetoClick = (route: string) => {
-    window.location.href = route;
+    navigate(route);
   };
+
   const [isMobile, setIsMobile] = useState(false);
   const [OpacityPin, setOpacityPin] = useState(false);
   const [onLoading, setOnLoading] = useState(true);
@@ -52,7 +56,7 @@ const MosaicoPage: React.FC = () => {
     if (allImagesLoaded) {
       const timer = setTimeout(() => {
         setOnLoading(false);
-        
+
       }, 500);
 
       return () => clearTimeout(timer);

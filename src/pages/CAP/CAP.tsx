@@ -1,10 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import * as S from "./CAPStyled";
 import Footer from "../../components/footer/footer";
-import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
-import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import useImagesLoaded from "../../hooks/useImagesLoaded";
 import LoadingOverlay from "../../components/LoadingComponente/Loading";
+import ScrollToTop from "../../components/ScrollToTop/ScrollToTop";
 
 const maoGlobo =
   "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324729/maoGlobo_z4x1lr.png";
@@ -53,6 +52,7 @@ const School: React.FC = () => {
 
   return (
     <S.Container>
+      <ScrollToTop />
       {onLoading && <LoadingOverlay />}
       <S.TitleContainer>
         <S.TitleContant>

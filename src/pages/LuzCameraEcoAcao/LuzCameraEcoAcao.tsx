@@ -4,6 +4,7 @@ import Footer from "../../components/footer/footer";
 import ContactSection from "../../components/contactComponente/contactComponente";
 import useImagesLoaded from "../../hooks/useImagesLoaded";
 import LoadingOverlay from "../../components/LoadingComponente/Loading";
+import ScrollToTop from "../../components/ScrollToTop/ScrollToTop";
 
 const logoEcoacao =
   "https://res.cloudinary.com/djg8c78mb/image/upload/v1746324711/ecoa%C3%A7%C3%A3o_k7uwq9.png";
@@ -116,6 +117,7 @@ const LuzCameraEcoAcaoPage: React.FC = () => {
 
   return (
     <S.MainContainer>
+      <ScrollToTop />
       {onLoading && <LoadingOverlay />}
       <S.InicialSecao>
         <S.LogoEcoacao src={logoEcoacao} alt="logoEcoacao" />

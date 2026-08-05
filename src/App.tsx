@@ -1,10 +1,9 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/LuzCameraEcoAcao/LuzCameraEcoAcao';
 import School from './pages/CEEPA/CEEPA';
 import Mosaico from './pages/Mosaico/Mosaico';
 import Header from './components/Header/Header';
-import MosaicoPage from './pages/Mosaico/MosaicoPage/MosaicoPage';
 import Projetos from './pages/ProjetoList/ProjetoList';
 import CAP from './pages/CAP/CAP';
 import Cooperativa from './pages/Cooperativa/Cooperativa';

@@ -1,4 +1,5 @@
 import LoadingOverlay from "../../components/LoadingComponente/Loading";
+import ScrollToTop from "../../components/ScrollToTop/ScrollToTop";
 import useImagesLoaded from "../../hooks/useImagesLoaded";
 import * as S from "./CooperativaCurriculoStyled";
 import React, { useState, useRef, useEffect } from "react";
@@ -60,6 +61,7 @@ const CooperativaCurriculo: React.FC = () => {
 
   return (
     <S.MainContainer>
+      <ScrollToTop />
       {onLoading && <LoadingOverlay />}
       <S.BodyB>
         <S.SecaoApresentacao>
@@ -611,7 +613,7 @@ eventos/documentario-discute-ponto-polemico-dos-transgenicos-
             </S.ImgCardFlexTextContainerA>
           </S.ImgCardFlex>
           <S.ImgCardFlex>
-            <S.ImgCardFlexImgContainerB width="15%"  widthAlt="70%">
+            <S.ImgCardFlexImgContainerB width="15%" widthAlt="70%">
               <S.ImgCardFlexImg src={vampa} />
             </S.ImgCardFlexImgContainerB>
             <S.ImgCardFlexTextContainerA>
